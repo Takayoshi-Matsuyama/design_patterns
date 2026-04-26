@@ -1,0 +1,10 @@
+@startuml sample
+
+class User {
+  +String name
+  +String email
+  +void login()
+  +void logout()
+}
+
+@enduml
