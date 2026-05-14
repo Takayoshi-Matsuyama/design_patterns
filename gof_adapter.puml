@@ -1,0 +1,29 @@
+@startuml gof_adapter
+/'
+PlantUML 共通コマンドとクラス図
+https://plantuml.com/ja/commons
+https://plantuml.com/ja/class-diagram
+'/
+
+title Adapter Design Pattern
+
+abstract class Target {
+    +request(): void
+}
+
+class Adaptee {
+    +specific_request(): void
+}
+
+class Adapter {
+    -adaptee: Adaptee
+    +request(): void
+}
+
+' 実装 - クラスによるインターフェースの実現
+Adapter ..|> Target
+
+' 依存 - オブジェクトが別のオブジェクトを使う
+Adapter --> Adaptee
+
+@enduml
