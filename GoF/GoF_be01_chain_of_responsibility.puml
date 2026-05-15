@@ -1,0 +1,21 @@
+@startuml gof_chain_of_responsibility
+
+title GoF - Behaviour #01 - Chain of Responsibility
+
+abstract class Handler {
+    +handle_request()
+}
+
+class ConcreteHandler1 {
+    +handle_request()
+}
+
+class ConcreteHandler2 {
+    +handle_request()
+}
+
+Handler --> Handler : successor
+Handler <|-- ConcreteHandler1
+Handler <|-- ConcreteHandler2
+
+@enduml

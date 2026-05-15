@@ -5,7 +5,7 @@ https://plantuml.com/ja/commons
 https://plantuml.com/ja/class-diagram
 '/
 
-title Adapter Design Pattern
+title GoF - Structure #01 - Adapter
 
 abstract class Target {
     +request(): void

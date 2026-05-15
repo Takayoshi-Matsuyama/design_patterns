@@ -1,4 +1,7 @@
 @startuml gof_singleton
+
+title GoF - Generation #05 - Singleton
+
 class Singleton {
     -instance: Singleton
     +get_instance(): Singleton
