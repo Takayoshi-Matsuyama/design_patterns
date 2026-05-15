@@ -1,0 +1,6 @@
+@startuml gof_singleton
+class Singleton {
+    -instance: Singleton
+    +get_instance(): Singleton
+}
+@enduml
