@@ -1,0 +1,53 @@
+@startuml gof_abstract_factory
+
+title GoF - Creational #01 - Abstract Factory
+
+abstract class AbstractFactory {
+    +create_product_a()
+    +create_product_b()
+}
+
+class ConcreteFactory1 {
+    +create_product_a()
+    +create_product_b()
+}
+
+class ConcreteFactory2 {
+    +create_product_a()
+    +create_product_b()
+}
+
+AbstractFactory <|-- ConcreteFactory1
+AbstractFactory <|-- ConcreteFactory2
+
+abstract class AbstractProductA {
+    +operation_a()
+}
+class ProductA1 {
+    +operation_a()
+}
+class ProductA2 {
+    +operation_a()
+}
+AbstractProductA <|-- ProductA1
+AbstractProductA <|-- ProductA2
+
+
+abstract class AbstractProductB {
+    +operation_b()
+}
+class ProductB1 {
+    +operation_b()
+}
+class ProductB2 {
+    +operation_b()
+}
+AbstractProductB <|-- ProductB1
+AbstractProductB <|-- ProductB2
+
+ConcreteFactory1 --> ProductA1
+ConcreteFactory1 --> ProductB1
+
+ConcreteFactory2 --> ProductA2
+ConcreteFactory2 --> ProductB2
+@enduml
