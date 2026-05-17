@@ -1,0 +1,36 @@
+@startuml gof_command
+
+title GoF - Behavior #02 - Command
+
+class Receiver {
+    +action()
+}
+
+abstract class Command {
+    +execute()
+}
+
+class ConcreteCommand {
+    -receiver: Receiver
+    +state
+    +execute()
+}
+
+Command <|-- ConcreteCommand
+
+class Invoker {
+    -command: Command
+    +set_command(c: Command)
+    +execute_command()
+}
+
+Invoker --> Command
+ConcreteCommand --> Receiver
+
+class Client {
+    +main()
+}
+
+Client --> Receiver
+Client ..> ConcreteCommand
+@enduml
