@@ -1,0 +1,28 @@
+@startuml gof_builder
+
+title GoF - Creational #02 - Builder
+
+class Product {
+    +name
+}
+
+abstract class Builder {
+    +build_part()
+    +get_result(): Product
+}
+
+class ConcreteBuilder {
+    +build_part()
+    +get_result(): Product
+}
+
+Builder <|-- ConcreteBuilder
+ConcreteBuilder ..> Product
+
+class Director {
+    -builder: Builder
+    +construct()
+}
+
+Director --> Builder
+@enduml
