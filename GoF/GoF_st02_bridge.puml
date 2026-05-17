@@ -1,0 +1,31 @@
+@startuml gof_bridge
+title GoF - Structure #02 - Bridge
+
+abstract class Implementor {
+    +operation_impl(): void
+}
+
+class ConcreteImplementorA {
+    +operation_impl(): void
+}
+
+class ConcreteImplementorB {
+    +operation_impl(): void
+}
+
+Implementor <|-- ConcreteImplementorA
+Implementor <|-- ConcreteImplementorB
+
+abstract class Abstraction {
+    -implementor: Implementor
+    +operation(): void
+}
+
+class RefinedAbstraction {
+    +operation(): void
+}
+
+Abstraction <|-- RefinedAbstraction
+
+Abstraction --> Implementor
+@enduml
