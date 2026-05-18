@@ -1,0 +1,21 @@
+@startuml gof_factory_method
+
+title GoF - Creational #03 - Factory Method
+
+abstract class Product
+
+class ConcreteProduct
+
+Product <|-- ConcreteProduct
+
+abstract class Creator {
+    +factory_method(): Product
+}
+
+class ConcreteCreator {
+    +factory_method(): Product
+}
+
+Creator <|-- ConcreteCreator
+ConcreteCreator ..> ConcreteProduct
+@enduml
