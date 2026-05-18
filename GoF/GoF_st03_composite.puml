@@ -1,0 +1,26 @@
+@startuml gof_composite
+
+title GoF - Structure #03 - Composite
+
+abstract class Component {
+    +operation()
+    +add(component)
+    +remove(component)
+    +get_child(int)
+}
+
+class Leaf {
+    +operation()
+}
+
+class Composite {
+    +operation()
+    +add(component)
+    +remove(component)
+    +get_child(int)
+}
+
+Component <|-- Leaf
+Component <|-- Composite
+Composite --> Component : children
+@enduml
