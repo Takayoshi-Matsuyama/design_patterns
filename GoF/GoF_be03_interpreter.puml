@@ -1,0 +1,22 @@
+@startuml gof_interpreter
+
+title GoF - Behavior #03 - Interpreter
+
+class Context
+
+abstract class AbstractExpression {
+    +interpret(context)
+}
+
+class TerminalExpression {
+    +interpret(context)
+}
+
+class NonterminalExpression {
+    +interpret(context)
+}
+
+AbstractExpression <|-- TerminalExpression
+AbstractExpression <|-- NonterminalExpression
+NonterminalExpression o-- AbstractExpression
+@enduml
