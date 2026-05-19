@@ -1,0 +1,43 @@
+@startuml gof_decorator
+
+title GoF - Structure #04 - Decorator
+
+abstract class Component {
+    +operation()
+}
+
+note right of Component::operation
+    original operation
+end note
+
+class ConcreteComponent {
+    +operation()
+}
+
+Component <|-- ConcreteComponent
+
+abstract class Decorator {
+    +operation()
+}
+
+note right of Decorator::operation
+    component.operation()
+end note
+
+Component <|-- Decorator
+Decorator o-- Component : component
+
+class ConcreteDecoratorA {
+    +added_state
+    +operation()
+}
+
+class ConcreteDecoratorB {
+    +added_behavior()
+    +operation()
+}
+
+Decorator <|-- ConcreteDecoratorA
+Decorator <|-- ConcreteDecoratorB
+
+@enduml
