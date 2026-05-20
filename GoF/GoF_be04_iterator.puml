@@ -1,0 +1,49 @@
+@startuml gof_iterator
+
+title GoF - Behavior #04 - Iterator
+
+abstract class Aggregate {
+    +create_iterator()
+}
+
+class ConcreteAggregate {
+    +create_iterator()
+}
+
+Aggregate <|-- ConcreteAggregate
+
+abstract class Iterator {
+    +first()
+    +next()
+    +is_done()
+    +current_item()
+}
+
+note right of Iterator::first
+    sets current to the first item
+end note
+note right of Iterator::next
+    advances current to the next item
+end note
+note right of Iterator::is_done
+    returns true if current is beyond the end of the collection
+end note
+note right of Iterator::current_item
+    returns the current item
+end note
+
+class ConcreteIterator {
+    -aggregate : ConcreteAggregate
+    -current : int
+    +first()
+    +next()
+    +is_done()
+    +current_item()
+}
+
+Iterator <|-- ConcreteIterator
+
+ConcreteAggregate ..> ConcreteIterator
+ConcreteIterator --> ConcreteAggregate
+
+@enduml
