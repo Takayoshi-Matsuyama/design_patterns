@@ -1,0 +1,22 @@
+@startuml gof_mediator
+
+title GoF - Behavioral #05 - Mediator
+
+interface Collegue
+
+class ConcreteCollegue1
+class ConcreteCollegue2
+
+Collegue <|.. ConcreteCollegue1
+Collegue <|.. ConcreteCollegue2
+
+interface Mediator
+
+class ConcreteMediator
+
+Mediator <|.. ConcreteMediator
+
+ConcreteMediator --> ConcreteCollegue1
+ConcreteMediator --> ConcreteCollegue2
+
+@enduml
