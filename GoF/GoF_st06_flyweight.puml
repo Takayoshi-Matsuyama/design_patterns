@@ -1,0 +1,28 @@
+@startuml gof_flyweight
+
+title GoF - Structural #06 - Flyweight
+
+interface Flyweight {
+    +operation(extrinsic_state)
+}
+
+class ConcreteFlyweight {
+    -intrinsic_state
+    +operation(extrinsic_state)
+}
+
+class UnsharedConcreteFlyweight {
+    -state
+    +operation(extrinsic_state)
+}
+
+Flyweight <|.. ConcreteFlyweight
+Flyweight <|.. UnsharedConcreteFlyweight
+
+class FlyweightFactory {
+    -flyweights : Map
+    +get_flyweight(key) : Flyweight
+}
+
+FlyweightFactory o-- Flyweight
+@enduml
