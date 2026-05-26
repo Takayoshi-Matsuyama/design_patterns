@@ -1,0 +1,26 @@
+@startuml gof_memento
+
+title GoF - Behavioral #06 - Memento
+
+class Memento {
+    -state
+    +get_state()
+    +set_state(state)
+}
+
+' 取り消しのメカニズムを提供するクラス
+class Caretaker {
+    -memento : Memento
+}
+
+Caretaker o-- Memento
+
+class Originator {
+    -state
+    +create_memento()
+    +set_memento(memento: Memento)
+}
+
+Originator ..> Memento
+
+@enduml
