@@ -1,0 +1,23 @@
+@startuml gof_proxy
+
+title GoF - Structural #07 - Proxy
+
+interface Subject {
+    +request()
+}
+
+class RealSubject {
+    +request()
+}
+
+class Proxy {
+    -real_subject : RealSubject
+    +request()
+}
+
+Subject <|.. RealSubject
+Subject <|.. Proxy
+
+Proxy ..> RealSubject
+
+@enduml
