@@ -1,0 +1,33 @@
+@startuml gof_observer
+
+title GoF - Behaviour #07 - Observer
+
+Interface Observer {
+    update()
+}
+
+class ConcreteObserver {
+    observer_state
+    update()
+}
+
+Observer <|.. ConcreteObserver
+
+Interface Subject {
+    attach(Observer)
+    detach(Observer)
+    Notify()
+} 
+
+class ConcreteSubject {
+    subject_state
+    get_state()
+}
+
+Subject <|.. ConcreteSubject
+
+Subject --> Observer : observers
+
+ConcreteObserver --> ConcreteSubject : subject
+
+@enduml
