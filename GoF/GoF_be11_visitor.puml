@@ -1,0 +1,54 @@
+@startuml gof_visitor
+
+title GoF - Behaviour #11 - Visitor
+
+interface Visitor {
+    visit_concrete_element_A()
+    visit_concrete_element_B()
+}
+
+class ConcreteVisitor1 {
+    visit_concrete_element_A(ConcreteElementA)
+    visit_concrete_element_B(ConcreteElementB)
+}
+
+class ConcreteVisitor2 {
+    visit_concrete_element_A(ConcreteElementA)
+    visit_concrete_element_B(ConcreteElementB)
+}
+
+Visitor <|.. ConcreteVisitor1
+Visitor <|.. ConcreteVisitor2
+
+interface Element {
+    accept(Visitor)
+}
+
+class ConcreteElementA {
+    accept(Visitor)
+    operation_A()
+}
+
+class ConcreteElementB {
+    accept(Visitor)
+    operation_B()
+}
+
+Element <|.. ConcreteElementA
+Element <|.. ConcreteElementB
+
+class ObjectStructure {
+    elements
+    attach(Element)
+    detach(Element)
+    accept(Visitor)
+}
+
+ObjectStructure --> Element
+
+class Client
+
+Client --> Visitor
+Client --> ObjectStructure
+
+@enduml
