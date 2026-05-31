@@ -5,7 +5,7 @@ class Receiver:
 
 class Command:
     def execute(self):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
 
 class ConcreteCommand(Command):
