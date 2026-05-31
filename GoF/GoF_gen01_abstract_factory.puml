@@ -2,7 +2,7 @@
 
 title GoF - Creational #01 - Abstract Factory
 
-abstract class AbstractFactory {
+interface AbstractFactory {
     +create_product_a()
     +create_product_b()
 }
@@ -17,10 +17,10 @@ class ConcreteFactory2 {
     +create_product_b()
 }
 
-AbstractFactory <|-- ConcreteFactory1
-AbstractFactory <|-- ConcreteFactory2
+AbstractFactory <|.. ConcreteFactory1
+AbstractFactory <|.. ConcreteFactory2
 
-abstract class AbstractProductA {
+interface AbstractProductA {
     +operation_a()
 }
 class ProductA1 {
@@ -29,11 +29,11 @@ class ProductA1 {
 class ProductA2 {
     +operation_a()
 }
-AbstractProductA <|-- ProductA1
-AbstractProductA <|-- ProductA2
+AbstractProductA <|.. ProductA1
+AbstractProductA <|.. ProductA2
 
 
-abstract class AbstractProductB {
+interface AbstractProductB {
     +operation_b()
 }
 class ProductB1 {
@@ -42,8 +42,8 @@ class ProductB1 {
 class ProductB2 {
     +operation_b()
 }
-AbstractProductB <|-- ProductB1
-AbstractProductB <|-- ProductB2
+AbstractProductB <|.. ProductB1
+AbstractProductB <|.. ProductB2
 
 ConcreteFactory1 --> ProductA1
 ConcreteFactory1 --> ProductB1

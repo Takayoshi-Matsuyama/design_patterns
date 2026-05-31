@@ -2,7 +2,7 @@
 
 title GoF - Behavior #04 - Iterator
 
-abstract class Aggregate {
+interface Aggregate {
     +create_iterator()
 }
 
@@ -10,9 +10,9 @@ class ConcreteAggregate {
     +create_iterator()
 }
 
-Aggregate <|-- ConcreteAggregate
+Aggregate <|.. ConcreteAggregate
 
-abstract class Iterator {
+interface Iterator {
     +first()
     +next()
     +is_done()
@@ -41,7 +41,7 @@ class ConcreteIterator {
     +current_item()
 }
 
-Iterator <|-- ConcreteIterator
+Iterator <|.. ConcreteIterator
 
 ConcreteAggregate ..> ConcreteIterator
 ConcreteIterator --> ConcreteAggregate

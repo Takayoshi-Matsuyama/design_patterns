@@ -7,7 +7,7 @@ https://plantuml.com/ja/class-diagram
 
 title GoF - Structure #01 - Adapter
 
-abstract class Target {
+interface Target {
     +request(): void
 }
 

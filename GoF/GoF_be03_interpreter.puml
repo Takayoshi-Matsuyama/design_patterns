@@ -4,7 +4,7 @@ title GoF - Behavior #03 - Interpreter
 
 class Context
 
-abstract class AbstractExpression {
+interface AbstractExpression {
     +interpret(context)
 }
 
@@ -16,7 +16,7 @@ class NonterminalExpression {
     +interpret(context)
 }
 
-AbstractExpression <|-- TerminalExpression
-AbstractExpression <|-- NonterminalExpression
+AbstractExpression <|.. TerminalExpression
+AbstractExpression <|.. NonterminalExpression
 NonterminalExpression o-- AbstractExpression
 @enduml

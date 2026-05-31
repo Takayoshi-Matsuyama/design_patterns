@@ -6,7 +6,7 @@ class Product {
     +name
 }
 
-abstract class Builder {
+interface Builder {
     +build_part()
     +get_result(): Product
 }
@@ -16,7 +16,7 @@ class ConcreteBuilder {
     +get_result(): Product
 }
 
-Builder <|-- ConcreteBuilder
+Builder <|.. ConcreteBuilder
 ConcreteBuilder ..> Product
 
 class Director {

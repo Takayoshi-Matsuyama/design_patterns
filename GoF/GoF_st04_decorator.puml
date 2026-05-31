@@ -1,8 +1,8 @@
 @startuml gof_decorator
 
 title GoF - Structure #04 - Decorator
-
-abstract class Component {
+    
+interface Component {
     +operation()
 }
 
@@ -14,9 +14,9 @@ class ConcreteComponent {
     +operation()
 }
 
-Component <|-- ConcreteComponent
+Component <|.. ConcreteComponent
 
-abstract class Decorator {
+interface Decorator {
     +operation()
 }
 
@@ -24,7 +24,7 @@ note right of Decorator::operation
     component.operation()
 end note
 
-Component <|-- Decorator
+Component <|.. Decorator
 Decorator o-- Component : component
 
 class ConcreteDecoratorA {
@@ -37,7 +37,7 @@ class ConcreteDecoratorB {
     +operation()
 }
 
-Decorator <|-- ConcreteDecoratorA
-Decorator <|-- ConcreteDecoratorB
+Decorator <|.. ConcreteDecoratorA
+Decorator <|.. ConcreteDecoratorB
 
 @enduml

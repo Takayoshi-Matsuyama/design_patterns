@@ -2,7 +2,7 @@
 
 title GoF - Creational #04 - Prototype
 
-abstract class Prototype {
+interface Prototype {
     +clone(): Prototype
 }
 
@@ -14,7 +14,7 @@ class ConcretePrototype2 {
     +clone(): Prototype
 }
 
-Prototype <|-- ConcretePrototype1
-Prototype <|-- ConcretePrototype2
+Prototype <|.. ConcretePrototype1
+Prototype <|.. ConcretePrototype2
 
 @enduml

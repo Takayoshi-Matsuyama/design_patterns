@@ -6,7 +6,7 @@ class Receiver {
     +action()
 }
 
-abstract class Command {
+interface Command {
     +execute()
 }
 
@@ -16,7 +16,7 @@ class ConcreteCommand {
     +execute()
 }
 
-Command <|-- ConcreteCommand
+Command <|.. ConcreteCommand
 
 class Invoker {
     -command: Command

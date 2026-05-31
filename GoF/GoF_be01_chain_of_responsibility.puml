@@ -2,7 +2,7 @@
 
 title GoF - Behaviour #01 - Chain of Responsibility
 
-abstract class Handler {
+interface Handler {
     +handle_request()
 }
 
@@ -15,7 +15,7 @@ class ConcreteHandler2 {
 }
 
 Handler --> Handler : successor
-Handler <|-- ConcreteHandler1
-Handler <|-- ConcreteHandler2
+Handler <|.. ConcreteHandler1
+Handler <|.. ConcreteHandler2
 
 @enduml

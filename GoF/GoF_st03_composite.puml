@@ -2,7 +2,7 @@
 
 title GoF - Structure #03 - Composite
 
-abstract class Component {
+interface Component {
     +operation()
     +add(component)
     +remove(component)
@@ -20,7 +20,7 @@ class Composite {
     +get_child(int)
 }
 
-Component <|-- Leaf
-Component <|-- Composite
+Component <|.. Leaf
+Component <|.. Composite
 Composite --> Component : children
 @enduml

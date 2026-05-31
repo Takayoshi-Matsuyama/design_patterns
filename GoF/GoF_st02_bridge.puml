@@ -1,7 +1,7 @@
 @startuml gof_bridge
 title GoF - Structure #02 - Bridge
 
-abstract class Implementor {
+interface Implementor {
     +operation_impl(): void
 }
 
@@ -13,10 +13,10 @@ class ConcreteImplementorB {
     +operation_impl(): void
 }
 
-Implementor <|-- ConcreteImplementorA
-Implementor <|-- ConcreteImplementorB
+Implementor <|.. ConcreteImplementorA
+Implementor <|.. ConcreteImplementorB
 
-abstract class Abstraction {
+interface Abstraction {
     -implementor: Implementor
     +operation(): void
 }
@@ -25,7 +25,7 @@ class RefinedAbstraction {
     +operation(): void
 }
 
-Abstraction <|-- RefinedAbstraction
+Abstraction <|.. RefinedAbstraction
 
 Abstraction --> Implementor
 @enduml

@@ -2,13 +2,13 @@
 
 title GoF - Creational #03 - Factory Method
 
-abstract class Product
+interface Product
 
 class ConcreteProduct
 
-Product <|-- ConcreteProduct
+Product <|.. ConcreteProduct
 
-abstract class Creator {
+interface Creator {
     +factory_method(): Product
 }
 
@@ -16,6 +16,6 @@ class ConcreteCreator {
     +factory_method(): Product
 }
 
-Creator <|-- ConcreteCreator
+Creator <|.. ConcreteCreator
 ConcreteCreator ..> ConcreteProduct
 @enduml
