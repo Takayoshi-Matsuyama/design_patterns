@@ -6,7 +6,7 @@ class Context:
 
 class AbstractExpression:
     def interpret(self, context):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
 
 class TerminalExpression(AbstractExpression):
