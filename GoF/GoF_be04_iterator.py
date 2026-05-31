@@ -1,6 +1,6 @@
 class Aggregate:
     def create_iterator(self):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
 
 class ConcreteAggregate(Aggregate):
@@ -13,16 +13,16 @@ class ConcreteAggregate(Aggregate):
 
 class Iterator:
     def first(self):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
     def next(self):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
     def is_done(self):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
     def current_item(self):
-        pass
+        raise NotImplementedError("You should implement this method in subclasses")
 
 
 class ConcreteIterator(Iterator):
