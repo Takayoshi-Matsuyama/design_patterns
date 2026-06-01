@@ -1,4 +1,7 @@
 class Aggregate:
+    def __init__(self):
+        raise NotImplementedError("You should implement this method in subclasses")
+
     def create_iterator(self):
         raise NotImplementedError("You should implement this method in subclasses")
 
@@ -12,6 +15,9 @@ class ConcreteAggregate(Aggregate):
 
 
 class Iterator:
+    def __init__(self):
+        raise NotImplementedError("You should implement this method in subclasses")
+
     def first(self):
         raise NotImplementedError("You should implement this method in subclasses")
 

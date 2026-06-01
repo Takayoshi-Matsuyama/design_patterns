@@ -1,14 +1,23 @@
 class Strategy:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def algorithm_interface(self, a, b):
         raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class ConcreteStrategyA(Strategy):
+    def __init__(self):
+        pass
+
     def algorithm_interface(self, a, b):
         return a + b
 
 
 class ConcreteStrategyB(Strategy):
+    def __init__(self):
+        pass
+
     def algorithm_interface(self, a, b):
         return a - b
 

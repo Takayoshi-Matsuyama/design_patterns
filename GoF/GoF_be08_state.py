@@ -1,14 +1,23 @@
 class State:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def handle(self):
         raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class ConcreteStateA(State):
+    def __init__(self):
+        pass
+
     def handle(self):
         print("ConcreteStateA: Handling request in State A.")
 
 
 class ConcreteStateB(State):
+    def __init__(self):
+        pass
+
     def handle(self):
         print("ConcreteStateB: Handling request in State B.")
 

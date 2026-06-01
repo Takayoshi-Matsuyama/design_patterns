@@ -5,11 +5,17 @@ class Context:
 
 
 class AbstractExpression:
+    def __init__(self):
+        raise NotImplementedError("You should implement this method in subclasses")
+
     def interpret(self, context):
         raise NotImplementedError("You should implement this method in subclasses")
 
 
 class TerminalExpression(AbstractExpression):
+    def __init__(self):
+        pass
+
     def interpret(self, context):
         context.output += int(context.input)
 

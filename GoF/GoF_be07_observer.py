@@ -1,4 +1,7 @@
 class Observer:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def update(self, subject):
         raise NotImplementedError("This method should be implemented by subclasses")
 

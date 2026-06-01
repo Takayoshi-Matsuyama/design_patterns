@@ -1,4 +1,7 @@
 class AbstractClass:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def template_method(self):
         self.primitive_operation1()
         self.primitive_operation2()
@@ -11,6 +14,9 @@ class AbstractClass:
 
 
 class ConcreteClass(AbstractClass):
+    def __init__(self):
+        pass
+
     def primitive_operation1(self):
         print("ConcreteClass: Implementing primitive_operation1")
 
