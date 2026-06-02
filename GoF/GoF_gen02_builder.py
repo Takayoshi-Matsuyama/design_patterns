@@ -4,11 +4,14 @@ class Product:
 
 
 class Builder:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def build_part(self):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
     def get_result(self):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class ConcreteBuilder(Builder):

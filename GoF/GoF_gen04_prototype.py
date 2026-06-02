@@ -1,14 +1,23 @@
 class Prototype:
+    def __init__(self):
+        raise NotImplementedError("You should implement the clone method.")
+
     def clone(self):
         raise NotImplementedError("You should implement the clone method.")
 
 
 class ConcretePrototype1(Prototype):
+    def __init__(self):
+        pass
+
     def clone(self):
         return ConcretePrototype1()
 
 
 class ConcretePrototype2(Prototype):
+    def __init__(self):
+        pass
+
     def clone(self):
         return ConcretePrototype2()
 
