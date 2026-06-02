@@ -1,6 +1,9 @@
 class Target:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def request(self):
-        return "Target: The default target's behavior."
+        raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class Adaptee:
