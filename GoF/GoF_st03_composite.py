@@ -1,18 +1,24 @@
 class Component:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def operation(self):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
     def add(self, component):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
     def remove(self, component):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
     def get_child(self, index):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class Leaf(Component):
+    def __init__(self):
+        pass
+
     def operation(self):
         return "Leaf operation"
 

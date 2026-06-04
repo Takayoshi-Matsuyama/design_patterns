@@ -1,27 +1,39 @@
 class Implementor:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def operation_impl(self):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class ConcreteImplementorA(Implementor):
+    def __init__(self):
+        pass
+
     def operation_impl(self):
         return "ConcreteImplementorA operation"
 
 
 class ConcreteImplementorB(Implementor):
+    def __init__(self):
+        pass
+
     def operation_impl(self):
         return "ConcreteImplementorB operation"
 
 
 class Abstraction:
     def __init__(self, implementor):
-        self._implementor = implementor
+        raise NotImplementedError("This method should be implemented by subclasses")
 
     def operation(self):
         return self._implementor.operation_impl()
 
 
 class RefinedAbstraction(Abstraction):
+    def __init__(self, implementor):
+        self._implementor = implementor
+
     def operation(self):
         return f"RefinedAbstraction: {self._implementor.operation_impl()}"
 

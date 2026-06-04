@@ -1,33 +1,42 @@
 class Component:
+    def __init__(self):
+        raise NotImplementedError("This method should be implemented by subclasses")
+
     def operation(self):
-        pass
+        raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class ConcreteComponent(Component):
+    def __init__(self):
+        pass
+
     def operation(self):
         return "ConcreteComponent operation"
 
 
 class Decorator(Component):
     def __init__(self, component):
-        self._component = component
+        raise NotImplementedError("This method should be implemented by subclasses")
 
     def operation(self):
-        return self._component.operation()
+        raise NotImplementedError("This method should be implemented by subclasses")
 
 
 class ConcreteDecoratorA(Decorator):
     def __init__(self, component):
-        super().__init__(component)
+        self._component = component
         self.added_state = "Added state in ConcreteDecoratorA"
 
     def operation(self):
-        return f"ConcreteDecoratorA({super().operation()})"
+        return f"ConcreteDecoratorA({self._component.operation()})"
 
 
 class ConcreteDecoratorB(Decorator):
+    def __init__(self, component):
+        self._component = component
+
     def operation(self):
-        return f"ConcreteDecoratorB({super().operation()})"
+        return f"ConcreteDecoratorB({self._component.operation()})"
 
     def added_behavior(self):
         return "Added behavior in ConcreteDecoratorB"
