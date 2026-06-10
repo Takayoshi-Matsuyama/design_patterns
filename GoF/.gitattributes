@@ -1,0 +1,7 @@
+# デフォルトでテキストファイルは自動判定
+* text=auto
+
+# C++のソースコードとヘッダーは、チェックアウト時はOSに合わせ、コミット時はLFに統一
+*.cpp text eol=lf
+*.h text eol=lf
+*.txt text eol=lf
