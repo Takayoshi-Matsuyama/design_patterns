@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Proxy::Proxy(Subject& subject) : realSubject(subject) {
+Proxy::Proxy(Subject& subject) : realSubject(subject) { // ctor initializer (コンストラクタ初期化子)
     // Constructor implementation
     // This could include initializing the proxy with a reference to the real subject
 }
