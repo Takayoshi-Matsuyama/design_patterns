@@ -1,6 +1,17 @@
 #include <iostream>
 
+#include "Subject.h"
+#include "RealSubject.h"
+#include "Proxy.h"
+
+using namespace std;
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    cout << "GoF Proxy Pattern Example" << endl;
+
+    RealSubject realSubject;
+    Proxy proxy(realSubject);
+    proxy.Request();
+
     return 0;
 }
