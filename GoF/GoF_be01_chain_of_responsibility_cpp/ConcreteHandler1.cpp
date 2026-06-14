@@ -13,20 +13,17 @@
 // limitations under the License.
 
 #include <iostream>
-
-#include "Subject.h"
-#include "Proxy.h"
-
 using namespace std;
 
-Proxy::Proxy(Subject& subject) : realSubject(subject) { // ctor initializer (コンストラクタ初期化子)
-    // Constructor implementation
-    // This could include initializing the proxy with a reference to the real subject
+#include "ConcreteHandler1.h"
+
+ConcreteHandler1::ConcreteHandler1(Handler* successor) : successor(successor) {
+    // Constructor to initialize the successor handler
 }
 
-void Proxy::Request() {
-    // Implementation of the Request method
-    // This could include additional logic such as access control, logging, etc.
-    cout << "Proxy: Handling Request. Forwarding to RealSubject." << endl;
-    this->realSubject.Request();  // Forward the request to the real subject
+void ConcreteHandler1::HandleRequest() {
+    cout << "ConcreteHandler1 handling request." << endl;
+    if (successor) {
+        successor->HandleRequest();
+    }
 }

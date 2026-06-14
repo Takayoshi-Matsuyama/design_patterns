@@ -12,14 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef REAL_SUBJECT_H_
-#define REAL_SUBJECT_H_
+#ifndef CONCRETE_HANDLER2_H
+#define CONCRETE_HANDLER2_H
 
-#include "Subject.h"
+#include "Handler.h"
 
-class RealSubject : public Subject {
-    public:
-        void Request() override;
+class ConcreteHandler2 : public Handler {
+private:
+    Handler* successor;  // Pointer to the next handler in the chain
+public:
+    ConcreteHandler2(Handler* successor = nullptr);
+    void HandleRequest() override;
 };
 
-#endif  // REAL_SUBJECT_H_
+#endif // CONCRETE_HANDLER2_H

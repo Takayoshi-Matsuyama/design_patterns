@@ -12,14 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef REAL_SUBJECT_H_
-#define REAL_SUBJECT_H_
+#ifndef HANDLER_H
+#define HANDLER_H
 
-#include "Subject.h"
-
-class RealSubject : public Subject {
-    public:
-        void Request() override;
+class Handler {
+public:
+    virtual void HandleRequest() = 0;  // Pure virtual function to handle the request
 };
-
-#endif  // REAL_SUBJECT_H_
+#endif // HANDLER_H

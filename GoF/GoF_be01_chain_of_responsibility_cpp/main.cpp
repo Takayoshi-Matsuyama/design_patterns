@@ -13,20 +13,21 @@
 // limitations under the License.
 
 #include <iostream>
-
-#include "Subject.h"
-#include "Proxy.h"
-
 using namespace std;
 
-Proxy::Proxy(Subject& subject) : realSubject(subject) { // ctor initializer (コンストラクタ初期化子)
-    // Constructor implementation
-    // This could include initializing the proxy with a reference to the real subject
-}
+#include "Handler.h"
+#include "ConcreteHandler1.h"
+#include "ConcreteHandler2.h"
 
-void Proxy::Request() {
-    // Implementation of the Request method
-    // This could include additional logic such as access control, logging, etc.
-    cout << "Proxy: Handling Request. Forwarding to RealSubject." << endl;
-    this->realSubject.Request();  // Forward the request to the real subject
+int main() {
+    cout << "GoF Chain of Responsibility Pattern Example" << endl;
+
+    // Create handlers
+    ConcreteHandler1 handler1;
+    ConcreteHandler2 handler2(&handler1);  // handler1 is the successor of handler2
+
+    // Start the chain of responsibility
+    handler2.HandleRequest();
+
+    return 0;
 }
