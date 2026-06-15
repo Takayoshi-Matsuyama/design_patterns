@@ -23,8 +23,7 @@ using namespace std;
 int main() {
     cout << "GoF Proxy Pattern Example" << endl;
 
-    RealSubject realSubject;
-    Proxy proxy(realSubject);
+    Proxy proxy;
     proxy.Request();
 
     return 0;

@@ -15,13 +15,16 @@
 #ifndef PROXY_H_
 #define PROXY_H_
 
+using namespace std;
+
+#include <memory>
 #include "Subject.h"
 
 class Proxy : public Subject {
     private:
-        Subject& realSubject;  // Reference to the real subject that the proxy will control access to
+        unique_ptr<Subject> realSubject;  // Unique pointer to the real subject that the proxy will control access to
     public:
-        Proxy(Subject& subject);
+        Proxy() = default;  // Default constructor
         void Request() override;
 };
 

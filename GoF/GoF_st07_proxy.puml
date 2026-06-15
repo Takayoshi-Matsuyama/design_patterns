@@ -25,7 +25,7 @@ class RealSubject {
 }
 
 class Proxy {
-    -real_subject : RealSubject
+    -real_subject : Subject
     +request()
 }
 

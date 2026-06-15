@@ -17,6 +17,7 @@
 
 class Subject {
     public:
+        virtual ~Subject() = default;  // Virtual destructor for proper cleanup of derived classes
         virtual void Request() = 0;  // Pure virtual function making this an abstract class
 };
 
