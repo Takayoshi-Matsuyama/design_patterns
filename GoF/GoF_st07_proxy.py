@@ -30,16 +30,16 @@ class RealSubject(Subject):
 
 
 class Proxy(Subject):
-    def __init__(self, real_subject):
-        self._real_subject = real_subject
+    def __init__(self):
+        self._real_subject = None
 
     def request(self):
         print("Proxy: Logging request before forwarding to RealSubject.")
+        if not self._real_subject:
+            self._real_subject = RealSubject()
         self._real_subject.request()
 
 
 if __name__ == "__main__":
-    real_subject = RealSubject()
-    proxy = Proxy(real_subject)
-
+    proxy = Proxy()
     proxy.request()
