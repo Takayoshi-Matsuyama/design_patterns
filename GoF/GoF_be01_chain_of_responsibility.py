@@ -12,13 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Handler:
-    def __init__(self, successor=None):
-        raise NotImplementedError("You should implement this method in subclasses")
 
+class Handler(ABC):
+    """Handler interface declares common operations for subsequent handler classes.
+    By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+    we can ensure that any concrete implementation of Handler must implement the handle_request method.
+    """
+
+    @abstractmethod
     def handle_request(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
 class ConcreteHandler1(Handler):
