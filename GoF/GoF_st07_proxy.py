@@ -12,13 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Subject:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Subject(ABC):
+    """Subject interface declares common operations for subsequent subject classes.
+    By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+    we can ensure that any concrete implementation of Subject must implement the request method.
+    """
+
+    @abstractmethod
     def request(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class RealSubject(Subject):
