@@ -13,11 +13,12 @@
 // limitations under the License.
 
 #include <iostream>
+#include <memory>
 using namespace std;
 
 #include "ConcreteHandler1.h"
 
-ConcreteHandler1::ConcreteHandler1(Handler* successor) : successor(successor) {
+ConcreteHandler1::ConcreteHandler1(unique_ptr<Handler> successor) : successor(std::move(successor)) {
     // Constructor to initialize the successor handler
 }
 

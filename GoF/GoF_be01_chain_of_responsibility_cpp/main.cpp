@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include <iostream>
+#include <memory>
 using namespace std;
 
 #include "Handler.h"
@@ -23,8 +24,8 @@ int main() {
     cout << "GoF Chain of Responsibility Pattern Example" << endl;
 
     // Create handlers
-    ConcreteHandler1 handler1;
-    ConcreteHandler2 handler2(&handler1);  // handler1 is the successor of handler2
+    unique_ptr<ConcreteHandler1> handler1 = make_unique<ConcreteHandler1>();  // No successor for handler1
+    ConcreteHandler2 handler2(std::move(handler1));  // handler1 is the successor of handler2
 
     // Start the chain of responsibility
     handler2.HandleRequest();

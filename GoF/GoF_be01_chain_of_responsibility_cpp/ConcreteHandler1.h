@@ -15,13 +15,16 @@
 #ifndef CONCRETE_HANDLER1_H
 #define CONCRETE_HANDLER1_H
 
+#include <memory>
+using namespace std;
+
 #include "Handler.h"
 
 class ConcreteHandler1 : public Handler {
 private:
-    Handler* successor;  // Pointer to the next handler in the chain
+    unique_ptr<Handler> successor;  // Pointer to the next handler in the chain
 public:
-    ConcreteHandler1(Handler* successor = nullptr);
+    ConcreteHandler1(unique_ptr<Handler> successor = nullptr);
     void HandleRequest() override;
 };
 

@@ -17,6 +17,7 @@
 
 class Handler {
 public:
+    virtual ~Handler() = default;  // Virtual destructor for proper cleanup
     virtual void HandleRequest() = 0;  // Pure virtual function to handle the request
 };
 #endif // HANDLER_H
