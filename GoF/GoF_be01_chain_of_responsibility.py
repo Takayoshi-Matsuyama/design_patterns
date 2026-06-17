@@ -16,7 +16,7 @@ from abc import ABC, abstractmethod
 
 
 class Handler(ABC):
-    """Handler interface declares common operations for subsequent handler classes.
+    """Handler interface declares common operations for subordinate handler classes.
     By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
     we can ensure that any concrete implementation of Handler must implement the handle_request method.
     """
