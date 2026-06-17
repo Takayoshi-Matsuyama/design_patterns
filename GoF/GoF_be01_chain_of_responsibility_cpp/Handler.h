@@ -15,9 +15,12 @@
 #ifndef HANDLER_H
 #define HANDLER_H
 
+#include "ErrorEvent.h"
+
 class Handler {
 public:
     virtual ~Handler() = default;  // Virtual destructor for proper cleanup
-    virtual void HandleRequest() = 0;  // Pure virtual function to handle the request
+    virtual void HandleRequest(const ErrorEvent& event) = 0;  // Pure virtual function to handle the request
 };
+
 #endif // HANDLER_H

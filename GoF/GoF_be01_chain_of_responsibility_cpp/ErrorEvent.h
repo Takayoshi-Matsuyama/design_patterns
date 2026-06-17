@@ -12,19 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_HANDLER1_H
-#define CONCRETE_HANDLER1_H
+#ifndef ERROR_EVENT_H
+#define ERROR_EVENT_H
 
-#include "Handler.h"
+#include <string>
 
-#include <memory>
-
-class ConcreteHandler1 : public Handler {
-private:
-    std::shared_ptr<Handler> successor;  // Pointer to the next handler in the chain
-public:
-    ConcreteHandler1(std::shared_ptr<Handler> successor = nullptr);
-    void HandleRequest(const ErrorEvent& event) override;
+struct ErrorEvent {
+    int errorLevel;  // Error severity level (1 for low, 2 for high)
+    std::string errorMessage;  // Description of the error
 };
 
-#endif // CONCRETE_HANDLER1_H
+#endif // ERROR_EVENT_H

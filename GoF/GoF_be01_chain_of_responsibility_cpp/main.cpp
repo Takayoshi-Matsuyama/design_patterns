@@ -12,23 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <iostream>
-#include <memory>
-using namespace std;
-
 #include "Handler.h"
 #include "ConcreteHandler1.h"
 #include "ConcreteHandler2.h"
 
+#include <iostream>
+#include <memory>
+
 int main() {
-    cout << "GoF Chain of Responsibility Pattern Example" << endl;
+    std::cout << "GoF Chain of Responsibility Pattern Example" << std::endl;
 
     // Create handlers
-    unique_ptr<ConcreteHandler1> handler1 = make_unique<ConcreteHandler1>();  // No successor for handler1
-    ConcreteHandler2 handler2(std::move(handler1));  // handler1 is the successor of handler2
+    std::unique_ptr<ConcreteHandler2> handler2 = std::make_unique<ConcreteHandler2>();  // No successor for handler2
+    ConcreteHandler1 handler1(std::move(handler2));  // handler2 is the successor of handler1
 
     // Start the chain of responsibility
-    handler2.HandleRequest();
+    ErrorEvent event1{1, "Low level error occurred."};
+    handler1.HandleRequest(event1);
+
+    ErrorEvent event2{2, "High level error occurred."};
+    handler1.HandleRequest(event2);
 
     return 0;
 }

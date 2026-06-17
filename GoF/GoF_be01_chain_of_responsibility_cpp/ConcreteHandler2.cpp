@@ -12,19 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <iostream>
-#include <memory>
-using namespace std;
-
 #include "ConcreteHandler2.h"
 
-ConcreteHandler2::ConcreteHandler2(unique_ptr<Handler> successor) : successor(std::move(successor)) {
+#include <iostream>
+#include <memory>
+
+ConcreteHandler2::ConcreteHandler2(std::shared_ptr<Handler> successor) : successor(std::move(successor)) {
     // Constructor to initialize the successor handler
 }
 
-void ConcreteHandler2::HandleRequest() {
-    cout << "ConcreteHandler2 handling request." << endl;
-    if (successor) {
-        successor->HandleRequest();
+void ConcreteHandler2::HandleRequest(const ErrorEvent& event) {
+    std::cout << "ConcreteHandler2 handling request." << std::endl;
+    if (event.errorLevel == 2) {
+        std::cout << "ConcreteHandler2: Handled high level error: " << event.errorMessage << std::endl;
+    } else if (successor) {
+        successor->HandleRequest(event);
+    } else {
+        std::cout << "ConcreteHandler2: No handler available for error: " << event.errorMessage << std::endl;
     }
 }
