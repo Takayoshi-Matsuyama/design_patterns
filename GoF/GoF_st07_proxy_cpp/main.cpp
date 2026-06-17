@@ -12,16 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <iostream>
-
 #include "Subject.h"
 #include "RealSubject.h"
 #include "Proxy.h"
 
-using namespace std;
+#include <iostream>
 
 int main() {
-    cout << "GoF Proxy Pattern Example" << endl;
+    std::cout << "GoF Proxy Pattern Example" << std::endl;
 
     Proxy proxy;
     proxy.Request();

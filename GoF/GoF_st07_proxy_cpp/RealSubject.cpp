@@ -12,12 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <iostream>
 #include "RealSubject.h"
 
-using namespace std;
+#include <iostream>
 
 void RealSubject::Request() {
     // Implementation of the Request method
-    cout << "RealSubject: Handling Request." << endl;
+    std::cout << "RealSubject: Handling Request." << std::endl;
 }
