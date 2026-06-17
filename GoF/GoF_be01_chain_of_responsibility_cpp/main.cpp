@@ -23,8 +23,8 @@ int main() {
     std::cout << "GoF Chain of Responsibility Pattern Example" << std::endl;
 
     // Create handlers
-    std::unique_ptr<ConcreteHandler2> handler2 = std::make_unique<ConcreteHandler2>();  // No successor for handler2
-    ConcreteHandler1 handler1(std::move(handler2));  // handler2 is the successor of handler1
+    std::shared_ptr<ConcreteHandler2> handler2 = std::make_shared<ConcreteHandler2>();  // No successor for handler2
+    ConcreteHandler1 handler1(handler2);  // handler2 is the successor of handler1
 
     // Start the chain of responsibility
     ErrorEvent event1{1, "Low level error occurred."};
