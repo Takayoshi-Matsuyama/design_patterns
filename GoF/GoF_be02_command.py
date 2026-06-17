@@ -12,15 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
+
 
 class Receiver:
     def action(self):
         print("Receiver: Performing the action.")
 
 
-class Command:
+class Command(ABC):
+    """Command interface declares common operations for subordinate command classes.
+    By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+    we can ensure that any concrete implementation of Command must implement the execute method.
+    """
+
+    @abstractmethod
     def execute(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
 class ConcreteCommand(Command):
