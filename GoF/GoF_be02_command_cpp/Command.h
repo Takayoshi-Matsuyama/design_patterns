@@ -21,9 +21,7 @@ class Command {
     public:
         virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
         virtual void Execute() = 0;
-        // virtual std::string GetName() const;
-    protected:
-        std::string name;  // Command name for identification
+        virtual std::string GetName() = 0;
 };
 
 #endif // COMMAND_H

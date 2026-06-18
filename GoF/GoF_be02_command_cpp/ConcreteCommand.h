@@ -27,10 +27,10 @@ class ConcreteCommand : public Command {
             this->name = name;
         }
         void Execute() override;
-        //std::string GetName() const override;
+        std::string GetName() override;
     private:
-        // Long lived object should be kept as a reference to avoid unnecessary copying
-        Receiver& receiver;
+        std::string name;
+        Receiver& receiver;  // Long living object should be kept as a reference to avoid unnecessary copying
 };
 
 #endif // CONCRETE_COMMAND_H

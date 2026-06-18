@@ -18,6 +18,10 @@ void ConcreteCommand::Execute() {
     this->receiver.Action();
 }
 
+std::string ConcreteCommand::GetName() {
+    return this->name;
+}
+
 // std::string ConcreteCommand::GetName() const {
 //     return this->name;
 // }

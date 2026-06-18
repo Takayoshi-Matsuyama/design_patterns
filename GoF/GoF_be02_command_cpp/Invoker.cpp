@@ -27,11 +27,9 @@ void Invoker::SetCommand(std::unique_ptr<Command> newCommand) {
 }
 
 void Invoker::ExecuteCommand() {
-    std::cout << "Executing command..." << std::endl;
 
     if (!this->commandQueue.empty()) {
-
-        // std::cout << "Executing Command: " << this->commandQueue.front()->GetName() << " ..." << std::endl;
+        std::cout << "Executing " << this->commandQueue.front()->GetName() << " ..." << std::endl;
         this->commandQueue.front()->Execute();
         this->commandQueue.pop();
 
