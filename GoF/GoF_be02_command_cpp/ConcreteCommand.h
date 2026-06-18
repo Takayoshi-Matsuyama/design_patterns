@@ -19,13 +19,18 @@
 #include "Receiver.h"
 
 #include <memory>
+#include <string>
 
 class ConcreteCommand : public Command {
-    private:
-        std::unique_ptr<Receiver> receiver;
     public:
-        ConcreteCommand(std::unique_ptr<Receiver> receiver) : receiver(std::move(receiver)) {}
+        ConcreteCommand(const std::string& name, Receiver& receiver) : receiver(receiver) {
+            this->name = name;
+        }
         void Execute() override;
+        //std::string GetName() const override;
+    private:
+        // Long lived object should be kept as a reference to avoid unnecessary copying
+        Receiver& receiver;
 };
 
 #endif // CONCRETE_COMMAND_H

@@ -15,7 +15,9 @@
 #include "ConcreteCommand.h"
 
 void ConcreteCommand::Execute() {
-    if (receiver) {
-        receiver->Action();
-    }
+    this->receiver.Action();
 }
+
+// std::string ConcreteCommand::GetName() const {
+//     return this->name;
+// }

@@ -15,10 +15,15 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include <string>
+
 class Command {
-public:
-    virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
-    virtual void Execute() = 0;
+    public:
+        virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
+        virtual void Execute() = 0;
+        // virtual std::string GetName() const;
+    protected:
+        std::string name;  // Command name for identification
 };
 
 #endif // COMMAND_H

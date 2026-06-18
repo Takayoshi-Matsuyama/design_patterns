@@ -14,14 +14,27 @@
 
 #include "Invoker.h"
 
-Invoker::Invoker() : command(nullptr) {}
+#include <iostream>
+
+Invoker::Invoker() {
+    this->commandQueue = std::queue<std::unique_ptr<Command>>();
+}
 
 void Invoker::SetCommand(std::unique_ptr<Command> newCommand) {
-    command = std::move(newCommand);
+    this->commandQueue.push(std::move(newCommand));
+
+    std::cout << "Queue size: " << this->commandQueue.size() << std::endl;
 }
 
 void Invoker::ExecuteCommand() {
-    if (command) {
-        command->Execute();
+    std::cout << "Executing command..." << std::endl;
+
+    if (!this->commandQueue.empty()) {
+
+        // std::cout << "Executing Command: " << this->commandQueue.front()->GetName() << " ..." << std::endl;
+        this->commandQueue.front()->Execute();
+        this->commandQueue.pop();
+
+        std::cout << "Remaining queue size: " << this->commandQueue.size() << std::endl;
     }
 }

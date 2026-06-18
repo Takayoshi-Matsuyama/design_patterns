@@ -18,15 +18,15 @@
 #include "Command.h"
 
 #include <memory>
+#include <queue>
 
 class Invoker {
-private:
-    std::unique_ptr<Command> command;
-
 public:
     Invoker();
     void SetCommand(std::unique_ptr<Command> newCommand);
     void ExecuteCommand();
+private:
+    std::queue<std::unique_ptr<Command>> commandQueue;
 };
 
 #endif // INVOKER_H

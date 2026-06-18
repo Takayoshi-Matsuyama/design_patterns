@@ -16,8 +16,8 @@
 #define RECEIVER_H
 
 class Receiver {
-public:
-    void Action();
+    public:
+        void Action();
 };
 
 #endif // RECEIVER_H

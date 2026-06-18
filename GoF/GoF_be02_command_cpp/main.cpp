@@ -21,10 +21,13 @@
 
 int main() {
     Receiver receiver;
-    std::unique_ptr<Command> command = std::make_unique<ConcreteCommand>(std::make_unique<Receiver>(receiver));
+    std::unique_ptr<Command> command1 = std::make_unique<ConcreteCommand>("Command1", receiver);
+    std::unique_ptr<Command> command2 = std::make_unique<ConcreteCommand>("Command2", receiver);
     
     Invoker invoker;
-    invoker.SetCommand(std::move(command));
+    invoker.SetCommand(std::move(command1));
+    invoker.SetCommand(std::move(command2));
+    invoker.ExecuteCommand();
     invoker.ExecuteCommand();
     return 0;
 }
