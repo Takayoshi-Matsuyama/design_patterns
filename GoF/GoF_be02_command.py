@@ -16,6 +16,7 @@ from abc import ABC, abstractmethod
 
 
 class Receiver:
+
     def action(self):
         print("Receiver: Performing the action.")
 
@@ -32,6 +33,7 @@ class Command(ABC):
 
 
 class ConcreteCommand(Command):
+
     def __init__(self, receiver):
         self._receiver = receiver
 
@@ -40,6 +42,7 @@ class ConcreteCommand(Command):
 
 
 class Invoker:
+
     def __init__(self):
         self._command = None
 
@@ -52,6 +55,7 @@ class Invoker:
 
 
 if __name__ == "__main__":
+
     receiver = Receiver()
     command = ConcreteCommand(receiver)
 

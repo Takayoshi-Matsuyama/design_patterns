@@ -12,21 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Colleague:
-    def __init__(self, mediator):
-        raise NotImplementedError(
-            "Colleague is an abstract class and cannot be instantiated directly."
-        )
 
+class Colleague(ABC):
+
+    @abstractmethod
     def send(self, message):
-        raise NotImplementedError("Subclasses must implement the send method.")
+        pass
 
+    @abstractmethod
     def receive(self, message):
-        raise NotImplementedError("Subclasses must implement the receive method.")
+        pass
+
+
+class Mediator(ABC):
+
+    @abstractmethod
+    def notify(self, sender, message):
+        pass
 
 
 class ConcreteColleague1(Colleague):
+
     def __init__(self, mediator):
         self.mediator = mediator
 
@@ -38,6 +46,7 @@ class ConcreteColleague1(Colleague):
 
 
 class ConcreteColleague2(Colleague):
+
     def __init__(self, mediator):
         self.mediator = mediator
 
@@ -48,17 +57,8 @@ class ConcreteColleague2(Colleague):
         print(f"{self.__class__.__name__} received: {message}")
 
 
-class Mediator:
-    def __init__(self):
-        raise NotImplementedError(
-            "Mediator is an abstract class and cannot be instantiated directly."
-        )
-
-    def notify(self, sender, message):
-        raise NotImplementedError("Subclasses must implement the notify method.")
-
-
 class ConcreteMediator(Mediator):
+
     def __init__(self):
         self.colleague1 = ConcreteColleague1(self)
         self.colleague2 = ConcreteColleague2(self)
@@ -71,6 +71,7 @@ class ConcreteMediator(Mediator):
 
 
 if __name__ == "__main__":
+
     mediator = ConcreteMediator()
     mediator.colleague1.send("Hello from Colleague 1")
     mediator.colleague2.send("Hello from Colleague 2")

@@ -35,8 +35,8 @@ class Singleton:
         return cls._instance
 
 
-# Example usage
 if __name__ == "__main__":
+
     s1 = Singleton()
     s2 = Singleton()
     s3 = Singleton.get_instance()

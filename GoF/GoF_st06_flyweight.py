@@ -12,16 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Flyweight:
-    def __init__(self, intrinsic_state):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Flyweight(ABC):
+
+    @abstractmethod
     def operation(self, extrinsic_state):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteFlyweight(Flyweight):
+
     def __init__(self, intrinsic_state):
         self.intrinsic_state = intrinsic_state
 
@@ -32,6 +34,7 @@ class ConcreteFlyweight(Flyweight):
 
 
 class UnsharedConcreteFlyweight(Flyweight):
+
     def __init__(self, intrinsic_state):
         self.intrinsic_state = intrinsic_state
 
@@ -42,6 +45,7 @@ class UnsharedConcreteFlyweight(Flyweight):
 
 
 class FlyweightFactory:
+
     def __init__(self):
         self.flyweights = {}
 
@@ -55,6 +59,7 @@ class FlyweightFactory:
 
 
 if __name__ == "__main__":
+
     factory = FlyweightFactory()
 
     flyweight1 = factory.get_flyweight("State1")

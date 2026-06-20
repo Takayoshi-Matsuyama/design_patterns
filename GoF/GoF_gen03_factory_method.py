@@ -12,40 +12,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Product:
-    def __init__(self, name):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Product(ABC):
+
+    @abstractmethod
     def operation(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteProduct(Product):
-    def __init__(self):
-        pass
 
     def operation(self):
         return "Operation of ConcreteProduct"
 
 
-class Creator:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+class Creator(ABC):
 
+    @abstractmethod
     def factory_method(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteCreator(Creator):
-    def __init__(self):
-        pass
 
     def factory_method(self):
         return ConcreteProduct()
 
 
 if __name__ == "__main__":
+
     creator = ConcreteCreator()
     product = creator.factory_method()
     print(product.operation())

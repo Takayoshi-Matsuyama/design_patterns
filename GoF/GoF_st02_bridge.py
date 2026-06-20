@@ -12,40 +12,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Implementor:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Implementor(ABC):
+
+    @abstractmethod
     def operation_impl(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteImplementorA(Implementor):
-    def __init__(self):
-        pass
 
     def operation_impl(self):
         return "ConcreteImplementorA operation"
 
 
 class ConcreteImplementorB(Implementor):
-    def __init__(self):
-        pass
 
     def operation_impl(self):
         return "ConcreteImplementorB operation"
 
 
-class Abstraction:
-    def __init__(self, implementor):
-        raise NotImplementedError("This method should be implemented by subclasses")
+class Abstraction(ABC):
 
+    @abstractmethod
     def operation(self):
-        return self._implementor.operation_impl()
+        pass
 
 
 class RefinedAbstraction(Abstraction):
+
     def __init__(self, implementor):
         self._implementor = implementor
 
@@ -54,6 +51,7 @@ class RefinedAbstraction(Abstraction):
 
 
 if __name__ == "__main__":
+
     implementor_a = ConcreteImplementorA()
     abstraction_a = RefinedAbstraction(implementor_a)
     print(abstraction_a.operation())

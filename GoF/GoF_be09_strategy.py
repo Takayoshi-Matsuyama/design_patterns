@@ -12,32 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Strategy:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Strategy(ABC):
+
+    @abstractmethod
     def algorithm_interface(self, a, b):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteStrategyA(Strategy):
-    def __init__(self):
-        pass
 
     def algorithm_interface(self, a, b):
         return a + b
 
 
 class ConcreteStrategyB(Strategy):
-    def __init__(self):
-        pass
 
     def algorithm_interface(self, a, b):
         return a - b
 
 
 class Context:
+
     def __init__(self, strategy):
         self._strategy = strategy
 
@@ -49,6 +47,7 @@ class Context:
 
 
 if __name__ == "__main__":
+
     context = Context(ConcreteStrategyA())
     result = context.execute_strategy(5, 3)
     print(f"Addition Result: {result}")

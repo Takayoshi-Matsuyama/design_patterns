@@ -12,56 +12,49 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Visitor:
-    def __init__(self):
-        raise NotImplementedError("You should implement this method in subclasses")
 
+class Visitor(ABC):
+
+    @abstractmethod
     def visit(self, element):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
-class Element:
-    def __init__(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+class Element(ABC):
 
+    @abstractmethod
     def accept(self, visitor):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
 class ConcreteVisitor1(Visitor):
-    def __init__(self):
-        pass
 
     def visit(self, element):
         print(f"ConcreteVisitor #1: Visiting {element.__class__.__name__}")
 
 
 class ConcreteVisitor2(Visitor):
-    def __init__(self):
-        pass
 
     def visit(self, element):
         print(f"ConcreteVisitor #2: Visiting {element.__class__.__name__}")
 
 
 class ConcreteElementA(Element):
-    def __init__(self):
-        pass
 
     def accept(self, visitor):
         visitor.visit(self)
 
 
 class ConcreteElementB(Element):
-    def __init__(self):
-        pass
 
     def accept(self, visitor):
         visitor.visit(self)
 
 
 if __name__ == "__main__":
+
     elements = [ConcreteElementA(), ConcreteElementB()]
     visitor1 = ConcreteVisitor1()
     visitor2 = ConcreteVisitor2()

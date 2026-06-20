@@ -12,30 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
+
 
 class Context:
+
     def __init__(self, input):
         self.input = input
         self.output = 0
 
 
-class AbstractExpression:
-    def __init__(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+class AbstractExpression(ABC):
 
+    @abstractmethod
     def interpret(self, context):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
 class TerminalExpression(AbstractExpression):
-    def __init__(self):
-        pass
 
     def interpret(self, context):
         context.output += int(context.input)
 
 
 class NonTerminalExpression(AbstractExpression):
+
     def __init__(self, expression1, expression2):
         self.expression1 = expression1
         self.expression2 = expression2
@@ -46,6 +47,7 @@ class NonTerminalExpression(AbstractExpression):
 
 
 if __name__ == "__main__":
+
     context = Context("5")
     terminal_expression = TerminalExpression()
     terminal_expression.interpret(context)

@@ -14,6 +14,7 @@
 
 
 class Memento:
+
     def __init__(self, state):
         self._state = state
 
@@ -25,6 +26,7 @@ class Memento:
 
 
 class Originator:
+
     def __init__(self):
         self._state = None
 
@@ -42,6 +44,7 @@ class Originator:
 
 
 class Caretaker:
+
     def __init__(self):
         self._mementos = []
 
@@ -53,6 +56,7 @@ class Caretaker:
 
 
 if __name__ == "__main__":
+
     originator = Originator()
     caretaker = Caretaker()
 

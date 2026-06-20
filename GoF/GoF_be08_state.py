@@ -12,32 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class State:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class State(ABC):
+
+    @abstractmethod
     def handle(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteStateA(State):
-    def __init__(self):
-        pass
 
     def handle(self):
         print("ConcreteStateA: Handling request in State A.")
 
 
 class ConcreteStateB(State):
-    def __init__(self):
-        pass
 
     def handle(self):
         print("ConcreteStateB: Handling request in State B.")
 
 
 class Context:
+
     def __init__(self):
         self._state = None
 
@@ -52,6 +50,7 @@ class Context:
 
 
 if __name__ == "__main__":
+
     context = Context()
 
     state_a = ConcreteStateA()

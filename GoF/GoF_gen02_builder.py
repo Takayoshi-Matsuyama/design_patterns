@@ -12,24 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
+
 
 class Product:
+
     def __init__(self, name):
         self.name = name
 
 
-class Builder:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+class Builder(ABC):
 
+    @abstractmethod
     def build_part(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def get_result(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteBuilder(Builder):
+
     def __init__(self):
         self.product = None
 
@@ -41,6 +45,7 @@ class ConcreteBuilder(Builder):
 
 
 class Director:
+
     def __init__(self, builder):
         self._builder = builder
 
@@ -49,6 +54,7 @@ class Director:
 
 
 if __name__ == "__main__":
+
     builder = ConcreteBuilder()
     director = Director(builder)
     director.construct()

@@ -12,32 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Component:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Component(ABC):
+
+    @abstractmethod
     def operation(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteComponent(Component):
-    def __init__(self):
-        pass
 
     def operation(self):
         return "ConcreteComponent operation"
 
 
 class Decorator(Component):
-    def __init__(self, component):
-        raise NotImplementedError("This method should be implemented by subclasses")
-
-    def operation(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+    pass
 
 
 class ConcreteDecoratorA(Decorator):
+
     def __init__(self, component):
         self._component = component
         self.added_state = "Added state in ConcreteDecoratorA"
@@ -47,6 +43,7 @@ class ConcreteDecoratorA(Decorator):
 
 
 class ConcreteDecoratorB(Decorator):
+
     def __init__(self, component):
         self._component = component
 
@@ -58,6 +55,7 @@ class ConcreteDecoratorB(Decorator):
 
 
 if __name__ == "__main__":
+
     component = ConcreteComponent()
     print("Original component operation:")
     print(component.operation())

@@ -12,69 +12,59 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class AbstractProductA:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class AbstractProductA(ABC):
+
+    @abstractmethod
     def operation_a(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ProductA1(AbstractProductA):
-    def __init__(self):
-        pass
 
     def operation_a(self):
         return "ProductA1 operation"
 
 
 class ProductA2(AbstractProductA):
-    def __init__(self):
-        pass
 
     def operation_a(self):
         return "ProductA2 operation"
 
 
-class AbstractProductB:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+class AbstractProductB(ABC):
 
+    @abstractmethod
     def operation_b(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ProductB1(AbstractProductB):
-    def __init__(self):
-        pass
 
     def operation_b(self):
         return "ProductB1 operation"
 
 
 class ProductB2(AbstractProductB):
-    def __init__(self):
-        pass
 
     def operation_b(self):
         return "ProductB2 operation"
 
 
-class AbstractFactory:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+class AbstractFactory(ABC):
 
+    @abstractmethod
     def create_product_a(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def create_product_b(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteFactory1(AbstractFactory):
-    def __init__(self):
-        pass
 
     def create_product_a(self):
         return ProductA1()
@@ -84,8 +74,6 @@ class ConcreteFactory1(AbstractFactory):
 
 
 class ConcreteFactory2(AbstractFactory):
-    def __init__(self):
-        pass
 
     def create_product_a(self):
         return ProductA2()
@@ -95,6 +83,7 @@ class ConcreteFactory2(AbstractFactory):
 
 
 if __name__ == "__main__":
+
     factory1 = ConcreteFactory1()
     product_a1 = factory1.create_product_a()
     product_b1 = factory1.create_product_b()

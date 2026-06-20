@@ -27,8 +27,6 @@ class Subject(ABC):
 
 
 class RealSubject(Subject):
-    def __init__(self):
-        pass
 
     def request(self):
         print("RealSubject: Handling request.")
@@ -46,5 +44,6 @@ class Proxy(Subject):
 
 
 if __name__ == "__main__":
+
     proxy = Proxy()
     proxy.request()

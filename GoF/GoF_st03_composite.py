@@ -12,33 +12,45 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Component:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Component(ABC):
+
+    @abstractmethod
     def operation(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def add(self, component):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def remove(self, component):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def get_child(self, index):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class Leaf(Component):
-    def __init__(self):
-        pass
 
     def operation(self):
         return "Leaf operation"
 
+    def add(self, component):
+        raise NotImplementedError("Leaf nodes cannot add components")
+
+    def remove(self, component):
+        raise NotImplementedError("Leaf nodes cannot remove components")
+
+    def get_child(self, index):
+        raise NotImplementedError("Leaf nodes do not have children")
+
 
 class Composite(Component):
+
     def __init__(self):
         self.children = []
 
@@ -59,6 +71,7 @@ class Composite(Component):
 
 
 if __name__ == "__main__":
+
     leaf1 = Leaf()
     leaf2 = Leaf()
     composite = Composite()

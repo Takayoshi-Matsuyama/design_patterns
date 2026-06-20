@@ -12,16 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Aggregate:
-    def __init__(self):
-        raise NotImplementedError("You should implement this method in subclasses")
 
+class Aggregate(ABC):
+
+    @abstractmethod
     def create_iterator(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
 class ConcreteAggregate(Aggregate):
+
     def __init__(self):
         self._items = ["A", "B", "C", "D", "E"]
 
@@ -29,24 +31,27 @@ class ConcreteAggregate(Aggregate):
         return ConcreteIterator(self)
 
 
-class Iterator:
-    def __init__(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+class Iterator(ABC):
 
+    @abstractmethod
     def first(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
+    @abstractmethod
     def next(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
+    @abstractmethod
     def is_done(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
+    @abstractmethod
     def current_item(self):
-        raise NotImplementedError("You should implement this method in subclasses")
+        pass
 
 
 class ConcreteIterator(Iterator):
+
     def __init__(self, aggregate):
         self._aggregate = aggregate
         self._current = 0
@@ -68,6 +73,7 @@ class ConcreteIterator(Iterator):
 
 
 if __name__ == "__main__":
+
     aggregate = ConcreteAggregate()
     iterator = aggregate.create_iterator()
 

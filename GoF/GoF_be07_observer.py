@@ -12,16 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Observer:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Observer(ABC):
+
+    @abstractmethod
     def update(self, subject):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteObserver(Observer):
+
     def __init__(self, subject):
         self._observer_state = None
         self._subject = subject
@@ -32,27 +34,31 @@ class ConcreteObserver(Observer):
         print(f"ConcreteObserver: Updated observer state to {self._observer_state}")
 
 
-class Subject:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+class Subject(ABC):
 
+    @abstractmethod
     def attach(self, observer):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def detach(self, observer):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def notify(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def set_state(self, state):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
+    @abstractmethod
     def get_state(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class ConcreteSubject(Subject):
+
     def __init__(self):
         self._observers = []
         self._subject_state = None
@@ -76,6 +82,7 @@ class ConcreteSubject(Subject):
 
 
 if __name__ == "__main__":
+
     subject = ConcreteSubject()
     observer1 = ConcreteObserver(subject)
     observer2 = ConcreteObserver(subject)

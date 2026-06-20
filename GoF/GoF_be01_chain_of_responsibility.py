@@ -27,6 +27,7 @@ class Handler(ABC):
 
 
 class ConcreteHandler1(Handler):
+
     def __init__(self, successor=None):
         self._successor = successor
 
@@ -37,6 +38,7 @@ class ConcreteHandler1(Handler):
 
 
 class ConcreteHandler2(Handler):
+
     def __init__(self, successor=None):
         self._successor = successor
 
@@ -47,6 +49,7 @@ class ConcreteHandler2(Handler):
 
 
 if __name__ == "__main__":
+
     handler1 = ConcreteHandler1()
     handler2 = ConcreteHandler2(handler1)
 

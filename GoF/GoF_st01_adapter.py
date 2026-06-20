@@ -12,21 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 
-class Target:
-    def __init__(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
 
+class Target(ABC):
+
+    @abstractmethod
     def request(self):
-        raise NotImplementedError("This method should be implemented by subclasses")
+        pass
 
 
 class Adaptee:
+
     def specific_request(self):
         return "Adaptee: The specific behavior of the adaptee."
 
 
 class Adapter(Target):
+
     def __init__(self, adaptee):
         self.adaptee = adaptee
 
