@@ -18,29 +18,23 @@
 #include "AbstractProductB.h"
 
 #include <iostream>
+#include <memory>
 
 int main() {
     
     std::cout << "GoF Abstract Factory Pattern Example" << std::endl;
 
-    AbstractFactory* factory1 = new ConcreteFactory1();
-    AbstractProductA* productA1 = factory1->CreateProductA();
-    AbstractProductB* productB1 = factory1->CreateProductB();
+    std::unique_ptr<AbstractFactory> factory1 = std::make_unique<ConcreteFactory1>();
+    std::unique_ptr<AbstractProductA> productA1 = factory1->CreateProductA();
+    std::unique_ptr<AbstractProductB> productB1 = factory1->CreateProductB();
     productA1->OperationA();
     productB1->OperationB();
 
-    AbstractFactory* factory2 = new ConcreteFactory2();
-    AbstractProductA* productA2 = factory2->CreateProductA();
-    AbstractProductB* productB2 = factory2->CreateProductB();
+    std::unique_ptr<AbstractFactory> factory2 = std::make_unique<ConcreteFactory2>();
+    std::unique_ptr<AbstractProductA> productA2 = factory2->CreateProductA();
+    std::unique_ptr<AbstractProductB> productB2 = factory2->CreateProductB();
     productA2->OperationA();
     productB2->OperationB();
-
-    delete productA1;
-    delete productB1;
-    delete factory1;
-    delete productA2;
-    delete productB2;
-    delete factory2;
 
     return 0;
 }

@@ -18,11 +18,13 @@
 #include "AbstractProductA.h"
 #include "AbstractProductB.h"
 
+#include <memory>
+
 class AbstractFactory {
     public:
         virtual ~AbstractFactory() = default;
-        virtual AbstractProductA* CreateProductA() = 0;
-        virtual AbstractProductB* CreateProductB() = 0;
+        virtual std::unique_ptr<AbstractProductA> CreateProductA() = 0;
+        virtual std::unique_ptr<AbstractProductB> CreateProductB() = 0;
 };
 
 #endif // ABSTRACT_FACTORY_H

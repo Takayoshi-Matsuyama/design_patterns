@@ -16,10 +16,12 @@
 #include "ProductA2.h"
 #include "ProductB2.h"
 
-AbstractProductA* ConcreteFactory2::CreateProductA() {
-    return new ProductA2();
+#include <memory>
+
+std::unique_ptr<AbstractProductA> ConcreteFactory2::CreateProductA() {
+    return std::make_unique<ProductA2>();
 }
 
-AbstractProductB* ConcreteFactory2::CreateProductB() {
-    return new ProductB2();
+std::unique_ptr<AbstractProductB> ConcreteFactory2::CreateProductB() {
+    return std::make_unique<ProductB2>();
 }

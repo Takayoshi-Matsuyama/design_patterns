@@ -17,10 +17,12 @@
 
 #include "AbstractFactory.h"
 
+#include <memory>
+
 class ConcreteFactory1 : public AbstractFactory {
     public:
-        AbstractProductA* CreateProductA() override;
-        AbstractProductB* CreateProductB() override;
+        std::unique_ptr<AbstractProductA> CreateProductA() override;
+        std::unique_ptr<AbstractProductB> CreateProductB() override;
 };
 
 #endif // CONCRETE_FACTORY1_H
