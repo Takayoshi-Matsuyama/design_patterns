@@ -20,15 +20,12 @@
 int main() {
     std::cout << "GoF Iterator Pattern Example" << std::endl;
 
-    Aggregate *aggregate = new ConcreteAggregate();
-    Iterator *iterator = aggregate->CreateIterator();
+    std::unique_ptr<Aggregate> aggregate = std::make_unique<ConcreteAggregate>();
+    std::unique_ptr<Iterator> iterator = aggregate->CreateIterator();
 
     for (iterator->First(); !iterator->IsDone(); iterator->Next()) {
         std::cout << iterator->CurrentItem() << std::endl;
     }
-
-    delete iterator;
-    delete aggregate;
 
     return 0;
 }

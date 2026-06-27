@@ -19,8 +19,8 @@ ConcreteAggregate::ConcreteAggregate() {
     this->_items = std::vector<std::string>{"A", "B", "C", "D", "E"};
 }
 
-Iterator* ConcreteAggregate::CreateIterator() const {
-    return new ConcreteIterator(this);
+std::unique_ptr<Iterator> ConcreteAggregate::CreateIterator() const {
+    return std::make_unique<ConcreteIterator>(*this);
 }
 
 int ConcreteAggregate::GetSize() const {

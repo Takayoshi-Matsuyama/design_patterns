@@ -20,14 +20,14 @@
 
 class ConcreteIterator : public Iterator {
     public:
-        ConcreteIterator(const Aggregate* aggregate);
+        explicit ConcreteIterator(const Aggregate& aggregate);
         void First() override;
         void Next() override;
         bool IsDone() const override;
         std::string CurrentItem() const override;
 
     private:
-        const Aggregate* _aggregate;
+        const Aggregate& _aggregate;
         int _currentIndex;
 };
 

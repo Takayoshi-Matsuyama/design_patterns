@@ -17,10 +17,12 @@
 
 #include "Iterator.h"
 
+#include <memory>
+
 class Aggregate {
     public:
         virtual ~Aggregate() = default;
-        virtual Iterator* CreateIterator() const = 0;
+        virtual std::unique_ptr<Iterator> CreateIterator() const = 0;
         virtual int GetSize() const = 0;
         virtual std::string GetItem(int index) const = 0;
 };

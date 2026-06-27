@@ -19,13 +19,14 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 class ConcreteAggregate : public Aggregate {
     public:
         ConcreteAggregate();
         ~ConcreteAggregate() override = default;
 
-        Iterator* CreateIterator() const override;
+        std::unique_ptr<Iterator> CreateIterator() const override;
         int GetSize() const override;
         std::string GetItem(int index) const override;
 

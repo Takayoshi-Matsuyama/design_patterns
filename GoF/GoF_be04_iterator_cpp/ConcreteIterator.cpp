@@ -14,7 +14,7 @@
 
 #include "ConcreteIterator.h"
 
-ConcreteIterator::ConcreteIterator(const Aggregate* aggregate)
+ConcreteIterator::ConcreteIterator(const Aggregate& aggregate)
     : _aggregate(aggregate), _currentIndex(0) {}
 
 void ConcreteIterator::First() {
@@ -26,12 +26,12 @@ void ConcreteIterator::Next() {
 }
 
 bool ConcreteIterator::IsDone() const {
-    return this->_currentIndex >= this->_aggregate->GetSize();
+    return this->_currentIndex >= this->_aggregate.GetSize();
 }
 
 std::string ConcreteIterator::CurrentItem() const {
     if (this->IsDone()) {
         return "";
     }
-    return this->_aggregate->GetItem(this->_currentIndex);
+    return this->_aggregate.GetItem(this->_currentIndex);
 }
