@@ -28,7 +28,9 @@ void ConcreteSubject::Detach(Observer* observer) {
 
 void ConcreteSubject::Notify() {
     for (Observer* observer : this->_observers) {
-        observer->Update(this);
+        if (observer) {
+            observer->Update(this);
+        }
     }
 }
 

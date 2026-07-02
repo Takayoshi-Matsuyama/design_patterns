@@ -23,15 +23,18 @@
 class ConcreteSubject : public Subject {
     public:
         ConcreteSubject();
+
+        // Observers' lifetime is managed outside of this class,
+        // so we just refer them through raw pointers without taking ownership.
         void Attach(Observer* observer) override;
         void Detach(Observer* observer) override;
+
         void Notify() override;
         std::string GetState() const override;
 
         // Additional methods specific to ConcreteSubject
         void SetState(std::string state);
        
-
     private:
         std::string _state;
         std::vector<Observer*> _observers;
