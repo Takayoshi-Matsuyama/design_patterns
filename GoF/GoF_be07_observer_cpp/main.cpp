@@ -28,11 +28,11 @@ int main() {
     subject.Attach(&observer1);
     subject.Attach(&observer2);
 
-    subject.SetState(1);
-    subject.SetState(2);
+    subject.SetState("State 1");
+    subject.SetState("State 2");
 
     subject.Detach(&observer1);
-    subject.SetState(3);
+    subject.SetState("State 3");
 
     return 0;
 }

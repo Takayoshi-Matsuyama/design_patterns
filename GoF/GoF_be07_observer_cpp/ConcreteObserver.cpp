@@ -16,11 +16,12 @@
 #include "ConcreteObserver.h"
 
 #include <iostream>
+#include <string>
 
 ConcreteObserver::ConcreteObserver() {}
 
 void ConcreteObserver::Update(Subject* subject) {
 
-    int state = subject->GetState(); // Assuming Subject has a GetState() method
+    std::string state = subject->GetState(); // Assuming Subject has a GetState() method
     std::cout << "ConcreteObserver: Received update from Subject. New state: " << state << std::endl;
 }

@@ -18,6 +18,7 @@
 #include "Subject.h"
 
 #include <vector>
+#include <string>
 
 class ConcreteSubject : public Subject {
     public:
@@ -25,14 +26,14 @@ class ConcreteSubject : public Subject {
         void Attach(Observer* observer) override;
         void Detach(Observer* observer) override;
         void Notify() override;
-        int GetState() const override;
+        std::string GetState() const override;
 
         // Additional methods specific to ConcreteSubject
-        void SetState(int state);
+        void SetState(std::string state);
        
 
     private:
-        int _state;
+        std::string _state;
         std::vector<Observer*> _observers;
 };
 

@@ -16,7 +16,7 @@
 
 #include <algorithm>
 
-ConcreteSubject::ConcreteSubject() : _state(0) {}
+ConcreteSubject::ConcreteSubject() : _state("") {}
 
 void ConcreteSubject::Attach(Observer* observer) {
     _observers.push_back(observer);
@@ -32,11 +32,11 @@ void ConcreteSubject::Notify() {
     }
 }
 
-int ConcreteSubject::GetState() const {
+std::string ConcreteSubject::GetState() const {
     return this->_state;
 }
 
-void ConcreteSubject::SetState(int state) {
+void ConcreteSubject::SetState(std::string state) {
     this->_state = state;
     Notify();
 }
