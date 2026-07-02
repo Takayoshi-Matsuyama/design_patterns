@@ -12,12 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "ConcreteSubject.h"
+#include "ConcreteObserver.h"
 
 #include <iostream>
 
 int main() {
     
     std::cout << "GoF Observer Pattern Example" << std::endl;
+
+    ConcreteSubject subject;
+    ConcreteObserver observer1;
+    ConcreteObserver observer2;
+
+    subject.Attach(&observer1);
+    subject.Attach(&observer2);
+
+    subject.SetState(1);
+    subject.SetState(2);
+
+    subject.Detach(&observer1);
+    subject.SetState(3);
 
     return 0;
 }

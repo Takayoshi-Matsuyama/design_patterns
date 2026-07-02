@@ -12,28 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_SUBJECT_H
-#define CONCRETE_SUBJECT_H
+#ifndef CONCRETE_OBSERVER_H
+#define CONCRETE_OBSERVER_H
 
-#include "Subject.h"
+#include "Observer.h"
 
-#include <vector>
-
-class ConcreteSubject : public Subject {
+class ConcreteObserver : public Observer {
     public:
-        ConcreteSubject();
-        void Attach(Observer* observer) override;
-        void Detach(Observer* observer) override;
-        void Notify() override;
-        int GetState() const override;
-
-        // Additional methods specific to ConcreteSubject
-        void SetState(int state);
-       
-
-    private:
-        int _state;
-        std::vector<Observer*> _observers;
+        ConcreteObserver();
+        void Update(Subject* subject) override;
 };
 
-#endif // CONCRETE_SUBJECT_H
+#endif // CONCRETE_OBSERVER_H

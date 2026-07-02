@@ -32,11 +32,11 @@ void ConcreteSubject::Notify() {
     }
 }
 
+int ConcreteSubject::GetState() const {
+    return this->_state;
+}
+
 void ConcreteSubject::SetState(int state) {
     this->_state = state;
     Notify();
-}
-
-int ConcreteSubject::GetState() const {
-    return this->_state;
 }

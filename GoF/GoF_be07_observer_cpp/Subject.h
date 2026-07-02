@@ -23,6 +23,7 @@ class Subject {
         virtual void Attach(class Observer* observer) = 0;
         virtual void Detach(class Observer* observer) = 0;
         virtual void Notify() = 0;
+        virtual int GetState() const = 0; // Add this method to allow observers to get the state
 };
 
 #endif // SUBJECT_H
