@@ -13,25 +13,17 @@
 // limitations under the License.
 
 #include "Context.h"
-#include "ConcreteStateA.h"
-#include "ConcreteStateB.h"
 
 #include <iostream>
-#include <memory>
 
-int main() {
-    
-    std::cout << "GoF State Pattern Example" << std::endl;
+void Context::Request() {
+    if (this->_state) {
+        this->_state->Handle();
+    } else {
+        std::cout << "Context: No state set. Cannot handle request." << std::endl;
+    }
+}
 
-    Context context;
-    std::unique_ptr<State> stateA = std::make_unique<ConcreteStateA>();
-    std::unique_ptr<State> stateB = std::make_unique<ConcreteStateB>();
-
-    context.SetState(stateA.get());
-    context.Request();
-
-    context.SetState(stateB.get());
-    context.Request();
-    
-    return 0;
+void Context::SetState(State* state) {
+    this->_state = state;
 }
