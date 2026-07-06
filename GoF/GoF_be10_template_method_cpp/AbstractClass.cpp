@@ -12,16 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteClass.h"
+#include "AbstractClass.h"
 
-#include <iostream>
-
-int main() {
-    
-    std::cout << "GoF Template Method Pattern Example" << std::endl;
-
-    ConcreteClass concrete;
-    concrete.Template_Method();
-
-    return 0;
+void AbstractClass::Template_Method() {
+    Primitive_Operation1();
+    Primitive_Operation2();
 }
