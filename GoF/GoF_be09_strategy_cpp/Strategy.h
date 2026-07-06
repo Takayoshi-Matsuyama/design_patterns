@@ -12,23 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Context.h"
-#include "ConcreteStrategyA.h"
-#include "ConcreteStrategyB.h"
+#ifndef STRATEGY_H
+#define STRATEGY_H
 
-#include <iostream>
+class Strategy {
+    public:
+        virtual ~Strategy() = default;
+        virtual double AlgorithmInterface(double a, double b) = 0;
+};
 
-int main() {
-    
-    std::cout << "GoF Strategy Pattern Example" << std::endl;
-
-    ConcreteStrategyA strategyA;
-    Context contextA(std::make_unique<ConcreteStrategyA>());
-    std::cout << "Result of Strategy A (5 + 3): " << contextA.ExecuteStrategy(5, 3) << std::endl;
-
-    ConcreteStrategyB strategyB;
-    Context contextB(std::make_unique<ConcreteStrategyB>());
-    std::cout << "Result of Strategy B (5 - 3): " << contextB.ExecuteStrategy(5, 3) << std::endl;
-    
-    return 0;
-}
+#endif // STRATEGY_H
