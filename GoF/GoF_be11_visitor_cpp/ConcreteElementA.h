@@ -12,29 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteElementA.h"
-#include "ConcreteElementB.h"
-#include "ConcreteVisitor1.h"
-#include "ConcreteVisitor2.h"
+#ifndef CONCRETE_ELEMENT_A_H
+#define CONCRETE_ELEMENT_A_H
 
-#include <iostream>
-#include <list>
+#include "Element.h"
+#include "Visitor.h"
 
-int main() {
-    
-    std::cout << "GoF Visitor Pattern Example" << std::endl;
+class ConcreteElementA : public Element {
+    public:
+        void Accept(Visitor& visitor) override;
+        std::string GetName() const override;
+};
 
-    std::list<Element*> elements;
-    elements.push_back(new ConcreteElementA());
-    elements.push_back(new ConcreteElementB());
-
-    ConcreteVisitor1 visitor1;
-    ConcreteVisitor2 visitor2;
-
-    for (Element* element : elements) {
-        element->Accept(visitor1);
-        element->Accept(visitor2);
-    }
-
-    return 0;
-}
+#endif // CONCRETE_ELEMENT_A_H

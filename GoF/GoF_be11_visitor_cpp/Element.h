@@ -12,29 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteElementA.h"
-#include "ConcreteElementB.h"
-#include "ConcreteVisitor1.h"
-#include "ConcreteVisitor2.h"
+#ifndef ELEMENT_H
+#define ELEMENT_H
 
-#include <iostream>
-#include <list>
+#include <string>
 
-int main() {
-    
-    std::cout << "GoF Visitor Pattern Example" << std::endl;
+class Visitor; // Forward declaration
 
-    std::list<Element*> elements;
-    elements.push_back(new ConcreteElementA());
-    elements.push_back(new ConcreteElementB());
+class Element {
+public:
+    virtual ~Element() = default;
+    virtual void Accept(Visitor& visitor) = 0;
+    virtual std::string GetName() const = 0;
+};
 
-    ConcreteVisitor1 visitor1;
-    ConcreteVisitor2 visitor2;
-
-    for (Element* element : elements) {
-        element->Accept(visitor1);
-        element->Accept(visitor2);
-    }
-
-    return 0;
-}
+#endif // ELEMENT_H

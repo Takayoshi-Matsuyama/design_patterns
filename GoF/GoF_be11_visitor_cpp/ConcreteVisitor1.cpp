@@ -12,29 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteElementA.h"
-#include "ConcreteElementB.h"
 #include "ConcreteVisitor1.h"
-#include "ConcreteVisitor2.h"
 
 #include <iostream>
-#include <list>
 
-int main() {
-    
-    std::cout << "GoF Visitor Pattern Example" << std::endl;
-
-    std::list<Element*> elements;
-    elements.push_back(new ConcreteElementA());
-    elements.push_back(new ConcreteElementB());
-
-    ConcreteVisitor1 visitor1;
-    ConcreteVisitor2 visitor2;
-
-    for (Element* element : elements) {
-        element->Accept(visitor1);
-        element->Accept(visitor2);
-    }
-
-    return 0;
+void ConcreteVisitor1::Visit(Element& element) {
+    // Implement the visit logic for ConcreteVisitor1
+    std::cout << "ConcreteVisitor1 visiting " << element.GetName() << std::endl;
 }
