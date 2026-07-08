@@ -12,18 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Product.h"
-#include "ConcreteCreator.h"
+#include "ConcreteProduct.h"
 
 #include <iostream>
 
-int main() {
-    
-    std::cout << "GoF Factory Method Pattern Example" << std::endl;
-
-    ConcreteCreator creator;
-    std::unique_ptr<Product> product = creator.FactoryMethod();
-    product->Operation();
-
-    return 0;
+void ConcreteProduct::Operation() {
+    std::cout << "ConcreteProduct Operation" << std::endl;
 }
