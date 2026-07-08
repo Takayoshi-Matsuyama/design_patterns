@@ -13,23 +13,13 @@
 // limitations under the License.
 
 #include "ConcreteBuilder.h"
-#include "Director.h"
-#include "Product.h"
 
-#include <iostream>
-#include <memory>
+void ConcreteBuilder::BuildPart() {
+    // Implementation of building a part of the product
+    this->_product = std::make_unique<Product>("Sample Product");
+}
 
-int main() {
-    
-    std::cout << "GoF Builder Pattern Example" << std::endl;
-
-    std::unique_ptr<Builder> builder = std::make_unique<ConcreteBuilder>();
-    Director director(builder.get());
-    
-    director.Construct();
-    std::unique_ptr<Product> product = builder->GetResult();
-
-    std::cout << "Product Name: " << product->GetName() << std::endl;
-
-    return 0;
+std::unique_ptr<Product> ConcreteBuilder::GetResult() {
+    // Implementation of returning the built product
+    return std::move(this->_product);
 }

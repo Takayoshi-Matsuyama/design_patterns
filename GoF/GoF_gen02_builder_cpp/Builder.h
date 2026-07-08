@@ -12,24 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteBuilder.h"
-#include "Director.h"
+#ifndef BUILDER_H
+#define BUILDER_H
+
 #include "Product.h"
 
-#include <iostream>
 #include <memory>
 
-int main() {
-    
-    std::cout << "GoF Builder Pattern Example" << std::endl;
+class Builder {
+    public:
+        Builder() = default;
+        virtual ~Builder() = default;
+        virtual void BuildPart() = 0;
+        virtual std::unique_ptr<Product> GetResult() = 0;
+};
 
-    std::unique_ptr<Builder> builder = std::make_unique<ConcreteBuilder>();
-    Director director(builder.get());
-    
-    director.Construct();
-    std::unique_ptr<Product> product = builder->GetResult();
-
-    std::cout << "Product Name: " << product->GetName() << std::endl;
-
-    return 0;
-}
+#endif // BUILDER_H

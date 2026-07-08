@@ -12,24 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteBuilder.h"
-#include "Director.h"
-#include "Product.h"
+#ifndef CONCRETE_BUILDER_H
+#define CONCRETE_BUILDER_H
 
-#include <iostream>
-#include <memory>
+#include "Builder.h"
 
-int main() {
-    
-    std::cout << "GoF Builder Pattern Example" << std::endl;
+class ConcreteBuilder : public Builder {
+    public:
+        ConcreteBuilder() = default;
+        ~ConcreteBuilder() override = default;
+        void BuildPart() override;
+        std::unique_ptr<Product> GetResult() override;
+    private:
+        std::unique_ptr<Product> _product; // The product being built
+};
 
-    std::unique_ptr<Builder> builder = std::make_unique<ConcreteBuilder>();
-    Director director(builder.get());
-    
-    director.Construct();
-    std::unique_ptr<Product> product = builder->GetResult();
-
-    std::cout << "Product Name: " << product->GetName() << std::endl;
-
-    return 0;
-}
+#endif // CONCRETE_BUILDER_H
