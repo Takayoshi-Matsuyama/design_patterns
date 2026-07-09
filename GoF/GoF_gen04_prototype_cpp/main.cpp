@@ -12,12 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "ConcretePrototype1.h"
+#include "ConcretePrototype2.h"
 
 #include <iostream>
 
 int main() {
     
     std::cout << "GoF Prototype Pattern Example" << std::endl;
+
+    ConcretePrototype1 prototype1;
+    prototype1.SetName("Prototype 1");
+    ConcretePrototype1 clone1 = *dynamic_cast<ConcretePrototype1*>(prototype1.Clone().get());
+    std::cout << "Cloned ConcretePrototype1: " << clone1.GetName() << std::endl;
+
+    ConcretePrototype2 prototype2;
+    prototype2.SetValue(42.0);
+    ConcretePrototype2 clone2 = *dynamic_cast<ConcretePrototype2*>(prototype2.Clone().get());
+    std::cout << "Cloned ConcretePrototype2: " << clone2.GetValue() << std::endl;
 
     return 0;
 }
