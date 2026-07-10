@@ -12,19 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Singleton.h"
+#ifndef SINGLETON_H
+#define SINGLETON_H
 
-#include <iostream>
+class Singleton {
+    public:
+        static Singleton& GetInstance() {
+            static Singleton instance; // Guaranteed to be destroyed and instantiated on first use.
+            return instance;
+        }
 
-int main() {
-    
-    std::cout << "GoF Singleton Pattern Example" << std::endl;
+    private:
+        Singleton() {} // Private constructor
+        ~Singleton() {} // Private destructor
+        Singleton(const Singleton&) = delete; // Prevent copy-construction
+        Singleton& operator=(const Singleton&) = delete; // Prevent assignment
+};
 
-    Singleton& singleton1 = Singleton::GetInstance();
-    Singleton& singleton2 = Singleton::GetInstance();
-
-    std::cout << "singleton1 address: " << &singleton1 << std::endl;
-    std::cout << "singleton2 address: " << &singleton2 << std::endl;
-
-    return 0;
-}
+#endif // SINGLETON_H
