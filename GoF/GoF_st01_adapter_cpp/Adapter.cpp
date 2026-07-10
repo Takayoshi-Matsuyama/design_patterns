@@ -13,17 +13,10 @@
 // limitations under the License.
 
 #include "Adapter.h"
-#include "Adaptee.h"
 
-#include <memory>
 #include <iostream>
 
-int main() {
-    std::unique_ptr<Adaptee> adaptee = std::make_unique<Adaptee>();
-    Adapter adapter(std::move(adaptee));
-
-    std::cout << "GoF Adapter Pattern Example" << std::endl;
-    adapter.Request();
-
-    return 0;
+void Adapter::Request() {
+    std::string result = adaptee->specificRequest();
+    std::cout << "Adapter: Request() -> " << result << std::endl;
 }
