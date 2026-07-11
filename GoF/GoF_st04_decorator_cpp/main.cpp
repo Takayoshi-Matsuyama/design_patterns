@@ -12,12 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "ConcreteComponent.h"
+#include "ConcreteDecoratorA.h"
+#include "ConcreteDecoratorB.h"
 
 #include <iostream>
+
+#include <memory>
 
 int main() {
     
     std::cout << "GoF Decorator Pattern Example" << std::endl;
+
+    std::unique_ptr<Component> component = std::make_unique<ConcreteComponent>();
+    std::unique_ptr<Component> decoratorA = std::make_unique<ConcreteDecoratorA>(component.get());
+    std::unique_ptr<Component> decoratorB = std::make_unique<ConcreteDecoratorB>(decoratorA.get());
+
+    std::cout << "Calling Operation on ConcreteComponent:" << std::endl;
+    component->Operation();
+
+    std::cout << "Calling Operation on ConcreteDecoratorA:" << std::endl;
+    decoratorA->Operation();
+
+    std::cout << "Calling Operation on ConcreteDecoratorB:" << std::endl;
+    decoratorB->Operation();
 
     return 0;
 }
