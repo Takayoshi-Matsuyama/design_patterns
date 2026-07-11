@@ -13,23 +13,9 @@
 // limitations under the License.
 
 #include "ConcreteImplementorA.h"
-#include "ConcreteImplementorB.h"
-
-#include "RefinedAbstraction.h"
 
 #include <iostream>
 
-int main() {
-    
-    std::cout << "GoF Bridge Pattern Example" << std::endl;
-
-    ConcreteImplementorA implementorA;
-    RefinedAbstraction abstractionA(std::make_shared<ConcreteImplementorA>(implementorA));
-    abstractionA.Operation();
-
-    ConcreteImplementorB implementorB;
-    RefinedAbstraction abstractionB(std::make_shared<ConcreteImplementorB>(implementorB));
-    abstractionB.Operation();
-
-    return 0;
+void ConcreteImplementorA::OperationImpl() {
+    std::cout << "ConcreteImplementorA: OperationImpl called." << std::endl;
 }

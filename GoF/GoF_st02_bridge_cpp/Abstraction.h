@@ -12,24 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteImplementorA.h"
-#include "ConcreteImplementorB.h"
+#ifndef ABSTRACTION_H
+#define ABSTRACTION_H
 
-#include "RefinedAbstraction.h"
+#include "Implementor.h"
 
-#include <iostream>
+#include <memory>
 
-int main() {
-    
-    std::cout << "GoF Bridge Pattern Example" << std::endl;
+class Abstraction {
+    public:
+        Abstraction(std::shared_ptr<Implementor> impl) : impl(std::move(impl)) {}
+        virtual ~Abstraction() = default;
+        virtual void Operation() = 0;
+    protected:
+        std::shared_ptr<Implementor> impl;
+};
 
-    ConcreteImplementorA implementorA;
-    RefinedAbstraction abstractionA(std::make_shared<ConcreteImplementorA>(implementorA));
-    abstractionA.Operation();
-
-    ConcreteImplementorB implementorB;
-    RefinedAbstraction abstractionB(std::make_shared<ConcreteImplementorB>(implementorB));
-    abstractionB.Operation();
-
-    return 0;
-}
+#endif // ABSTRACTION_H
