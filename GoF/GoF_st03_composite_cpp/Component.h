@@ -12,21 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Composite.h"
-#include "Leaf.h"
+#ifndef COMPONENT_H
+#define COMPONENT_H
 
-#include <iostream>
+#include <memory>
 
-int main() {
-    std::cout << "GoF Composite Pattern Example" << std::endl;
+class Component {
+    public:
+        virtual ~Component() = default;
+        virtual void Operation() = 0;
+        virtual void Add(std::shared_ptr<Component> component) {}
+        virtual void Remove(std::shared_ptr<Component> component) {}
+        virtual std::shared_ptr<Component> GetChild(int index) { return nullptr; }
+};
 
-    std::shared_ptr<Component> leaf1 = std::make_shared<Leaf>();
-    std::shared_ptr<Component> leaf2 = std::make_shared<Leaf>();
-    std::shared_ptr<Component> composite = std::make_shared<Composite>();
-    composite->Add(leaf1);
-    composite->Add(leaf2);
-
-    composite->Operation();
-
-    return 0;
-}
+#endif // COMPONENT_H

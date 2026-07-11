@@ -12,21 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Composite.h"
 #include "Leaf.h"
 
 #include <iostream>
 
-int main() {
-    std::cout << "GoF Composite Pattern Example" << std::endl;
-
-    std::shared_ptr<Component> leaf1 = std::make_shared<Leaf>();
-    std::shared_ptr<Component> leaf2 = std::make_shared<Leaf>();
-    std::shared_ptr<Component> composite = std::make_shared<Composite>();
-    composite->Add(leaf1);
-    composite->Add(leaf2);
-
-    composite->Operation();
-
-    return 0;
+void Leaf::Operation() {
+    std::cout << "Leaf Operation" << std::endl;
 }
