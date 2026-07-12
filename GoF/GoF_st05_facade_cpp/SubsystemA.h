@@ -12,16 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Facade.h"
+#ifndef SUBSYSTEM_A_H
+#define SUBSYSTEM_A_H
 
-#include <iostream>
+#include <string>
 
-int main() {
-    
-    std::cout << "GoF Facade Pattern Example" << std::endl;
+class SubsystemA {
+    public:
+        std::string OperationA();
+};
 
-    Facade facade;
-    std::cout << facade.Operation() << std::endl;
-
-    return 0;
-}
+#endif // SUBSYSTEM_A_H

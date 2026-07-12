@@ -13,15 +13,23 @@
 // limitations under the License.
 
 #include "Facade.h"
+#include "SubsystemA.h"
+#include "SubsystemB.h"
+#include "SubsystemC.h"
 
-#include <iostream>
+#include <string>
+#include <memory>
 
-int main() {
-    
-    std::cout << "GoF Facade Pattern Example" << std::endl;
+Facade::Facade() : subsystemA(std::make_unique<SubsystemA>()),
+                   subsystemB(std::make_unique<SubsystemB>()),
+                   subsystemC(std::make_unique<SubsystemC>()) {}
 
-    Facade facade;
-    std::cout << facade.Operation() << std::endl;
-
-    return 0;
+std::string Facade::Operation() {
+    std::string result;
+    result += subsystemA->OperationA();
+    result += " ";
+    result += subsystemB->OperationB();
+    result += " ";
+    result += subsystemC->OperationC();
+    return result;
 }
