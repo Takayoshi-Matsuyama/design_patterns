@@ -12,12 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "Flyweight.h"
+#include "FlyweightFactory.h"
 
 #include <iostream>
+#include <memory>
 
 int main() {
-    
     std::cout << "GoF Flyweight Pattern Example" << std::endl;
 
+    FlyweightFactory factory;
+
+    std::shared_ptr<Flyweight> flyweight1 = factory.GetFlyweight(1);
+    std::shared_ptr<Flyweight> flyweight2A = factory.GetFlyweight(2);
+    std::shared_ptr<Flyweight> flyweight2B = factory.GetFlyweight(2);
+    std::shared_ptr<Flyweight> unsharedFlyweight = factory.GetUnsharedFlyweight(3);
+
+    flyweight1->Operation(10);
+    flyweight2A->Operation(20);
+    flyweight2B->Operation(30);
+    unsharedFlyweight->Operation(40);
+
+    std::cout << "flyweight2A and flyweight2B are " << (flyweight2A == flyweight2B ? "the same instance" : "different instances") << std::endl;
+    std::cout << "flyweight2A address: " << flyweight2A.get() << std::endl;
+    std::cout << "flyweight2B address: " << flyweight2B.get() << std::endl;
+    
     return 0;
 }
