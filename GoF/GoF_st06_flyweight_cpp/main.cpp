@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Flyweight.h"
-#include "FlyweightFactory.h"
+#include "flyweight.h"
+#include "flyweight_factory.h"
 
 #include <iostream>
 #include <memory>

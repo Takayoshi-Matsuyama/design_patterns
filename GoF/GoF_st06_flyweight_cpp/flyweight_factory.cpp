@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "FlyweightFactory.h"
-#include "ConcreteFlyweight.h"
-#include "UnsharedConcreteFlyweight.h"
+#include "flyweight_factory.h"
+#include "concrete_flyweight.h"
+#include "unshared_concrete_flyweight.h"
 
 std::shared_ptr<Flyweight> FlyweightFactory::GetFlyweight(int key) {
     auto it = this->_flyweights.find(key);

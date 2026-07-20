@@ -12,16 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef UNSHARED_CONCRETE_FLYWEIGHT_H
-#define UNSHARED_CONCRETE_FLYWEIGHT_H
+#ifndef FLYWEIGHT_FACTORY_H
+#define FLYWEIGHT_FACTORY_H
 
-#include "Flyweight.h"
+#include "flyweight.h"
+#include <map>
+#include <memory>
 
-class UnsharedConcreteFlyweight : public Flyweight {
+class FlyweightFactory {
     public:
-        void Operation(int extrinsicState) override;
+        std::shared_ptr<Flyweight> GetFlyweight(int key);
+        std::shared_ptr<Flyweight> GetUnsharedFlyweight(int key);
     private:
-        int _intrinsicState;
+        std::map<int, std::shared_ptr<Flyweight>> _flyweights;
 };
 
-#endif // UNSHARED_CONCRETE_FLYWEIGHT_H
+#endif // FLYWEIGHT_FACTORY_H

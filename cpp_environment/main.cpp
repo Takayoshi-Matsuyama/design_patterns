@@ -12,16 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_FLYWEIGHT_H
-#define CONCRETE_FLYWEIGHT_H
+#include <iostream>
 
-#include "Flyweight.h"
-
-class ConcreteFlyweight : public Flyweight {
-    public:
-        void Operation(int extrinsicState) override;
-    private:
-        int _intrinsicState;
-};
-
-#endif // CONCRETE_FLYWEIGHT_H
+int main() {
+    std::cout << "C++ Environment" << std::endl;
+    std::cout << "C++ language standard version: " << __cplusplus << std::endl;
+    return 0;
+}

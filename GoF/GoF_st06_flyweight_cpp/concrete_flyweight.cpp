@@ -12,10 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "UnsharedConcreteFlyweight.h"
+#include "concrete_flyweight.h"
 
 #include <iostream>
 
-void UnsharedConcreteFlyweight::Operation(int extrinsicState) {
-    std::cout << "UnsharedConcreteFlyweight: Operation with extrinsic state " << extrinsicState << std::endl;
+void ConcreteFlyweight::Operation(int extrinsicState) {
+    std::cout << "ConcreteFlyweight: Operation with extrinsic state " << extrinsicState << std::endl;
 }
+
