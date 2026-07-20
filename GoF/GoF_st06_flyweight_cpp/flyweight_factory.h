@@ -20,6 +20,7 @@
 #include <map>
 #include <memory>
 
+// Creates concrete Flyweight objects and manages their storage and sharing.
 class FlyweightFactory {
  public:
   std::shared_ptr<Flyweight> GetFlyweight(int key);

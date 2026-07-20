@@ -15,6 +15,7 @@
 #ifndef FLYWEIGHT_H
 #define FLYWEIGHT_H
 
+// Represents a Flyweight interface
 class Flyweight {
  public:
   virtual ~Flyweight() = default;

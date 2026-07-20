@@ -17,6 +17,7 @@
 
 #include "flyweight.h"
 
+// Represents a concrete flyweight.
 class ConcreteFlyweight : public Flyweight {
  public:
   void Operation(int extrinsic_state) override;
