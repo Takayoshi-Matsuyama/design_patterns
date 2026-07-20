@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "flyweight_factory.h"
+
 #include "concrete_flyweight.h"
 #include "unshared_concrete_flyweight.h"
 

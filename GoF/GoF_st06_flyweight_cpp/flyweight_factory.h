@@ -16,6 +16,7 @@
 #define FLYWEIGHT_FACTORY_H
 
 #include "flyweight.h"
+
 #include <map>
 #include <memory>
 
