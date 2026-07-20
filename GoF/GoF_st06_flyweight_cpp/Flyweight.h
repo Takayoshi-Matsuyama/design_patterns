@@ -16,9 +16,9 @@
 #define FLYWEIGHT_H
 
 class Flyweight {
-    public:
-        virtual ~Flyweight() = default;
-        virtual void Operation(int extrinsicState) = 0;
+ public:
+  virtual ~Flyweight() = default;
+  virtual void Operation(int extrinsic_state) = 0;
 };
 
 #endif // FLYWEIGHT_H

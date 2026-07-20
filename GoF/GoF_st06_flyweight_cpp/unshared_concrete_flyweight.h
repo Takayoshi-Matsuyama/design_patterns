@@ -19,9 +19,9 @@
 
 class UnsharedConcreteFlyweight : public Flyweight {
     public:
-        void Operation(int extrinsicState) override;
+        void Operation(int extrinsic_state) override;
     private:
-        int _intrinsicState;
+        int intrinsic_state_;
 };
 
 #endif // UNSHARED_CONCRETE_FLYWEIGHT_H

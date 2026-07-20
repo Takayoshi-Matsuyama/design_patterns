@@ -19,23 +19,23 @@
 #include <memory>
 
 int main() {
-    std::cout << "GoF Flyweight Pattern Example" << std::endl;
+  std::cout << "GoF Flyweight Pattern Example" << std::endl;
 
-    FlyweightFactory factory;
+  FlyweightFactory factory;
 
-    std::shared_ptr<Flyweight> flyweight1 = factory.GetFlyweight(1);
-    std::shared_ptr<Flyweight> flyweight2A = factory.GetFlyweight(2);
-    std::shared_ptr<Flyweight> flyweight2B = factory.GetFlyweight(2);
-    std::shared_ptr<Flyweight> unsharedFlyweight = factory.GetUnsharedFlyweight(3);
+  std::shared_ptr<Flyweight> flyweight_1 = factory.GetFlyweight(1);
+  std::shared_ptr<Flyweight> flyweight_2a = factory.GetFlyweight(2);
+  std::shared_ptr<Flyweight> flyweight_2b = factory.GetFlyweight(2);
+  std::shared_ptr<Flyweight> unshared_flyweight = factory.GetUnsharedFlyweight(3);
 
-    flyweight1->Operation(10);
-    flyweight2A->Operation(20);
-    flyweight2B->Operation(30);
-    unsharedFlyweight->Operation(40);
+  flyweight_1->Operation(10);
+  flyweight_2a->Operation(20);
+  flyweight_2b->Operation(30);
+  unshared_flyweight->Operation(40);
 
-    std::cout << "flyweight2A and flyweight2B are " << (flyweight2A == flyweight2B ? "the same instance" : "different instances") << std::endl;
-    std::cout << "flyweight2A address: " << flyweight2A.get() << std::endl;
-    std::cout << "flyweight2B address: " << flyweight2B.get() << std::endl;
-    
-    return 0;
+  std::cout << "flyweight_2a and flyweight_2b are " << (flyweight_2a == flyweight_2b ? "the same instance" : "different instances") << std::endl;
+  std::cout << "flyweight_2a address: " << flyweight_2a.get() << std::endl;
+  std::cout << "flyweight_2b address: " << flyweight_2b.get() << std::endl;
+  
+  return 0;
 }

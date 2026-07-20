@@ -16,7 +16,6 @@
 
 #include <iostream>
 
-void ConcreteFlyweight::Operation(int extrinsicState) {
-    std::cout << "ConcreteFlyweight: Operation with extrinsic state " << extrinsicState << std::endl;
+void ConcreteFlyweight::Operation(int extrinsic_state) {
+  std::cout << "ConcreteFlyweight: Operation with extrinsic state " << extrinsic_state << std::endl;
 }
-

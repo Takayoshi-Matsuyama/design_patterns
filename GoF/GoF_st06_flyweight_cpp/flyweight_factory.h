@@ -20,11 +20,11 @@
 #include <memory>
 
 class FlyweightFactory {
-    public:
-        std::shared_ptr<Flyweight> GetFlyweight(int key);
-        std::shared_ptr<Flyweight> GetUnsharedFlyweight(int key);
-    private:
-        std::map<int, std::shared_ptr<Flyweight>> _flyweights;
+ public:
+  std::shared_ptr<Flyweight> GetFlyweight(int key);
+  std::shared_ptr<Flyweight> GetUnsharedFlyweight(int key);
+ private:
+  std::map<int, std::shared_ptr<Flyweight>> flyweights_;
 };
 
 #endif // FLYWEIGHT_FACTORY_H

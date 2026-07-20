@@ -18,10 +18,10 @@
 #include "flyweight.h"
 
 class ConcreteFlyweight : public Flyweight {
-    public:
-        void Operation(int extrinsicState) override;
-    private:
-        int _intrinsicState;
+ public:
+  void Operation(int extrinsic_state) override;
+ private:
+  int intrinsic_state_;
 };
 
 #endif // CONCRETE_FLYWEIGHT_H
