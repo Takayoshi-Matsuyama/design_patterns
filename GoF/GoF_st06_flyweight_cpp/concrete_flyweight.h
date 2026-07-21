@@ -20,8 +20,11 @@
 // Represents a concrete flyweight.
 class ConcreteFlyweight : public Flyweight {
  public:
+  // Implements the Flyweight interface method to perform an operation with extrinsic state.
   void Operation(int extrinsic_state) override;
+
  private:
+  // Intrinsic state of the concrete flyweight.
   int intrinsic_state_;
 };
 

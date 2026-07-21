@@ -17,5 +17,6 @@
 #include <iostream>
 
 void ConcreteFlyweight::Operation(int extrinsic_state) {
-  std::cout << "ConcreteFlyweight: Operation with extrinsic state " << extrinsic_state << std::endl;
+  this->intrinsic_state_ += extrinsic_state;
+  std::cout << "ConcreteFlyweight: Operation with extrinsic state = " << extrinsic_state << " intrinsic state = " << this->intrinsic_state_ << std::endl;
 }

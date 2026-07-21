@@ -18,7 +18,13 @@
 // Represents a Flyweight interface
 class Flyweight {
  public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
   virtual ~Flyweight() = default;
+
+  // Flyweight interface method to perform an operation with extrinsic state.
+  // Pure virtual function to be implemented by concrete flyweight classes.
   virtual void Operation(int extrinsic_state) = 0;
 };
 

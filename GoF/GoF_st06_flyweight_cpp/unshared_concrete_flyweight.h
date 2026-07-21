@@ -19,10 +19,13 @@
 
 // Represents an unshared concrete flyweight.
 class UnsharedConcreteFlyweight : public Flyweight {
-    public:
-        void Operation(int extrinsic_state) override;
-    private:
-        int intrinsic_state_;
+ public:
+  // Implements the Flyweight interface method to perform an operation with extrinsic state.
+  void Operation(int extrinsic_state) override;
+
+ private:
+  // Intrinsic state of the unshared concrete flyweight.
+  int intrinsic_state_;
 };
 
 #endif // UNSHARED_CONCRETE_FLYWEIGHT_H

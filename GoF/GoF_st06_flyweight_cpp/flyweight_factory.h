@@ -23,9 +23,13 @@
 // Creates concrete Flyweight objects and manages their storage and sharing.
 class FlyweightFactory {
  public:
+  // Retrieves a shared Flyweight object based on the provided key.
   std::shared_ptr<Flyweight> GetFlyweight(int key);
+  // Retrieves an unshared Flyweight object based on the provided key.
   std::shared_ptr<Flyweight> GetUnsharedFlyweight(int key);
+
  private:
+  // Stores shared Flyweight objects, allowing for reuse and memory efficiency.
   std::map<int, std::shared_ptr<Flyweight>> flyweights_;
 };
 

@@ -17,5 +17,6 @@
 #include <iostream>
 
 void UnsharedConcreteFlyweight::Operation(int extrinsic_state) {
-  std::cout << "UnsharedConcreteFlyweight: Operation with extrinsic state " << extrinsic_state << std::endl;
+  this->intrinsic_state_ += extrinsic_state;
+  std::cout << "UnsharedConcreteFlyweight: Operation with extrinsic state = " << extrinsic_state << " intrinsic state = " << this->intrinsic_state_<< std::endl;
 }
