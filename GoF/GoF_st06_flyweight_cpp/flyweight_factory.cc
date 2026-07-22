@@ -18,12 +18,12 @@
 #include "unshared_concrete_flyweight.h"
 
 std::shared_ptr<Flyweight> FlyweightFactory::GetFlyweight(int key) {
-  auto it = this->flyweights_.find(key);
-  if (it != this->flyweights_.end()) {
+  auto it = flyweights_.find(key);
+  if (it != flyweights_.end()) {
     return it->second;
   } else {
     auto flyweight = std::make_shared<ConcreteFlyweight>();
-    this->flyweights_[key] = flyweight;
+    flyweights_[key] = flyweight;
     return flyweight;
   }
 }

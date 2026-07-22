@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_FLYWEIGHT_H
-#define CONCRETE_FLYWEIGHT_H
+#ifndef CONCRETE_FLYWEIGHT_H_
+#define CONCRETE_FLYWEIGHT_H_
 
 #include "flyweight.h"
 
@@ -25,7 +25,7 @@ class ConcreteFlyweight : public Flyweight {
 
  private:
   // Intrinsic state of the concrete flyweight.
-  int intrinsic_state_;
+  int intrinsic_state_ = 0;
 };
 
-#endif // CONCRETE_FLYWEIGHT_H
+#endif // CONCRETE_FLYWEIGHT_H_

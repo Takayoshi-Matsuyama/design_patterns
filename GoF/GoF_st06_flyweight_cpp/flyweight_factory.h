@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef FLYWEIGHT_FACTORY_H
-#define FLYWEIGHT_FACTORY_H
+#ifndef FLYWEIGHT_FACTORY_H_
+#define FLYWEIGHT_FACTORY_H_
 
 #include "flyweight.h"
 
@@ -33,4 +33,4 @@ class FlyweightFactory {
   std::map<int, std::shared_ptr<Flyweight>> flyweights_;
 };
 
-#endif // FLYWEIGHT_FACTORY_H
+#endif // FLYWEIGHT_FACTORY_H_

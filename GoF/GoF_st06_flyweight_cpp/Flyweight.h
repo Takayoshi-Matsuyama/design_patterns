@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef FLYWEIGHT_H
-#define FLYWEIGHT_H
+#ifndef FLYWEIGHT_H_
+#define FLYWEIGHT_H_
 
 // Represents a Flyweight interface
 class Flyweight {
@@ -28,4 +28,4 @@ class Flyweight {
   virtual void Operation(int extrinsic_state) = 0;
 };
 
-#endif // FLYWEIGHT_H
+#endif // FLYWEIGHT_H_
