@@ -17,6 +17,8 @@
 
 #include "flyweight.h"
 
+namespace flyweight_pattern {
+
 // Represents an unshared concrete flyweight.
 class UnsharedConcreteFlyweight : public Flyweight {
  public:
@@ -27,5 +29,7 @@ class UnsharedConcreteFlyweight : public Flyweight {
   // Intrinsic state of the unshared concrete flyweight.
   int intrinsic_state_ = 0;
 };
+
+} // namespace flyweight_pattern
 
 #endif // UNSHARED_CONCRETE_FLYWEIGHT_H_

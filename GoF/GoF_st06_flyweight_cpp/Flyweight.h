@@ -15,6 +15,8 @@
 #ifndef FLYWEIGHT_H_
 #define FLYWEIGHT_H_
 
+namespace flyweight_pattern {
+
 // Represents a Flyweight interface
 class Flyweight {
  public:
@@ -27,5 +29,7 @@ class Flyweight {
   // Pure virtual function to be implemented by concrete flyweight classes.
   virtual void Operation(int extrinsic_state) = 0;
 };
+
+} // namespace flyweight_pattern
 
 #endif // FLYWEIGHT_H_

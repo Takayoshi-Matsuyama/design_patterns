@@ -17,6 +17,8 @@
 
 #include "flyweight.h"
 
+namespace flyweight_pattern {
+
 // Represents a concrete flyweight.
 class ConcreteFlyweight : public Flyweight {
  public:
@@ -27,5 +29,7 @@ class ConcreteFlyweight : public Flyweight {
   // Intrinsic state of the concrete flyweight.
   int intrinsic_state_ = 0;
 };
+
+} // namespace flyweight_pattern
 
 #endif // CONCRETE_FLYWEIGHT_H_

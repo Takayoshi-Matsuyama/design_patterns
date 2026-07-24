@@ -17,6 +17,8 @@
 #include "concrete_flyweight.h"
 #include "unshared_concrete_flyweight.h"
 
+namespace flyweight_pattern {
+
 std::shared_ptr<Flyweight> FlyweightFactory::GetFlyweight(int key) {
   auto it = flyweights_.find(key);
   if (it != flyweights_.end()) {
@@ -31,3 +33,5 @@ std::shared_ptr<Flyweight> FlyweightFactory::GetFlyweight(int key) {
 std::shared_ptr<Flyweight> FlyweightFactory::GetUnsharedFlyweight(int key) {
   return std::make_shared<UnsharedConcreteFlyweight>();
 }
+
+} // namespace flyweight_pattern

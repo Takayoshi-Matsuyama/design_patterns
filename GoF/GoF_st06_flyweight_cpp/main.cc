@@ -21,12 +21,12 @@
 int main() {
   std::cout << "GoF Flyweight Pattern Example" << std::endl;
 
-  FlyweightFactory factory;
+  flyweight_pattern::FlyweightFactory factory;
 
-  std::shared_ptr<Flyweight> flyweight_1 = factory.GetFlyweight(1);
-  std::shared_ptr<Flyweight> flyweight_2a = factory.GetFlyweight(2);
-  std::shared_ptr<Flyweight> flyweight_2b = factory.GetFlyweight(2);
-  std::shared_ptr<Flyweight> unshared_flyweight = factory.GetUnsharedFlyweight(3);
+  std::shared_ptr<flyweight_pattern::Flyweight> flyweight_1 = factory.GetFlyweight(1);
+  std::shared_ptr<flyweight_pattern::Flyweight> flyweight_2a = factory.GetFlyweight(2);
+  std::shared_ptr<flyweight_pattern::Flyweight> flyweight_2b = factory.GetFlyweight(2);
+  std::shared_ptr<flyweight_pattern::Flyweight> unshared_flyweight = factory.GetUnsharedFlyweight(3);
 
   flyweight_1->Operation(10);
   flyweight_2a->Operation(20);

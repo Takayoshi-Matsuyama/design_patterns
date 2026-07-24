@@ -20,6 +20,8 @@
 #include <map>
 #include <memory>
 
+namespace flyweight_pattern {
+
 // Creates concrete Flyweight objects and manages their storage and sharing.
 class FlyweightFactory {
  public:
@@ -32,5 +34,7 @@ class FlyweightFactory {
   // Stores shared Flyweight objects, allowing for reuse and memory efficiency.
   std::map<int, std::shared_ptr<Flyweight>> flyweights_;
 };
+
+} // namespace flyweight_pattern
 
 #endif // FLYWEIGHT_FACTORY_H_
