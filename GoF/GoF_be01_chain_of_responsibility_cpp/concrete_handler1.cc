@@ -19,7 +19,7 @@
 
 namespace res_chain {
 
-ConcreteHandler1::ConcreteHandler1(std::shared_ptr<Handler> successor) : successor_(successor) {
+ConcreteHandler1::ConcreteHandler1(std::shared_ptr<Handler> successor) : successor_(std::move(successor)) {
   // None
 }
 

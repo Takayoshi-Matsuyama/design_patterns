@@ -25,13 +25,17 @@ namespace res_chain {
 class ConcreteHandler1 : public Handler {
  public:
   // Constructs a ConcreteHandler1 with an optional successor handler.
-  ConcreteHandler1(std::shared_ptr<Handler> successor = nullptr);
+  // Apply "explicit" to prevent implicit conversions
+  // and ensure that the constructor is called with a shared_ptr<Handler> argument.
+  explicit ConcreteHandler1(std::shared_ptr<Handler> successor = nullptr);
 
   // Handles the request based on the error level.
   void HandleRequest(const ErrorEvent& event) override;
 
  private:
   // Pointer to the next handler in the chain.
+  // Note: The successor object can be used in multiple handlers,
+  //       so we use std::shared_ptr to manage its lifetime.
   std::shared_ptr<Handler> successor_;
 };
 
