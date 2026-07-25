@@ -12,15 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef HANDLER_H
-#define HANDLER_H
+#ifndef HANDLER_H_
+#define HANDLER_H_
 
-#include "ErrorEvent.h"
+#include "error_event.h"
 
+namespace res_chain {
+
+// Abstract base class for handlers in the Chain of Responsibility pattern.
 class Handler {
-public:
-    virtual ~Handler() = default;  // Virtual destructor for proper cleanup
-    virtual void HandleRequest(const ErrorEvent& event) = 0;  // Pure virtual function to handle the request
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+	virtual ~Handler() = default;
+
+	// Pure virtual function to handle the request
+	virtual void HandleRequest(const ErrorEvent& event) = 0;
 };
 
-#endif // HANDLER_H
+} // namespace res_chain
+
+#endif // HANDLER_H_

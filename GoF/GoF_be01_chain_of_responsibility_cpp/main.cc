@@ -12,26 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Handler.h"
-#include "ConcreteHandler1.h"
-#include "ConcreteHandler2.h"
+#include "concrete_handler1.h"
+#include "concrete_handler2.h"
 
 #include <iostream>
 #include <memory>
 
 int main() {
-    std::cout << "GoF Chain of Responsibility Pattern Example" << std::endl;
+  std::cout << "GoF Chain of Responsibility Pattern Example" << std::endl;
 
-    // Create handlers
-    std::shared_ptr<ConcreteHandler2> handler2 = std::make_shared<ConcreteHandler2>();  // No successor for handler2
-    ConcreteHandler1 handler1(handler2);  // handler2 is the successor of handler1
+  // Create handlers
 
-    // Start the chain of responsibility
-    ErrorEvent event1{1, "Low level error occurred."};
-    handler1.HandleRequest(event1);
+  // handler2 has no successor.
+  std::shared_ptr<res_chain::ConcreteHandler2> handler2 =
+    std::make_shared<res_chain::ConcreteHandler2>();
 
-    ErrorEvent event2{2, "High level error occurred."};
-    handler1.HandleRequest(event2);
+  // handler1 has the successor handler2
+  std::shared_ptr<res_chain::ConcreteHandler1> handler1 =
+    std::make_shared<res_chain::ConcreteHandler1>(handler2);
 
-    return 0;
+  // Start the chain of responsibility
+  
+  res_chain::ErrorEvent event1{1, "Low level error occurred."};
+  handler1->HandleRequest(event1);
+
+  res_chain::ErrorEvent event2{2, "High level error occurred."};
+  handler1->HandleRequest(event2);
+
+  return 0;
 }

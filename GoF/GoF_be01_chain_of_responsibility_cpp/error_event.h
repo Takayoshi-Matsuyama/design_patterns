@@ -12,14 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ERROR_EVENT_H
-#define ERROR_EVENT_H
+#ifndef ERROR_EVENT_H_
+#define ERROR_EVENT_H_
 
 #include <string>
 
+namespace res_chain {
+
+// Represents an error event with a severity level and a message.
 struct ErrorEvent {
-    int errorLevel;  // Error severity level (1 for low, 2 for high)
-    std::string errorMessage;  // Description of the error
+  // Error severity level (1 for low, 2 for high)
+  int error_level;
+
+  // Description of the error
+  std::string error_message;
 };
 
-#endif // ERROR_EVENT_H
+} // namespace res_chain
+
+#endif // ERROR_EVENT_H_

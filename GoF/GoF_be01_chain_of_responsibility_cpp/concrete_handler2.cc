@@ -12,22 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteHandler2.h"
+#include "concrete_handler2.h"
 
 #include <iostream>
 #include <memory>
 
-ConcreteHandler2::ConcreteHandler2(std::shared_ptr<Handler> successor) : successor(std::move(successor)) {
-    // Constructor to initialize the successor handler
+namespace res_chain {
+
+ConcreteHandler2::ConcreteHandler2(std::shared_ptr<Handler> successor) : successor_(std::move(successor)) {
+  // None
 }
 
 void ConcreteHandler2::HandleRequest(const ErrorEvent& event) {
-    std::cout << "ConcreteHandler2 handling request." << std::endl;
-    if (event.errorLevel == 2) {
-        std::cout << "ConcreteHandler2: Handled high level error: " << event.errorMessage << std::endl;
-    } else if (successor) {
-        successor->HandleRequest(event);
-    } else {
-        std::cout << "ConcreteHandler2: No handler available for error: " << event.errorMessage << std::endl;
-    }
+  std::cout << "ConcreteHandler2 handling request." << std::endl;
+  if (event.error_level == 2) {
+    std::cout << "ConcreteHandler2: Handled high level error: " << event.error_message << std::endl;
+  } else if (successor_) {
+    successor_->HandleRequest(event);
+  } else {
+    std::cout << "ConcreteHandler2: No handler available for error: " << event.error_message << std::endl;
+  }
 }
+
+} // namespace res_chain

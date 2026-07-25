@@ -12,19 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_HANDLER1_H
-#define CONCRETE_HANDLER1_H
+#ifndef CONCRETE_HANDLER1_H_
+#define CONCRETE_HANDLER1_H_
 
-#include "Handler.h"
+#include "handler.h"
 
 #include <memory>
 
+namespace res_chain {
+
+// Represents a concrete handler in the Chain of Responsibility pattern.
 class ConcreteHandler1 : public Handler {
-private:
-    std::shared_ptr<Handler> successor;  // Pointer to the next handler in the chain
-public:
-    ConcreteHandler1(std::shared_ptr<Handler> successor = nullptr);
-    void HandleRequest(const ErrorEvent& event) override;
+ public:
+  // Constructs a ConcreteHandler1 with an optional successor handler.
+  ConcreteHandler1(std::shared_ptr<Handler> successor = nullptr);
+
+  // Handles the request based on the error level.
+  void HandleRequest(const ErrorEvent& event) override;
+
+ private:
+  // Pointer to the next handler in the chain.
+  std::shared_ptr<Handler> successor_;
 };
 
-#endif // CONCRETE_HANDLER1_H
+} // namespace res_chain
+
+#endif // CONCRETE_HANDLER1_H_
