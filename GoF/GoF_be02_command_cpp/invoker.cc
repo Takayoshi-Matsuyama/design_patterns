@@ -38,4 +38,4 @@ void Invoker::ExecuteCommand() {
   }
 }
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn

@@ -19,13 +19,21 @@
 
 namespace cmd_ptn {
 
+// Represents the Command interface in the Command design pattern.
 class Command {
  public:
-  virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
+  // Virtual destructor for proper cleanup of derived classes.
+  // This ensures that when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Command() = default;
+
+  // Executes the command.
   virtual void Execute() = 0;
+
+  // Returns the name of the command.
   virtual std::string GetName() = 0;
 };
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn
 
 #endif // COMMAND_H_

@@ -23,19 +23,27 @@
 
 namespace cmd_ptn {
 
+// Represents a concrete implementation of the Command interface.
 class ConcreteCommand : public Command {
  public:
+  // Constructs a ConcreteCommand with a name and a reference to a Receiver.
   ConcreteCommand(const std::string& name, Receiver& receiver) : name_(name), receiver_(receiver) {}
+
+  // Executes the command by invoking the action on the receiver.
   void Execute() override;
+
+  // Returns the name of the command.
   std::string GetName() override;
 
  private:
+  // Name of the command.
   std::string name_;
 
-  // Long living object should be kept as a reference to avoid unnecessary copying
+  // Reference to the receiver that will perform the action.
+  // Long living object should be kept as a reference to avoid unnecessary copying.
   Receiver& receiver_;
 };
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn
 
 #endif // CONCRETE_COMMAND_H_

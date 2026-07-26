@@ -22,16 +22,23 @@
 
 namespace cmd_ptn {
 
+// Represents the Invoker in the Command design pattern.
 class Invoker {
  public:
+  // Constructs an Invoker with an empty command queue.
   Invoker();
+
+  // Sets a new command to be executed. The command is added to the queue.
   void SetCommand(std::unique_ptr<Command> new_cmd);
+
+  // Executes the command at the front of the queue and removes it from the queue.
   void ExecuteCommand();
 
  private:
+  // Queue to hold commands to be executed.
   std::queue<std::unique_ptr<Command>> cmd_queue_;
 };
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn
 
 #endif // INVOKER_H_

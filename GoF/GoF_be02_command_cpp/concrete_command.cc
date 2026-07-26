@@ -24,4 +24,4 @@ std::string ConcreteCommand::GetName() {
   return name_;
 }
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn

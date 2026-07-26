@@ -19,9 +19,9 @@
 namespace cmd_ptn {
 
 void Receiver::Action() {
-  // Implementation of the action to be performed by the receiver
-  // For demonstration purposes, we can print a message
+  // Implementation of the action to be performed by the receiver.
+  // For demonstration purposes, we can print a message.
   std::cout << "Receiver: Action executed." << std::endl;
 }
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn

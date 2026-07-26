@@ -17,11 +17,13 @@
 
 namespace cmd_ptn {
 
+// Represents the Receiver in the Command design pattern.
 class Receiver {
  public:
+  // Performs the action associated with the command.
   void Action();
 };
 
-}  // namespace cmd_ptn
+} // namespace cmd_ptn
 
 #endif // RECEIVER_H_
