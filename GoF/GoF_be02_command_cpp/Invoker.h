@@ -12,21 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef INVOKER_H
-#define INVOKER_H
+#ifndef INVOKER_H_
+#define INVOKER_H_
 
-#include "Command.h"
+#include "command.h"
 
 #include <memory>
 #include <queue>
 
 class Invoker {
-public:
-    Invoker();
-    void SetCommand(std::unique_ptr<Command> newCommand);
-    void ExecuteCommand();
-private:
-    std::queue<std::unique_ptr<Command>> commandQueue;
+ public:
+  Invoker();
+  void SetCommand(std::unique_ptr<Command> newCommand);
+  void ExecuteCommand();
+ private:
+  std::queue<std::unique_ptr<Command>> commandQueue;
 };
 
-#endif // INVOKER_H
+#endif // INVOKER_H_

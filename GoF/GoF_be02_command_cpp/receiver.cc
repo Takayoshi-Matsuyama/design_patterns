@@ -12,22 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Receiver.h"
-#include "ConcreteCommand.h"
-#include "Invoker.h"
+#include "receiver.h"
 
 #include <iostream>
-#include <memory>
 
-int main() {
-    Receiver receiver;
-    std::unique_ptr<Command> command1 = std::make_unique<ConcreteCommand>("Command1", receiver);
-    std::unique_ptr<Command> command2 = std::make_unique<ConcreteCommand>("Command2", receiver);
-    
-    Invoker invoker;
-    invoker.SetCommand(std::move(command1));
-    invoker.SetCommand(std::move(command2));
-    invoker.ExecuteCommand();
-    invoker.ExecuteCommand();
-    return 0;
+void Receiver::Action() {
+  // Implementation of the action to be performed by the receiver
+  // For demonstration purposes, we can print a message
+  std::cout << "Receiver: Action executed." << std::endl;
 }

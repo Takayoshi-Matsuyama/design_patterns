@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef COMMAND_H
-#define COMMAND_H
+#ifndef COMMAND_H_
+#define COMMAND_H_
 
 #include <string>
 
 class Command {
-    public:
-        virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
-        virtual void Execute() = 0;
-        virtual std::string GetName() = 0;
+ public:
+  virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
+  virtual void Execute() = 0;
+  virtual std::string GetName() = 0;
 };
 
-#endif // COMMAND_H
+#endif // COMMAND_H_

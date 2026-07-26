@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef RECEIVER_H
-#define RECEIVER_H
+#ifndef RECEIVER_H_
+#define RECEIVER_H_
 
 class Receiver {
-    public:
-        void Action();
+ public:
+  void Action();
 };
 
-#endif // RECEIVER_H
+#endif // RECEIVER_H_

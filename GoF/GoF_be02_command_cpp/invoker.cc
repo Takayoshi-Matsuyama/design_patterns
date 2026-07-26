@@ -12,27 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Invoker.h"
+#include "invoker.h"
 
 #include <iostream>
 
 Invoker::Invoker() {
-    this->commandQueue = std::queue<std::unique_ptr<Command>>();
+  this->commandQueue = std::queue<std::unique_ptr<Command>>();
 }
 
 void Invoker::SetCommand(std::unique_ptr<Command> newCommand) {
-    this->commandQueue.push(std::move(newCommand));
+  this->commandQueue.push(std::move(newCommand));
 
-    std::cout << "Queue size: " << this->commandQueue.size() << std::endl;
+  std::cout << "Queue size: " << this->commandQueue.size() << std::endl;
 }
 
 void Invoker::ExecuteCommand() {
+  if (!this->commandQueue.empty()) {
+    std::cout << "Executing " << this->commandQueue.front()->GetName() << " ..." << std::endl;
+    this->commandQueue.front()->Execute();
+    this->commandQueue.pop();
 
-    if (!this->commandQueue.empty()) {
-        std::cout << "Executing " << this->commandQueue.front()->GetName() << " ..." << std::endl;
-        this->commandQueue.front()->Execute();
-        this->commandQueue.pop();
-
-        std::cout << "Remaining queue size: " << this->commandQueue.size() << std::endl;
-    }
+    std::cout << "Remaining queue size: " << this->commandQueue.size() << std::endl;
+  }
 }

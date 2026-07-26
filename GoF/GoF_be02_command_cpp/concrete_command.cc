@@ -12,25 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_COMMAND_H
-#define CONCRETE_COMMAND_H
+#include "concrete_command.h"
 
-#include "Command.h"
-#include "Receiver.h"
+void ConcreteCommand::Execute() {
+  this->receiver.Action();
+}
 
-#include <memory>
-#include <string>
-
-class ConcreteCommand : public Command {
-    public:
-        ConcreteCommand(const std::string& name, Receiver& receiver) : receiver(receiver) {
-            this->name = name;
-        }
-        void Execute() override;
-        std::string GetName() override;
-    private:
-        std::string name;
-        Receiver& receiver;  // Long living object should be kept as a reference to avoid unnecessary copying
-};
-
-#endif // CONCRETE_COMMAND_H
+std::string ConcreteCommand::GetName() {
+  return this->name;
+}
