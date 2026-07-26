@@ -20,11 +20,11 @@
 #include <memory>
 
 int main() {
-  Receiver receiver;
-  std::unique_ptr<Command> command1 = std::make_unique<ConcreteCommand>("Command1", receiver);
-  std::unique_ptr<Command> command2 = std::make_unique<ConcreteCommand>("Command2", receiver);
+  cmd_ptn::Receiver receiver;
+  std::unique_ptr<cmd_ptn::Command> command1 = std::make_unique<cmd_ptn::ConcreteCommand>("Command1", receiver);
+  std::unique_ptr<cmd_ptn::Command> command2 = std::make_unique<cmd_ptn::ConcreteCommand>("Command2", receiver);
   
-  Invoker invoker;
+  cmd_ptn::Invoker invoker;
   invoker.SetCommand(std::move(command1));
   invoker.SetCommand(std::move(command2));
   invoker.ExecuteCommand();

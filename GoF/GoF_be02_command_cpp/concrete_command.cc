@@ -14,10 +14,14 @@
 
 #include "concrete_command.h"
 
+namespace cmd_ptn {
+
 void ConcreteCommand::Execute() {
-  this->receiver.Action();
+  receiver_.Action();
 }
 
 std::string ConcreteCommand::GetName() {
-  return this->name;
+  return name_;
 }
+
+}  // namespace cmd_ptn

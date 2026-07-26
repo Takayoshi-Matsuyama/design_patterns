@@ -16,22 +16,26 @@
 
 #include <iostream>
 
+namespace cmd_ptn {
+
 Invoker::Invoker() {
-  this->commandQueue = std::queue<std::unique_ptr<Command>>();
+  this->cmd_queue_ = std::queue<std::unique_ptr<Command>>();
 }
 
-void Invoker::SetCommand(std::unique_ptr<Command> newCommand) {
-  this->commandQueue.push(std::move(newCommand));
+void Invoker::SetCommand(std::unique_ptr<Command> new_cmd) {
+  this->cmd_queue_.push(std::move(new_cmd));
 
-  std::cout << "Queue size: " << this->commandQueue.size() << std::endl;
+  std::cout << "Queue size: " << this->cmd_queue_.size() << std::endl;
 }
 
 void Invoker::ExecuteCommand() {
-  if (!this->commandQueue.empty()) {
-    std::cout << "Executing " << this->commandQueue.front()->GetName() << " ..." << std::endl;
-    this->commandQueue.front()->Execute();
-    this->commandQueue.pop();
+  if (!this->cmd_queue_.empty()) {
+    std::cout << "Executing " << cmd_queue_.front()->GetName() << " ..." << std::endl;
+    cmd_queue_.front()->Execute();
+    cmd_queue_.pop();
 
-    std::cout << "Remaining queue size: " << this->commandQueue.size() << std::endl;
+    std::cout << "Remaining queue size: " << cmd_queue_.size() << std::endl;
   }
 }
+
+}  // namespace cmd_ptn

@@ -20,13 +20,18 @@
 #include <memory>
 #include <queue>
 
+namespace cmd_ptn {
+
 class Invoker {
  public:
   Invoker();
-  void SetCommand(std::unique_ptr<Command> newCommand);
+  void SetCommand(std::unique_ptr<Command> new_cmd);
   void ExecuteCommand();
+
  private:
-  std::queue<std::unique_ptr<Command>> commandQueue;
+  std::queue<std::unique_ptr<Command>> cmd_queue_;
 };
+
+}  // namespace cmd_ptn
 
 #endif // INVOKER_H_

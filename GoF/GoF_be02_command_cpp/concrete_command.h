@@ -21,16 +21,21 @@
 #include <memory>
 #include <string>
 
+namespace cmd_ptn {
+
 class ConcreteCommand : public Command {
  public:
-  ConcreteCommand(const std::string& name, Receiver& receiver) : receiver(receiver) {
-      this->name = name;
-  }
+  ConcreteCommand(const std::string& name, Receiver& receiver) : name_(name), receiver_(receiver) {}
   void Execute() override;
   std::string GetName() override;
+
  private:
-  std::string name;
-  Receiver& receiver;  // Long living object should be kept as a reference to avoid unnecessary copying
+  std::string name_;
+
+  // Long living object should be kept as a reference to avoid unnecessary copying
+  Receiver& receiver_;
 };
+
+}  // namespace cmd_ptn
 
 #endif // CONCRETE_COMMAND_H_

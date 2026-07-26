@@ -17,11 +17,15 @@
 
 #include <string>
 
+namespace cmd_ptn {
+
 class Command {
  public:
   virtual ~Command() = default;  // Virtual destructor for proper cleanup of derived classes
   virtual void Execute() = 0;
   virtual std::string GetName() = 0;
 };
+
+}  // namespace cmd_ptn
 
 #endif // COMMAND_H_

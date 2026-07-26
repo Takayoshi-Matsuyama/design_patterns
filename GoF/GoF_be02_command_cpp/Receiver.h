@@ -15,9 +15,13 @@
 #ifndef RECEIVER_H_
 #define RECEIVER_H_
 
+namespace cmd_ptn {
+
 class Receiver {
  public:
   void Action();
 };
+
+}  // namespace cmd_ptn
 
 #endif // RECEIVER_H_
