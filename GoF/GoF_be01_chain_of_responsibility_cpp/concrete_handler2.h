@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_HANDLER2_H_
-#define CONCRETE_HANDLER2_H_
+#ifndef DESIGN_PTN_BE01_CHAIN_RES_CONCRETE_HANDLER2_H_
+#define DESIGN_PTN_BE01_CHAIN_RES_CONCRETE_HANDLER2_H_
 
 #include "handler.h"
 
@@ -41,4 +41,4 @@ class ConcreteHandler2 : public Handler {
 
 } // namespace res_chain
 
-#endif // CONCRETE_HANDLER2_H_
+#endif // DESIGN_PTN_BE01_CHAIN_RES_CONCRETE_HANDLER2_H_

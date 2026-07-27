@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ERROR_EVENT_H_
-#define ERROR_EVENT_H_
+#ifndef DESIGN_PTN_BE01_CHAIN_RES_ERROR_EVENT_H_
+#define DESIGN_PTN_BE01_CHAIN_RES_ERROR_EVENT_H_
 
 #include <string>
 
@@ -30,4 +30,4 @@ struct ErrorEvent {
 
 } // namespace res_chain
 
-#endif // ERROR_EVENT_H_
+#endif // DESIGN_PTN_BE01_CHAIN_RES_ERROR_EVENT_H_

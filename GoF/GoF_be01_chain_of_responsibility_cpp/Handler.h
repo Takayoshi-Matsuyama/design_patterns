@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef HANDLER_H_
-#define HANDLER_H_
+#ifndef DESIGN_PTN_BE01_CHAIN_RES_HANDLER_H_
+#define DESIGN_PTN_BE01_CHAIN_RES_HANDLER_H_
 
 #include "error_event.h"
 
@@ -33,4 +33,4 @@ class Handler {
 
 } // namespace res_chain
 
-#endif // HANDLER_H_
+#endif // DESIGN_PTN_BE01_CHAIN_RES_HANDLER_H_
