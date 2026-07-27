@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef UNSHARED_CONCRETE_FLYWEIGHT_H_
-#define UNSHARED_CONCRETE_FLYWEIGHT_H_
+#ifndef DESIGN_PTN_ST06_FLYWEIGHT_UNSHARED_CONCRETE_FLYWEIGHT_H_
+#define DESIGN_PTN_ST06_FLYWEIGHT_UNSHARED_CONCRETE_FLYWEIGHT_H_
 
 #include "flyweight.h"
 
@@ -32,4 +32,4 @@ class UnsharedConcreteFlyweight : public Flyweight {
 
 } // namespace flyweight_pattern
 
-#endif // UNSHARED_CONCRETE_FLYWEIGHT_H_
+#endif // DESIGN_PTN_ST06_FLYWEIGHT_UNSHARED_CONCRETE_FLYWEIGHT_H_

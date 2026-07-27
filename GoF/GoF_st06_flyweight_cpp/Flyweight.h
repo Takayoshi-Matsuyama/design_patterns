@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef FLYWEIGHT_H_
-#define FLYWEIGHT_H_
+#ifndef DESIGN_PTN_ST06_FLYWEIGHT_FLYWEIGHT_H_
+#define DESIGN_PTN_ST06_FLYWEIGHT_FLYWEIGHT_H_
 
 namespace flyweight_pattern {
 
@@ -32,4 +32,4 @@ class Flyweight {
 
 } // namespace flyweight_pattern
 
-#endif // FLYWEIGHT_H_
+#endif // DESIGN_PTN_ST06_FLYWEIGHT_FLYWEIGHT_H_

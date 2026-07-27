@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef FLYWEIGHT_FACTORY_H_
-#define FLYWEIGHT_FACTORY_H_
+#ifndef DESIGN_PTN_ST06_FLYWEIGHT_FLYWEIGHT_FACTORY_H_
+#define DESIGN_PTN_ST06_FLYWEIGHT_FLYWEIGHT_FACTORY_H_
 
 #include "flyweight.h"
 
@@ -37,4 +37,4 @@ class FlyweightFactory {
 
 } // namespace flyweight_pattern
 
-#endif // FLYWEIGHT_FACTORY_H_
+#endif // DESIGN_PTN_ST06_FLYWEIGHT_FLYWEIGHT_FACTORY_H_
