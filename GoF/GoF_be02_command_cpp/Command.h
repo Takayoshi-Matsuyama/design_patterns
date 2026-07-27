@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef COMMAND_H_
-#define COMMAND_H_
+#ifndef DESIGN_PTN_BE02_CMD_COMMAND_H_
+#define DESIGN_PTN_BE02_CMD_COMMAND_H_
 
 #include <string>
 
@@ -36,4 +36,4 @@ class Command {
 
 } // namespace cmd_ptn
 
-#endif // COMMAND_H_
+#endif // DESIGN_PTN_BE02_CMD_COMMAND_H_

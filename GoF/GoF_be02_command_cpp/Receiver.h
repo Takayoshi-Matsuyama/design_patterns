@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef RECEIVER_H_
-#define RECEIVER_H_
+#ifndef DESIGN_PTN_BE02_CMD_RECEIVER_H_
+#define DESIGN_PTN_BE02_CMD_RECEIVER_H_
 
 namespace cmd_ptn {
 
@@ -26,4 +26,4 @@ class Receiver {
 
 } // namespace cmd_ptn
 
-#endif // RECEIVER_H_
+#endif // DESIGN_PTN_BE02_CMD_RECEIVER_H_

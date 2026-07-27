@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_COMMAND_H_
-#define CONCRETE_COMMAND_H_
+#ifndef DESIGN_PTN_BE02_CMD_CONCRETE_COMMAND_H_
+#define DESIGN_PTN_BE02_CMD_CONCRETE_COMMAND_H_
 
 #include <memory>
 #include <string>
@@ -46,4 +46,4 @@ class ConcreteCommand : public Command {
 
 } // namespace cmd_ptn
 
-#endif // CONCRETE_COMMAND_H_
+#endif // DESIGN_PTN_BE02_CMD_CONCRETE_COMMAND_H_

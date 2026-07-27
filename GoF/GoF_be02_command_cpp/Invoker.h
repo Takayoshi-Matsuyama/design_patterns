@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef INVOKER_H_
-#define INVOKER_H_
+#ifndef DESIGN_PTN_BE02_CMD_INVOKER_H_
+#define DESIGN_PTN_BE02_CMD_INVOKER_H_
 
 #include <memory>
 #include <queue>
@@ -42,4 +42,4 @@ class Invoker {
 
 } // namespace cmd_ptn
 
-#endif // INVOKER_H_
+#endif // DESIGN_PTN_BE02_CMD_INVOKER_H_
