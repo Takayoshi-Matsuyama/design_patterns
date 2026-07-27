@@ -29,5 +29,6 @@ int main() {
   invoker.SetCommand(std::move(command2));
   invoker.ExecuteCommand();
   invoker.ExecuteCommand();
+  
   return 0;
 }
