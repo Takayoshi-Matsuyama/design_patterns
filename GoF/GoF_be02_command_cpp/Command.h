@@ -31,7 +31,7 @@ class Command {
   virtual void Execute() = 0;
 
   // Returns the name of the command.
-  virtual std::string GetName() = 0;
+  virtual std::string GetName() const = 0;
 };
 
 } // namespace cmd_ptn

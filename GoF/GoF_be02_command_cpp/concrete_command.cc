@@ -20,7 +20,7 @@ void ConcreteCommand::Execute() {
   receiver_.Action();
 }
 
-std::string ConcreteCommand::GetName() {
+std::string ConcreteCommand::GetName() const {
   return name_;
 }
 

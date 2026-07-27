@@ -15,11 +15,11 @@
 #ifndef CONCRETE_COMMAND_H_
 #define CONCRETE_COMMAND_H_
 
-#include "command.h"
-#include "receiver.h"
-
 #include <memory>
 #include <string>
+
+#include "command.h"
+#include "receiver.h"
 
 namespace cmd_ptn {
 
@@ -33,7 +33,7 @@ class ConcreteCommand : public Command {
   void Execute() override;
 
   // Returns the name of the command.
-  std::string GetName() override;
+  std::string GetName() const override;
 
  private:
   // Name of the command.

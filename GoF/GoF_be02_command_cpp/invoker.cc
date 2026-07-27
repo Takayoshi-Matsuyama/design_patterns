@@ -18,18 +18,14 @@
 
 namespace cmd_ptn {
 
-Invoker::Invoker() {
-  this->cmd_queue_ = std::queue<std::unique_ptr<Command>>();
-}
-
 void Invoker::SetCommand(std::unique_ptr<Command> new_cmd) {
-  this->cmd_queue_.push(std::move(new_cmd));
+  cmd_queue_.push(std::move(new_cmd));
 
-  std::cout << "Queue size: " << this->cmd_queue_.size() << std::endl;
+  std::cout << "Queue size: " << cmd_queue_.size() << std::endl;
 }
 
 void Invoker::ExecuteCommand() {
-  if (!this->cmd_queue_.empty()) {
+  if (!cmd_queue_.empty()) {
     std::cout << "Executing " << cmd_queue_.front()->GetName() << " ..." << std::endl;
     cmd_queue_.front()->Execute();
     cmd_queue_.pop();

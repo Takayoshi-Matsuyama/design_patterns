@@ -15,10 +15,10 @@
 #ifndef INVOKER_H_
 #define INVOKER_H_
 
-#include "command.h"
-
 #include <memory>
 #include <queue>
+
+#include "command.h"
 
 namespace cmd_ptn {
 
@@ -26,7 +26,7 @@ namespace cmd_ptn {
 class Invoker {
  public:
   // Constructs an Invoker with an empty command queue.
-  Invoker();
+  Invoker() = default;
 
   // Sets a new command to be executed. The command is added to the queue.
   void SetCommand(std::unique_ptr<Command> new_cmd);
@@ -36,6 +36,7 @@ class Invoker {
 
  private:
   // Queue to hold commands to be executed.
+  // Initialized as an empty queue in the default constructor.
   std::queue<std::unique_ptr<Command>> cmd_queue_;
 };
 
