@@ -12,15 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABSTRACT_EXPRESSION_H
-#define ABSTRACT_EXPRESSION_H
+#ifndef DESIGN_PTN_BE03_INTERPRETER_TERMINAL_EXPRESSION_H_
+#define DESIGN_PTN_BE03_INTERPRETER_TERMINAL_EXPRESSION_H_
 
-#include "Context.h"
+#include "abstract_expression.h"
+#include "context.h"
 
-class AbstractExpression {
-    public:
-        virtual ~AbstractExpression() = default;
-        virtual void Interpret(Context& context) = 0;
+namespace interpreter_ptn {
+
+class TerminalExpression : public AbstractExpression {
+ public:
+  void Interpret(Context& context) override {
+    context.AddToOutput(context.GetInput());
+  }
 };
 
-#endif // ABSTRACT_EXPRESSION_H
+} // namespace interpreter_ptn
+
+#endif // DESIGN_PTN_BE03_INTERPRETER_TERMINAL_EXPRESSION_H_

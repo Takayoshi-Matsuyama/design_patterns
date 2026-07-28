@@ -12,25 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Context.h"
-#include "TerminalExpression.h"
-#include "NonTerminalExpression.h"
-
 #include <iostream>
 
+#include "context.h"
+#include "non_terminal_expression.h"
+#include "terminal_expression.h"
+
 int main() {
-    
-    std::cout << "GoF Interpreter Pattern Example" << std::endl;
+  std::cout << "GoF Interpreter Pattern Example" << std::endl;
 
-    Context context(5);
-    TerminalExpression terminalExpression;
-    terminalExpression.Interpret(context);
-    std::cout << "TerminalExpression interpreted. Output value: " << context.GetOutput() << std::endl;
+  interpreter_ptn::Context context(5);
+  interpreter_ptn::TerminalExpression terminal_expression;
+  terminal_expression.Interpret(context);
+  std::cout << "TerminalExpression interpreted. Output value: " << context.GetOutput() << std::endl;
 
-    Context context2(10);
-    NonTerminalExpression nonTerminalExpression(terminalExpression, terminalExpression);
-    nonTerminalExpression.Interpret(context2);
-    std::cout << "NonTerminalExpression interpreted. Output value: " << context2.GetOutput() << std::endl;
+  interpreter_ptn::Context context2(10);
+  interpreter_ptn::NonTerminalExpression non_terminal_expression(terminal_expression, terminal_expression);
+  non_terminal_expression.Interpret(context2);
+  std::cout << "NonTerminalExpression interpreted. Output value: " << context2.GetOutput() << std::endl;
 
-    return 0;
+  return 0;
 }

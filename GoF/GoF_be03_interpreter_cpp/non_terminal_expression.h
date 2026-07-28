@@ -12,23 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_BE03_INTERPRETER_CONTEXT_H_
-#define DESIGN_PTN_BE03_INTERPRETER_CONTEXT_H_
+#ifndef DESIGN_PTN_BE03_INTERPRETER_NON_TERMINAL_EXPRESSION_H_
+#define DESIGN_PTN_BE03_INTERPRETER_NON_TERMINAL_EXPRESSION_H_
+
+#include "abstract_expression.h"
+#include "context.h"
 
 namespace interpreter_ptn {
 
-class Context {
+class NonTerminalExpression : public AbstractExpression {
  public:
-  Context(int value) : input_value_(value), output_value_(0) {}
-  int GetInput() const { return input_value_; }
-  void AddToOutput(int value) { output_value_ += value; }
-  int GetOutput() const { return output_value_; }
+  NonTerminalExpression(AbstractExpression& expression1, AbstractExpression& expression2)
+      : expression1_(expression1), expression2_(expression2) {}
+  void Interpret(Context& context) override {
+      expression1_.Interpret(context);
+      expression2_.Interpret(context);
+  }
 
  private:
-  int input_value_;
-  int output_value_;
+  AbstractExpression& expression1_;
+  AbstractExpression& expression2_;
 };
 
 } // namespace interpreter_ptn
 
-#endif // DESIGN_PTN_BE03_INTERPRETER_CONTEXT_H_
+#endif // DESIGN_PTN_BE03_INTERPRETER_NON_TERMINAL_EXPRESSION_H_
