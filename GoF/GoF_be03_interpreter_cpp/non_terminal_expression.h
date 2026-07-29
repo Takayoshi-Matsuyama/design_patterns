@@ -35,6 +35,7 @@ class NonTerminalExpression : public AbstractExpression {
 
  private:
   // References to the two sub-expressions that make up this non-terminal expression.
+  // The lifetime of these references must be managed outside of this class.
   AbstractExpression& expression1_;
   AbstractExpression& expression2_;
 };
