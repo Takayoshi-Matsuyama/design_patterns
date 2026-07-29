@@ -20,16 +20,21 @@
 
 namespace interpreter_ptn {
 
+// Represents a non-terminal expression in the Interpreter pattern.
 class NonTerminalExpression : public AbstractExpression {
  public:
+  // Constructs a NonTerminalExpression with two sub-expressions.
   NonTerminalExpression(AbstractExpression& expression1, AbstractExpression& expression2)
       : expression1_(expression1), expression2_(expression2) {}
+
+  // Interprets the non-terminal expression by interpreting its sub-expressions in the given context.
   void Interpret(Context& context) override {
       expression1_.Interpret(context);
       expression2_.Interpret(context);
   }
 
  private:
+  // References to the two sub-expressions that make up this non-terminal expression.
   AbstractExpression& expression1_;
   AbstractExpression& expression2_;
 };

@@ -20,8 +20,10 @@
 
 namespace interpreter_ptn {
 
+// Represents a terminal expression in the Interpreter pattern.
 class TerminalExpression : public AbstractExpression {
  public:
+  // Interprets the terminal expression by adding the input value of the context to its output value.
   void Interpret(Context& context) override {
     context.AddToOutput(context.GetInput());
   }
