@@ -23,8 +23,9 @@ namespace interpreter_ptn {
 class AbstractExpression {
  public:
   // Virtual destructor to ensure proper cleanup of derived classes.
-  // This ensures that when a derived class object is deleted through a base class pointer,
-  // the derived class's destructor is called, preventing resource leaks.
+  // This ensures that when a derived class object is deleted
+  // through a base class pointer, the derived class's destructor is called,
+  // preventing resource leaks.
   virtual ~AbstractExpression() = default;
 
   // Interprets the expression in the given context.

@@ -25,12 +25,12 @@ class NonTerminalExpression : public AbstractExpression {
  public:
   // Constructs a NonTerminalExpression with two sub-expressions.
   NonTerminalExpression(AbstractExpression& expression1, AbstractExpression& expression2)
-      : expression1_(expression1), expression2_(expression2) {}
+    : expression1_(expression1), expression2_(expression2) {}
 
   // Interprets the non-terminal expression by interpreting its sub-expressions in the given context.
   void Interpret(Context& context) override {
-      expression1_.Interpret(context);
-      expression2_.Interpret(context);
+    expression1_.Interpret(context);
+    expression2_.Interpret(context);
   }
 
  private:

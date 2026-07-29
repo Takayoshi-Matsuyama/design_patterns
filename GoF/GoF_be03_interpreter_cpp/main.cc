@@ -24,12 +24,15 @@ int main() {
   interpreter_ptn::Context context(5);
   interpreter_ptn::TerminalExpression terminal_expression;
   terminal_expression.Interpret(context);
-  std::cout << "TerminalExpression interpreted. Output value: " << context.GetOutput() << std::endl;
+  std::cout << "TerminalExpression interpreted. Output value: "
+            << context.GetOutput() << std::endl;
 
   interpreter_ptn::Context context2(10);
-  interpreter_ptn::NonTerminalExpression non_terminal_expression(terminal_expression, terminal_expression);
+  interpreter_ptn::NonTerminalExpression non_terminal_expression(
+    terminal_expression, terminal_expression);
   non_terminal_expression.Interpret(context2);
-  std::cout << "NonTerminalExpression interpreted. Output value: " << context2.GetOutput() << std::endl;
+  std::cout << "NonTerminalExpression interpreted. Output value: "
+            << context2.GetOutput() << std::endl;
 
   return 0;
 }
