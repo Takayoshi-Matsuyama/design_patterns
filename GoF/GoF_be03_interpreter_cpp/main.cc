@@ -29,7 +29,7 @@ int main() {
 
   interpreter_ptn::Context context2(10);
   interpreter_ptn::NonTerminalExpression non_terminal_expression(
-    terminal_expression, terminal_expression);
+    &terminal_expression, &terminal_expression);
   non_terminal_expression.Interpret(context2);
   std::cout << "NonTerminalExpression interpreted. Output value: "
             << context2.GetOutput() << std::endl;
