@@ -20,7 +20,8 @@ namespace interpreter_ptn {
 // Represents the context in the Interpreter pattern.
 class Context {
  public:
-  // Constructs a Context with the given input value and initializes the output value to zero.
+  // Constructs a Context with the given input value
+  // and initializes the output value to zero.
   // Apply "explicit" to prevent implicit conversions
   // and ensure that the constructor is only called with an integer value.
   explicit Context(int value) : input_value_(value), output_value_(0) {}
@@ -38,7 +39,8 @@ class Context {
   // The input value for the context, provided during construction.
   int input_value_;
   
-  // The output value for the context, initialized to zero and modified during interpretation.
+  // The output value for the context,
+  // initialized to zero and modified during interpretation.
   int output_value_;
 };
 

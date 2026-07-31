@@ -24,18 +24,20 @@ namespace interpreter_ptn {
 class NonTerminalExpression : public AbstractExpression {
  public:
   // Constructs a NonTerminalExpression with two sub-expressions.
-  NonTerminalExpression(AbstractExpression* expression1, AbstractExpression* expression2)
+  NonTerminalExpression(AbstractExpression* expression1,
+                        AbstractExpression* expression2)
     : expression1_(expression1), expression2_(expression2) {}
 
-  // Interprets the non-terminal expression by interpreting its sub-expressions in the given context.
+  // Interprets the non-terminal expression
+  // by interpreting its sub-expressions in the given context.
   void Interpret(Context& context) override {
     expression1_->Interpret(context);
     expression2_->Interpret(context);
   }
 
  private:
-  // Pointers to the two sub-expressions that make up this non-terminal expression.
-  // The lifetime of the pointed-to expressions must be managed outside of this class.
+  // Pointers to the two sub-expressions of this non-terminal expression.
+  // The lifetime of the expressions must be managed outside of this class.
   AbstractExpression* expression1_;
   AbstractExpression* expression2_;
 };
