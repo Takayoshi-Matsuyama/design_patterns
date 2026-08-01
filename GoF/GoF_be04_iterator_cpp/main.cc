@@ -19,6 +19,7 @@
   
 int main() {
   std::cout << "GoF Iterator Pattern Example" << std::endl;
+  
   std::unique_ptr<iter_ptn::Aggregate> aggregate = std::make_unique<iter_ptn::ConcreteAggregate>();
   std::unique_ptr<iter_ptn::Iterator> iterator = aggregate->CreateIterator();
 
