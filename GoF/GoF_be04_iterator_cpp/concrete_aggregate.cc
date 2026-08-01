@@ -12,24 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteAggregate.h"
-#include "ConcreteIterator.h"
+#include "concrete_aggregate.h"
+#include "concrete_iterator.h"
+
+namespace iter_ptn {
 
 ConcreteAggregate::ConcreteAggregate() {
-    this->_items = std::vector<std::string>{"A", "B", "C", "D", "E"};
+  items_ = std::vector<std::string>{"A", "B", "C", "D", "E"};
+}
+
+ConcreteAggregate::~ConcreteAggregate() {
+  items_.clear();
 }
 
 std::unique_ptr<Iterator> ConcreteAggregate::CreateIterator() const {
-    return std::make_unique<ConcreteIterator>(*this);
+  return std::make_unique<ConcreteIterator>(*this);
 }
 
 int ConcreteAggregate::GetSize() const {
-    return static_cast<int>(this->_items.size());
+  return static_cast<int>(items_.size());
 }
 
 std::string ConcreteAggregate::GetItem(int index) const {
-    if (index < 0 || index >= this->GetSize()) {
-        return "";
-    }
-    return this->_items[index];
+  if (index < 0 || index >= this->GetSize()) {
+    return "";
+  }
+  return items_[index];
 }
+
+} // namespace iter_ptn

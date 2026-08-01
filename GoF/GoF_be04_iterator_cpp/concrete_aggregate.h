@@ -12,34 +12,40 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_BE04_ITER_AGGREGATE_H
-#define DESIGN_PTN_BE04_ITER_AGGREGATE_H
+#ifndef DESIGN_PTN_BE04_ITER_CONCRETE_AGGREGATE_H
+#define DESIGN_PTN_BE04_ITER_CONCRETE_AGGREGATE_H
 
-#include "iterator.h"
-
+#include <string>
+#include <vector>
 #include <memory>
+
+#include "aggregate.h"
 
 namespace iter_ptn {
 
-// Represents an aggregate object that can be iterated over.
-class Aggregate {
+// Represents a concrete implementation of an aggregate object.
+class ConcreteAggregate : public Aggregate {
  public:
-  // Virtual destructor to ensure proper cleanup of derived classes.
-  // This ensures that when a derived class object is deleted
-  // through a base class pointer, the derived class's destructor is called,
-  // preventing resource leaks.
-  virtual ~Aggregate() = default;
+  // Constructs a ConcreteAggregate with a predefined set of items.
+  ConcreteAggregate();
+
+  // Destroys the ConcreteAggregate.
+  ~ConcreteAggregate() override;
 
   // Creates an iterator for the aggregate.
-  virtual std::unique_ptr<Iterator> CreateIterator() const = 0;
+  std::unique_ptr<Iterator> CreateIterator() const override;
 
   // Returns the number of items in the aggregate.
-  virtual int GetSize() const = 0;
+  int GetSize() const override;
 
   // Returns the item at the specified index in the aggregate.
-  virtual std::string GetItem(int index) const = 0;
+  std::string GetItem(int index) const override;
+
+ private:
+  // Stores the items in the aggregate.
+  std::vector<std::string> items_;
 };
 
 } // namespace iter_ptn
 
-#endif // DESIGN_PTN_BE04_ITER_AGGREGATE_H
+#endif // DESIGN_PTN_BE04_ITER_CONCRETE_AGGREGATE_H

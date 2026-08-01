@@ -12,26 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteIterator.h"
+#include "concrete_iterator.h"
+
+namespace iter_ptn {
 
 ConcreteIterator::ConcreteIterator(const Aggregate& aggregate)
-    : _aggregate(aggregate), _currentIndex(0) {}
+    : aggregate_(aggregate), current_index_(0) {}
 
 void ConcreteIterator::First() {
-    this->_currentIndex = 0;
+    current_index_ = 0;
 }
 
 void ConcreteIterator::Next() {
-    ++this->_currentIndex;
+    ++current_index_;
 }
 
 bool ConcreteIterator::IsDone() const {
-    return this->_currentIndex >= this->_aggregate.GetSize();
+    return current_index_ >= aggregate_.GetSize();
 }
 
 std::string ConcreteIterator::CurrentItem() const {
     if (this->IsDone()) {
         return "";
     }
-    return this->_aggregate.GetItem(this->_currentIndex);
+    return aggregate_.GetItem(current_index_);
 }
+
+} // namespace iter_ptn

@@ -12,20 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteAggregate.h"
-#include "ConcreteIterator.h"
+#include "concrete_aggregate.h"
+#include "concrete_iterator.h"
 
 #include <iostream>
-
+  
 int main() {
-    std::cout << "GoF Iterator Pattern Example" << std::endl;
+  std::cout << "GoF Iterator Pattern Example" << std::endl;
+  std::unique_ptr<iter_ptn::Aggregate> aggregate = std::make_unique<iter_ptn::ConcreteAggregate>();
+  std::unique_ptr<iter_ptn::Iterator> iterator = aggregate->CreateIterator();
 
-    std::unique_ptr<Aggregate> aggregate = std::make_unique<ConcreteAggregate>();
-    std::unique_ptr<Iterator> iterator = aggregate->CreateIterator();
+  for (iterator->First(); !iterator->IsDone(); iterator->Next()) {
+    std::cout << iterator->CurrentItem() << std::endl;
+  }
 
-    for (iterator->First(); !iterator->IsDone(); iterator->Next()) {
-        std::cout << iterator->CurrentItem() << std::endl;
-    }
-
-    return 0;
+  return 0;
 }

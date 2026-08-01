@@ -12,35 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_BE04_ITER_ITERATOR_H
-#define DESIGN_PTN_BE04_ITER_ITERATOR_H
+#ifndef DESIGN_PTN_BE04_ITER_CONCRETE_ITERATOR_H
+#define DESIGN_PTN_BE04_ITER_CONCRETE_ITERATOR_H
 
-#include <string>
+#include "aggregate.h"
+#include "iterator.h"
 
 namespace iter_ptn {
 
-// Represents an iterator that can traverse an aggregate object.
-class Iterator {
- public:
-  // Virtual destructor to ensure proper cleanup of derived classes.
-  // This ensures that when a derived class object is deleted
-  // through a base class pointer, the derived class's destructor is called,
-  // preventing resource leaks.
-  virtual ~Iterator() = default;
+class ConcreteIterator : public Iterator {
+public:
+  // Constructs a ConcreteIterator for the given aggregate.
+  explicit ConcreteIterator(const Aggregate& aggregate);
 
   // Sets current to the first item.
-  virtual void First() = 0;
+  void First() override;
 
   // Advances current to the next item.
-  virtual void Next() = 0;
+  void Next() override;
 
   // Returns true if the current position is at the end of the aggregate.
-  virtual bool IsDone() const = 0;
+  bool IsDone() const override;
 
   // Returns the current item.
-  virtual std::string CurrentItem() const = 0;      
+  std::string CurrentItem() const override;
+
+private:
+  // Reference to the aggregate being iterated over.
+  const Aggregate& aggregate_;
+
+  // Current index in the aggregate.
+  int current_index_;
 };
 
 } // namespace iter_ptn
 
-#endif // DESIGN_PTN_BE04_ITER_ITERATOR_H
+#endif // DESIGN_PTN_BE04_ITER_CONCRETE_ITERATOR_H
