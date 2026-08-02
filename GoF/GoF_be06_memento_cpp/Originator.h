@@ -15,7 +15,7 @@
 #ifndef ORIGINATOR_H
 #define ORIGINATOR_H
 
-#include "Memento.h"
+#include "memento.h"
 
 #include <string>
 

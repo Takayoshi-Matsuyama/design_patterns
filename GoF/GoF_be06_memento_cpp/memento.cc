@@ -12,20 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Originator.h"
+#include "memento.h"
 
-void Originator::SetState(const std::string& state) {
-    this->_state = state;
-}
+Memento::Memento(const std::string& state) : _state(state) {}
 
-std::string Originator::GetState() const {
+std::string Memento::GetState() const {
     return this->_state;
 }
 
-Memento Originator::CreateMemento() const {
-    return Memento(this->_state);
-}
-
-void Originator::SetMemento(const Memento& memento) {
-    this->_state = memento.GetState();
+void Memento::SetState(const std::string& state) {
+    this->_state = state;
 }
