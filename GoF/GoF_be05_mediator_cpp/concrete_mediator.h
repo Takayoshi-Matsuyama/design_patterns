@@ -23,10 +23,10 @@
 
 namespace mediator_ptn {
 
-// Represents a concrete Mediator that facilitates communication between Collegues.
+// Represents a concrete Mediator that facilitates communication between Colleagues.
 class ConcreteMediator : public Mediator {
  public:
-  // Constructs a ConcreteMediator and initializes its Collegues.
+  // Constructs a ConcreteMediator and initializes its Colleagues.
   ConcreteMediator();
 
   // Notifies the appropriate Colleague based on the sender and message.
@@ -39,7 +39,7 @@ class ConcreteMediator : public Mediator {
   ConcreteColleague2& GetColleague2() { return *colleague2_; }
 
  private:
-  // Unique pointers to the Collegues that this Mediator manages.
+  // Unique pointers to the Colleagues that this Mediator manages.
   std::unique_ptr<ConcreteColleague1> colleague1_;
   std::unique_ptr<ConcreteColleague2> colleague2_;
 };

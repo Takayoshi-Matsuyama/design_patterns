@@ -40,7 +40,7 @@ class ConcreteColleague1 : public Colleague {
   }
     
  private:
-  // Pointer to the Mediator that facilitates communication between Collegues.
+  // Pointer to the Mediator that facilitates communication between Colleagues.
   // Using a pointer for flexibility in the Mediator's lifetime management
   // and avoids ownership issues with smart pointers in this context.
   Mediator* mediator_;
