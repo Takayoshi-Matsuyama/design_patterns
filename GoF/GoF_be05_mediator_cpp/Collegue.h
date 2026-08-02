@@ -12,16 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef COLLEGUE_H
-#define COLLEGUE_H
+#ifndef DESIGN_PTN_BE05_MED_COLLEGUE_H
+#define DESIGN_PTN_BE05_MED_COLLEGUE_H
 
 #include <string>
 
+namespace mediator_ptn {
+
+// Represents a participant in the Mediator pattern.
 class Collegue {
-    public:
-        virtual ~Collegue() = default;
-        virtual void Send(const std::string& message) = 0;
-        virtual void Receive(const std::string& message) = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Collegue() = default;
+
+  // Sends a message.
+  virtual const void Send(const std::string& message) = 0;
+
+  // Receives a message.
+  virtual const void Receive(const std::string& message) = 0;
 };
 
-#endif // COLLEGUE_H
+} // namespace mediator_ptn
+
+#endif // DESIGN_PTN_BE05_MED_COLLEGUE_H

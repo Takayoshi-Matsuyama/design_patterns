@@ -12,17 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MEDIATOR_H
-#define MEDIATOR_H
-
-#include "Collegue.h"
+#ifndef DESIGN_PTN_BE05_MED_MEDIATOR_H
+#define DESIGN_PTN_BE05_MED_MEDIATOR_H
 
 #include <string>
 
+#include "collegue.h"
+
+namespace mediator_ptn {
+
 class Mediator {
-    public:
-        virtual ~Mediator() = default;
-        virtual void Notify(const Collegue& sender, const std::string& message) = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Mediator() = default;
+
+  // Notifies the appropriate Collegue based on the sender and message.
+  virtual const void Notify(const Collegue& sender, const std::string& message) = 0;
 };
 
-#endif // MEDIATOR_H
+} // namespace mediator_ptn
+
+#endif // DESIGN_PTN_BE05_MED_MEDIATOR_H

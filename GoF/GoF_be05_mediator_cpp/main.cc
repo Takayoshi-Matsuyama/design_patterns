@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteMediator.h"
-
 #include <iostream>
 
+#include "concrete_mediator.h"
+
 int main() {
-    std::cout << "GoF Mediator Pattern Example" << std::endl;
+  std::cout << "GoF Mediator Pattern Example" << std::endl;
 
-    ConcreteMediator mediator;
-    mediator.GetCollegue1().Send("Hello from Collegue 1");
-    mediator.GetCollegue2().Send("Hello from Collegue 2");
+  mediator_ptn::ConcreteMediator mediator;
+  mediator.GetCollegue1().Send("Hello from Collegue 1");
+  mediator.GetCollegue2().Send("Hello from Collegue 2");
 
-    return 0;
+  return 0;
 }
