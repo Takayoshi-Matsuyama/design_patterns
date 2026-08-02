@@ -16,13 +16,13 @@
 
 title GoF - Behavioral #05 - Mediator
 
-interface Collegue
+interface Colleague
 
-class ConcreteCollegue1
-class ConcreteCollegue2
+class ConcreteColleague1
+class ConcreteColleague2
 
-Collegue <|.. ConcreteCollegue1
-Collegue <|.. ConcreteCollegue2
+Colleague <|.. ConcreteColleague1
+Colleague <|.. ConcreteColleague2
 
 interface Mediator
 
@@ -30,7 +30,7 @@ class ConcreteMediator
 
 Mediator <|.. ConcreteMediator
 
-ConcreteMediator --> ConcreteCollegue1
-ConcreteMediator --> ConcreteCollegue2
+ConcreteMediator --> ConcreteColleague1
+ConcreteMediator --> ConcreteColleague2
 
 @enduml

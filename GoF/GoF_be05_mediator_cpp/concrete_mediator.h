@@ -17,8 +17,8 @@
 
 #include <memory>
 
-#include "concrete_collegue1.h"
-#include "concrete_collegue2.h"
+#include "concrete_colleague1.h"
+#include "concrete_colleague2.h"
 #include "mediator.h"
 
 namespace mediator_ptn {
@@ -29,19 +29,19 @@ class ConcreteMediator : public Mediator {
   // Constructs a ConcreteMediator and initializes its Collegues.
   ConcreteMediator();
 
-  // Notifies the appropriate Collegue based on the sender and message.
-  void const Notify(const Collegue& sender, const std::string& message) override;
+  // Notifies the appropriate Colleague based on the sender and message.
+  void Notify(const Colleague& sender, const std::string& message) const override;
 
-  // Returns a reference to the first Collegue.
-  ConcreteCollegue1& GetCollegue1() { return *collegue1_; }
+  // Returns a reference to the first Colleague.
+  ConcreteColleague1& GetColleague1() { return *colleague1_; }
 
-  // Returns a reference to the second Collegue.
-  ConcreteCollegue2& GetCollegue2() { return *collegue2_; }
+  // Returns a reference to the second Colleague.
+  ConcreteColleague2& GetColleague2() { return *colleague2_; }
 
  private:
   // Unique pointers to the Collegues that this Mediator manages.
-  std::unique_ptr<ConcreteCollegue1> collegue1_;
-  std::unique_ptr<ConcreteCollegue2> collegue2_;
+  std::unique_ptr<ConcreteColleague1> colleague1_;
+  std::unique_ptr<ConcreteColleague2> colleague2_;
 };
 
 } // namespace mediator_ptn

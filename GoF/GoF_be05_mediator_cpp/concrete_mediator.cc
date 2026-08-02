@@ -14,18 +14,19 @@
 
 #include "concrete_mediator.h"
 
-namespace mediator_ptn {
+#include <memory>
 
+namespace mediator_ptn {
 ConcreteMediator::ConcreteMediator() {
-  collegue1_ = std::make_unique<ConcreteCollegue1>(this);
-  collegue2_ = std::make_unique<ConcreteCollegue2>(this);
+  colleague1_ = std::make_unique<ConcreteColleague1>(this);
+  colleague2_ = std::make_unique<ConcreteColleague2>(this);
 }
 
-void const ConcreteMediator::Notify(const Collegue& sender, const std::string& message) {
-  if (&sender == collegue1_.get()) {
-    collegue2_->Receive(message);
-  } else if (&sender == collegue2_.get()) {
-    collegue1_->Receive(message);
+void ConcreteMediator::Notify(const Colleague& sender, const std::string& message) const {
+  if (&sender == colleague1_.get()) {
+    colleague2_->Receive(message);
+  } else if (&sender == colleague2_.get()) {
+    colleague1_->Receive(message);
   }
 }
 

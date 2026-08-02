@@ -12,31 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_BE05_MED_CONCRETE_COLLEGUE2_H
-#define DESIGN_PTN_BE05_MED_CONCRETE_COLLEGUE2_H
+#ifndef DESIGN_PTN_BE05_MED_CONCRETE_COLLEAGUE2_H
+#define DESIGN_PTN_BE05_MED_CONCRETE_COLLEAGUE2_H
 
 #include <iostream>
 #include <string>
 
-#include "collegue.h"
+#include "colleague.h"
 #include "mediator.h"
 
 namespace mediator_ptn {
 
 // Represents a concrete participant in the Mediator pattern.
-class ConcreteCollegue2 : public Collegue {
+class ConcreteColleague2 : public Colleague {
  public:
-  // Constructs a ConcreteCollegue2 with a reference to the Mediator.
-  ConcreteCollegue2(Mediator* mediator) : mediator_(mediator) {}
+  // Constructs a ConcreteColleague2 with a reference to the Mediator.
+  ConcreteColleague2(Mediator* mediator) : mediator_(mediator) {}
 
   // Sends a message through the Mediator.
-  void const Send(const std::string& message) override {
+  void Send(const std::string& message) const override {
     mediator_->Notify(*this, message);
   }
 
   // Receives a message and handles it.
-  void const Receive(const std::string& message) override {
-    std::cout << "ConcreteCollegue2 received: " << message << std::endl;
+  void Receive(const std::string& message) const override {
+    std::cout << "ConcreteColleague2 received: " << message << std::endl;
   }
   
  private:
@@ -48,4 +48,4 @@ class ConcreteCollegue2 : public Collegue {
 
 } // namespace mediator_ptn
 
-#endif // DESIGN_PTN_BE05_MED_CONCRETE_COLLEGUE2_H
+#endif // DESIGN_PTN_BE05_MED_CONCRETE_COLLEAGUE2_H

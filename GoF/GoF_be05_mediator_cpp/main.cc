@@ -20,8 +20,8 @@ int main() {
   std::cout << "GoF Mediator Pattern Example" << std::endl;
 
   mediator_ptn::ConcreteMediator mediator;
-  mediator.GetCollegue1().Send("Hello from Collegue 1");
-  mediator.GetCollegue2().Send("Hello from Collegue 2");
+  mediator.GetColleague1().Send("Hello from Colleague 1");
+  mediator.GetColleague2().Send("Hello from Colleague 2");
 
   return 0;
 }

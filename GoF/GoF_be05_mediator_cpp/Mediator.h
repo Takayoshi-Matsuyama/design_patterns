@@ -17,7 +17,7 @@
 
 #include <string>
 
-#include "collegue.h"
+#include "colleague.h"
 
 namespace mediator_ptn {
 
@@ -29,8 +29,8 @@ class Mediator {
   // the derived class's destructor is called, preventing resource leaks.
   virtual ~Mediator() = default;
 
-  // Notifies the appropriate Collegue based on the sender and message.
-  virtual const void Notify(const Collegue& sender, const std::string& message) = 0;
+  // Notifies the appropriate Colleague based on the sender and message.
+  virtual void Notify(const Colleague& sender, const std::string& message) const = 0;
 };
 
 } // namespace mediator_ptn
