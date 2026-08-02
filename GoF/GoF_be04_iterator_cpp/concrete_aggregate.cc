@@ -17,14 +17,6 @@
 
 namespace iter_ptn {
 
-ConcreteAggregate::ConcreteAggregate() {
-  items_ = std::vector<std::string>{"A", "B", "C", "D", "E"};
-}
-
-ConcreteAggregate::~ConcreteAggregate() {
-  items_.clear();
-}
-
 std::unique_ptr<Iterator> ConcreteAggregate::CreateIterator() const {
   return std::make_unique<ConcreteIterator>(*this);
 }

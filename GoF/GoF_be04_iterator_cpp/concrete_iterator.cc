@@ -17,25 +17,25 @@
 namespace iter_ptn {
 
 ConcreteIterator::ConcreteIterator(const Aggregate& aggregate)
-    : aggregate_(aggregate), current_index_(0) {}
+  : aggregate_(aggregate), current_index_(0) {}
 
 void ConcreteIterator::First() {
-    current_index_ = 0;
+  current_index_ = 0;
 }
 
 void ConcreteIterator::Next() {
-    ++current_index_;
+  ++current_index_;
 }
 
 bool ConcreteIterator::IsDone() const {
-    return current_index_ >= aggregate_.GetSize();
+  return current_index_ >= aggregate_.GetSize();
 }
 
 std::string ConcreteIterator::CurrentItem() const {
-    if (this->IsDone()) {
-        return "";
-    }
-    return aggregate_.GetItem(current_index_);
+  if (this->IsDone()) {
+      return "";
+  }
+  return aggregate_.GetItem(current_index_);
 }
 
 } // namespace iter_ptn

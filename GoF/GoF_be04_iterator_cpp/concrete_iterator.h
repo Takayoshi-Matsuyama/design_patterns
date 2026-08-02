@@ -21,7 +21,7 @@
 namespace iter_ptn {
 
 class ConcreteIterator : public Iterator {
-public:
+ public:
   // Constructs a ConcreteIterator for the given aggregate.
   explicit ConcreteIterator(const Aggregate& aggregate);
 
@@ -37,7 +37,7 @@ public:
   // Returns the current item.
   std::string CurrentItem() const override;
 
-private:
+ private:
   // Reference to the aggregate being iterated over.
   const Aggregate& aggregate_;
 

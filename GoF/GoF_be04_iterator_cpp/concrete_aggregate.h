@@ -27,10 +27,10 @@ namespace iter_ptn {
 class ConcreteAggregate : public Aggregate {
  public:
   // Constructs a ConcreteAggregate with a predefined set of items.
-  ConcreteAggregate();
+  ConcreteAggregate() = default;
 
   // Destroys the ConcreteAggregate.
-  ~ConcreteAggregate() override;
+  ~ConcreteAggregate() override = default;
 
   // Creates an iterator for the aggregate.
   std::unique_ptr<Iterator> CreateIterator() const override;
@@ -43,7 +43,9 @@ class ConcreteAggregate : public Aggregate {
 
  private:
   // Stores the items in the aggregate.
-  std::vector<std::string> items_;
+  // The memory is automatically released
+  // when the ConcreteAggregate object is destroyed.
+  std::vector<std::string> items_ = std::vector<std::string>{"A", "B", "C", "D", "E"};
 };
 
 } // namespace iter_ptn
