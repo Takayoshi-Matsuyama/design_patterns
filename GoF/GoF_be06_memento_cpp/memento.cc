@@ -17,9 +17,9 @@
 Memento::Memento(const std::string& state) : _state(state) {}
 
 std::string Memento::GetState() const {
-    return this->_state;
+  return this->_state;
 }
 
 void Memento::SetState(const std::string& state) {
-    this->_state = state;
+  this->_state = state;
 }

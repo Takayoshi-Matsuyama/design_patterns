@@ -12,38 +12,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Memento.h"
-#include "Caretaker.h"
-#include "Originator.h"
+#include "memento.h"
+#include "caretaker.h"
+#include "originator.h"
 
 #include <iostream>
 
 int main() {
-    
-    std::cout << "GoF Memento Pattern Example" << std::endl;
+  std::cout << "GoF Memento Pattern Example" << std::endl;
 
-    Originator originator;
-    Caretaker caretaker;
+  Originator originator;
+  Caretaker caretaker;
 
-    originator.SetState("State 1");
-    caretaker.AddMemento(originator.CreateMemento());
+  originator.SetState("State 1");
+  caretaker.AddMemento(originator.CreateMemento());
 
-    originator.SetState("State 2");
-    caretaker.AddMemento(originator.CreateMemento());
+  originator.SetState("State 2");
+  caretaker.AddMemento(originator.CreateMemento());
 
-    originator.SetState("State 3");
-    caretaker.AddMemento(originator.CreateMemento());
+  originator.SetState("State 3");
+  caretaker.AddMemento(originator.CreateMemento());
 
-    std::cout << "Current State: " << originator.GetState() << std::endl;
+  std::cout << "Current State: " << originator.GetState() << std::endl;
 
-    originator.SetMemento(caretaker.GetMemento(0));
-    std::cout << "Restored State: " << originator.GetState() << std::endl;
+  originator.SetMemento(caretaker.GetMemento(0));
+  std::cout << "Restored State: " << originator.GetState() << std::endl;
 
-    originator.SetMemento(caretaker.GetMemento(1));
-    std::cout << "Restored State: " << originator.GetState() << std::endl;
+  originator.SetMemento(caretaker.GetMemento(1));
+  std::cout << "Restored State: " << originator.GetState() << std::endl;
 
-    originator.SetMemento(caretaker.GetMemento(2));
-    std::cout << "Restored State: " << originator.GetState() << std::endl;
+  originator.SetMemento(caretaker.GetMemento(2));
+  std::cout << "Restored State: " << originator.GetState() << std::endl;
 
-    return 0;
+  return 0;
 }

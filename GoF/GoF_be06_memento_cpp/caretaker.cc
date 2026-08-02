@@ -17,12 +17,12 @@
 #include <stdexcept>
 
 void Caretaker::AddMemento(const Memento& memento) {
-    this->_mementos.push_back(memento);
+  this->_mementos.push_back(memento);
 }
 
 Memento Caretaker::GetMemento(int index) const {
-    if (index < 0 || index >= static_cast<int>(_mementos.size())) {
-        throw std::out_of_range("Invalid memento index");
-    }
-    return this->_mementos[index];
+  if (index < 0 || index >= static_cast<int>(_mementos.size())) {
+    throw std::out_of_range("Invalid memento index");
+  }
+  return this->_mementos[index];
 }

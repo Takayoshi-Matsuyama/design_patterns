@@ -12,28 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ORIGINATOR_H
-#define ORIGINATOR_H
+#ifndef DESIGN_PTN_BE06_MEM_ORIGINATOR_H
+#define DESIGN_PTN_BE06_MEM_ORIGINATOR_H
 
 #include "memento.h"
 
 #include <string>
 
 class Originator {
+ public:
+	Originator() = default;
 
-    public:
-        Originator() = default;
+	void SetState(const std::string& state);
 
-        void SetState(const std::string& state);
+	std::string GetState() const;
 
-        std::string GetState() const;
+	Memento CreateMemento() const;
 
-        Memento CreateMemento() const;
+	void SetMemento(const Memento& memento);
 
-        void SetMemento(const Memento& memento);
-
-    private:
-        std::string _state;
+ private:
+	std::string _state;
 };
 
-#endif // ORIGINATOR_H
+#endif // DESIGN_PTN_BE06_MEM_ORIGINATOR_H

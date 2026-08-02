@@ -12,24 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CARETAKER_H
-#define CARETAKER_H
+#ifndef DESIGN_PTN_BE06_MEM_CARETAKER_H
+#define DESIGN_PTN_BE06_MEM_CARETAKER_H
 
 #include "memento.h"
 
 #include <vector>
 
 class Caretaker {
+ public:
+  Caretaker() = default;
 
-    public:
-        Caretaker() = default;
+  void AddMemento(const Memento& memento);
 
-        void AddMemento(const Memento& memento);
+  Memento GetMemento(int index) const;
 
-        Memento GetMemento(int index) const;
-
-    private:
-        std::vector<Memento> _mementos;
+ private:
+  std::vector<Memento> _mementos;
 };
 
-#endif // CARETAKER_H
+#endif // DESIGN_PTN_BE06_MEM_CARETAKER_H

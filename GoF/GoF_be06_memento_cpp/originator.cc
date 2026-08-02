@@ -15,17 +15,17 @@
 #include "originator.h"
 
 void Originator::SetState(const std::string& state) {
-    this->_state = state;
+  this->_state = state;
 }
 
 std::string Originator::GetState() const {
-    return this->_state;
+  return this->_state;
 }
 
 Memento Originator::CreateMemento() const {
-    return Memento(this->_state);
+  return Memento(this->_state);
 }
 
 void Originator::SetMemento(const Memento& memento) {
-    this->_state = memento.GetState();
+  this->_state = memento.GetState();
 }
