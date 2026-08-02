@@ -33,7 +33,7 @@ bool ConcreteIterator::IsDone() const {
 
 std::string ConcreteIterator::CurrentItem() const {
   if (this->IsDone()) {
-      return "";
+    return "";
   }
   return aggregate_.GetItem(current_index_);
 }

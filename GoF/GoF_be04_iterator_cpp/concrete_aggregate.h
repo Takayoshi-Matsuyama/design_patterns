@@ -45,7 +45,7 @@ class ConcreteAggregate : public Aggregate {
   // Stores the items in the aggregate.
   // The memory is automatically released
   // when the ConcreteAggregate object is destroyed.
-  std::vector<std::string> items_ = std::vector<std::string>{"A", "B", "C", "D", "E"};
+  std::vector<std::string> items_{"A", "B", "C", "D", "E"};
 };
 
 } // namespace iter_ptn
