@@ -20,12 +20,12 @@
 int main() {
   std::cout << "GoF Observer Pattern Example" << std::endl;
 
-  ConcreteSubject subject;
+  obs_ptn::ConcreteSubject subject;
 
   // Observers' lifeteime is managed by the main function,
   // so we can use stack allocation here.
-  ConcreteObserver observer1;
-  ConcreteObserver observer2;
+  obs_ptn::ConcreteObserver observer1;
+  obs_ptn::ConcreteObserver observer2;
 
   subject.Attach(&observer1);
   subject.Attach(&observer2);

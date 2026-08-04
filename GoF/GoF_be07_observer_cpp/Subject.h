@@ -19,6 +19,8 @@
 
 #include <string>
 
+namespace obs_ptn {
+
 class Subject {
  public:
   virtual ~Subject() = default;
@@ -27,5 +29,7 @@ class Subject {
   virtual void Notify() = 0;
   virtual std::string GetState() const = 0;
 };
+
+} // namespace obs_ptn
 
 #endif // DESIGN_PTN_BE07_OBS_SUBJECT_H_

@@ -16,6 +16,8 @@
 
 #include <algorithm>
 
+namespace obs_ptn {
+
 ConcreteSubject::ConcreteSubject() : _state("") {}
 
 void ConcreteSubject::Attach(Observer* observer) {
@@ -42,3 +44,5 @@ void ConcreteSubject::SetState(std::string state) {
   this->_state = state;
   Notify();
 }
+
+} // namespace obs_ptn

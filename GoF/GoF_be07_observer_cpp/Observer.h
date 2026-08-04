@@ -15,6 +15,8 @@
 #ifndef DESIGN_PTN_BE07_OBS_OBSERVER_H_
 #define DESIGN_PTN_BE07_OBS_OBSERVER_H_
 
+namespace obs_ptn {
+
 class Subject;
 
 class Observer {
@@ -22,5 +24,7 @@ class Observer {
   virtual ~Observer() = default;
   virtual void Update(Subject* subject) = 0;
 };
+
+} // namespace obs_ptn
 
 #endif // DESIGN_PTN_BE07_OBS_OBSERVER_H_

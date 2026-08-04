@@ -20,6 +20,8 @@
 
 #include "subject.h"
 
+namespace obs_ptn {
+
 class ConcreteSubject : public Subject {
     public:
         ConcreteSubject();
@@ -39,5 +41,7 @@ class ConcreteSubject : public Subject {
         std::string _state;
         std::vector<Observer*> _observers;
 };
+
+} // namespace obs_ptn
 
 #endif // DESIGN_PTN_BE07_OBS_CONCRETE_SUBJECT_H_

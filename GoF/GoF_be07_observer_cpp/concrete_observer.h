@@ -17,10 +17,14 @@
 
 #include "observer.h"
 
+namespace obs_ptn {
+
 class ConcreteObserver : public Observer {
  public:
   ConcreteObserver();
   void Update(Subject* subject) override;
 };
+
+} // namespace obs_ptn
 
 #endif // DESIGN_PTN_BE07_OBS_CONCRETE_OBSERVER_H_

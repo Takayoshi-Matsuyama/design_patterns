@@ -19,6 +19,8 @@
 
 #include "subject.h"
 
+namespace obs_ptn {
+
 ConcreteObserver::ConcreteObserver() {}
 
 void ConcreteObserver::Update(Subject* subject) {
@@ -26,3 +28,5 @@ void ConcreteObserver::Update(Subject* subject) {
   std::cout << "ConcreteObserver: Received update from Subject. New state: "
             << state << std::endl;
 }
+
+} // namespace obs_ptn
