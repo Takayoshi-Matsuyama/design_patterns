@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteSubject.h"
+#include "concrete_subject.h"
 
 #include <algorithm>
 

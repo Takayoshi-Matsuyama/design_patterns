@@ -12,11 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Subject.h"
-#include "ConcreteObserver.h"
+#include "concrete_observer.h"
 
 #include <iostream>
 #include <string>
+
+#include "subject.h"
 
 ConcreteObserver::ConcreteObserver() {}
 

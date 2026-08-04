@@ -15,10 +15,10 @@
 #ifndef CONCRETE_SUBJECT_H
 #define CONCRETE_SUBJECT_H
 
-#include "Subject.h"
-
 #include <vector>
 #include <string>
+
+#include "subject.h"
 
 class ConcreteSubject : public Subject {
     public:

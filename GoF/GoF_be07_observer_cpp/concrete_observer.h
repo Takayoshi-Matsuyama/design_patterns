@@ -15,7 +15,7 @@
 #ifndef CONCRETE_OBSERVER_H
 #define CONCRETE_OBSERVER_H
 
-#include "Observer.h"
+#include "observer.h"
 
 class ConcreteObserver : public Observer {
     public:
