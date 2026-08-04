@@ -17,18 +17,30 @@
 
 #include "memento.h"
 
+#include <stdexcept>
 #include <vector>
+
+namespace mem_ptn {
 
 class Caretaker {
  public:
   Caretaker() = default;
 
-  void AddMemento(const Memento& memento);
+  void AddMemento(const Memento& memento) {
+    mementos_.push_back(memento);
+  }
 
-  Memento GetMemento(int index) const;
+  Memento GetMemento(int index) const {
+    if (index < 0 || index >= static_cast<int>(mementos_.size())) {
+      throw std::out_of_range("Invalid memento index");
+    }
+    return mementos_[index];
+  }
 
  private:
-  std::vector<Memento> _mementos;
+  std::vector<Memento> mementos_;
 };
+
+}  // namespace mem_ptn
 
 #endif // DESIGN_PTN_BE06_MEM_CARETAKER_H

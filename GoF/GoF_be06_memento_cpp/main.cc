@@ -21,8 +21,8 @@
 int main() {
   std::cout << "GoF Memento Pattern Example" << std::endl;
 
-  Originator originator;
-  Caretaker caretaker;
+  mem_ptn::Originator originator;
+  mem_ptn::Caretaker caretaker;
 
   originator.SetState("State 1");
   caretaker.AddMemento(originator.CreateMemento());

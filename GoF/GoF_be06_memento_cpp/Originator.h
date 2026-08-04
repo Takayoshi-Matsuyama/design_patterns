@@ -19,20 +19,34 @@
 
 #include <string>
 
+namespace mem_ptn {
+
+// Represents the Originator in the Memento design pattern.
 class Originator {
  public:
+  // Constructs an Originator with an initial state.
 	Originator() = default;
 
-	void SetState(const std::string& state);
+	void SetState(const std::string& state) {
+		state_ = state;
+	}
 
-	std::string GetState() const;
+	std::string GetState() const {
+		return state_;
+	}
 
-	Memento CreateMemento() const;
+	Memento CreateMemento() const {
+		return Memento(state_);
+	}
 
-	void SetMemento(const Memento& memento);
+	void SetMemento(const Memento& memento) {
+		state_ = memento.GetState();
+	}
 
  private:
-	std::string _state;
+	std::string state_;
 };
+
+}	// namespace mem_ptn
 
 #endif // DESIGN_PTN_BE06_MEM_ORIGINATOR_H

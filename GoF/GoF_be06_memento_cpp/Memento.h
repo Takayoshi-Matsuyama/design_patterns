@@ -17,16 +17,24 @@
 
 #include <string>
 
+namespace mem_ptn {
+
 class Memento {
  public:
-  Memento(const std::string& state);
+  Memento(const std::string& state) : state_(state) {}
 
-  std::string GetState() const;
+  std::string GetState() const {
+    return state_;
+  }
 
-  void SetState(const std::string& state);
+  void SetState(const std::string& state) {
+    state_ = state;
+  }
 
  private:
-  std::string _state;
+  std::string state_;
 };
+
+}  // namespace mem_ptn
 
 #endif // DESIGN_PTN_BE06_MEM_MEMENTO_H
