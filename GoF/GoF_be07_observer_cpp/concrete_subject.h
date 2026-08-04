@@ -38,8 +38,8 @@ class ConcreteSubject : public Subject {
         void SetState(std::string state);
        
     private:
-        std::string _state;
-        std::vector<Observer*> _observers;
+        std::string state_;
+        std::vector<Observer*> observers_;
 };
 
 } // namespace obs_ptn

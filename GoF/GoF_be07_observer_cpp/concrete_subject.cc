@@ -18,18 +18,18 @@
 
 namespace obs_ptn {
 
-ConcreteSubject::ConcreteSubject() : _state("") {}
+ConcreteSubject::ConcreteSubject() : state_("") {}
 
 void ConcreteSubject::Attach(Observer* observer) {
-  _observers.push_back(observer);
+  observers_.push_back(observer);
 }
 
 void ConcreteSubject::Detach(Observer* observer) {
-  this->_observers.erase(std::remove(this->_observers.begin(), this->_observers.end(), observer), this->_observers.end());
+  observers_.erase(std::remove(observers_.begin(), observers_.end(), observer), observers_.end());
 }
 
 void ConcreteSubject::Notify() {
-  for (Observer* observer : this->_observers) {
+  for (Observer* observer : observers_) {
     if (observer) {
       observer->Update(this);
     }
@@ -37,11 +37,11 @@ void ConcreteSubject::Notify() {
 }
 
 std::string ConcreteSubject::GetState() const {
-  return this->_state;
+  return state_;
 }
 
 void ConcreteSubject::SetState(std::string state) {
-  this->_state = state;
+  state_ = state;
   Notify();
 }
 
