@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "memento.h"
 #include "caretaker.h"
+#include "memento.h"
 #include "originator.h"
 
 #include <iostream>

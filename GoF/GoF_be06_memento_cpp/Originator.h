@@ -15,9 +15,9 @@
 #ifndef DESIGN_PTN_BE06_MEM_ORIGINATOR_H
 #define DESIGN_PTN_BE06_MEM_ORIGINATOR_H
 
-#include "memento.h"
-
 #include <string>
+
+#include "memento.h"
 
 namespace mem_ptn {
 

@@ -23,7 +23,7 @@ namespace mem_ptn {
 class Memento {
  public:
   // Constructs a Memento with the given state.
-  Memento(const std::string& state) : state_(state) {}
+  explicit Memento(const std::string& state) : state_(state) {}
 
   // Returns the state stored in the Memento.
   std::string GetState() const {

@@ -15,10 +15,10 @@
 #ifndef DESIGN_PTN_BE06_MEM_CARETAKER_H
 #define DESIGN_PTN_BE06_MEM_CARETAKER_H
 
-#include "memento.h"
-
 #include <stdexcept>
 #include <vector>
+
+#include "memento.h"
 
 namespace mem_ptn {
 
