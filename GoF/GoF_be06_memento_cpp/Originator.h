@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_BE06_MEM_ORIGINATOR_H
-#define DESIGN_PTN_BE06_MEM_ORIGINATOR_H
+#ifndef DESIGN_PTN_BE06_MEM_ORIGINATOR_H_
+#define DESIGN_PTN_BE06_MEM_ORIGINATOR_H_
 
 #include <string>
 
@@ -25,33 +25,33 @@ namespace mem_ptn {
 class Originator {
  public:
   // Constructs an Originator with an initial state.
-	Originator() = default;
+  Originator() = default;
 
-	// Gets the state of the Originator.
-	std::string GetState() const {
-		return state_;
-	}
+  // Gets the state of the Originator.
+  std::string GetState() const {
+    return state_;
+  }
 
-	// Sets the state of the Originator.
-	void SetState(const std::string& state) {
-		state_ = state;
-	}
+  // Sets the state of the Originator.
+  void SetState(const std::string& state) {
+    state_ = state;
+  }
 
-	// Creates a Memento that captures the current state of the Originator.
-	Memento CreateMemento() const {
-		return Memento(state_);
-	}
+  // Creates a Memento that captures the current state of the Originator.
+  Memento CreateMemento() const {
+    return Memento(state_);
+  }
 
-	// Restores the state of the Originator from a Memento.
-	void SetMemento(const Memento& memento) {
-		state_ = memento.GetState();
-	}
+  // Restores the state of the Originator from a Memento.
+  void SetMemento(const Memento& memento) {
+    state_ = memento.GetState();
+  }
 
  private:
   // The current state of the Originator.
-	std::string state_;
+  std::string state_;
 };
 
 }	// namespace mem_ptn
 
-#endif // DESIGN_PTN_BE06_MEM_ORIGINATOR_H
+#endif // DESIGN_PTN_BE06_MEM_ORIGINATOR_H_

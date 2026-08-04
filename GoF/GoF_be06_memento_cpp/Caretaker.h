@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_BE06_MEM_CARETAKER_H
-#define DESIGN_PTN_BE06_MEM_CARETAKER_H
+#ifndef DESIGN_PTN_BE06_MEM_CARETAKER_H_
+#define DESIGN_PTN_BE06_MEM_CARETAKER_H_
 
 #include <stdexcept>
 #include <vector>
@@ -34,8 +34,8 @@ class Caretaker {
   }
 
   // Retrieves a Memento from the Caretaker's list of Mementos by index.
-  Memento GetMemento(int index) const {
-    if (index < 0 || index >= static_cast<int>(mementos_.size())) {
+  Memento GetMemento(std::size_t index) const {
+    if (index >= mementos_.size()) {
       throw std::out_of_range("Invalid memento index");
     }
     return mementos_[index];
@@ -48,4 +48,4 @@ class Caretaker {
 
 }  // namespace mem_ptn
 
-#endif // DESIGN_PTN_BE06_MEM_CARETAKER_H
+#endif // DESIGN_PTN_BE06_MEM_CARETAKER_H_
