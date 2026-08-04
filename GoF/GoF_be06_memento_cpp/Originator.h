@@ -27,23 +27,28 @@ class Originator {
   // Constructs an Originator with an initial state.
 	Originator() = default;
 
-	void SetState(const std::string& state) {
-		state_ = state;
-	}
-
+	// Gets the state of the Originator.
 	std::string GetState() const {
 		return state_;
 	}
 
+	// Sets the state of the Originator.
+	void SetState(const std::string& state) {
+		state_ = state;
+	}
+
+	// Creates a Memento that captures the current state of the Originator.
 	Memento CreateMemento() const {
 		return Memento(state_);
 	}
 
+	// Restores the state of the Originator from a Memento.
 	void SetMemento(const Memento& memento) {
 		state_ = memento.GetState();
 	}
 
  private:
+  // The current state of the Originator.
 	std::string state_;
 };
 

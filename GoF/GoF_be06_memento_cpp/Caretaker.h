@@ -22,14 +22,18 @@
 
 namespace mem_ptn {
 
+// Represents the Caretaker in the Memento design pattern.
 class Caretaker {
  public:
+  // Constructs a Caretaker with an empty list of Mementos.
   Caretaker() = default;
 
+  // Adds a Memento to the Caretaker's list of Mementos.
   void AddMemento(const Memento& memento) {
     mementos_.push_back(memento);
   }
 
+  // Retrieves a Memento from the Caretaker's list of Mementos by index.
   Memento GetMemento(int index) const {
     if (index < 0 || index >= static_cast<int>(mementos_.size())) {
       throw std::out_of_range("Invalid memento index");
@@ -38,6 +42,7 @@ class Caretaker {
   }
 
  private:
+  // The list of Mementos stored by the Caretaker.
   std::vector<Memento> mementos_;
 };
 

@@ -19,19 +19,24 @@
 
 namespace mem_ptn {
 
+// Represents the Memento in the Memento design pattern.
 class Memento {
  public:
+  // Constructs a Memento with the given state.
   Memento(const std::string& state) : state_(state) {}
 
+  // Returns the state stored in the Memento.
   std::string GetState() const {
     return state_;
   }
 
+  // Sets the state stored in the Memento.
   void SetState(const std::string& state) {
     state_ = state;
   }
 
  private:
+  // The state stored in the Memento.
   std::string state_;
 };
 
