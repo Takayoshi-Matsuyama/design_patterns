@@ -52,6 +52,6 @@ class Originator {
   std::string state_;
 };
 
-}	// namespace mem_ptn
+} // namespace mem_ptn
 
 #endif // DESIGN_PTN_BE06_MEM_ORIGINATOR_H_
