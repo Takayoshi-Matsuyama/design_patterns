@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_OBSERVER_H
-#define CONCRETE_OBSERVER_H
+#ifndef DESIGN_PTN_BE07_OBS_CONCRETE_OBSERVER_H_
+#define DESIGN_PTN_BE07_OBS_CONCRETE_OBSERVER_H_
 
 #include "observer.h"
 
 class ConcreteObserver : public Observer {
-    public:
-        ConcreteObserver();
-        void Update(Subject* subject) override;
+ public:
+  ConcreteObserver();
+  void Update(Subject* subject) override;
 };
 
-#endif // CONCRETE_OBSERVER_H
+#endif // DESIGN_PTN_BE07_OBS_CONCRETE_OBSERVER_H_

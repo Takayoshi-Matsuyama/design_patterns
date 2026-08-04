@@ -19,26 +19,26 @@
 ConcreteSubject::ConcreteSubject() : _state("") {}
 
 void ConcreteSubject::Attach(Observer* observer) {
-    _observers.push_back(observer);
+  _observers.push_back(observer);
 }
 
 void ConcreteSubject::Detach(Observer* observer) {
-    this->_observers.erase(std::remove(this->_observers.begin(), this->_observers.end(), observer), this->_observers.end());
+  this->_observers.erase(std::remove(this->_observers.begin(), this->_observers.end(), observer), this->_observers.end());
 }
 
 void ConcreteSubject::Notify() {
-    for (Observer* observer : this->_observers) {
-        if (observer) {
-            observer->Update(this);
-        }
+  for (Observer* observer : this->_observers) {
+    if (observer) {
+      observer->Update(this);
     }
+  }
 }
 
 std::string ConcreteSubject::GetState() const {
-    return this->_state;
+  return this->_state;
 }
 
 void ConcreteSubject::SetState(std::string state) {
-    this->_state = state;
-    Notify();
+  this->_state = state;
+  Notify();
 }

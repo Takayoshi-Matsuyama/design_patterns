@@ -18,24 +18,23 @@
 #include <iostream>
 
 int main() {
-    
-    std::cout << "GoF Observer Pattern Example" << std::endl;
+  std::cout << "GoF Observer Pattern Example" << std::endl;
 
-    ConcreteSubject subject;
+  ConcreteSubject subject;
 
-    // Observers' lifeteime is managed by the main function,
-    // so we can use stack allocation here.
-    ConcreteObserver observer1;
-    ConcreteObserver observer2;
+  // Observers' lifeteime is managed by the main function,
+  // so we can use stack allocation here.
+  ConcreteObserver observer1;
+  ConcreteObserver observer2;
 
-    subject.Attach(&observer1);
-    subject.Attach(&observer2);
+  subject.Attach(&observer1);
+  subject.Attach(&observer2);
 
-    subject.SetState("State 1");
-    subject.SetState("State 2");
+  subject.SetState("State 1");
+  subject.SetState("State 2");
 
-    subject.Detach(&observer1);
-    subject.SetState("State 3");
+  subject.Detach(&observer1);
+  subject.SetState("State 3");
 
-    return 0;
+  return 0;
 }

@@ -22,7 +22,7 @@
 ConcreteObserver::ConcreteObserver() {}
 
 void ConcreteObserver::Update(Subject* subject) {
-
-    std::string state = subject->GetState(); // Assuming Subject has a GetState() method
-    std::cout << "ConcreteObserver: Received update from Subject. New state: " << state << std::endl;
+  std::string state = subject->GetState();
+  std::cout << "ConcreteObserver: Received update from Subject. New state: "
+            << state << std::endl;
 }

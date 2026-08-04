@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef OBSERVER_H
-#define OBSERVER_H
+#ifndef DESIGN_PTN_BE07_OBS_OBSERVER_H_
+#define DESIGN_PTN_BE07_OBS_OBSERVER_H_
 
 class Subject;
 
 class Observer {
-    public:
-        virtual ~Observer() = default;
-        virtual void Update(Subject* subject) = 0;
+ public:
+  virtual ~Observer() = default;
+  virtual void Update(Subject* subject) = 0;
 };
 
-#endif // OBSERVER_H
+#endif // DESIGN_PTN_BE07_OBS_OBSERVER_H_

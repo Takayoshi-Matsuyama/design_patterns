@@ -12,20 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef SUBJECT_H
-#define SUBJECT_H
+#ifndef DESIGN_PTN_BE07_OBS_SUBJECT_H_
+#define DESIGN_PTN_BE07_OBS_SUBJECT_H_
 
 #include "observer.h"
 
 #include <string>
 
 class Subject {
-    public:
-        virtual ~Subject() = default;
-        virtual void Attach(class Observer* observer) = 0;
-        virtual void Detach(class Observer* observer) = 0;
-        virtual void Notify() = 0;
-        virtual std::string GetState() const = 0; // Add this method to allow observers to get the state
+ public:
+  virtual ~Subject() = default;
+  virtual void Attach(class Observer* observer) = 0;
+  virtual void Detach(class Observer* observer) = 0;
+  virtual void Notify() = 0;
+  virtual std::string GetState() const = 0;
 };
 
-#endif // SUBJECT_H
+#endif // DESIGN_PTN_BE07_OBS_SUBJECT_H_

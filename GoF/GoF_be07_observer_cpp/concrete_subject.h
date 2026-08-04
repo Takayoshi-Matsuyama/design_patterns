@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_SUBJECT_H
-#define CONCRETE_SUBJECT_H
+#ifndef DESIGN_PTN_BE07_OBS_CONCRETE_SUBJECT_H_
+#define DESIGN_PTN_BE07_OBS_CONCRETE_SUBJECT_H_
 
 #include <vector>
 #include <string>
@@ -40,4 +40,4 @@ class ConcreteSubject : public Subject {
         std::vector<Observer*> _observers;
 };
 
-#endif // CONCRETE_SUBJECT_H
+#endif // DESIGN_PTN_BE07_OBS_CONCRETE_SUBJECT_H_
