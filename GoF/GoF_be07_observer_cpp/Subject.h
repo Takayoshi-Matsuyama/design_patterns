@@ -31,10 +31,10 @@ class Subject {
   virtual ~Subject() = default;
 
   // Attaches an observer to the subject.
-  virtual void Attach(class Observer* observer) = 0;
+  virtual void Attach(Observer* observer) = 0;
 
   // Detaches an observer from the subject.
-  virtual void Detach(class Observer* observer) = 0;
+  virtual void Detach(Observer* observer) = 0;
 
   // Notifies all attached observers of a change in the subject's state.
   virtual void Notify() = 0;

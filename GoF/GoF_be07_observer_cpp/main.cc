@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <iostream>
+
 #include "concrete_subject.h"
 #include "concrete_observer.h"
-
-#include <iostream>
 
 int main() {
   std::cout << "GoF Observer Pattern Example" << std::endl;

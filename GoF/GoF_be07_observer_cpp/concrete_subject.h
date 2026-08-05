@@ -63,10 +63,10 @@ class ConcreteSubject : public Subject {
 
   // Sets the state of the subject and notifies observers of the change.
   // Additional methods specific to ConcreteSubject
-  void SetState(std::string state) {
+  void SetState(const std::string& state) {
     state_ = state;
     Notify();
-  };
+  }
     
  private:
   // The current state of the subject.
