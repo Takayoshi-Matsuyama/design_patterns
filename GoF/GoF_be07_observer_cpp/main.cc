@@ -14,8 +14,8 @@
 
 #include <iostream>
 
-#include "concrete_subject.h"
 #include "concrete_observer.h"
+#include "concrete_subject.h"
 
 int main() {
   std::cout << "GoF Observer Pattern Example" << std::endl;
