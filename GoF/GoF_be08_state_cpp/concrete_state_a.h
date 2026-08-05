@@ -12,18 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Context.h"
+#ifndef DESIGN_PTN_BE08_STATE_CONCRETE_STATE_A_H_
+#define DESIGN_PTN_BE08_STATE_CONCRETE_STATE_A_H_
 
 #include <iostream>
 
-void Context::Request() {
-    if (this->_state) {
-        this->_state->Handle();
-    } else {
-        std::cout << "Context: No state set. Cannot handle request." << std::endl;
-    }
-}
+#include "state.h"
 
-void Context::SetState(State* state) {
-    this->_state = state;
-}
+namespace state_ptn {
+
+// Represents a concrete state in the State design pattern.
+class ConcreteStateA : public State {
+ public:
+  // Handles the request specific to ConcreteStateA.
+  void Handle() override {
+    std::cout << "ConcreteStateA: Handling request." << std::endl;
+  }
+};
+
+}  // namespace state_ptn
+
+#endif // DESIGN_PTN_BE08_STATE_CONCRETE_STATE_A_H_

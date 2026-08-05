@@ -12,20 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONTEXT_H
-#define CONTEXT_H
+#ifndef DESIGN_PTN_BE08_STATE_CONTEXT_H_
+#define DESIGN_PTN_BE08_STATE_CONTEXT_H_
 
-#include "State.h"
+#include <iostream>
 
+#include "state.h"
+
+namespace state_ptn {
+
+// Represents the context in the State design pattern.
 class Context {
-    public:
-        void Request();
+ public:
+  // Requests the current state to handle the request.
+  void Request() {
+    if (state_) {
+      state_->Handle();
+    } else {
+      std::cout << "Context: No state set. Cannot handle request." << std::endl;
+    }
+  }
 
-        // State lifecycle is managed outside of this class.
-        // So we just refer it through the raw pointer.
-        void SetState(State* state);
-    private:
-        State* _state;
+  // Sets the current state of the context.
+  // State's lifecycle is managed outside of this class.
+  // So we just refer it through the raw pointer.
+  void SetState(State* state) {
+    state_ = state;
+  }
+
+ private:
+  // Pointer to the current state.
+  State* state_ = nullptr;
 };
 
-#endif // CONTEXT_H
+}  // namespace state_ptn
+
+#endif // DESIGN_PTN_BE08_STATE_CONTEXT_H_

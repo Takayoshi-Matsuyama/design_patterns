@@ -12,13 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef STATE_H
-#define STATE_H
+#ifndef DESIGN_PTN_BE08_STATE_STATE_H_
+#define DESIGN_PTN_BE08_STATE_STATE_H_
 
+namespace state_ptn {
+
+// Represents the abstract state interface in the State design pattern.
 class State {
-    public:
-        virtual ~State() {}
-        virtual void Handle() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~State() {}
+
+  // Handles the request based on the state.
+  virtual void Handle() = 0;
 };
 
-#endif // STATE_H
+}  // namespace state_ptn
+
+#endif // DESIGN_PTN_BE08_STATE_STATE_H_

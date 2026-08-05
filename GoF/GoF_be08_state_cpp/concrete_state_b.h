@@ -12,14 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_STATE_B_H
-#define CONCRETE_STATE_B_H
+#ifndef DESIGN_PTN_BE08_STATE_CONCRETE_STATE_B_H_
+#define DESIGN_PTN_BE08_STATE_CONCRETE_STATE_B_H_
 
-#include "State.h"
+#include <iostream>
 
+#include "state.h"
+
+namespace state_ptn {
+
+// Represents a concrete state in the State design pattern.
 class ConcreteStateB : public State {
-    public:
-        void Handle() override;
+ public:
+  // Handles the request specific to ConcreteStateB.
+  void Handle() override {
+    std::cout << "ConcreteStateB: Handling request." << std::endl;
+  }
 };
 
-#endif // CONCRETE_STATE_B_H
+}  // namespace state_ptn
+
+#endif // DESIGN_PTN_BE08_STATE_CONCRETE_STATE_B_H_

@@ -12,26 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Context.h"
-#include "ConcreteStateA.h"
-#include "ConcreteStateB.h"
+#include "context.h"
+#include "concrete_state_a.h"
+#include "concrete_state_b.h"
 
 #include <iostream>
 #include <memory>
 
 int main() {
-    
-    std::cout << "GoF State Pattern Example" << std::endl;
+  std::cout << "GoF State Pattern Example" << std::endl;
 
-    Context context;
-    std::unique_ptr<State> stateA = std::make_unique<ConcreteStateA>();
-    std::unique_ptr<State> stateB = std::make_unique<ConcreteStateB>();
+  state_ptn::Context context;
+  std::unique_ptr<state_ptn::State> state_a =
+    std::make_unique<state_ptn::ConcreteStateA>();
+  std::unique_ptr<state_ptn::State> state_b =
+    std::make_unique<state_ptn::ConcreteStateB>();
 
-    context.SetState(stateA.get());
-    context.Request();
+  context.SetState(state_a.get());
+  context.Request();
 
-    context.SetState(stateB.get());
-    context.Request();
-    
-    return 0;
+  context.SetState(state_b.get());
+  context.Request();
+  
+  return 0;
 }
