@@ -17,11 +17,20 @@
 
 namespace obs_ptn {
 
+// Forward declaration of Subject class to avoid circular dependency.
 class Subject;
 
+// Represents the Observer interface in the Observer pattern.
 class Observer {
  public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
   virtual ~Observer() = default;
+
+  // Updates the observer with the state of the subject.
+  // This method is called by the subject when its state changes.
   virtual void Update(Subject* subject) = 0;
 };
 

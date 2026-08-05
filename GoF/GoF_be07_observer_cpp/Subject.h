@@ -21,12 +21,25 @@
 
 namespace obs_ptn {
 
+// Represents the Subject interface in the Observer pattern.
 class Subject {
  public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
   virtual ~Subject() = default;
+
+  // Attaches an observer to the subject.
   virtual void Attach(class Observer* observer) = 0;
+
+  // Detaches an observer from the subject.
   virtual void Detach(class Observer* observer) = 0;
+
+  // Notifies all attached observers of a change in the subject's state.
   virtual void Notify() = 0;
+
+  // Returns the current state of the subject.
   virtual std::string GetState() const = 0;
 };
 

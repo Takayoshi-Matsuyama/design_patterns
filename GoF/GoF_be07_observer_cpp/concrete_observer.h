@@ -15,14 +15,27 @@
 #ifndef DESIGN_PTN_BE07_OBS_CONCRETE_OBSERVER_H_
 #define DESIGN_PTN_BE07_OBS_CONCRETE_OBSERVER_H_
 
+#include <iostream>
+#include <string>
+
 #include "observer.h"
+#include "subject.h"
 
 namespace obs_ptn {
 
+// Represents a concrete implementation of the Observer interface.
 class ConcreteObserver : public Observer {
  public:
-  ConcreteObserver();
-  void Update(Subject* subject) override;
+  // Constructs a ConcreteObserver.
+  ConcreteObserver() = default;
+
+  // Updates the observer with the state of the subject.
+  // This method is called by the subject when its state changes.
+  void Update(Subject* subject) override {
+    std::string state = subject->GetState();
+    std::cout << "ConcreteObserver: Received update from Subject. New state: "
+              << state << std::endl;
+  }
 };
 
 } // namespace obs_ptn
