@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "context.h"
-#include "concrete_state_a.h"
-#include "concrete_state_b.h"
-
 #include <iostream>
 #include <memory>
+
+#include "concrete_state_a.h"
+#include "concrete_state_b.h"
+#include "context.h"
 
 int main() {
   std::cout << "GoF State Pattern Example" << std::endl;

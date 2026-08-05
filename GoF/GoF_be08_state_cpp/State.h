@@ -24,7 +24,7 @@ class State {
   // This ensures that
   // when a derived class object is deleted through a base class pointer,
   // the derived class's destructor is called, preventing resource leaks.
-  virtual ~State() {}
+  virtual ~State() = default;
 
   // Handles the request based on the state.
   virtual void Handle() = 0;
