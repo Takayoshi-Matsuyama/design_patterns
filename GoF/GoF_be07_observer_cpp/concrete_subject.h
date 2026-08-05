@@ -25,8 +25,8 @@ namespace obs_ptn {
 
 class ConcreteSubject : public Subject {
  public:
-  // Constructs a ConcreteSubject with an initial empty state.
-  ConcreteSubject() : state_("") {};
+  // Constructs a ConcreteSubject.
+  ConcreteSubject() = default;
 
   // Attaches an observer to the subject.
   // Observers' lifetime is managed outside of this class,
@@ -37,14 +37,21 @@ class ConcreteSubject : public Subject {
 
   // Detaches an observer from the subject.
   void Detach(Observer* observer) override {
-    observers_.erase(std::remove(observers_.begin(), observers_.end(), observer), observers_.end());
+    // Erase-remove idiom to remove the observer from the list.
+    // "remove" shifts all elements that are not equal to the observer
+    // to the front of the vector,
+    // and returns an iterator to the new end of the vector.
+    // "erase" then removes the "removed" elements from the vector.
+    observers_.erase(
+      std::remove(observers_.begin(), observers_.end(), observer),
+      observers_.end());
   }
 
   // Notifies all attached observers of a change in the subject's state.
   void Notify() override {
     for (Observer* observer : observers_) {
       if (observer) {
-      observer->Update(this);
+        observer->Update(this);
       }
     }
   }
@@ -63,7 +70,7 @@ class ConcreteSubject : public Subject {
     
  private:
   // The current state of the subject.
-  std::string state_;
+  std::string state_ = "";
 
   // A list of observers that are attached to the subject.
   std::vector<Observer*> observers_;

@@ -31,7 +31,7 @@ class Observer {
 
   // Updates the observer with the state of the subject.
   // This method is called by the subject when its state changes.
-  virtual void Update(Subject* subject) = 0;
+  virtual void Update(const Subject* subject) = 0;
 };
 
 } // namespace obs_ptn

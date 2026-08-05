@@ -31,7 +31,7 @@ class ConcreteObserver : public Observer {
 
   // Updates the observer with the state of the subject.
   // This method is called by the subject when its state changes.
-  void Update(Subject* subject) override {
+  void Update(const Subject* subject) override {
     std::string state = subject->GetState();
     std::cout << "ConcreteObserver: Received update from Subject. New state: "
               << state << std::endl;

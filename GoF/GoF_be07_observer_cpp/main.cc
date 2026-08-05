@@ -22,8 +22,7 @@ int main() {
 
   obs_ptn::ConcreteSubject subject;
 
-  // Observers' lifeteime is managed by the main function,
-  // so we can use stack allocation here.
+  // Observers' lifetime is managed by the main function for demo.
   obs_ptn::ConcreteObserver observer1;
   obs_ptn::ConcreteObserver observer2;
 

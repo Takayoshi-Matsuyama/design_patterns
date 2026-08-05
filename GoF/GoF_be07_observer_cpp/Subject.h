@@ -15,9 +15,9 @@
 #ifndef DESIGN_PTN_BE07_OBS_SUBJECT_H_
 #define DESIGN_PTN_BE07_OBS_SUBJECT_H_
 
-#include "observer.h"
-
 #include <string>
+
+#include "observer.h"
 
 namespace obs_ptn {
 
