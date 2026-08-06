@@ -12,15 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef VISITOR_H
-#define VISITOR_H
+#ifndef DESIGN_PTN_BE11_VIS_VISITOR_H_
+#define DESIGN_PTN_BE11_VIS_VISITOR_H_
 
 #include "element.h"
 
+namespace vis_ptn {
+
 class Visitor {
-public:
-    virtual ~Visitor() = default;
-    virtual void Visit(Element& element) = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Visitor() = default;
+
+  virtual void Visit(Element& element) = 0;
 };
 
-#endif // VISITOR_H
+} // namespace vis_ptn
+
+#endif // DESIGN_PTN_BE11_VIS_VISITOR_H_

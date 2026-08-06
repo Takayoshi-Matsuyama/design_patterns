@@ -12,29 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <iostream>
+#include <list>
+#include <memory>
+
 #include "concrete_element_a.h"
 #include "concrete_element_b.h"
 #include "concrete_visitor_1.h"
 #include "concrete_visitor_2.h"
 
-#include <iostream>
-#include <list>
-
 int main() {
-    
-    std::cout << "GoF Visitor Pattern Example" << std::endl;
+  std::cout << "GoF Visitor Pattern Example" << std::endl;
 
-    std::list<Element*> elements;
-    elements.push_back(new ConcreteElementA());
-    elements.push_back(new ConcreteElementB());
+  std::list<std::unique_ptr<vis_ptn::Element>> elements;
+  elements.push_back(std::make_unique<vis_ptn::ConcreteElementA>());
+  elements.push_back(std::make_unique<vis_ptn::ConcreteElementB>());
 
-    ConcreteVisitor1 visitor1;
-    ConcreteVisitor2 visitor2;
+  vis_ptn::ConcreteVisitor1 visitor1;
+  vis_ptn::ConcreteVisitor2 visitor2;
 
-    for (Element* element : elements) {
-        element->Accept(visitor1);
-        element->Accept(visitor2);
-    }
+  for (const std::unique_ptr<vis_ptn::Element>& element : elements) {
+    element->Accept(visitor1);
+    element->Accept(visitor2);
+  }
 
-    return 0;
+  return 0;
 }

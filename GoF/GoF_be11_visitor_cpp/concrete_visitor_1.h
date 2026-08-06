@@ -12,14 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_VISITOR_1_H
-#define CONCRETE_VISITOR_1_H
+#ifndef DESIGN_PTN_BE11_VIS_CONCRETE_VISITOR_1_H_
+#define DESIGN_PTN_BE11_VIS_CONCRETE_VISITOR_1_H_
+
+#include <iostream>
 
 #include "visitor.h"
 
+namespace vis_ptn {
+
 class ConcreteVisitor1 : public Visitor {
-    public:
-        void Visit(Element& element) override;
+ public:
+  void Visit(Element& element) override {
+    std::cout << "ConcreteVisitor1 visiting "
+              << element.GetName() << std::endl;
+  }
 };
 
-#endif // CONCRETE_VISITOR_1_H
+} // namespace vis_ptn
+
+#endif // DESIGN_PTN_BE11_VIS_CONCRETE_VISITOR_1_H_

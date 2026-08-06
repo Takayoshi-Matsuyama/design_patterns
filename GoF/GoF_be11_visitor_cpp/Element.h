@@ -12,18 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ELEMENT_H
-#define ELEMENT_H
+#ifndef DESIGN_PTN_BE11_VIS_ELEMENT_H_
+#define DESIGN_PTN_BE11_VIS_ELEMENT_H_
 
 #include <string>
+
+namespace vis_ptn {
 
 class Visitor; // Forward declaration
 
 class Element {
-public:
-    virtual ~Element() = default;
-    virtual void Accept(Visitor& visitor) = 0;
-    virtual std::string GetName() const = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Element() = default;
+
+  virtual void Accept(Visitor& visitor) = 0;
+  virtual std::string GetName() const = 0;
 };
 
-#endif // ELEMENT_H
+} // namespace vis_ptn
+
+#endif // DESIGN_PTN_BE11_VIS_ELEMENT_H_
