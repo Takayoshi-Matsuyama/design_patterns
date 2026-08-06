@@ -17,12 +17,17 @@
 
 #include "strategy.h"
 
+namespace str_ptn {
+
 // Represents a concrete implementation of the Strategy interface.
 class ConcreteStrategyB : public Strategy {
  public:
   // Executes the algorithm for ConcreteStrategyB.
-  double AlgorithmInterface(double a, double b) override {
+  double AlgorithmInterface(double a, double b) const override {
     return a - b;
   }
 };
+
+} // namespace str_ptn
+
 #endif // DESIGN_PTN_BE09_STR_CONCRETE_STRATEGY_B_H_

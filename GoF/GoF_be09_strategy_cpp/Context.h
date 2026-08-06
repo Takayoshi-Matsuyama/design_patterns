@@ -19,18 +19,20 @@
 
 #include <memory>
 
+namespace str_ptn {
+
 // Represents the Context class that maintains a reference to a Strategy.
 class Context {
  public:
   // Constructs a Context with an optional Strategy.
-  Context(std::unique_ptr<Strategy> strategy = nullptr)
+  explicit Context(std::unique_ptr<Strategy> strategy = nullptr)
     : strategy_(std::move(strategy)) {}
   
   // Disposes of the Context and its associated Strategy.
   ~Context() = default;
 
   // Executes the algorithm defined by the current Strategy.
-  double ExecuteStrategy(double a, double b) {
+  double ExecuteStrategy(double a, double b) const {
     if (strategy_) {
       return strategy_->AlgorithmInterface(a, b);
     }
@@ -43,5 +45,7 @@ class Context {
   // The current Strategy used by the Context.
   std::unique_ptr<Strategy> strategy_ = nullptr;
 };
+
+} // namespace str_ptn
 
 #endif // DESIGN_PTN_BE09_STR_CONTEXT_H_

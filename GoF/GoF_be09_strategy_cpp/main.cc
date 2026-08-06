@@ -21,13 +21,13 @@
 int main() {
   std::cout << "GoF Strategy Pattern Example" << std::endl;
 
-  ConcreteStrategyA strategyA;
-  Context contextA(std::make_unique<ConcreteStrategyA>());
+  str_ptn::ConcreteStrategyA strategyA;
+  str_ptn::Context contextA(std::make_unique<str_ptn::ConcreteStrategyA>());
   std::cout << "Result of Strategy A (5 + 3): "
             << contextA.ExecuteStrategy(5, 3) << std::endl;
 
-  ConcreteStrategyB strategyB;
-  Context contextB(std::make_unique<ConcreteStrategyB>());
+  str_ptn::ConcreteStrategyB strategyB;
+  str_ptn::Context contextB(std::make_unique<str_ptn::ConcreteStrategyB>());
   std::cout << "Result of Strategy B (5 - 3): "
             << contextB.ExecuteStrategy(5, 3) << std::endl;
   

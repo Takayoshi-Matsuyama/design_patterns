@@ -15,6 +15,8 @@
 #ifndef DESIGN_PTN_BE09_STR_STRATEGY_H_
 #define DESIGN_PTN_BE09_STR_STRATEGY_H_
 
+namespace str_ptn {
+
 // Represents the Strategy interface that defines an algorithm signature.
 class Strategy {
  public:
@@ -25,7 +27,9 @@ class Strategy {
   virtual ~Strategy() = default;
 
   // Executes the algorithm defined by the concrete strategy.
-  virtual double AlgorithmInterface(double a, double b) = 0;
+  virtual double AlgorithmInterface(double a, double b) const = 0;
 };
+
+} // namespace str_ptn
 
 #endif // DESIGN_PTN_BE09_STR_STRATEGY_H_
