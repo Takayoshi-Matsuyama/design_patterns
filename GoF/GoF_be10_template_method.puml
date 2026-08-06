@@ -16,7 +16,7 @@
 
 title GoF - Behaviour #10 - Template Method
 
-interface AbstractClass {
+abstract class AbstractClass {
     template_method()
     {abstract} primitive_operation1()
     {abstract} primitive_operation2()

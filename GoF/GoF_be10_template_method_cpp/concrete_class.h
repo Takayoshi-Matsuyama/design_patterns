@@ -23,15 +23,15 @@ namespace tmpmtd_ptn {
 
 // Represents the concrete class in the Template Method pattern.
 class ConcreteClass : public AbstractClass {
- public:
-  // Executes the primitive operation 1.
-  void Primitive_Operation1() const override {
-    std::cout << "ConcreteClass: Primitive_Operation1 executed." << std::endl;
+ protected:
+  // Executes the primitive operation #1.
+  void PrimitiveOperation1() const override {
+    std::cout << "ConcreteClass: PrimitiveOperation1 executed." << std::endl;
   }
 
-  // Executes the primitive operation 2.
-  void Primitive_Operation2() const override {
-    std::cout << "ConcreteClass: Primitive_Operation2 executed." << std::endl;
+  // Executes the primitive operation #2.
+  void PrimitiveOperation2() const override {
+    std::cout << "ConcreteClass: PrimitiveOperation2 executed." << std::endl;
   }
 };
 

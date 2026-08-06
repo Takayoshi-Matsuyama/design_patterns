@@ -27,16 +27,23 @@ class AbstractClass {
   virtual ~AbstractClass() = default;
 
   // Executes the template method.
-  virtual void Template_Method() const {
-    Primitive_Operation1();
-    Primitive_Operation2();
+  // This method is NOT virtual
+  // because it defines the framework of the algorithm.
+  void Template_Method() const {
+    PrimitiveOperation1();
+    PrimitiveOperation2();
   }
 
-  // Executes the primitive operation.
-  virtual void Primitive_Operation1() const = 0;
+ protected:
+  // Executes the primitive operation #1.
+  // This method is virtual
+  // because it allows customization in derived classes.
+  virtual void PrimitiveOperation1() const = 0;
 
-  // Executes the primitive operation.
-  virtual void Primitive_Operation2() const = 0;
+  // Executes the primitive operation #2.
+  // This method is virtual
+  // because it allows customization in derived classes.
+  virtual void PrimitiveOperation2() const = 0;
 };
 
 } // namespace tmpmtd_ptn
