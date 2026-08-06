@@ -31,11 +31,13 @@ class Visitor {
   virtual ~Visitor() = default;
 
   // Visits a ConcreteElementA object.
-  // (1) By this method, Visitor extends ConcreteElementA's functionality
+  // (1) By this method, Visitor extends Element's functionality
   //     without modifying its structure.
-  // (2) By using double dispatch (two overloaded Visit methods),
-  //     we can distinguish the visiting target from the type at coding time.
-  //     Actual dispatch occurs automatically at runtime.
+  // (2) By using double dispatch, the executed method is determined
+  //     by runtime type (combination of Element and Visitor) with two steps:
+  //     - 1st dispatch: virtual Element::Accept() resolves the Element's type.
+  //     - 2nd dispatch: virtual Visitor::Visit() resolves the Visitor's type.
+  // (3) The overloaded parameter statically guarantees the correct object.
   virtual void Visit(ConcreteElementA& element) = 0;
 
   // Visits a ConcreteElementB object.
