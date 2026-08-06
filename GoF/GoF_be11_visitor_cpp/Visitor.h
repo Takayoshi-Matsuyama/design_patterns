@@ -15,7 +15,7 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
-#include "Element.h"
+#include "element.h"
 
 class Visitor {
 public:

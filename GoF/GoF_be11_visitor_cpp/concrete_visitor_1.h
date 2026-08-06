@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_VISITOR_2_H
-#define CONCRETE_VISITOR_2_H
+#ifndef CONCRETE_VISITOR_1_H
+#define CONCRETE_VISITOR_1_H
 
-#include "Visitor.h"
+#include "visitor.h"
 
-class ConcreteVisitor2 : public Visitor {
+class ConcreteVisitor1 : public Visitor {
     public:
         void Visit(Element& element) override;
 };
 
-#endif // CONCRETE_VISITOR_2_H
+#endif // CONCRETE_VISITOR_1_H

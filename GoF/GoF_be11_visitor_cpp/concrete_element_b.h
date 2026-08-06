@@ -12,10 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteVisitor2.h"
-#include <iostream>
+#ifndef CONCRETE_ELEMENT_B_H
+#define CONCRETE_ELEMENT_B_H
 
-void ConcreteVisitor2::Visit(Element& element) {
-    // Implement the visit logic for ConcreteVisitor2
-    std::cout << "ConcreteVisitor2 visiting " << element.GetName() << std::endl;
-}
+#include "element.h"
+#include "visitor.h"
+
+class ConcreteElementB : public Element {
+    public:
+        void Accept(Visitor& visitor) override;
+        std::string GetName() const override;
+};
+
+#endif // CONCRETE_ELEMENT_B_H

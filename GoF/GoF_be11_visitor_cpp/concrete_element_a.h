@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_ELEMENT_B_H
-#define CONCRETE_ELEMENT_B_H
+#ifndef CONCRETE_ELEMENT_A_H
+#define CONCRETE_ELEMENT_A_H
 
-#include "Element.h"
-#include "Visitor.h"
+#include "element.h"
+#include "visitor.h"
 
-class ConcreteElementB : public Element {
+class ConcreteElementA : public Element {
     public:
         void Accept(Visitor& visitor) override;
         std::string GetName() const override;
 };
 
-#endif // CONCRETE_ELEMENT_B_H
+#endif // CONCRETE_ELEMENT_A_H

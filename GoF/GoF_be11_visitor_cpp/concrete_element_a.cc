@@ -12,16 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_ELEMENT_A_H
-#define CONCRETE_ELEMENT_A_H
+#include "concrete_element_a.h"
 
-#include "Element.h"
-#include "Visitor.h"
+void ConcreteElementA::Accept(Visitor& visitor) {
+    visitor.Visit(*this);
+}
 
-class ConcreteElementA : public Element {
-    public:
-        void Accept(Visitor& visitor) override;
-        std::string GetName() const override;
-};
-
-#endif // CONCRETE_ELEMENT_A_H
+std::string ConcreteElementA::GetName() const {
+    return "ConcreteElementA";
+}

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteElementA.h"
+#include "concrete_element_b.h"
 
-void ConcreteElementA::Accept(Visitor& visitor) {
+void ConcreteElementB::Accept(Visitor& visitor) {
     visitor.Visit(*this);
 }
 
-std::string ConcreteElementA::GetName() const {
-    return "ConcreteElementA";
+std::string ConcreteElementB::GetName() const {
+    return "ConcreteElementB";
 }
