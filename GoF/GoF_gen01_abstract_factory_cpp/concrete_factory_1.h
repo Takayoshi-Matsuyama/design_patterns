@@ -18,19 +18,25 @@
 #include <memory>
 
 #include "abstract_factory.h"
+#include "abstract_product_a.h"
+#include "abstract_product_b.h"
 #include "product_a1.h"
 #include "product_b1.h"
 
 namespace absfac_ptn {
 
+// Represents a concrete factory that creates products of type A1 and B1.
 class ConcreteFactory1 : public AbstractFactory {
-    public:
-        std::unique_ptr<AbstractProductA> CreateProductA() override {
-            return std::make_unique<ProductA1>();
-        }
-        std::unique_ptr<AbstractProductB> CreateProductB() override {
-            return std::make_unique<ProductB1>();
-        }
+ public:
+  // Creates a product of type A1.
+  std::unique_ptr<AbstractProductA> CreateProductA() const override {
+    return std::make_unique<ProductA1>();
+  }
+
+  // Creates a product of type B1.
+  std::unique_ptr<AbstractProductB> CreateProductB() const override {
+    return std::make_unique<ProductB1>();
+  }
 };
 
 } // namespace absfac_ptn

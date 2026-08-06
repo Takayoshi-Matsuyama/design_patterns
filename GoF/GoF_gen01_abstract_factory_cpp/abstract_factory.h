@@ -15,18 +15,27 @@
 #ifndef DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_FACTORY_H_
 #define DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_FACTORY_H_
 
+#include <memory>
+
 #include "abstract_product_a.h"
 #include "abstract_product_b.h"
 
-#include <memory>
-
 namespace absfac_ptn {
 
+// Represents the abstract factory interface.
 class AbstractFactory {
-    public:
-        virtual ~AbstractFactory() = default;
-        virtual std::unique_ptr<AbstractProductA> CreateProductA() = 0;
-        virtual std::unique_ptr<AbstractProductB> CreateProductB() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~AbstractFactory() = default;
+
+  // Creates a product of type A.
+  virtual std::unique_ptr<AbstractProductA> CreateProductA() const = 0;
+
+  // Creates a product of type B.
+  virtual std::unique_ptr<AbstractProductB> CreateProductB() const = 0;
 };
 
 } // namespace absfac_ptn

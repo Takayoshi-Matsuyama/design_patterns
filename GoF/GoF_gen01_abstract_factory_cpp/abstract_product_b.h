@@ -17,10 +17,17 @@
 
 namespace absfac_ptn {
 
+// Represents the abstract product B interface.
 class AbstractProductB {
-    public:
-        virtual ~AbstractProductB() = default;
-        virtual void OperationB() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~AbstractProductB() = default;
+
+  // Executes an operation specific to ProductB.
+  virtual void OperationB() const = 0;
 };
 
 } // namespace absfac_ptn

@@ -21,11 +21,13 @@
 
 namespace absfac_ptn {
 
+// Represents a concrete product of type B1.
 class ProductB1 : public AbstractProductB {
-    public:
-        void OperationB() override {
-            std::cout << "ProductB1: OperationB executed." << std::endl;
-        }
+ public:
+  // Executes an operation specific to ProductB1.
+  void OperationB() const override {
+    std::cout << "ProductB1: OperationB executed." << std::endl;
+  }
 };
 
 } // namespace absfac_ptn
