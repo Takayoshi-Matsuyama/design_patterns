@@ -20,11 +20,16 @@
 
 namespace vis_ptn {
 
+// Represents a concrete implementation of the Element interface.
 class ConcreteElementB : public Element {
  public:
+  // Accepts a Visitor object
+  // and allows it to perform operations on this ConcreteElementB.
   void Accept(Visitor& visitor) override {
     visitor.Visit(*this);
   }
+  
+  // Returns the name of this ConcreteElementB.
   std::string GetName() const override {
     return "ConcreteElementB";
   }

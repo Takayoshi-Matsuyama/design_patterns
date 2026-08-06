@@ -38,6 +38,8 @@ interface Element {
     accept(Visitor)
 }
 
+Element --> Visitor
+
 class ConcreteElementA {
     accept(Visitor)
     operation_A()

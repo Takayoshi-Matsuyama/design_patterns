@@ -19,8 +19,10 @@
 
 namespace vis_ptn {
 
-class Visitor; // Forward declaration
+// Forward declaration
+class Visitor;
 
+// Represents the Element interface in the Visitor design pattern.
 class Element {
  public:
   // Virtual destructor to ensure proper cleanup of derived classes.
@@ -29,7 +31,11 @@ class Element {
   // the derived class's destructor is called, preventing resource leaks.
   virtual ~Element() = default;
 
+  // Accepts a Visitor object,
+  // allowing it to perform operations on the Element.
   virtual void Accept(Visitor& visitor) = 0;
+
+  // Returns the name of the Element.
   virtual std::string GetName() const = 0;
 };
 

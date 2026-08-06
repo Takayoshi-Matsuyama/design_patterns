@@ -19,6 +19,7 @@
 
 namespace vis_ptn {
 
+// Represents the Visitor interface in the Visitor design pattern.
 class Visitor {
  public:
   // Virtual destructor to ensure proper cleanup of derived classes.
@@ -27,6 +28,9 @@ class Visitor {
   // the derived class's destructor is called, preventing resource leaks.
   virtual ~Visitor() = default;
 
+  // Visits an Element object.
+  // By this method, Visitor extends Element's functionality
+  // without modifying its structure.
   virtual void Visit(Element& element) = 0;
 };
 

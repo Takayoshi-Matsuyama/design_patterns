@@ -21,8 +21,10 @@
 
 namespace vis_ptn {
 
+// Represents a concrete implementation of the Visitor interface.
 class ConcreteVisitor1 : public Visitor {
  public:
+  // Visits an Element object and performs a specific operation on it.
   void Visit(Element& element) override {
     std::cout << "ConcreteVisitor1 visiting "
               << element.GetName() << std::endl;
