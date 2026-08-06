@@ -12,13 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef STRATEGY_H
-#define STRATEGY_H
+#ifndef DESIGN_PTN_BE09_STR_STRATEGY_H_
+#define DESIGN_PTN_BE09_STR_STRATEGY_H_
 
+// Represents the Strategy interface that defines an algorithm signature.
 class Strategy {
  public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
   virtual ~Strategy() = default;
+
+  // Executes the algorithm defined by the concrete strategy.
   virtual double AlgorithmInterface(double a, double b) = 0;
 };
 
-#endif // STRATEGY_H
+#endif // DESIGN_PTN_BE09_STR_STRATEGY_H_

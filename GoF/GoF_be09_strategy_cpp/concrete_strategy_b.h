@@ -12,13 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_STRATEGY_B_H
-#define CONCRETE_STRATEGY_B_H
+#ifndef DESIGN_PTN_BE09_STR_CONCRETE_STRATEGY_B_H_
+#define DESIGN_PTN_BE09_STR_CONCRETE_STRATEGY_B_H_
 
 #include "strategy.h"
 
+// Represents a concrete implementation of the Strategy interface.
 class ConcreteStrategyB : public Strategy {
  public:
-  double AlgorithmInterface(double a, double b) override;
+  // Executes the algorithm for ConcreteStrategyB.
+  double AlgorithmInterface(double a, double b) override {
+    return a - b;
+  }
 };
-#endif // CONCRETE_STRATEGY_B_H
+#endif // DESIGN_PTN_BE09_STR_CONCRETE_STRATEGY_B_H_

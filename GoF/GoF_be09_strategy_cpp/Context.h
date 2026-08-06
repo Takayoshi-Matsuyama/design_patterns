@@ -12,23 +12,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONTEXT_H
-#define CONTEXT_H
+#ifndef DESIGN_PTN_BE09_STR_CONTEXT_H_
+#define DESIGN_PTN_BE09_STR_CONTEXT_H_
 
 #include "strategy.h"
 
 #include <memory>
 
+// Represents the Context class that maintains a reference to a Strategy.
 class Context {
  public:
-  Context(std::unique_ptr<Strategy> strategy = nullptr);
+  // Constructs a Context with an optional Strategy.
+  Context(std::unique_ptr<Strategy> strategy = nullptr)
+    : strategy_(std::move(strategy)) {}
   
+  // Disposes of the Context and its associated Strategy.
   ~Context() = default;
 
-  double ExecuteStrategy(double a, double b);
+  // Executes the algorithm defined by the current Strategy.
+  double ExecuteStrategy(double a, double b) {
+    if (strategy_) {
+      return strategy_->AlgorithmInterface(a, b);
+    }
+
+    // Default behavior if no strategy is set
+    return 0.0;
+  }
 
  private:
-  std::unique_ptr<Strategy> _strategy;
+  // The current Strategy used by the Context.
+  std::unique_ptr<Strategy> strategy_ = nullptr;
 };
 
-#endif // CONTEXT_H
+#endif // DESIGN_PTN_BE09_STR_CONTEXT_H_
