@@ -31,6 +31,11 @@ class Context {
   // Disposes of the Context and its associated Strategy.
   ~Context() = default;
 
+  // Sets a new Strategy for the Context.
+  void SetStrategy(std::unique_ptr<Strategy> strategy) {
+    strategy_ = std::move(strategy);
+  }
+
   // Executes the algorithm defined by the current Strategy.
   double ExecuteStrategy(double a, double b) const {
     if (strategy_) {
