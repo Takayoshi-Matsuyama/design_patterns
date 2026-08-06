@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteClass.h"
+#include "concrete_class.h"
 
 #include <iostream>
 
-int main() {
-    
-    std::cout << "GoF Template Method Pattern Example" << std::endl;
+void ConcreteClass::Primitive_Operation1() {
+  // Implementation of Primitive_Operation1
+  std::cout << "ConcreteClass: Primitive_Operation1 executed." << std::endl;
+}
 
-    ConcreteClass concrete;
-    concrete.Template_Method();
-
-    return 0;
+void ConcreteClass::Primitive_Operation2() {
+  // Implementation of Primitive_Operation2
+  std::cout << "ConcreteClass: Primitive_Operation2 executed." << std::endl;
 }

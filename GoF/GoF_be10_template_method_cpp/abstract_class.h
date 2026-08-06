@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_CLASS_H
-#define CONCRETE_CLASS_H
+#ifndef ABSTRACT_CLASS_H
+#define ABSTRACT_CLASS_H
 
-#include "AbstractClass.h"
-
-class ConcreteClass : public AbstractClass {
-    public:
-        void Primitive_Operation1() override;
-        void Primitive_Operation2() override;
+class AbstractClass {
+ public:
+  virtual ~AbstractClass() = default;
+  virtual void Template_Method();
+  virtual void Primitive_Operation1() = 0;
+  virtual void Primitive_Operation2() = 0;
 };
 
-#endif // CONCRETE_CLASS_H
+#endif // ABSTRACT_CLASS_H

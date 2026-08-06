@@ -12,16 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteClass.h"
+#include "abstract_class.h"
 
-#include <iostream>
-
-void ConcreteClass::Primitive_Operation1() {
-    // Implementation of Primitive_Operation1
-    std::cout << "ConcreteClass: Primitive_Operation1 executed." << std::endl;
-}
-
-void ConcreteClass::Primitive_Operation2() {
-    // Implementation of Primitive_Operation2
-    std::cout << "ConcreteClass: Primitive_Operation2 executed." << std::endl;
+void AbstractClass::Template_Method() {
+  Primitive_Operation1();
+  Primitive_Operation2();
 }

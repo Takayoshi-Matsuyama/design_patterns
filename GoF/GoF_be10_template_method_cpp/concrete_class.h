@@ -12,9 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "AbstractClass.h"
+#ifndef CONCRETE_CLASS_H
+#define CONCRETE_CLASS_H
 
-void AbstractClass::Template_Method() {
-    Primitive_Operation1();
-    Primitive_Operation2();
-}
+#include "abstract_class.h"
+
+class ConcreteClass : public AbstractClass {
+ public:
+  void Primitive_Operation1() override;
+  void Primitive_Operation2() override;
+};
+
+#endif // CONCRETE_CLASS_H
