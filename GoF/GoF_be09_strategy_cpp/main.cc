@@ -12,13 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Context.h"
+#include "context.h"
+#include "concrete_strategy_a.h"
+#include "concrete_strategy_b.h"
 
-Context::Context(std::unique_ptr<Strategy> strategy) : _strategy(std::move(strategy)) {}
+#include <iostream>
 
-double Context::ExecuteStrategy(double a, double b) {
-    if (this->_strategy) {
-        return this->_strategy->AlgorithmInterface(a, b);
-    }
-    return 0.0; // Default behavior if no strategy is set
+int main() {
+  std::cout << "GoF Strategy Pattern Example" << std::endl;
+
+  ConcreteStrategyA strategyA;
+  Context contextA(std::make_unique<ConcreteStrategyA>());
+  std::cout << "Result of Strategy A (5 + 3): " << contextA.ExecuteStrategy(5, 3) << std::endl;
+
+  ConcreteStrategyB strategyB;
+  Context contextB(std::make_unique<ConcreteStrategyB>());
+  std::cout << "Result of Strategy B (5 - 3): " << contextB.ExecuteStrategy(5, 3) << std::endl;
+  
+  return 0;
 }

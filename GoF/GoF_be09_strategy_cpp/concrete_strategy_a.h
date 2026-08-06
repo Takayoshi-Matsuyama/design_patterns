@@ -12,9 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteStrategyB.h"
+#ifndef CONCRETE_STRATEGY_A_H
+#define CONCRETE_STRATEGY_A_H
 
-double ConcreteStrategyB::AlgorithmInterface(double a, double b) {
-    // Implementation of the algorithm for ConcreteStrategyB
-    return a - b; // Example implementation
-}
+#include "strategy.h"
+
+class ConcreteStrategyA : public Strategy {
+ public:
+  double AlgorithmInterface(double a, double b) override;
+};
+
+#endif // CONCRETE_STRATEGY_A_H

@@ -12,9 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteStrategyA.h"
+#include "context.h"
 
-double ConcreteStrategyA::AlgorithmInterface(double a, double b) {
-    // Implementation of the algorithm for ConcreteStrategyA
-    return a + b; // Example implementation
+Context::Context(std::unique_ptr<Strategy> strategy) : _strategy(std::move(strategy)) {}
+
+double Context::ExecuteStrategy(double a, double b) {
+  if (this->_strategy) {
+    return this->_strategy->AlgorithmInterface(a, b);
+  }
+  return 0.0; // Default behavior if no strategy is set
 }

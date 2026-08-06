@@ -16,9 +16,9 @@
 #define STRATEGY_H
 
 class Strategy {
-    public:
-        virtual ~Strategy() = default;
-        virtual double AlgorithmInterface(double a, double b) = 0;
+ public:
+  virtual ~Strategy() = default;
+  virtual double AlgorithmInterface(double a, double b) = 0;
 };
 
 #endif // STRATEGY_H

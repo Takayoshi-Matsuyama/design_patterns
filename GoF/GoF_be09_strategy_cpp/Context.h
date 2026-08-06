@@ -15,20 +15,20 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
-#include "Strategy.h"
+#include "strategy.h"
 
 #include <memory>
 
 class Context {
-    public:
-        Context(std::unique_ptr<Strategy> strategy = nullptr);
-        
-        ~Context() = default;
+ public:
+  Context(std::unique_ptr<Strategy> strategy = nullptr);
+  
+  ~Context() = default;
 
-        double ExecuteStrategy(double a, double b);
+  double ExecuteStrategy(double a, double b);
 
-    private:
-        std::unique_ptr<Strategy> _strategy;
+ private:
+  std::unique_ptr<Strategy> _strategy;
 };
 
 #endif // CONTEXT_H
