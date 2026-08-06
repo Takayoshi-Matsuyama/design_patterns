@@ -12,15 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_CLASS_H
-#define CONCRETE_CLASS_H
+#ifndef DESIGN_PTN_BE10_TEMP_METHOD_CONCRETE_CLASS_H_
+#define DESIGN_PTN_BE10_TEMP_METHOD_CONCRETE_CLASS_H_
+
+#include <iostream>
 
 #include "abstract_class.h"
 
+namespace tmpmtd_ptn {
+
+// Represents the concrete class in the Template Method pattern.
 class ConcreteClass : public AbstractClass {
  public:
-  void Primitive_Operation1() override;
-  void Primitive_Operation2() override;
+  // Executes the primitive operation 1.
+  void Primitive_Operation1() const override {
+    std::cout << "ConcreteClass: Primitive_Operation1 executed." << std::endl;
+  }
+
+  // Executes the primitive operation 2.
+  void Primitive_Operation2() const override {
+    std::cout << "ConcreteClass: Primitive_Operation2 executed." << std::endl;
+  }
 };
 
-#endif // CONCRETE_CLASS_H
+} // namespace tmpmtd_ptn
+
+#endif // DESIGN_PTN_BE10_TEMP_METHOD_CONCRETE_CLASS_H_

@@ -12,15 +12,33 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABSTRACT_CLASS_H
-#define ABSTRACT_CLASS_H
+#ifndef DESIGN_PTN_BE10_TEMP_METHOD_ABSTRACT_CLASS_H_
+#define DESIGN_PTN_BE10_TEMP_METHOD_ABSTRACT_CLASS_H_
 
+namespace tmpmtd_ptn {
+
+// Represents the abstract class in the Template Method pattern.
 class AbstractClass {
  public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
   virtual ~AbstractClass() = default;
-  virtual void Template_Method();
-  virtual void Primitive_Operation1() = 0;
-  virtual void Primitive_Operation2() = 0;
+
+  // Executes the template method.
+  virtual void Template_Method() const {
+    Primitive_Operation1();
+    Primitive_Operation2();
+  }
+
+  // Executes the primitive operation.
+  virtual void Primitive_Operation1() const = 0;
+
+  // Executes the primitive operation.
+  virtual void Primitive_Operation2() const = 0;
 };
 
-#endif // ABSTRACT_CLASS_H
+} // namespace tmpmtd_ptn
+
+#endif // DESIGN_PTN_BE10_TEMP_METHOD_ABSTRACT_CLASS_H_
