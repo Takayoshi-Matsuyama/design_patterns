@@ -12,8 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABSTRACT_PRODUCT_A_H
-#define ABSTRACT_PRODUCT_A_H
+#ifndef DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_PRODUCT_A_H_
+#define DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_PRODUCT_A_H_
+
+namespace absfac_ptn {
 
 class AbstractProductA {
     public:
@@ -21,4 +23,6 @@ class AbstractProductA {
         virtual void OperationA() = 0;
 };
 
-#endif // ABSTRACT_PRODUCT_A_H
+} // namespace absfac_ptn
+
+#endif // DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_PRODUCT_A_H_

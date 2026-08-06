@@ -12,13 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABSTRACT_FACTORY_H
-#define ABSTRACT_FACTORY_H
+#ifndef DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_FACTORY_H_
+#define DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_FACTORY_H_
 
 #include "abstract_product_a.h"
 #include "abstract_product_b.h"
 
 #include <memory>
+
+namespace absfac_ptn {
 
 class AbstractFactory {
     public:
@@ -27,4 +29,6 @@ class AbstractFactory {
         virtual std::unique_ptr<AbstractProductB> CreateProductB() = 0;
 };
 
-#endif // ABSTRACT_FACTORY_H
+} // namespace absfac_ptn
+
+#endif // DESIGN_PTN_GE01_ABS_FAC_ABSTRACT_FACTORY_H_

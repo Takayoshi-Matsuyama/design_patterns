@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_FACTORY2_H
-#define CONCRETE_FACTORY2_H
+#ifndef DESIGN_PTN_GE01_ABS_FAC_CONCRETE_FACTORY2_H_
+#define DESIGN_PTN_GE01_ABS_FAC_CONCRETE_FACTORY2_H_
 
 #include <memory>
 
@@ -22,6 +22,8 @@
 #include "abstract_product_b.h"
 #include "product_a2.h"
 #include "product_b2.h"
+
+namespace absfac_ptn {
 
 class ConcreteFactory2 : public AbstractFactory {
     public:
@@ -33,4 +35,6 @@ class ConcreteFactory2 : public AbstractFactory {
         }
 };
 
-#endif // CONCRETE_FACTORY2_H
+} // namespace absfac_ptn
+
+#endif // DESIGN_PTN_GE01_ABS_FAC_CONCRETE_FACTORY2_H_

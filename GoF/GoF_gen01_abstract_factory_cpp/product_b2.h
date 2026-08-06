@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef PRODUCT_B2_H
-#define PRODUCT_B2_H
+#ifndef DESIGN_PTN_GE01_ABS_FAC_PRODUCT_B2_H_
+#define DESIGN_PTN_GE01_ABS_FAC_PRODUCT_B2_H_
 
 #include <iostream>
 
 #include "abstract_product_b.h"
+
+namespace absfac_ptn {
 
 class ProductB2 : public AbstractProductB {
     public:
@@ -26,4 +28,6 @@ class ProductB2 : public AbstractProductB {
         }
 };
 
-#endif // PRODUCT_B2_H
+} // namespace absfac_ptn
+
+#endif // DESIGN_PTN_GE01_ABS_FAC_PRODUCT_B2_H_

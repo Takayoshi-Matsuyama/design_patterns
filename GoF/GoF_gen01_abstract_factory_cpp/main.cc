@@ -25,15 +25,15 @@ int main() {
     
     std::cout << "GoF Abstract Factory Pattern Example" << std::endl;
 
-    std::unique_ptr<AbstractFactory> factory1 = std::make_unique<ConcreteFactory1>();
-    std::unique_ptr<AbstractProductA> productA1 = factory1->CreateProductA();
-    std::unique_ptr<AbstractProductB> productB1 = factory1->CreateProductB();
+    std::unique_ptr<absfac_ptn::AbstractFactory> factory1 = std::make_unique<absfac_ptn::ConcreteFactory1>();
+    std::unique_ptr<absfac_ptn::AbstractProductA> productA1 = factory1->CreateProductA();
+    std::unique_ptr<absfac_ptn::AbstractProductB> productB1 = factory1->CreateProductB();
     productA1->OperationA();
     productB1->OperationB();
 
-    std::unique_ptr<AbstractFactory> factory2 = std::make_unique<ConcreteFactory2>();
-    std::unique_ptr<AbstractProductA> productA2 = factory2->CreateProductA();
-    std::unique_ptr<AbstractProductB> productB2 = factory2->CreateProductB();
+    std::unique_ptr<absfac_ptn::AbstractFactory> factory2 = std::make_unique<absfac_ptn::ConcreteFactory2>();
+    std::unique_ptr<absfac_ptn::AbstractProductA> productA2 = factory2->CreateProductA();
+    std::unique_ptr<absfac_ptn::AbstractProductB> productB2 = factory2->CreateProductB();
     productA2->OperationA();
     productB2->OperationB();
 
