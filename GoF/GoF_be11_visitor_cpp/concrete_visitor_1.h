@@ -18,14 +18,22 @@
 #include <iostream>
 
 #include "visitor.h"
+#include "concrete_element_a.h"
+#include "concrete_element_b.h"
 
 namespace vis_ptn {
 
 // Represents a concrete implementation of the Visitor interface.
 class ConcreteVisitor1 : public Visitor {
  public:
-  // Visits an Element object and performs a specific operation on it.
-  void Visit(Element& element) override {
+  // Visits a ConcreteElementA object and performs a specific operation on it.
+  void Visit(ConcreteElementA& element) override {
+    std::cout << "ConcreteVisitor1 visiting "
+              << element.GetName() << std::endl;
+  }
+
+  // Visits a ConcreteElementB object and performs a specific operation on it.
+  void Visit(ConcreteElementB& element) override {
     std::cout << "ConcreteVisitor1 visiting "
               << element.GetName() << std::endl;
   }

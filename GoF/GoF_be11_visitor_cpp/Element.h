@@ -17,10 +17,12 @@
 
 #include <string>
 
+#include "visitor.h"
+
 namespace vis_ptn {
 
 // Forward declaration
-class Visitor;
+// class Visitor;
 
 // Represents the Element interface in the Visitor design pattern.
 class Element {

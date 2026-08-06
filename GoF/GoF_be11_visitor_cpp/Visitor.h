@@ -15,9 +15,11 @@
 #ifndef DESIGN_PTN_BE11_VIS_VISITOR_H_
 #define DESIGN_PTN_BE11_VIS_VISITOR_H_
 
-#include "element.h"
-
 namespace vis_ptn {
+
+// Forward declaration
+class ConcreteElementA;
+class ConcreteElementB;
 
 // Represents the Visitor interface in the Visitor design pattern.
 class Visitor {
@@ -28,10 +30,13 @@ class Visitor {
   // the derived class's destructor is called, preventing resource leaks.
   virtual ~Visitor() = default;
 
-  // Visits an Element object.
-  // By this method, Visitor extends Element's functionality
+  // Visits a ConcreteElementA object.
+  // By this method, Visitor extends ConcreteElementA's functionality
   // without modifying its structure.
-  virtual void Visit(Element& element) = 0;
+  virtual void Visit(ConcreteElementA& element) = 0;
+
+  // Visits a ConcreteElementB object.
+  virtual void Visit(ConcreteElementB& element) = 0;
 };
 
 } // namespace vis_ptn
