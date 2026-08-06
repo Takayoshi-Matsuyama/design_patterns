@@ -29,7 +29,7 @@ class AbstractClass {
   // Executes the template method.
   // This method is NOT virtual
   // because it defines the framework of the algorithm.
-  void Template_Method() const {
+  void TemplateMethod() const {
     PrimitiveOperation1();
     PrimitiveOperation2();
   }

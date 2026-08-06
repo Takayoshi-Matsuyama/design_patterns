@@ -20,7 +20,7 @@ int main() {
   std::cout << "GoF Template Method Pattern Example" << std::endl;
 
   tmpmtd_ptn::ConcreteClass concrete;
-  concrete.Template_Method();
+  concrete.TemplateMethod();
 
   return 0;
 }
