@@ -12,11 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ProductB1.h"
+#ifndef PRODUCT_A1_H
+#define PRODUCT_A1_H
 
 #include <iostream>
 
-void ProductB1::OperationB() {
-    // Implementation of OperationB for ProductB1
-    std::cout << "ProductB1: OperationB executed." << std::endl;
-}
+#include "abstract_product_a.h"
+
+class ProductA1 : public AbstractProductA {
+    public:
+        void OperationA() override {
+            std::cout << "ProductA1: OperationA executed." << std::endl;
+        }
+};
+
+#endif // PRODUCT_A1_H

@@ -12,17 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_FACTORY1_H
-#define CONCRETE_FACTORY1_H
+#ifndef PRODUCT_B2_H
+#define PRODUCT_B2_H
 
-#include "AbstractFactory.h"
+#include <iostream>
 
-#include <memory>
+#include "abstract_product_b.h"
 
-class ConcreteFactory1 : public AbstractFactory {
+class ProductB2 : public AbstractProductB {
     public:
-        std::unique_ptr<AbstractProductA> CreateProductA() override;
-        std::unique_ptr<AbstractProductB> CreateProductB() override;
+        void OperationB() override {
+            std::cout << "ProductB2: OperationB executed." << std::endl;
+        }
 };
 
-#endif // CONCRETE_FACTORY1_H
+#endif // PRODUCT_B2_H

@@ -12,19 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABSTRACT_FACTORY_H
-#define ABSTRACT_FACTORY_H
+#ifndef PRODUCT_A2_H
+#define PRODUCT_A2_H
 
-#include "AbstractProductA.h"
-#include "AbstractProductB.h"
+#include <iostream>
 
-#include <memory>
+#include "abstract_product_a.h"
 
-class AbstractFactory {
+class ProductA2 : public AbstractProductA {
     public:
-        virtual ~AbstractFactory() = default;
-        virtual std::unique_ptr<AbstractProductA> CreateProductA() = 0;
-        virtual std::unique_ptr<AbstractProductB> CreateProductB() = 0;
+        void OperationA() override {
+            std::cout << "ProductA2: OperationA executed." << std::endl;
+        }
 };
 
-#endif // ABSTRACT_FACTORY_H
+#endif // PRODUCT_A2_H

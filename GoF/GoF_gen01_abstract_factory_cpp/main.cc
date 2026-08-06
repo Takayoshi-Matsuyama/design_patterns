@@ -12,10 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteFactory1.h"
-#include "ConcreteFactory2.h"
-#include "AbstractProductA.h"
-#include "AbstractProductB.h"
+#include "abstract_factory.h"
+#include "concrete_factory_1.h"
+#include "concrete_factory_2.h"
+#include "abstract_product_a.h"
+#include "abstract_product_b.h"
 
 #include <iostream>
 #include <memory>
