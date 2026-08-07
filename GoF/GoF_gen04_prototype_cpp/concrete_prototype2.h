@@ -29,7 +29,7 @@ class ConcretePrototype2 : public Prototype {
 
   // Constructs a new ConcretePrototype2 object.
   ConcretePrototype2(const ConcretePrototype2& other) {
-    this->value_ = other.value_;
+    value_ = other.value_;
   }
 
   // Clones the current object and returns a unique pointer to the new object.
@@ -39,14 +39,14 @@ class ConcretePrototype2 : public Prototype {
 
   // Returns the value of this object.
   double GetValue() const {
-    return this->value_;
+    return value_;
   }
 
   // Sets the value of this object.
   void SetValue(double value) {
-    this->value_ = value;
+    value_ = value;
   }
-  
+
  private:
   // The value of this object.
   double value_ = 0.0;
