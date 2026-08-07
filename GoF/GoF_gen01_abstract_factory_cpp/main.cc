@@ -16,13 +16,13 @@
 #include <memory>
 
 #include "abstract_factory.h"
-#include "concrete_factory_1.h"
-#include "concrete_factory_2.h"
 #include "abstract_product_a.h"
 #include "abstract_product_b.h"
+#include "concrete_factory_1.h"
+#include "concrete_factory_2.h"
 
 int main() {
-  std::cout << "GoF Abstract Factory Pattern Example" << std::endl;
+  std::cout << "GoF Abstract Factory Pattern Example\n";
 
   std::unique_ptr<absfac_ptn::AbstractFactory> factory1 =
     std::make_unique<absfac_ptn::ConcreteFactory1>();

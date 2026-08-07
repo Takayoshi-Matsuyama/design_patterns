@@ -26,7 +26,7 @@ class ProductB2 : public AbstractProductB {
  public:
   // Executes an operation specific to ProductB2.
   void OperationB() const override {
-    std::cout << "ProductB2: OperationB executed." << std::endl;
+    std::cout << "ProductB2: OperationB executed.\n";
   }
 };
 
