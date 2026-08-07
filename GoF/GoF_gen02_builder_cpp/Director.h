@@ -12,19 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DIRECTOR_H
-#define DIRECTOR_H
+#ifndef DESIGN_PTN_GEN02_BUILDER_DIRECTOR_H_
+#define DESIGN_PTN_GEN02_BUILDER_DIRECTOR_H_
 
 #include "builder.h"
 
+namespace builder_ptn {
+
+// Represents the director that orchestrates the construction process.
 class Director {
-    public:
-        Director(Builder* builder) : _builder(builder) {};
-        void Construct() {
-            this->_builder->BuildPart();
-        };
-    private:
-        Builder* _builder;
+ public:
+  // Constructs a Director with a given builder.
+  explicit Director(Builder* builder) : builder_(builder) {};
+
+  // Constructs the product by invoking the builder's BuildPart method.
+  void Construct() {
+    this->builder_->BuildPart();
+  };
+
+ private:
+  // Holds a pointer to the builder used for constructing the product.
+  // The Director does not own the builder;
+  // it only uses it to construct the product.
+  Builder* builder_;
 };
 
-#endif // DIRECTOR_H
+} // namespace builder_ptn
+
+#endif // DESIGN_PTN_GEN02_BUILDER_DIRECTOR_H_

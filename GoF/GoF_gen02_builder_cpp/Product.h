@@ -12,18 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef PRODUCT_H
-#define PRODUCT_H
+#ifndef DESIGN_PTN_GEN02_BUILDER_PRODUCT_H_
+#define DESIGN_PTN_GEN02_BUILDER_PRODUCT_H_
 
 #include <string>
 
+namespace builder_ptn {
+
+// Represents the product being built.
 class Product {
-    public:
-        Product(std::string name) : _name(name) {};
-        virtual ~Product() = default;
-        std::string GetName() const { return this->_name; }
-    private:
-        std::string _name;
+ public:
+  // Constructs a Product with a given name.
+  Product(const std::string& name) : _name(name) {};
+
+  // Returns the name of the product.
+  std::string GetName() const { return this->_name; }
+
+ private:
+  // Holds the name of the product.
+  std::string _name;
 };
 
-#endif // PRODUCT_H
+} // namespace builder_ptn
+
+#endif // DESIGN_PTN_GEN02_BUILDER_PRODUCT_H_

@@ -20,16 +20,16 @@
 #include "product.h"
 
 int main() {
-    
-    std::cout << "GoF Builder Pattern Example" << std::endl;
+  std::cout << "GoF Builder Pattern Example\n";
 
-    std::unique_ptr<Builder> builder = std::make_unique<ConcreteBuilder>();
-    Director director(builder.get());
-    
-    director.Construct();
-    std::unique_ptr<Product> product = builder->GetResult();
+  std::unique_ptr<builder_ptn::Builder> builder =
+    std::make_unique<builder_ptn::ConcreteBuilder>();
 
-    std::cout << "Product Name: " << product->GetName() << std::endl;
+  builder_ptn::Director director(builder.get());
+  director.Construct();
+  
+  std::unique_ptr<builder_ptn::Product> product = builder->GetResult();
+  std::cout << "Product Name: " << product->GetName() << "\n";
 
-    return 0;
+  return 0;
 }

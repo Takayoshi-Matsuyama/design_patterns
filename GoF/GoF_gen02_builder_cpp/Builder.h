@@ -12,19 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef BUILDER_H
-#define BUILDER_H
+#ifndef DESIGN_PTN_GEN02_BUILDER_BUILDER_H_
+#define DESIGN_PTN_GEN02_BUILDER_BUILDER_H_
 
 #include <memory>
 
 #include "product.h"
 
+namespace builder_ptn {
+
+// Represents the abstract builder interface.
 class Builder {
-    public:
-        Builder() = default;
-        virtual ~Builder() = default;
-        virtual void BuildPart() = 0;
-        virtual std::unique_ptr<Product> GetResult() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Builder() = default;
+
+  // Builds a part of the product.
+  virtual void BuildPart() = 0;
+
+  // Returns the final product.
+  virtual std::unique_ptr<Product> GetResult() = 0;
 };
 
-#endif // BUILDER_H
+} // namespace builder_ptn
+
+#endif // DESIGN_PTN_GEN02_BUILDER_BUILDER_H_
