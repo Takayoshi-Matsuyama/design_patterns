@@ -29,7 +29,7 @@ int main() {
   director.Construct();
 
   std::unique_ptr<builder_ptn::Product> product = builder->GetResult();
-  std::cout << "Product Name: " << product->GetName() << std::endl;
+  std::cout << "Product Name: " << product->GetName() << "\n";
 
   return 0;
 }

@@ -23,12 +23,12 @@ namespace builder_ptn {
 class Director {
  public:
   // Constructs a Director with a given builder.
-  explicit Director(Builder* builder) : builder_(builder) {};
+  explicit Director(Builder* builder) : builder_(builder) {}
 
   // Constructs the product by invoking the builder's BuildPart method.
   void Construct() {
     builder_->BuildPart();
-  };
+  }
 
  private:
   // Holds a pointer to the builder used for constructing the product.
