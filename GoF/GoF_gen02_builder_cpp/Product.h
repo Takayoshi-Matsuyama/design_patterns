@@ -23,14 +23,14 @@ namespace builder_ptn {
 class Product {
  public:
   // Constructs a Product with a given name.
-  Product(const std::string& name) : _name(name) {};
+  Product(const std::string& name) : name_(name) {};
 
   // Returns the name of the product.
-  std::string GetName() const { return this->_name; }
+  std::string GetName() const { return name_; }
 
  private:
   // Holds the name of the product.
-  std::string _name;
+  std::string name_;
 };
 
 } // namespace builder_ptn

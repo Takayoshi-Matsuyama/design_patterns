@@ -27,7 +27,7 @@ class Director {
 
   // Constructs the product by invoking the builder's BuildPart method.
   void Construct() {
-    this->builder_->BuildPart();
+    builder_->BuildPart();
   };
 
  private:

@@ -27,9 +27,9 @@ int main() {
 
   builder_ptn::Director director(builder.get());
   director.Construct();
-  
+
   std::unique_ptr<builder_ptn::Product> product = builder->GetResult();
-  std::cout << "Product Name: " << product->GetName() << "\n";
+  std::cout << "Product Name: " << product->GetName() << std::endl;
 
   return 0;
 }
