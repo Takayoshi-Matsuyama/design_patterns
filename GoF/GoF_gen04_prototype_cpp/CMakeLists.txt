@@ -15,7 +15,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(DesignPatternsApp)
 
-
-# ディレクトリ内のすべての.cppファイルを自動で集めてビルドする設定
-file(GLOB SOURCES "*.cpp")
+# Build setting to collect all .cc files in the directory
+# and build them into an executable named "app".
+file(GLOB SOURCES "*.cc")
 add_executable(app ${SOURCES})

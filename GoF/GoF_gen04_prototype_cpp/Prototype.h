@@ -12,15 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef PROTOTYPE_H
-#define PROTOTYPE_H
+#ifndef DESIGN_PTN_GEN04_PROTOTYPE_PROTOTYPE_H_
+#define DESIGN_PTN_GEN04_PROTOTYPE_PROTOTYPE_H_
 
 #include <memory>
 
+namespace prt_ptn {
+
+// Represets the Prototype in the Prototype design pattern.
 class Prototype {
-    public:
-        virtual ~Prototype() {}
-        virtual std::unique_ptr<Prototype> Clone() const = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Prototype() = default;
+
+  // Clones the current object and returns a unique pointer to the new object.
+  virtual std::unique_ptr<Prototype> Clone() const = 0;
 };
 
-#endif // PROTOTYPE_H
+} // namespace prt_ptn
+
+#endif // DESIGN_PTN_GEN04_PROTOTYPE_PROTOTYPE_H_

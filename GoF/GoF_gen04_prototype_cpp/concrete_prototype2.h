@@ -12,21 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_PROTOTYPE_2_H
-#define CONCRETE_PROTOTYPE_2_H
+#ifndef DESIGN_PTN_GEN04_PROTOTYPE_CONCRETE_PROTOTYPE_2_H_
+#define DESIGN_PTN_GEN04_PROTOTYPE_CONCRETE_PROTOTYPE_2_H_
 
-#include "Prototype.h"
 #include <memory>
 
+#include "prototype.h"
+
+namespace prt_ptn {
+
 class ConcretePrototype2 : public Prototype {
-    public:
-        ConcretePrototype2() {}
-        ConcretePrototype2(const ConcretePrototype2& other);
-        std::unique_ptr<Prototype> Clone() const override;
-        double GetValue() const;
-        void SetValue(double value);
-    private:
-        double _value;
+ public:
+  ConcretePrototype2() {}
+  ConcretePrototype2(const ConcretePrototype2& other) {
+    this->_value = other._value;
+  }
+  std::unique_ptr<Prototype> Clone() const override {
+    return std::make_unique<ConcretePrototype2>(*this);
+  }
+  double GetValue() const {
+    return this->_value;
+  }
+  void SetValue(double value) {
+    this->_value = value;
+  }
+ private:
+  double _value;
 };
 
-#endif // CONCRETE_PROTOTYPE_2_H
+} // namespace prt_ptn
+
+#endif // DESIGN_PTN_GEN04_PROTOTYPE_CONCRETE_PROTOTYPE_2_H_
