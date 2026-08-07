@@ -15,9 +15,9 @@
 #ifndef BUILDER_H
 #define BUILDER_H
 
-#include "Product.h"
-
 #include <memory>
+
+#include "product.h"
 
 class Builder {
     public:

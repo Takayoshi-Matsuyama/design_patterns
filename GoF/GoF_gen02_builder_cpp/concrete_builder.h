@@ -15,14 +15,20 @@
 #ifndef CONCRETE_BUILDER_H
 #define CONCRETE_BUILDER_H
 
-#include "Builder.h"
+#include <memory>
+
+#include "builder.h"
 
 class ConcreteBuilder : public Builder {
     public:
         ConcreteBuilder() = default;
         ~ConcreteBuilder() override = default;
-        void BuildPart() override;
-        std::unique_ptr<Product> GetResult() override;
+        void BuildPart() override {
+            this->_product = std::make_unique<Product>("Sample Product");
+        }
+        std::unique_ptr<Product> GetResult() override {
+            return std::move(this->_product);
+        }
     private:
         std::unique_ptr<Product> _product; // The product being built
 };

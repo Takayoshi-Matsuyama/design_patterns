@@ -15,12 +15,14 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR_H
 
-#include "Builder.h"
+#include "builder.h"
 
 class Director {
     public:
-        Director(Builder* builder);
-        void Construct();
+        Director(Builder* builder) : _builder(builder) {};
+        void Construct() {
+            this->_builder->BuildPart();
+        };
     private:
         Builder* _builder;
 };
