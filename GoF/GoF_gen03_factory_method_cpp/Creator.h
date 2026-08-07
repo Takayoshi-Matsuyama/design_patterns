@@ -15,7 +15,7 @@
 #ifndef CREATOR_H
 #define CREATOR_H
 
-#include "Product.h"
+#include "product.h"
 
 #include <memory>
 

@@ -12,11 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteCreator.h"
-#include "ConcreteProduct.h"
+#ifndef CONCRETE_PRODUCT_H
+#define CONCRETE_PRODUCT_H
 
-#include <memory>
+#include "product.h"
 
-std::unique_ptr<Product> ConcreteCreator::FactoryMethod() const {
-    return std::make_unique<ConcreteProduct>();
-}
+class ConcreteProduct : public Product {
+    public:
+        void Operation() override;
+};
+
+#endif // CONCRETE_PRODUCT_H

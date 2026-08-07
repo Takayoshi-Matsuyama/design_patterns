@@ -12,14 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_PRODUCT_H
-#define CONCRETE_PRODUCT_H
+#include "concrete_product.h"
 
-#include "Product.h"
+#include <iostream>
 
-class ConcreteProduct : public Product {
-    public:
-        void Operation() override;
-};
-
-#endif // CONCRETE_PRODUCT_H
+void ConcreteProduct::Operation() {
+    std::cout << "ConcreteProduct Operation" << std::endl;
+}

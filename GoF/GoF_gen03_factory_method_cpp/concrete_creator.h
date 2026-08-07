@@ -15,7 +15,8 @@
 #ifndef CONCRETE_CREATOR_H
 #define CONCRETE_CREATOR_H
 
-#include "Creator.h"
+#include "creator.h"
+#include "product.h"
 
 #include <memory>
 
