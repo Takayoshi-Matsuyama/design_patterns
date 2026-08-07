@@ -12,13 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef PRODUCT_H
-#define PRODUCT_H
+#ifndef DESIGN_PTN_GEN03_FACTORY_METHOD_PRODUCT_H_
+#define DESIGN_PTN_GEN03_FACTORY_METHOD_PRODUCT_H_
 
+namespace facmtd_ptn {
+
+// Represents the product in the Factory Method pattern.
 class Product {
-public:
-    virtual ~Product() = default;
-    virtual void Operation() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Product() = default;
+
+  // Executes an operation specific to the product.
+  virtual void Operation() = 0;
 };
 
-#endif // PRODUCT_H
+} // namespace facmtd_ptn
+
+#endif // DESIGN_PTN_GEN03_FACTORY_METHOD_PRODUCT_H_
+

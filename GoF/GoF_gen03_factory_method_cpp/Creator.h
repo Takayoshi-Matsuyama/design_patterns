@@ -12,17 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CREATOR_H
-#define CREATOR_H
-
-#include "product.h"
+#ifndef DESIGN_PTN_GEN03_FACTORY_METHOD_CREATOR_H_
+#define DESIGN_PTN_GEN03_FACTORY_METHOD_CREATOR_H_
 
 #include <memory>
 
+#include "product.h"
+
+namespace facmtd_ptn {
+
+// Represents the creator in the Factory Method pattern.
 class Creator {
-    public:
-        virtual ~Creator() = default;
-        virtual std::unique_ptr<Product> FactoryMethod() const = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Creator() = default;
+
+  // Creates a product.
+  virtual std::unique_ptr<Product> FactoryMethod() const = 0;
 };
 
-#endif // CREATOR_H
+} // namespace facmtd_ptn
+
+#endif // DESIGN_PTN_GEN03_FACTORY_METHOD_CREATOR_H_

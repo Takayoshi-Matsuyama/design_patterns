@@ -12,14 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_PRODUCT_H
-#define CONCRETE_PRODUCT_H
+#ifndef DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
+#define DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
+
+#include <iostream>
 
 #include "product.h"
 
+namespace facmtd_ptn {
+
+// Represents a concrete product in the Factory Method pattern.
 class ConcreteProduct : public Product {
-    public:
-        void Operation() override;
+ public:
+  // Executes an operation specific to the concrete product.
+  void Operation() override {
+    std::cout << "ConcreteProduct Operation\n";
+  }
 };
 
-#endif // CONCRETE_PRODUCT_H
+} // namespace facmtd_ptn
+
+#endif // DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_PRODUCT_H_

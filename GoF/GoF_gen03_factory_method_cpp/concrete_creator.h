@@ -12,17 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_CREATOR_H
-#define CONCRETE_CREATOR_H
-
-#include "creator.h"
-#include "product.h"
+#ifndef DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_CREATOR_H_
+#define DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_CREATOR_H_
 
 #include <memory>
 
+#include "concrete_product.h"
+#include "creator.h"
+#include "product.h"
+
+namespace facmtd_ptn {
+
+// Represents a concrete creator in the Factory Method pattern.
 class ConcreteCreator : public Creator {
-    public:
-        std::unique_ptr<Product> FactoryMethod() const override;
+ public:
+  // Creates a concrete product.
+  std::unique_ptr<Product> FactoryMethod() const override {
+    return std::make_unique<ConcreteProduct>();
+  }
 };
 
-#endif // CONCRETE_CREATOR_H
+} // namespace facmtd_ptn
+
+#endif // DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_CREATOR_H_
