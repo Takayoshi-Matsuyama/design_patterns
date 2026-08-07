@@ -21,23 +21,35 @@
 
 namespace prt_ptn {
 
+// Represents a concrete implementation of the Prototype interface.
 class ConcretePrototype2 : public Prototype {
  public:
-  ConcretePrototype2() {}
+  // Constructs a new ConcretePrototype2 object with default values.
+  ConcretePrototype2() = default;
+
+  // Constructs a new ConcretePrototype2 object.
   ConcretePrototype2(const ConcretePrototype2& other) {
-    this->_value = other._value;
+    this->value_ = other.value_;
   }
+
+  // Clones the current object and returns a unique pointer to the new object.
   std::unique_ptr<Prototype> Clone() const override {
     return std::make_unique<ConcretePrototype2>(*this);
   }
+
+  // Returns the value of this object.
   double GetValue() const {
-    return this->_value;
+    return this->value_;
   }
+
+  // Sets the value of this object.
   void SetValue(double value) {
-    this->_value = value;
+    this->value_ = value;
   }
+  
  private:
-  double _value;
+  // The value of this object.
+  double value_ = 0.0;
 };
 
 } // namespace prt_ptn
