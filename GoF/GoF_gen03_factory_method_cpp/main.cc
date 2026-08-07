@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include <iostream>
+#include <memory>
 
 #include "concrete_creator.h"
 #include "product.h"
