@@ -12,21 +12,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADAPTER_H
-#define ADAPTER_H
+#ifndef DESIGN_PTN_ST01_ADAPTER_ADAPTER_H_
+#define DESIGN_PTN_ST01_ADAPTER_ADAPTER_H_
 
-#include "Target.h"
-#include "Adaptee.h"
-
+#include <iostream>
 #include <memory>
 
+#include "adaptee.h"
+#include "target.h"
+
+namespace adp_ptn {
+
+// Represents the adapter in the Adapter design pattern.
 class Adapter : public Target {
 
-    public:
-        Adapter(std::unique_ptr<Adaptee> a) : adaptee(std::move(a)) {}
-        void Request() override;
-    private:
-        std::unique_ptr<Adaptee> adaptee;
+public:
+  // Constucts an Adapter with a unique pointer to an Adaptee.
+  explicit Adapter(std::unique_ptr<Adaptee> adaptee) :
+    adaptee_(std::move(adaptee)) {}
+
+  // Requests a service from the target interface.
+  void Request() override {
+    std::string result = adaptee_->SpecificRequest();
+    std::cout << "Adapter: Request() -> " << result << "\n";
+  }
+
+ private:
+  // The adaptee object.
+  std::unique_ptr<Adaptee> adaptee_;
 };
 
-#endif // ADAPTER_H
+} // namespace adp_ptn
+
+#endif // DESIGN_PTN_ST01_ADAPTER_ADAPTER_H_

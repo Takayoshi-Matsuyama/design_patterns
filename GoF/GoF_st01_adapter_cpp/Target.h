@@ -12,13 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TARGET_H
-#define TARGET_H
+#ifndef DESIGN_PTN_ST01_ADAPTER_TARGET_H_
+#define DESIGN_PTN_ST01_ADAPTER_TARGET_H_
 
+namespace adp_ptn {
+
+// Represents the target in the Adapter design pattern.
 class Target {
-    public:
-        virtual ~Target() = default;
-        virtual void Request() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Target() = default;
+
+  // Requests a service from the target interface.
+  virtual void Request() = 0;
 };
 
-#endif // TARGET_H
+} // namespace adp_ptn
+
+#endif // DESIGN_PTN_ST01_ADAPTER_TARGET_H_

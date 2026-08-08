@@ -12,13 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADAPTEE_H
-#define ADAPTEE_H
+#ifndef DESIGN_PTN_ST01_ADAPTER_ADAPTEE_H_
+#define DESIGN_PTN_ST01_ADAPTER_ADAPTEE_H_
+
 #include <string>
 
+namespace adp_ptn {
+
+// Represents the adaptee in the Adapter design pattern.
 class Adaptee {
-    public:
-        std::string specificRequest();
+ public:
+  // Executes a specific request and returns a string result.
+  std::string SpecificRequest() {
+    return "Adaptee: SpecificRequest() called.";
+  }
 };
 
-#endif // ADAPTEE_H
+} // namespace adp_ptn
+
+#endif // DESIGN_PTN_ST01_ADAPTER_ADAPTEE_H_

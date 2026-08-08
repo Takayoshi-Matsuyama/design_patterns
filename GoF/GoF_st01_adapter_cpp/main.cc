@@ -12,15 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Adapter.h"
-#include "Adaptee.h"
-
 #include <memory>
 #include <iostream>
 
+#include "adaptee.h"
+#include "adapter.h"
+
 int main() {
-    std::unique_ptr<Adaptee> adaptee = std::make_unique<Adaptee>();
-    Adapter adapter(std::move(adaptee));
+    std::unique_ptr<adp_ptn::Adaptee> adaptee =
+      std::make_unique<adp_ptn::Adaptee>();
+    adp_ptn::Adapter adapter(std::move(adaptee));
 
     std::cout << "GoF Adapter Pattern Example" << std::endl;
     adapter.Request();
