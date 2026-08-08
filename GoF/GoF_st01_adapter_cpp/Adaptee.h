@@ -23,7 +23,7 @@ namespace adp_ptn {
 class Adaptee {
  public:
   // Executes a specific request and returns a string result.
-  std::string SpecificRequest() {
+  std::string SpecificRequest() const {
     return "Adaptee: SpecificRequest() called.";
   }
 };

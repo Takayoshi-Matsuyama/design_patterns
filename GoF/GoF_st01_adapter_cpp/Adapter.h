@@ -26,8 +26,8 @@ namespace adp_ptn {
 // Represents the adapter in the Adapter design pattern.
 class Adapter : public Target {
 
-public:
-  // Constucts an Adapter with a unique pointer to an Adaptee.
+ public:
+  // Constructs an Adapter with a unique pointer to an Adaptee.
   explicit Adapter(std::unique_ptr<Adaptee> adaptee) :
     adaptee_(std::move(adaptee)) {}
 
