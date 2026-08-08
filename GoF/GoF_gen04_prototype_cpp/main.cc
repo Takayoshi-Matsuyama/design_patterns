@@ -12,25 +12,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <iostream>
+#include <memory>
+
 #include "concrete_prototype1.h"
 #include "concrete_prototype2.h"
-
-#include <iostream>
 
 int main() {
   std::cout << "GoF Prototype Pattern Example\n";
 
   prt_ptn::ConcretePrototype1 prototype1;
   prototype1.SetName("Prototype 1");
-  prt_ptn::ConcretePrototype1 clone1 =
-    *dynamic_cast<prt_ptn::ConcretePrototype1*>(prototype1.Clone().get());
-  std::cout << "Cloned ConcretePrototype1: " << clone1.GetName() << "\n";
+
+  std::unique_ptr<prt_ptn::Prototype> cloned_base1 = prototype1.Clone();
+  auto* clone1 = dynamic_cast<prt_ptn::ConcretePrototype1*>(cloned_base1.get());
+  if (clone1) {
+    std::cout << "Cloned ConcretePrototype1: " << clone1->GetName() << "\n";
+  } else {
+    std::cerr << "Failed to clone ConcretePrototype1\n";
+  }
 
   prt_ptn::ConcretePrototype2 prototype2;
   prototype2.SetValue(42.0);
-  prt_ptn::ConcretePrototype2 clone2 =
-    *dynamic_cast<prt_ptn::ConcretePrototype2*>(prototype2.Clone().get());
-  std::cout << "Cloned ConcretePrototype2: " << clone2.GetValue() << "\n";
+
+  std::unique_ptr<prt_ptn::Prototype> cloned_base2 = prototype2.Clone();
+  auto* clone2 = dynamic_cast<prt_ptn::ConcretePrototype2*>(cloned_base2.get());
+  if (clone2) {
+    std::cout << "Cloned ConcretePrototype2: " << clone2->GetValue() << "\n";
+  } else {
+    std::cerr << "Failed to clone ConcretePrototype2\n";
+  }
 
   return 0;
 }

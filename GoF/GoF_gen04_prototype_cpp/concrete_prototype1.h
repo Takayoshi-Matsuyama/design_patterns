@@ -29,6 +29,7 @@ class ConcretePrototype1 : public Prototype {
   ConcretePrototype1() = default;
 
   // Constructs a new ConcretePrototype1 object.
+  // Note: 'explicit' is not used here to allow implicit copy construction.
   ConcretePrototype1(const ConcretePrototype1& other) {
     name_ = other.name_;
   }
