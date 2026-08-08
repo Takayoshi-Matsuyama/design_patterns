@@ -23,7 +23,7 @@ int main() {
     std::make_unique<adp_ptn::Adaptee>();
   adp_ptn::Adapter adapter(std::move(adaptee));
 
-  std::cout << "GoF Adapter Pattern Example" << std::endl;
+  std::cout << "GoF Adapter Pattern Example" << "\n";
   adapter.Request();
 
   return 0;
