@@ -12,21 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef SINGLETON_H
-#define SINGLETON_H
+#ifndef DESIGN_PTN_GEN05_SIN_SINGLETON_H_
+#define DESIGN_PTN_GEN05_SIN_SINGLETON_H_
 
+namespace sin_ptn {
+
+// Represents the singleton class in the singleton design pattern.
 class Singleton {
-    public:
-        static Singleton& GetInstance() {
-            static Singleton instance; // Guaranteed to be destroyed and instantiated on first use.
-            return instance;
-        }
+ public:
+  // Returns the only one instance of the Singleton class.
+  // Note: The instance is created on the first call to this method.
+  static Singleton& GetInstance() {
+    // Note: Using keyword 'static' ensures that
+    //       the instance is created only once.
+    static Singleton instance;
+    return instance;
+  }
 
-    private:
-        Singleton() {} // Private constructor
-        ~Singleton() {} // Private destructor
-        Singleton(const Singleton&) = delete; // Prevent copy-construction
-        Singleton& operator=(const Singleton&) = delete; // Prevent assignment
+ private:
+  // Constructs a new instance of the Singleton class.
+  // Note: The constructor is private to prevent direct instantiation.
+  Singleton() {}
+
+  // Destructs the Singleton instance.
+  // Note: The destructor is private to prevent direct destruction.
+  ~Singleton() {}
+
+  // Delete copy constructor to prevent copying.
+  Singleton(const Singleton&) = delete;
+
+  // Delete assignment operator to prevent assignment.
+  Singleton& operator=(const Singleton&) = delete;
 };
 
-#endif // SINGLETON_H
+} // namespace sin_ptn
+
+#endif // DESIGN_PTN_GEN05_SIN_SINGLETON_H_

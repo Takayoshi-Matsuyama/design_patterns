@@ -12,19 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Singleton.h"
-
 #include <iostream>
 
+#include "singleton.h"
+
 int main() {
-    
-    std::cout << "GoF Singleton Pattern Example" << std::endl;
+  std::cout << "GoF Singleton Pattern Example\n";
 
-    Singleton& singleton1 = Singleton::GetInstance();
-    Singleton& singleton2 = Singleton::GetInstance();
+  sin_ptn::Singleton& singleton1 = sin_ptn::Singleton::GetInstance();
+  sin_ptn::Singleton& singleton2 = sin_ptn::Singleton::GetInstance();
 
-    std::cout << "singleton1 address: " << &singleton1 << std::endl;
-    std::cout << "singleton2 address: " << &singleton2 << std::endl;
+  std::cout << "singleton1 address: " << &singleton1 << "\n";
+  std::cout << "singleton2 address: " << &singleton2 << "\n";
 
-    return 0;
+  return 0;
 }
