@@ -32,17 +32,23 @@ class Singleton {
  private:
   // Constructs a new instance of the Singleton class.
   // Note: The constructor is private to prevent direct instantiation.
-  Singleton() {}
+  Singleton() = default;
 
   // Destructs the Singleton instance.
   // Note: The destructor is private to prevent direct destruction.
-  ~Singleton() {}
+  ~Singleton() = default;
 
   // Delete copy constructor to prevent copying.
   Singleton(const Singleton&) = delete;
 
   // Delete assignment operator to prevent assignment.
   Singleton& operator=(const Singleton&) = delete;
+
+  // Delete move constructor to prevent moving.
+  Singleton(Singleton&&) = delete;
+
+  // Delete move assignment operator to prevent move assignment.
+  Singleton& operator=(Singleton&&) = delete;
 };
 
 } // namespace sin_ptn
