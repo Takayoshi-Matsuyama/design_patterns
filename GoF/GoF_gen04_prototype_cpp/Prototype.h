@@ -19,7 +19,7 @@
 
 namespace prt_ptn {
 
-// Represets the Prototype in the Prototype design pattern.
+// Represents the Prototype in the Prototype design pattern.
 class Prototype {
  public:
   // Virtual destructor to ensure proper cleanup of derived classes.
