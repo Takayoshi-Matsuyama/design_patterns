@@ -12,14 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_IMPLEMENTOR_A_H
-#define CONCRETE_IMPLEMENTOR_A_H
+#ifndef DESIGN_PTN_ST02_BRIDGE_CONCRETE_IMPLEMENTOR_A_H_
+#define DESIGN_PTN_ST02_BRIDGE_CONCRETE_IMPLEMENTOR_A_H_
 
-#include "Implementor.h"
+#include <iostream>
 
+#include "implementor.h"
+
+namespace brd_ptn {
+
+// Represents a concrete implementor in the Bridge pattern.
 class ConcreteImplementorA : public Implementor {
-    public:
-        void OperationImpl() override;
+ public:
+  // Executes the operation in the concrete level for ConcreteImplementorA.
+  void OperationImpl() override {
+    std::cout << "ConcreteImplementorA: OperationImpl called.\n";
+  }
 };
 
-#endif // CONCRETE_IMPLEMENTOR_A_H
+} // namespace brd_ptn
+
+#endif // DESIGN_PTN_ST02_BRIDGE_CONCRETE_IMPLEMENTOR_A_H_

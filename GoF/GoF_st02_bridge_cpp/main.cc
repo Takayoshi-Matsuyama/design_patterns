@@ -12,14 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Abstraction.h"
-#include "RefinedAbstraction.h"
+#include "concrete_implementor_a.h"
+#include "concrete_implementor_b.h"
 
-#include <memory>
+#include "refined_abstraction.h"
 
-RefinedAbstraction::RefinedAbstraction(std::shared_ptr<Implementor> impl) : Abstraction(std::move(impl)) {}
+#include <iostream>
 
-void RefinedAbstraction::Operation() {
-    // Implementation of Operation for RefinedAbstraction
-    impl->OperationImpl();
+#include "abstraction.h"
+
+int main() {
+  std::cout << "GoF Bridge Pattern Example\n";
+
+  brd_ptn::RefinedAbstraction abstractionA(
+    std::make_unique<brd_ptn::ConcreteImplementorA>());
+  abstractionA.Operation();
+
+  brd_ptn::RefinedAbstraction abstractionB(
+    std::make_unique<brd_ptn::ConcreteImplementorB>());
+  abstractionB.Operation();
+
+  return 0;
 }

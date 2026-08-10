@@ -31,7 +31,7 @@ class ConcreteImplementorB {
 Implementor <|.. ConcreteImplementorA
 Implementor <|.. ConcreteImplementorB
 
-interface Abstraction {
+class Abstraction {
     -implementor: Implementor
     +operation(): void
 }

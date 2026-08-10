@@ -12,20 +12,42 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ABSTRACTION_H
-#define ABSTRACTION_H
-
-#include "Implementor.h"
+#ifndef DESIGN_PTN_ST02_BRIDGE_ABSTRACTION_H_
+#define DESIGN_PTN_ST02_BRIDGE_ABSTRACTION_H_
 
 #include <memory>
 
+#include "implementor.h"
+
+namespace brd_ptn {
+
+// Represents the abstraction in the Bridge pattern.
 class Abstraction {
-    public:
-        Abstraction(std::shared_ptr<Implementor> impl) : impl(std::move(impl)) {}
-        virtual ~Abstraction() = default;
-        virtual void Operation() = 0;
-    protected:
-        std::shared_ptr<Implementor> impl;
+ public:
+  // Constructs an Abstraction with the given Implementor.
+  Abstraction(std::unique_ptr<Implementor> impl) : impl_(std::move(impl)) {}
+
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Abstraction() = default;
+
+  // Executes operation in abstraction level,
+  // which delegates the actual implementation to the Implementor.
+  virtual void Operation() {
+    impl_->OperationImpl();
+  }
+
+ protected:
+  // Pointer to the Implementor, allowing the Abstraction to delegate
+  // the actual work to the Implementor.
+  // Note: This class owns the Implementor.
+  //       Using std::unique_ptr ensures that the Implementor is properly
+  //       managed and cleaned up when the Abstraction is destroyed.
+  std::unique_ptr<Implementor> impl_;
 };
 
-#endif // ABSTRACTION_H
+} // namespace brd_ptn
+
+#endif // DESIGN_PTN_ST02_BRIDGE_ABSTRACTION_H_

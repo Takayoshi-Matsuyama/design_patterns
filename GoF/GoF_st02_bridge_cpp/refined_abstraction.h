@@ -12,17 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef REFINED_ABSTRACTION_H
-#define REFINED_ABSTRACTION_H
-
-#include "Abstraction.h"
+#ifndef DESIGN_PTN_ST02_BRIDGE_REFINED_ABSTRACTION_H_
+#define DESIGN_PTN_ST02_BRIDGE_REFINED_ABSTRACTION_H_
 
 #include <memory>
 
+#include "abstraction.h"
+#include "implementor.h"
+
+namespace brd_ptn {
+
+// Represents a refined abstraction in the Bridge pattern.
 class RefinedAbstraction : public Abstraction {
-    public:
-        RefinedAbstraction(std::shared_ptr<Implementor> impl);
-        void Operation() override;
+ public:
+  // Constructs a RefinedAbstraction with the given Implementor.
+  RefinedAbstraction(std::unique_ptr<Implementor> impl) : Abstraction(std::move(impl)) {}
+
+  // Executes operation in refined abstraction level,
+  // which delegates the actual implementation to the Implementor.
+  void Operation() override {
+    impl_->OperationImpl();
+  }
 };
 
-#endif // REFINED_ABSTRACTION_H
+} // namespace brd_ptn
+
+#endif // DESIGN_PTN_ST02_BRIDGE_REFINED_ABSTRACTION_H_

@@ -12,13 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMPLEMENTOR_H
-#define IMPLEMENTOR_H
+#ifndef DESIGN_PTN_ST02_BRIDGE_IMPLEMENTOR_H_
+#define DESIGN_PTN_ST02_BRIDGE_IMPLEMENTOR_H_
 
+namespace brd_ptn {
+
+// Represents the implementor in the Bridge pattern.
 class Implementor {
-    public:
-        virtual ~Implementor() = default;
-        virtual void OperationImpl() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Implementor() = default;
+
+  // Executes the operation in the concrete level.
+  virtual void OperationImpl() = 0;
 };
 
-#endif // IMPLEMENTOR_H
+} // namespace brd_ptn
+
+#endif // DESIGN_PTN_ST02_BRIDGE_IMPLEMENTOR_H_
