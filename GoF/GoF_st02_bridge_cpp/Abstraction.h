@@ -25,7 +25,7 @@ namespace brd_ptn {
 class Abstraction {
  public:
   // Constructs an Abstraction with the given Implementor.
-  Abstraction(std::unique_ptr<Implementor> impl) : impl_(std::move(impl)) {}
+  explicit Abstraction(std::unique_ptr<Implementor> impl) : impl_(std::move(impl)) {}
 
   // Virtual destructor to ensure proper cleanup of derived classes.
   // This ensures that
@@ -40,6 +40,12 @@ class Abstraction {
   }
 
  protected:
+  // Accessor for the Implementor, allowing derived classes to use it.
+  Implementor* GetImpl() const {
+    return impl_.get();
+  }
+
+ private:
   // Pointer to the Implementor, allowing the Abstraction to delegate
   // the actual work to the Implementor.
   // Note: This class owns the Implementor.

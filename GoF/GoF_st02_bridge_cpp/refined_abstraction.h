@@ -26,12 +26,12 @@ namespace brd_ptn {
 class RefinedAbstraction : public Abstraction {
  public:
   // Constructs a RefinedAbstraction with the given Implementor.
-  RefinedAbstraction(std::unique_ptr<Implementor> impl) : Abstraction(std::move(impl)) {}
+  explicit RefinedAbstraction(std::unique_ptr<Implementor> impl) : Abstraction(std::move(impl)) {}
 
   // Executes operation in refined abstraction level,
   // which delegates the actual implementation to the Implementor.
   void Operation() override {
-    impl_->OperationImpl();
+    this->GetImpl()->OperationImpl();
   }
 };
 

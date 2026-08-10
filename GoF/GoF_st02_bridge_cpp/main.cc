@@ -12,14 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "concrete_implementor_a.h"
-#include "concrete_implementor_b.h"
-
-#include "refined_abstraction.h"
-
 #include <iostream>
+#include <memory>
 
 #include "abstraction.h"
+#include "concrete_implementor_a.h"
+#include "concrete_implementor_b.h"
+#include "refined_abstraction.h"
 
 int main() {
   std::cout << "GoF Bridge Pattern Example\n";
