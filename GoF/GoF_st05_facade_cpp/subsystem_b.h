@@ -12,14 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef SUBSYSTEM_A_H
-#define SUBSYSTEM_A_H
+#ifndef SUBSYSTEM_B_H
+#define SUBSYSTEM_B_H
 
 #include <string>
 
-class SubsystemA {
+class SubsystemB {
     public:
-        std::string OperationA();
+        std::string OperationB() {
+            return "Operation B result";
+        }
 };
 
-#endif // SUBSYSTEM_A_H
+#endif // SUBSYSTEM_B_H

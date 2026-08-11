@@ -15,17 +15,27 @@
 #ifndef FACADE_H
 #define FACADE_H
 
-#include "SubsystemA.h"
-#include "SubsystemB.h"
-#include "SubsystemC.h"
+#include "subsystem_a.h"
+#include "subsystem_b.h"
+#include "subsystem_c.h"
 
 #include <string>
 #include <memory>
 
 class Facade {
     public:
-        Facade();
-        std::string Operation();
+        Facade() : subsystemA(std::make_unique<SubsystemA>()),
+                   subsystemB(std::make_unique<SubsystemB>()),
+                   subsystemC(std::make_unique<SubsystemC>()) {}
+        std::string Operation() {
+            std::string result;
+            result += subsystemA->OperationA();
+            result += " ";
+            result += subsystemB->OperationB();
+            result += " ";
+            result += subsystemC->OperationC();
+            return result;
+        }
     private:
         std::unique_ptr<SubsystemA> subsystemA;
         std::unique_ptr<SubsystemB> subsystemB;

@@ -12,24 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Facade.h"
-#include "SubsystemA.h"
-#include "SubsystemB.h"
-#include "SubsystemC.h"
+#ifndef SUBSYSTEM_C_H
+#define SUBSYSTEM_C_H
 
 #include <string>
-#include <memory>
 
-Facade::Facade() : subsystemA(std::make_unique<SubsystemA>()),
-                   subsystemB(std::make_unique<SubsystemB>()),
-                   subsystemC(std::make_unique<SubsystemC>()) {}
+class SubsystemC {
+    public:
+        std::string OperationC() {
+            return "Operation C result";
+        }
+};
 
-std::string Facade::Operation() {
-    std::string result;
-    result += subsystemA->OperationA();
-    result += " ";
-    result += subsystemB->OperationB();
-    result += " ";
-    result += subsystemC->OperationC();
-    return result;
-}
+#endif // SUBSYSTEM_C_H
