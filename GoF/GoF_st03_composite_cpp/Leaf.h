@@ -21,11 +21,29 @@
 
 namespace cmp_ptn {
 
+// Represents a leaf component in the Composite design pattern.
 class Leaf : public Component {
-    public:
-        void Operation() override {
-            std::cout << "Leaf Operation\n";
-        }
+ public:
+  // Executes the operation defined by the leaf component.
+  void Operation() override {
+    std::cout << "Leaf Operation\n";
+  }
+
+  // Leaf components do not support adding or removing children.
+  void Add(std::shared_ptr<Component> component) override {
+    std::cout << "Cannot add to a leaf\n";
+  }
+
+  // Leaf components do not support adding or removing children.
+  void Remove(std::shared_ptr<Component> component) override {
+    std::cout << "Cannot remove from a leaf\n";
+  }
+
+  // Leaf components do not have children, so this method returns nullptr.
+  std::shared_ptr<Component> GetChild(int index) override {
+    std::cout << "Leaf has no children\n";
+    return nullptr;
+  }
 };
 
 } // namespace cmp_ptn

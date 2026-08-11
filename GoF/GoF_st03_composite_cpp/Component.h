@@ -19,13 +19,27 @@
 
 namespace cmp_ptn {
 
+// Represents the component interface in the Composite design pattern.
 class Component {
-    public:
-        virtual ~Component() = default;
-        virtual void Operation() = 0;
-        virtual void Add(std::shared_ptr<Component> component) {}
-        virtual void Remove(std::shared_ptr<Component> component) {}
-        virtual std::shared_ptr<Component> GetChild(int index) { return nullptr; }
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Component() = default;
+
+  // Executes the operation defined by the component.
+  virtual void Operation() = 0;
+
+  // Adds a child component to the composite.
+  virtual void Add(std::shared_ptr<Component> component) = 0;
+
+  // Removes a child component from the composite.
+  virtual void Remove(std::shared_ptr<Component> component) = 0;
+
+  // Retrieves a child component by index.
+  // Returns nullptr if the index is invalid.
+  virtual std::shared_ptr<Component> GetChild(int index) = 0;
 };
 
 } // namespace cmp_ptn

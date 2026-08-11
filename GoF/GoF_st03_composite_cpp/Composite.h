@@ -24,32 +24,42 @@
 
 namespace cmp_ptn {
 
+// Represents a composite component in the Composite design pattern.
 class Composite : public Component {
-    public:
-        void Operation() override {
-            std::cout << "Composite Operation" << std::endl;
-            for (const auto& child : this->children) {
-                child->Operation();
-            }
-        }
+ public:
+  // Executes the operation defined by the composite component.
+  void Operation() override {
+    std::cout << "Composite Operation\n";
+    for (const auto& child : children_) {
+      child->Operation();
+    }
+  }
 
-        void Add(std::shared_ptr<Component> component) override {
-            this->children.push_back(component);
-        }
+  // Adds a child component to the composite.
+  void Add(std::shared_ptr<Component> component) override {
+    children_.push_back(component);
+  }
 
-        void Remove(std::shared_ptr<Component> component) override {
-            this->children.erase(std::remove(this->children.begin(), this->children.end(), component), this->children.end());
-        }
+  // Removes a child component from the composite.
+  void Remove(std::shared_ptr<Component> component) override {
+    // Delete the child component with "erase-remove" idiom
+    // to avoid memory leaks and dangling pointers.
+    children_.erase(
+      std::remove(children_.begin(), children_.end(), component),
+      children_.end());
+  }
 
-        std::shared_ptr<Component> GetChild(int index) override {
-            if (index < 0 || index >= static_cast<int>(this->children.size())) {
-                return nullptr;
-            }
-            return this->children[index];
-        }
+  // Retrieves a child component by index.
+  std::shared_ptr<Component> GetChild(int index) override {
+    if (index < 0 || index >= static_cast<int>(children_.size())) {
+      return nullptr;
+    }
+    return children_[index];
+  }
 
-    private:
-        std::vector<std::shared_ptr<Component>> children;
+ private:
+  // Stores child components of the composite.
+  std::vector<std::shared_ptr<Component>> children_;
 };
 
 } // namespace cmp_ptn
