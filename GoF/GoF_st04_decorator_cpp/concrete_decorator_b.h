@@ -26,7 +26,7 @@ namespace dec_ptn {
 class ConcreteDecoratorB : public Decorator {
  public:
   // Constructs a ConcreteDecoratorB with the specified component to decorate.
-  ConcreteDecoratorB(Component* component) : Decorator(component) {}
+  explicit ConcreteDecoratorB(Component* component) : Decorator(component) {}
 
   // Executes the component's operation and additional behavior.
   void Operation() override {

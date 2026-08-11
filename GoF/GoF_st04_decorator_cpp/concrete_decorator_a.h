@@ -26,17 +26,17 @@ namespace dec_ptn {
 class ConcreteDecoratorA : public Decorator {
  public:
   // Constructs a ConcreteDecoratorA with the specified component to decorate.
-  ConcreteDecoratorA(Component* component) : Decorator(component) {}
+  explicit ConcreteDecoratorA(Component* component) : Decorator(component) {}
 
   // Executes the component's operation and additional behavior.
   void Operation() override {
     Decorator::Operation();
-    std::cout << "ConcreteDecoratorA addedState: " << this->addedState << "\n";
+    std::cout << "ConcreteDecoratorA added state: " << added_state_ << "\n";
   }
 
  private:
   // Represents additional state or behavior added by this decorator.
-  int addedState = 0;
+  int added_state_ = 0;
 };
 
 } // namespace dec_ptn

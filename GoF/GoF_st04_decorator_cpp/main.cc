@@ -12,13 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <iostream>
+#include <memory>
+
 #include "concrete_component.h"
 #include "concrete_decorator_a.h"
 #include "concrete_decorator_b.h"
-
-#include <iostream>
-
-#include <memory>
 
 int main() {
   std::cout << "GoF Decorator Pattern Example\n";
@@ -39,7 +38,7 @@ int main() {
   decoratorA->Operation();
 
   std::cout << "\n";
-  
+
   std::cout << "Calling Operation on ConcreteDecoratorB:\n";
   decoratorB->Operation();
 

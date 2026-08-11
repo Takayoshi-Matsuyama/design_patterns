@@ -23,7 +23,7 @@ namespace dec_ptn {
 class Decorator : public Component {
  public:
   // Constructs a Decorator with the specified component to decorate.
-  Decorator(Component* component) : component_(component) {}
+  explicit Decorator(Component* component) : component_(component) {}
 
   // Executes the operation defined by the component.
   // Note: Additional behavior will be added by derived decorators.
