@@ -19,7 +19,7 @@
 #include "leaf.h"
 
 int main() {
-  std::cout << "GoF Composite Pattern Example" << std::endl;
+  std::cout << "GoF Composite Pattern Example\n";
 
   // Create composite structure
   std::shared_ptr<cmp_ptn::Component> composite = std::make_shared<cmp_ptn::Composite>();
