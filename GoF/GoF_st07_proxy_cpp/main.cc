@@ -15,8 +15,6 @@
 #include <iostream>
 
 #include "proxy.h"
-#include "real_subject.h"
-#include "subject.h"
 
 int main() {
   std::cout << "GoF Proxy Pattern Example\n";
