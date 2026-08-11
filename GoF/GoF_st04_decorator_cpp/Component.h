@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_ST05_DEC_COMPONENT_H_
-#define DESIGN_PTN_ST05_DEC_COMPONENT_H_
+#ifndef DESIGN_PTN_ST04_DEC_COMPONENT_H_
+#define DESIGN_PTN_ST04_DEC_COMPONENT_H_
 
 namespace dec_ptn {
 
@@ -32,4 +32,4 @@ class Component {
 
 } // namespace dec_ptn
 
-#endif // DESIGN_PTN_ST05_DEC_COMPONENT_H_
+#endif // DESIGN_PTN_ST04_DEC_COMPONENT_H_

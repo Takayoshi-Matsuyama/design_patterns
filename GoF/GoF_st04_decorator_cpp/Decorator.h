@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_ST05_DEC_DECORATOR_H_
-#define DESIGN_PTN_ST05_DEC_DECORATOR_H_
+#ifndef DESIGN_PTN_ST04_DEC_DECORATOR_H_
+#define DESIGN_PTN_ST04_DEC_DECORATOR_H_
 
 #include "component.h"
 
@@ -42,4 +42,4 @@ class Decorator : public Component {
 
 } // namespace dec_ptn
 
-#endif // DESIGN_PTN_ST05_DEC_DECORATOR_H_
+#endif // DESIGN_PTN_ST04_DEC_DECORATOR_H_
