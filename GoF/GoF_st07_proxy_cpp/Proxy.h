@@ -31,7 +31,7 @@ class Proxy : public Subject {
 
   // Executes a request by forwarding it to the real subject.
   void Request() override {
-    std::cout << "Proxy: Handling Request. Forwarding to RealSubject." << std::endl;
+    std::cout << "Proxy: Handling Request. Forwarding to RealSubject.\n";
 
     if (!real_subject_) {
       // Lazy initialization of the real subject.
@@ -47,7 +47,8 @@ class Proxy : public Subject {
  private:
   // Holds a unique pointer to the real subject,
   // allowing for lazy initialization.
-  std::unique_ptr<Subject> real_subject_;
+  // Note: Proxy owns the real subject and is responsible for its lifetime.
+  std::unique_ptr<Subject> real_subject_ = nullptr;
 };
 
 } // namespace prx_ptn
