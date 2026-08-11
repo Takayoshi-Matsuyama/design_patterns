@@ -15,11 +15,15 @@
 #ifndef LEAF_H
 #define LEAF_H
 
-#include "Component.h"
+#include <iostream>
+
+#include "component.h"
 
 class Leaf : public Component {
     public:
-        void Operation() override;
+        void Operation() override {
+            std::cout << "Leaf Operation\n";
+        }
 };
 
 #endif // LEAF_H

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Composite.h"
-#include "Leaf.h"
-
 #include <iostream>
+
+#include "composite.h"
+#include "leaf.h"
 
 int main() {
     std::cout << "GoF Composite Pattern Example" << std::endl;
