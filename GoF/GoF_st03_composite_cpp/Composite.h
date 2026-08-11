@@ -37,7 +37,9 @@ class Composite : public Component {
 
   // Adds a child component to the composite.
   void Add(std::shared_ptr<Component> component) override {
-    children_.push_back(component);
+    // Use std::move to transfer ownership of the component to the composite.
+    // This avoids unnecessary copies and ensures that the composite takes ownership of the component.
+    children_.push_back(std::move(component));
   }
 
   // Removes a child component from the composite.

@@ -30,17 +30,17 @@ class Leaf : public Component {
   }
 
   // Leaf components do not support adding or removing children.
-  void Add(std::shared_ptr<Component> component) override {
+  void Add(std::shared_ptr<Component> /*component*/) override {
     std::cout << "Cannot add to a leaf\n";
   }
 
   // Leaf components do not support adding or removing children.
-  void Remove(std::shared_ptr<Component> component) override {
+  void Remove(std::shared_ptr<Component> /*component*/) override {
     std::cout << "Cannot remove from a leaf\n";
   }
 
   // Leaf components do not have children, so this method returns nullptr.
-  std::shared_ptr<Component> GetChild(int index) override {
+  std::shared_ptr<Component> GetChild(int /*index*/) override {
     std::cout << "Leaf has no children\n";
     return nullptr;
   }

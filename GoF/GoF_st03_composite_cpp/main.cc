@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include <iostream>
+#include <memory>
 
 #include "composite.h"
 #include "leaf.h"
@@ -22,11 +23,11 @@ int main() {
 
   // Create composite structure
   std::shared_ptr<cmp_ptn::Component> composite = std::make_shared<cmp_ptn::Composite>();
-  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Add(std::make_shared<cmp_ptn::Leaf>());
-  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Add(std::make_shared<cmp_ptn::Leaf>());
+  composite->Add(std::make_shared<cmp_ptn::Leaf>());
+  composite->Add(std::make_shared<cmp_ptn::Leaf>());
 
   // Execute operation on composite
-  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Operation();
+  composite->Operation();
 
   return 0;
 }
