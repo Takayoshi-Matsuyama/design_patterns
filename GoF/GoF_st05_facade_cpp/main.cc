@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "facade.h"
-
 #include <iostream>
+
+#include "facade.h"
 
 int main() {
   std::cout << "GoF Facade Pattern Example\n";

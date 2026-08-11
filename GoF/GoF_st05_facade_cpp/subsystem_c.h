@@ -23,7 +23,7 @@ namespace fcd_ptn {
 class SubsystemC {
  public:
   // Executes an operation specific to Subsystem C.
-  std::string OperationC() {
+  std::string OperationC() const {
     return "Operation C result";
   }
 };

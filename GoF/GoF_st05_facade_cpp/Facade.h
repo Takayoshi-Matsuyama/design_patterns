@@ -24,7 +24,7 @@
 
 namespace fcd_ptn {
 
-// Represensts a facade in the Facade design pattern.
+// Represents a facade in the Facade design pattern.
 class Facade {
  public:
   // Constructs a new Facade object.
@@ -33,7 +33,7 @@ class Facade {
              subsystem_c_(std::make_unique<SubsystemC>()) {}
   
   // Executes an operation that involves multiple subsystems.
-  std::string Operation() {
+  std::string Operation() const {
     std::string result;
     result += subsystem_a_->OperationA();
     result += " ";
