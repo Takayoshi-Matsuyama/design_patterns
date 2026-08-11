@@ -12,19 +12,44 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef PROXY_H_
-#define PROXY_H_
+#ifndef DESIGN_PTN_ST07_PROXY_PROXY_H_
+#define DESIGN_PTN_ST07_PROXY_PROXY_H_
 
-#include "Subject.h"
-
+#include <iostream>
 #include <memory>
 
+#include "real_subject.h"
+#include "subject.h"
+
+namespace prx_ptn {
+
+// Represents the proxy class in the Proxy design pattern.
 class Proxy : public Subject {
-    private:
-        std::unique_ptr<Subject> realSubject;  // Unique pointer to the real subject that the proxy will control access to
-    public:
-        Proxy() = default;  // Default constructor
-        void Request() override;
+ public:
+  // Constructs a Proxy object.
+  Proxy() = default;
+
+  // Executes a request by forwarding it to the real subject.
+  void Request() override {
+    std::cout << "Proxy: Handling Request. Forwarding to RealSubject." << std::endl;
+
+    if (!real_subject_) {
+      // Lazy initialization of the real subject.
+      // Note: Practically, the real subject might be created
+      //       in a background thread or based on some condition.
+      real_subject_ = std::make_unique<RealSubject>();
+    }
+
+    // Forward the request to the real subject
+    this->real_subject_->Request();
+  }
+
+ private:
+  // Holds a unique pointer to the real subject,
+  // allowing for lazy initialization.
+  std::unique_ptr<Subject> real_subject_;
 };
 
-#endif  // PROXY_H_
+} // namespace prx_ptn
+
+#endif  // DESIGN_PTN_ST07_PROXY_PROXY_H_

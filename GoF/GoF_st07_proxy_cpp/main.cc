@@ -12,14 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef REAL_SUBJECT_H_
-#define REAL_SUBJECT_H_
+#include <iostream>
 
-#include "Subject.h"
+#include "proxy.h"
+#include "real_subject.h"
+#include "subject.h"
 
-class RealSubject : public Subject {
-    public:
-        void Request() override;
-};
+int main() {
+  std::cout << "GoF Proxy Pattern Example\n";
 
-#endif  // REAL_SUBJECT_H_
+  prx_ptn::Proxy proxy;
+  proxy.Request();
+
+  return 0;
+}

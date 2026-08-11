@@ -12,17 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Subject.h"
-#include "RealSubject.h"
-#include "Proxy.h"
+#ifndef DESIGN_PTN_ST07_PROXY_REAL_SUBJECT_H_
+#define DESIGN_PTN_ST07_PROXY_REAL_SUBJECT_H_
 
 #include <iostream>
 
-int main() {
-    std::cout << "GoF Proxy Pattern Example" << std::endl;
+#include "subject.h"
 
-    Proxy proxy;
-    proxy.Request();
+namespace prx_ptn {
 
-    return 0;
-}
+// Represents the real subject class in the Proxy design pattern.
+class RealSubject : public Subject {
+ public:
+  // Executes a request by performing the actual operation.
+  void Request() override {
+    std::cout << "RealSubject: Handling Request.\n";
+  }
+};
+
+} // namespace prx_ptn
+
+#endif  // DESIGN_PTN_ST07_PROXY_REAL_SUBJECT_H_

@@ -12,13 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef SUBJECT_H_
-#define SUBJECT_H_
+#ifndef DESIGN_PTN_ST07_PROXY_SUBJECT_H_
+#define DESIGN_PTN_ST07_PROXY_SUBJECT_H_
 
+namespace prx_ptn {
+
+// Represents the subject base class for the Proxy design pattern.
 class Subject {
-    public:
-        virtual ~Subject() = default;  // Virtual destructor for proper cleanup of derived classes
-        virtual void Request() = 0;  // Pure virtual function making this an abstract class
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Subject() = default;
+
+  // Requests a service or action to be performed.
+  virtual void Request() = 0;
 };
 
-#endif  // SUBJECT_H_
+} // namespace prx_ptn
+
+#endif  // DESIGN_PTN_ST07_PROXY_SUBJECT_H_
