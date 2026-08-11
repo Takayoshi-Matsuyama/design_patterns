@@ -12,19 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_DECORATOR_A_H
-#define CONCRETE_DECORATOR_A_H
-
-#include "Decorator.h"
+#ifndef CONCRETE_DECORATOR_B_H
+#define CONCRETE_DECORATOR_B_H
 
 #include <iostream>
 
-class ConcreteDecoratorA : public Decorator {
+#include "component.h"
+#include "decorator.h"
+
+class ConcreteDecoratorB : public Decorator {
     public:
-        ConcreteDecoratorA(Component* component) : Decorator(component) {}
-        void Operation() override;
+        ConcreteDecoratorB(Component* component) : Decorator(component) {}
+        void Operation() override {
+            Decorator::Operation();
+            this->AddedBehavior();
+        }
     private:
-        int addedState = 0;
+        void AddedBehavior() {
+            std::cout << "ConcreteDecoratorB added behavior" << std::endl;
+        }
 };
 
-#endif // CONCRETE_DECORATOR_A_H
+
+#endif // CONCRETE_DECORATOR_B_H

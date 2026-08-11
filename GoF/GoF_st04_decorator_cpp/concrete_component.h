@@ -12,15 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteDecoratorB.h"
+#ifndef CONCRETE_COMPONENT_H
+#define CONCRETE_COMPONENT_H
 
 #include <iostream>
 
-void ConcreteDecoratorB::Operation() {
-    Decorator::Operation();
-    this->AddedBehavior();
-}
+#include "component.h"
 
-void ConcreteDecoratorB::AddedBehavior() {
-    std::cout << "ConcreteDecoratorB added behavior" << std::endl;
-}
+class ConcreteComponent : public Component {
+    public:
+        void Operation() override {
+            std::cout << "ConcreteComponent operation\n";
+        }
+};
+
+#endif // CONCRETE_COMPONENT_H

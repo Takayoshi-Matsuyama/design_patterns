@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ConcreteComponent.h"
-#include "ConcreteDecoratorA.h"
-#include "ConcreteDecoratorB.h"
+#include "concrete_component.h"
+#include "concrete_decorator_a.h"
+#include "concrete_decorator_b.h"
 
 #include <iostream>
 

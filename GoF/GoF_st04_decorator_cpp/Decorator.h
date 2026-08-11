@@ -15,7 +15,7 @@
 #ifndef DECORATOR_H
 #define DECORATOR_H
 
-#include "Component.h"
+#include "component.h"
 
 class Decorator : public Component {
     public:

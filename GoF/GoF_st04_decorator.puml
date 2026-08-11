@@ -30,7 +30,7 @@ class ConcreteComponent {
 
 Component <|.. ConcreteComponent
 
-interface Decorator {
+abstract class Decorator {
     +operation()
 }
 
@@ -51,7 +51,7 @@ class ConcreteDecoratorB {
     +operation()
 }
 
-Decorator <|.. ConcreteDecoratorA
-Decorator <|.. ConcreteDecoratorB
+Decorator <|-- ConcreteDecoratorA
+Decorator <|-- ConcreteDecoratorB
 
 @enduml
