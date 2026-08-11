@@ -12,16 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef SUBSYSTEM_A_H
-#define SUBSYSTEM_A_H
+#ifndef DESIGN_PTN_ST05_FCD_SUBSYSTEM_A_H_
+#define DESIGN_PTN_ST05_FCD_SUBSYSTEM_A_H_
 
 #include <string>
 
+namespace fcd_ptn {
+
+// Represents Subsystem A in the Facade design pattern.
 class SubsystemA {
-    public:
-        std::string OperationA() {
-            return "Operation A result";
-        }
+ public:
+  // Executes an operation specific to Subsystem A.
+  std::string OperationA() {
+    return "Operation A result";
+  }
 };
 
-#endif // SUBSYSTEM_A_H
+} // namespace fcd_ptn
+
+#endif // DESIGN_PTN_ST05_FCD_SUBSYSTEM_A_H_

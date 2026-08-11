@@ -17,11 +17,10 @@
 #include <iostream>
 
 int main() {
-    
-    std::cout << "GoF Facade Pattern Example" << std::endl;
+  std::cout << "GoF Facade Pattern Example\n";
 
-    Facade facade;
-    std::cout << facade.Operation() << std::endl;
+  fcd_ptn::Facade facade;
+  std::cout << facade.Operation() << "\n";
 
-    return 0;
+  return 0;
 }
