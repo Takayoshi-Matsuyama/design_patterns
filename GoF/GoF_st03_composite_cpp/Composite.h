@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef COMPOSITE_H
-#define COMPOSITE_H
+#ifndef DESIGN_PTN_ST03_CMP_COMPOSITE_H_
+#define DESIGN_PTN_ST03_CMP_COMPOSITE_H_
 
 #include <algorithm>
 #include <iostream>
@@ -21,6 +21,8 @@
 #include <vector>
 
 #include "component.h"
+
+namespace cmp_ptn {
 
 class Composite : public Component {
     public:
@@ -50,4 +52,6 @@ class Composite : public Component {
         std::vector<std::shared_ptr<Component>> children;
 };
 
-#endif // COMPOSITE_H
+} // namespace cmp_ptn
+
+#endif // DESIGN_PTN_ST03_CMP_COMPOSITE_H_

@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef LEAF_H
-#define LEAF_H
+#ifndef DESIGN_PTN_ST03_CMP_LEAF_H_
+#define DESIGN_PTN_ST03_CMP_LEAF_H_
 
 #include <iostream>
 
 #include "component.h"
+
+namespace cmp_ptn {
 
 class Leaf : public Component {
     public:
@@ -26,4 +28,6 @@ class Leaf : public Component {
         }
 };
 
-#endif // LEAF_H
+} // namespace cmp_ptn
+
+#endif // DESIGN_PTN_ST03_CMP_LEAF_H_

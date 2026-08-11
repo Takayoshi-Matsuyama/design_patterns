@@ -12,10 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#ifndef DESIGN_PTN_ST03_CMP_COMPONENT_H_
+#define DESIGN_PTN_ST03_CMP_COMPONENT_H_
 
 #include <memory>
+
+namespace cmp_ptn {
 
 class Component {
     public:
@@ -26,4 +28,6 @@ class Component {
         virtual std::shared_ptr<Component> GetChild(int index) { return nullptr; }
 };
 
-#endif // COMPONENT_H
+} // namespace cmp_ptn
+
+#endif // DESIGN_PTN_ST03_CMP_COMPONENT_H_
