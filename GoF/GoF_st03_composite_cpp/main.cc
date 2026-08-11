@@ -20,14 +20,10 @@
 int main() {
   std::cout << "GoF Composite Pattern Example" << std::endl;
 
-  // Create components
-  std::shared_ptr<cmp_ptn::Component> leaf1 = std::make_shared<cmp_ptn::Leaf>();
-  std::shared_ptr<cmp_ptn::Component> leaf2 = std::make_shared<cmp_ptn::Leaf>();
+  // Create composite structure
   std::shared_ptr<cmp_ptn::Component> composite = std::make_shared<cmp_ptn::Composite>();
-
-  // Make composite structure
-  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Add(leaf1);
-  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Add(leaf2);
+  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Add(std::make_shared<cmp_ptn::Leaf>());
+  std::static_pointer_cast<cmp_ptn::Composite>(composite)->Add(std::make_shared<cmp_ptn::Leaf>());
 
   // Execute operation on composite
   std::static_pointer_cast<cmp_ptn::Composite>(composite)->Operation();
