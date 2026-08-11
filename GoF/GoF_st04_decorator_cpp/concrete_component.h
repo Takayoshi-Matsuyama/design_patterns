@@ -12,18 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_COMPONENT_H
-#define CONCRETE_COMPONENT_H
+#ifndef DESIGN_PTN_ST05_DEC_CONCRETE_COMPONENT_H_
+#define DESIGN_PTN_ST05_DEC_CONCRETE_COMPONENT_H_
 
 #include <iostream>
 
 #include "component.h"
 
+namespace dec_ptn {
+
+// Represents a concrete implementation of the Component interface.
 class ConcreteComponent : public Component {
-    public:
-        void Operation() override {
-            std::cout << "ConcreteComponent operation\n";
-        }
+ public:
+  // Executes the operation defined by the concrete component.
+  void Operation() override {
+    std::cout << "ConcreteComponent operation\n";
+  }
 };
 
-#endif // CONCRETE_COMPONENT_H
+} // namespace dec_ptn
+
+#endif // DESIGN_PTN_ST05_DEC_CONCRETE_COMPONENT_H_

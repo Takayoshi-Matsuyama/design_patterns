@@ -21,21 +21,27 @@
 #include <memory>
 
 int main() {
-    
-    std::cout << "GoF Decorator Pattern Example" << std::endl;
+  std::cout << "GoF Decorator Pattern Example\n";
 
-    std::unique_ptr<Component> component = std::make_unique<ConcreteComponent>();
-    std::unique_ptr<Component> decoratorA = std::make_unique<ConcreteDecoratorA>(component.get());
-    std::unique_ptr<Component> decoratorB = std::make_unique<ConcreteDecoratorB>(decoratorA.get());
+  std::unique_ptr<dec_ptn::Component> component =
+    std::make_unique<dec_ptn::ConcreteComponent>();
+  std::unique_ptr<dec_ptn::Component> decoratorA =
+    std::make_unique<dec_ptn::ConcreteDecoratorA>(component.get());
+  std::unique_ptr<dec_ptn::Component> decoratorB =
+    std::make_unique<dec_ptn::ConcreteDecoratorB>(decoratorA.get());
 
-    std::cout << "Calling Operation on ConcreteComponent:" << std::endl;
-    component->Operation();
+  std::cout << "Calling Operation on ConcreteComponent:\n";
+  component->Operation();
 
-    std::cout << "Calling Operation on ConcreteDecoratorA:" << std::endl;
-    decoratorA->Operation();
+  std::cout << "\n";
 
-    std::cout << "Calling Operation on ConcreteDecoratorB:" << std::endl;
-    decoratorB->Operation();
+  std::cout << "Calling Operation on ConcreteDecoratorA:\n";
+  decoratorA->Operation();
 
-    return 0;
+  std::cout << "\n";
+  
+  std::cout << "Calling Operation on ConcreteDecoratorB:\n";
+  decoratorB->Operation();
+
+  return 0;
 }

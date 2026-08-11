@@ -12,26 +12,35 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef CONCRETE_DECORATOR_B_H
-#define CONCRETE_DECORATOR_B_H
+#ifndef DESIGN_PTN_ST05_DEC_CONCRETE_DECORATOR_B_H_
+#define DESIGN_PTN_ST05_DEC_CONCRETE_DECORATOR_B_H_
 
 #include <iostream>
 
 #include "component.h"
 #include "decorator.h"
 
+namespace dec_ptn {
+
+// Represents a concrete decorator that extends the component's functionality.
 class ConcreteDecoratorB : public Decorator {
-    public:
-        ConcreteDecoratorB(Component* component) : Decorator(component) {}
-        void Operation() override {
-            Decorator::Operation();
-            this->AddedBehavior();
-        }
-    private:
-        void AddedBehavior() {
-            std::cout << "ConcreteDecoratorB added behavior" << std::endl;
-        }
+ public:
+  // Constructs a ConcreteDecoratorB with the specified component to decorate.
+  ConcreteDecoratorB(Component* component) : Decorator(component) {}
+
+  // Executes the component's operation and additional behavior.
+  void Operation() override {
+    Decorator::Operation();
+    this->AddedBehavior();
+  }
+
+ private:
+  // Executes additional behavior specific to this decorator.
+  void AddedBehavior() {
+    std::cout << "ConcreteDecoratorB added behavior\n";
+  }
 };
 
+} // namespace dec_ptn
 
-#endif // CONCRETE_DECORATOR_B_H
+#endif // DESIGN_PTN_ST05_DEC_CONCRETE_DECORATOR_B_H_

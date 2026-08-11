@@ -12,21 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DECORATOR_H
-#define DECORATOR_H
+#ifndef DESIGN_PTN_ST05_DEC_DECORATOR_H_
+#define DESIGN_PTN_ST05_DEC_DECORATOR_H_
 
 #include "component.h"
 
+namespace dec_ptn {
+
+// Represents the base class for decorators in the Decorator pattern.
 class Decorator : public Component {
-    public:
-        Decorator(Component* component) : _component(component) {}
-        void Operation() override {
-            if (this->_component) {
-                this->_component->Operation();
-            }
-        }
-    private:
-        Component* _component;
+ public:
+  // Constructs a Decorator with the specified component to decorate.
+  Decorator(Component* component) : component_(component) {}
+
+  // Executes the operation defined by the component.
+  // Note: Additional behavior will be added by derived decorators.
+  void Operation() override {
+    if (component_) {
+      component_->Operation();
+    }
+  }
+
+ private:
+  // Pointer to the component being decorated.
+  // Note: Decorator does not own the component; Just holds the pointer.
+  //       The component's lifetime is managed by outside of this class.
+  Component* component_;
 };
 
-#endif // DECORATOR_H
+} // namespace dec_ptn
+
+#endif // DESIGN_PTN_ST05_DEC_DECORATOR_H_

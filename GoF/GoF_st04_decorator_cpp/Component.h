@@ -12,13 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#ifndef DESIGN_PTN_ST05_DEC_COMPONENT_H_
+#define DESIGN_PTN_ST05_DEC_COMPONENT_H_
 
+namespace dec_ptn {
+
+// Represents the base interface for components in the Decorator pattern.
 class Component {
-public:
-    virtual ~Component() = default;
-    virtual void Operation() = 0;
+ public:
+  // Virtual destructor to ensure proper cleanup of derived classes.
+  // This ensures that
+  // when a derived class object is deleted through a base class pointer,
+  // the derived class's destructor is called, preventing resource leaks.
+  virtual ~Component() = default;
+
+  // Executes the operation defined by the component.
+  virtual void Operation() = 0;
 };
 
-#endif // COMPONENT_H
+} // namespace dec_ptn
+
+#endif // DESIGN_PTN_ST05_DEC_COMPONENT_H_
