@@ -28,9 +28,7 @@ namespace fcd_ptn {
 class Facade {
  public:
   // Constructs a new Facade object.
-  Facade() : subsystem_a_(std::make_unique<SubsystemA>()),
-             subsystem_b_(std::make_unique<SubsystemB>()),
-             subsystem_c_(std::make_unique<SubsystemC>()) {}
+  Facade() = default;
   
   // Executes an operation that involves multiple subsystems.
   std::string Operation() const {
@@ -45,13 +43,15 @@ class Facade {
 
  private:
   // Subsystem A that the facade interacts with.
-  std::unique_ptr<SubsystemA> subsystem_a_;
+  // Note: Facade owns the subsystems and manages their lifetimes.
+  //       Because Facade behaves as a single interface to the subsystems.
+  std::unique_ptr<SubsystemA> subsystem_a_ = std::make_unique<SubsystemA>();
 
   // Subsystem B that the facade interacts with.
-  std::unique_ptr<SubsystemB> subsystem_b_;
+  std::unique_ptr<SubsystemB> subsystem_b_ = std::make_unique<SubsystemB>();
 
   // Subsystem C that the facade interacts with.
-  std::unique_ptr<SubsystemC> subsystem_c_;
+  std::unique_ptr<SubsystemC> subsystem_c_ = std::make_unique<SubsystemC>();
 };
 
 } // namespace fcd_ptn
