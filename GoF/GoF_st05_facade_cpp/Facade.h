@@ -15,8 +15,8 @@
 #ifndef DESIGN_PTN_ST05_FCD_FACADE_H_
 #define DESIGN_PTN_ST05_FCD_FACADE_H_
 
-#include <string>
 #include <memory>
+#include <string>
 
 #include "subsystem_a.h"
 #include "subsystem_b.h"
