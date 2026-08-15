@@ -16,5 +16,5 @@
 public interface IHandler
 {
     // Handles the request.
-    public void HandleRequest();
+    public void HandleRequest(ErrorEvent errorEvent);
 }

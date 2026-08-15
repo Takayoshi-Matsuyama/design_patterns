@@ -15,9 +15,33 @@
 // Represents a concrete handler in the Chain of Responsibility pattern.
 public class ConcreteHandler1 : IHandler
 {
-    // Handles the request.
-    public void HandleRequest()
+    // The next handler in the chain.
+    private IHandler? _successor;
+
+    // Constructs a new instance of the ConcreteHandler1 class with an optional successor.
+    public ConcreteHandler1(IHandler? successor = null)
     {
-        Console.WriteLine("Handling request in ConcreteHandler1.");
+        _successor = successor;
+    }
+
+    // Handles the request.
+    public void HandleRequest(ErrorEvent errorEvent)
+    {
+        Console.WriteLine("ConcreteHandler1: Handling request.");
+        if (errorEvent.Level == 1)
+        {
+            Console.WriteLine($"ConcreteHandler1: Handled " +
+                $"Error Level: {errorEvent.Level}, Message: {errorEvent.Message}");
+        }
+        else if (_successor != null)
+        {
+            Console.WriteLine("ConcreteHandler1: Passing request to successor.");
+            _successor.HandleRequest(errorEvent);
+        }
+        else
+        {
+            Console.WriteLine("ConcreteHandler1: No handler available for error: " +
+                $"Error Level: {errorEvent.Level}, Message: {errorEvent.Message}");
+        }
     }
 };  

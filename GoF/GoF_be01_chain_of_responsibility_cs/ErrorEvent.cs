@@ -1,4 +1,4 @@
-﻿// Copyright 2026 Takayoshi Matsuyama
+// Copyright 2026 Takayoshi Matsuyama
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,13 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-Console.WriteLine("GoF Chain of Responsibility Pattern Example");
+// Represents an error event in the system.
+public struct ErrorEvent
+{
+    // Gets or sets the error level of the event.
+    public int Level { get; set; }
 
-IHandler handler2 = new ConcreteHandler2();
-IHandler handler1 = new ConcreteHandler1(handler2);
-
-ErrorEvent errorEvent1 = new ErrorEvent { Level = 1, Message = "Error in handler1" };
-ErrorEvent errorEvent2 = new ErrorEvent { Level = 2, Message = "Error in handler2" };
-
-handler1.HandleRequest(errorEvent1);
-handler1.HandleRequest(errorEvent2);
+    // Gets or sets the error message associated with the event.
+    public string Message { get; set; }
+}
