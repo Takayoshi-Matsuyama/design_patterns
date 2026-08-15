@@ -12,19 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Represents a concrete handler in the Chain of Responsibility pattern.
+// Filescope namespace (C# 10.0 and later)
+namespace GoF.ChainOfResponsibility;
+
+/// <summary>
+/// Represents a concrete handler in the Chain of Responsibility pattern.
+/// </summary>
 public class ConcreteHandler1 : IHandler
 {
-    // The next handler in the chain.
+    /// <summary>
+    /// The next handler in the chain.
+    /// </summary>
     private IHandler? _successor;
 
-    // Constructs a new instance of the ConcreteHandler1 class with an optional successor.
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConcreteHandler1"/> class with an optional successor.
+    /// </summary>
+    /// <param name="successor">The next handler in the chain.</param>
     public ConcreteHandler1(IHandler? successor = null)
     {
         _successor = successor;
     }
 
-    // Handles the request.
+    /// <summary>
+    /// Handles the request represented by the given error event.
+    /// </summary>
+    /// <param name="errorEvent">The error event to handle.</param>
     public void HandleRequest(ErrorEvent errorEvent)
     {
         Console.WriteLine("ConcreteHandler1: Handling request.");
@@ -44,4 +57,4 @@ public class ConcreteHandler1 : IHandler
                 $"Error Level: {errorEvent.Level}, Message: {errorEvent.Message}");
         }
     }
-};  
+}

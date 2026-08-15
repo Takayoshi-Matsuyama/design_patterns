@@ -12,12 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Represents an error event in the system.
-public struct ErrorEvent
-{
-    // Gets or sets the error level of the event.
-    public int Level { get; set; }
+// Filescope namespace (C# 10.0 and later)
+namespace GoF.ChainOfResponsibility;
 
-    // Gets or sets the error message associated with the event.
-    public string Message { get; set; }
-}
+/// <summary>
+/// Represents an error event that can be handled by the chain of responsibility.
+/// </summary>
+/// <param name="Level">The severity level of the error.</param>
+/// <param name="Message">The error message.</param>
+/// <remarks>
+/// Using a record struct for immutability and value semantics (C# 10.0 and later).
+/// </remarks>
+public readonly record struct ErrorEvent(int Level, string Message);

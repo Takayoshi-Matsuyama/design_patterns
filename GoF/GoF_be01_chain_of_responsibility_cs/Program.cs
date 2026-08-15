@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using GoF.ChainOfResponsibility;
+
 Console.WriteLine("GoF Chain of Responsibility Pattern Example");
 
 IHandler handler2 = new ConcreteHandler2();

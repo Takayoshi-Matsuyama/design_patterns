@@ -12,9 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Represents the Handler interface in the Chain of Responsibility pattern.
+// Filescope namespace (C# 10.0 and later)
+namespace GoF.ChainOfResponsibility;
+
+/// <summary>
+/// Represents the Handler interface in the Chain of Responsibility pattern.
+/// </summary>
 public interface IHandler
 {
-    // Handles the request.
-    public void HandleRequest(ErrorEvent errorEvent);
+    /// <summary>
+    /// Handles the request represented by the given error event.
+    /// </summary>
+    /// <param name="errorEvent">The error event to handle.</param>
+    void HandleRequest(ErrorEvent errorEvent);
 }
