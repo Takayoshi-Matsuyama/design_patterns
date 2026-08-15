@@ -19,8 +19,8 @@ Console.WriteLine("GoF Chain of Responsibility Pattern Example");
 IHandler handler2 = new ConcreteHandler2();
 IHandler handler1 = new ConcreteHandler1(handler2);
 
-var errorEvent1 = new ErrorEvent { Level = 1, Message = "Error in handler1" };
-var errorEvent2 = new ErrorEvent { Level = 2, Message = "Error in handler2" };
+var errorEvent1 = new ErrorEvent(1, "Error Message 1");
+var errorEvent2 = new ErrorEvent(2, "Error Message 2");
 
 handler1.HandleRequest(errorEvent1);
 handler1.HandleRequest(errorEvent2);
