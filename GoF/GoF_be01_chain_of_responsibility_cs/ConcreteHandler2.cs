@@ -1,4 +1,4 @@
-﻿// Copyright 2026 Takayoshi Matsuyama
+// Copyright 2026 Takayoshi Matsuyama
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-Console.WriteLine("GoF Chain of Responsibility Pattern Example");
-
-IHandler handler1 = new ConcreteHandler1();
-IHandler handler2 = new ConcreteHandler2();
-
-handler1.HandleRequest();
-handler2.HandleRequest();
+// Represents a concrete handler in the Chain of Responsibility pattern.
+public class ConcreteHandler2 : IHandler
+{
+    // Handles the request.
+    public void HandleRequest()
+    {
+        Console.WriteLine("Handling request in ConcreteHandler2.");
+    }
+};
