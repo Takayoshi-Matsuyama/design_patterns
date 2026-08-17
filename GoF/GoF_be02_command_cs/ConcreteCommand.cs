@@ -18,39 +18,24 @@ namespace GoF.Command;
 /// <summary>
 /// Represents a concrete implementation of the ICommand interface in the Command design pattern.
 /// </summary>
-public class ConcreteCommand : ICommand
+/// <param name="name">The name of the command.</param>
+/// <param name="receiver">The receiver that will perform the action when the command is executed.</param>
+/// <remarks>
+/// Primary Constuctor (C#12 or later) is used to define the parameters
+/// and initialize the fields of the ConcreteCommand class.
+/// </remarks>
+public class ConcreteCommand(string name, IReceiver receiver) : ICommand
 {
     /// <summary>
-    /// The name of the command.
+    /// Returns the name of the command.
     /// </summary>
-    private string _name;
-
-    /// <summary>
-    /// The receiver that will perform the action when the command is executed.
-    /// </summary>
-    private readonly IReceiver _receiver;
-
-    /// <summary>
-    /// Initializes a new instance of the ConcreteCommand class.
-    /// </summary>
-    /// <param name="name">The name of the command.</param>
-    /// <param name="receiver">The receiver that will perform the action when the command is executed.</param>
-    public ConcreteCommand(string name, IReceiver receiver)
-    {
-        _name = name;
-        _receiver = receiver;
-    }
+    public string Name => name;
 
     /// <summary>
     /// Executes the command by invoking the action on the receiver.
     /// </summary>
     public void Execute()
     {
-        _receiver.Action();
+        receiver.Action();
     }
-
-    /// <summary>
-    /// Returns the name of the command.
-    /// </summary>
-    public string Name => _name;
 }

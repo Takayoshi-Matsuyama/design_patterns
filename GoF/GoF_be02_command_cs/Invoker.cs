@@ -15,12 +15,18 @@
 // Filescope namespace (C# 10.0 or later)
 namespace GoF.Command;
 
+/// <summary>
+/// Represents the invoker in the Command design pattern.
+/// </summary>
 public class Invoker
 {
     /// <summary>
     /// List of commands to be executed by the invoker.
     /// </summary>
-    private Queue<ICommand> _commands = new Queue<ICommand>();
+    /// <remarks>
+    /// Target-typed new expression (C# 9.0 or later) is used to initialize the list of commands.
+    /// </remarks>
+    private readonly Queue<ICommand> _commands = new();
 
     /// <summary>
     /// Sets the command to be executed by the invoker.
