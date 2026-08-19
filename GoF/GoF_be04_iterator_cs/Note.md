@@ -2,4 +2,4 @@
 
 ## 1. Using C# standard iterator: IEnumerable<T> and IEnumerator<T>
 
-## 2. Using C# iterator: "yeild return"
+## 2. Using C# iterator: "yield return"
