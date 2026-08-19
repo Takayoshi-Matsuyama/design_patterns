@@ -19,27 +19,21 @@ namespace GoF.Iterator;
 /// Represents the concrete iterator for Iterator pattern.
 /// </summary>
 /// <typeparam name="T">The type of elements in the aggregate object.</typeparam>
-public class ConcreteIterator<T> : IIterator<T>
+/// <remarks>
+/// Primary Constuctor (C#12 or later) is used to define the parameters
+/// and initialize the fields of the Context class.
+/// </remarks>
+public class ConcreteIterator<T>(ConcreteAggregate<T> aggregate) : IIterator<T>
 {
     /// <summary>
     /// The aggregate object that this iterator traverses.
     /// </summary>
-    private readonly ConcreteAggregate<T> _aggregate;
+    private readonly ConcreteAggregate<T> _aggregate = aggregate;
 
     /// <summary>
     /// The current index of the iterator in the aggregate object.
     /// </summary>
-    private int _currentIndex;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ConcreteIterator{T}"/> class.
-    /// </summary>
-    /// <param name="aggregate">The aggregate object to traverse.</param>
-    public ConcreteIterator(ConcreteAggregate<T> aggregate)
-    {
-        _aggregate = aggregate;
-        _currentIndex = 0;
-    }
+    private int _currentIndex = 0;
 
     /// <summary>
     /// Sets the current to the first item.
@@ -77,7 +71,7 @@ public class ConcreteIterator<T> : IIterator<T>
         {
             throw new InvalidOperationException("Iterator has reached the end of the collection.");
         }
-        
+
         return _aggregate.GetItem(_currentIndex);
     }
 }

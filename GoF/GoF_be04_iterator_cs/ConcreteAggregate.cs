@@ -24,7 +24,7 @@ public class ConcreteAggregate<T> : IAggregate<T>
     /// <summary>
     /// The list of items in the aggregate object.
     /// </summary>
-    private readonly List<T> _items= new List<T>();
+    private readonly List<T> _items = new ();
 
     /// <summary>
     /// Retrieves the number of elements in the aggregate object.
