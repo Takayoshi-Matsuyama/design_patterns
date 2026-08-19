@@ -24,7 +24,10 @@ public class ConcreteAggregate<T> : IAggregate<T>
     /// <summary>
     /// The list of items in the aggregate object.
     /// </summary>
-    private readonly List<T> _items = new ();
+    /// <remarks>
+    /// Using collection initializer syntax to initialize the list of items. (C# 12 or later)
+    /// </remarks>
+    private readonly List<T> _items = [];
 
     /// <summary>
     /// Retrieves the number of elements in the aggregate object.
@@ -47,15 +50,6 @@ public class ConcreteAggregate<T> : IAggregate<T>
     public IIterator<T> CreateIterator()
     {
         return new ConcreteIterator<T>(this);
-    }
-
-    /// <summary>
-    /// Retrieves the number of elements in the aggregate object.
-    /// </summary>
-    /// <returns>The number of elements in the aggregate object.</returns>
-    public int GetSize()
-    {
-        return _items.Count;
     }
 
     /// <summary>

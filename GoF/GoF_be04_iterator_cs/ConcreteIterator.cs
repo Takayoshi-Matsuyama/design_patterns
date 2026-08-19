@@ -21,7 +21,7 @@ namespace GoF.Iterator;
 /// <typeparam name="T">The type of elements in the aggregate object.</typeparam>
 /// <remarks>
 /// Primary Constuctor (C#12 or later) is used to define the parameters
-/// and initialize the fields of the Context class.
+/// and initialize the fields of the ConcreteIterator class.
 /// </remarks>
 public class ConcreteIterator<T>(ConcreteAggregate<T> aggregate) : IIterator<T>
 {
@@ -57,7 +57,7 @@ public class ConcreteIterator<T>(ConcreteAggregate<T> aggregate) : IIterator<T>
     /// <returns><c>true</c> if the iterator has reached the end of the aggregate object; otherwise, <c>false</c>.</returns>
     public bool IsDone()
     {
-        return _currentIndex >= _aggregate.GetSize();
+        return _currentIndex >= _aggregate.Count;
     }
 
     /// <summary>

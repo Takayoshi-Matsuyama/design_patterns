@@ -39,12 +39,6 @@ public interface IAggregate<T>
     IIterator<T> CreateIterator();
 
     /// <summary>
-    /// Retrieves the number of elements in the aggregate object.
-    /// </summary>
-    /// <returns>The number of elements in the aggregate object.</returns>
-    int GetSize();
-
-    /// <summary>
     /// Retrieves the item at the specified index in the aggregate object.
     /// </summary>
     /// <param name="index">The zero-based index of the item to retrieve.</param>
