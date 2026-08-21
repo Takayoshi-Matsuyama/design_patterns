@@ -26,6 +26,7 @@ void TryTask()
     // Wait for the task thread to complete and get the result.
     int result = calculationTask.Result;
 
+    // This code is executed after the task thread has completed and returned the result.
     Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}: Result: {result}");
 }
 
@@ -50,6 +51,23 @@ async Task TryAsyncAwait()
 
     // Await the task thread to complete and get the result.
     int result = await calculationTask;
+
+    // Note1: Because of "await", the main thread can continue working
+    //        while the task is running in the background.
+
+    // Note2: In console applications, there is no SynchronizationContext.
+    //        In this case, .NET optimizes performance
+    //        by omitting the context switch back to the main thread after the await.
+
+    // Note3: With above optimization, remaining code after "await"
+    //        will run on the following either thread:
+    //        (A) The thread that completed the task (calculationTask)
+    //        (B) A thread that is available in the thread pool
+
+    // Note4: On the other hand, in GUI applications (e.g., WinForms, WPF, MAUI, Blazor),
+    //        there is a SynchronizationContext.
+    //        In this case, .NET will switch back to the main thread after the await,
+    //        so that the remaining code after "await" will run on the main thread.
 
     Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}: Result: {result}");
 }
