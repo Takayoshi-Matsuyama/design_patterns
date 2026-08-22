@@ -1,5 +1,4 @@
-﻿// The Original Code is from:
-// C# Fundamentals: Learn Modern C# 14 and .NET 10 from the Ground Up
+﻿// Reference: C# Fundamentals: Learn Modern C# 14 and .NET 10 from the Ground Up
 // https://www.unqbd.com/book/csharp-fundamentals-learn-modern-csharp-14-and-net-10-from-the-ground-up
 
 Console.WriteLine("========== Parallel.For ==========");
