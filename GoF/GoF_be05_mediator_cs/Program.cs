@@ -17,6 +17,11 @@ using GoF.Mediator;
 var mediator = new ConcreteMediator();
 var colleague1 = new ConcreteColleague1(mediator);
 var colleague2 = new ConcreteColleague2(mediator);
+
+// Register colleagues with the mediator.
+// Note: This registration might me done inside the constructor of the ConcreteColleague classes,
+//       but it is not good practice, because the creation does not complete.
+//       Therefore, the registration is done here after ConcreteColleague objects are completely created.
 mediator.RegisterColleague(colleague1);
 mediator.RegisterColleague(colleague2);
 

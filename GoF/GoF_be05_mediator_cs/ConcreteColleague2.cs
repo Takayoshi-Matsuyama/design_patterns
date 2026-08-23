@@ -18,6 +18,10 @@ namespace GoF.Mediator;
 /// <summary>
 /// Represents a concrete implementation of the IColleague interface in the Mediator design pattern.
 /// </summary>
+/// <remarks>
+/// Primary Constuctor (C#12 or later) is used to define the parameters
+/// and initialize the fields of the ConcreteColleague2 class.
+/// </remarks>
 public class ConcreteColleague2(IMediator mediator) : IColleague
 {
     /// <summary>
