@@ -15,8 +15,6 @@
 // Filescope namespace (C# 10.0 or later)
 namespace GoF.Mediator;
 
-using System.Collections.Generic;
-
 /// <summary>
 /// Represents a concrete implementation of the IMediator interface in the Mediator design pattern.
 /// </summary>

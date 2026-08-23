@@ -18,22 +18,12 @@ namespace GoF.Mediator;
 /// <summary>
 /// Represents a concrete implementation of the IColleague interface in the Mediator design pattern.
 /// </summary>
-public class ConcreteColleague2 : IColleague
+public class ConcreteColleague2(IMediator mediator) : IColleague
 {
     /// <summary>
     /// The mediator that facilitates communication between colleagues.
     /// </summary>
-    private readonly IMediator _mediator;
-
-    /// <summary>
-    /// Initializes a new instance of the ConcreteColleague2 class with the specified mediator.
-    /// </summary>
-    /// <param name="mediator">The mediator to associate with this colleague.</param>
-    public ConcreteColleague2(IMediator mediator)
-    {
-        _mediator = mediator;
-        _mediator.RegisterColleague(this);
-    }
+    private readonly IMediator _mediator = mediator;
 
     /// <summary>
     /// Sends a message to the mediator for communication with other colleagues.

@@ -17,6 +17,8 @@ using GoF.Mediator;
 var mediator = new ConcreteMediator();
 var colleague1 = new ConcreteColleague1(mediator);
 var colleague2 = new ConcreteColleague2(mediator);
+mediator.RegisterColleague(colleague1);
+mediator.RegisterColleague(colleague2);
 
 colleague1.Send("Hello from Colleague 1.");
 colleague2.Send("Greetings from Colleague 2.");
