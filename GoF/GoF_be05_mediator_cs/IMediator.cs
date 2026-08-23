@@ -24,7 +24,7 @@ public interface IMediator
     /// Registers a colleague with the mediator for communication.
     /// </summary>
     /// <param name="colleague">The colleague to register.</param>
-    public void RegisterColleague(IColleague colleague);
+    void RegisterColleague(IColleague colleague);
 
     /// <summary>
     /// Notifies the mediator of a message sent by a colleague,

@@ -25,7 +25,7 @@ public class ConcreteMediator : IMediator
     /// <summary>
     /// Maintains a list of registered colleagues for communication.
     /// </summary>
-    private readonly List<IColleague> _colleagues = new();
+    private readonly List<IColleague> _colleagues = [];
 
     /// <summary>
     /// Registers a colleague with the mediator for communication.
