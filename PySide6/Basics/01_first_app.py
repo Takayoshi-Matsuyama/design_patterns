@@ -12,17 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Import Python standard library modules
+import sys
+
 # Import PySide6 modules
 from PySide6.QtWidgets import QApplication, QWidget
 
-import sys
 
-# Create the application instance
-app = QApplication(sys.argv)
+def main():
+    # Create the application instance
+    app = QApplication(sys.argv)
 
-# Create a window instance and execute show() method to display the window
-window = QWidget()
-window.show()
+    # Create a window instance and execute show() method to display the window
+    window = QWidget()
+    window.show()
 
-# Start the application's event loop
-app.exec()
+    # Start the application's event loop
+    app.exec()
+
+
+if __name__ == "__main__":
+    main()
