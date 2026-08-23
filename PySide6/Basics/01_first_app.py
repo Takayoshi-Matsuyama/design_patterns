@@ -19,16 +19,18 @@ import sys
 from PySide6.QtWidgets import QApplication, QWidget
 
 
+# The minimum code to create a PySide6 application is as follows:
 def main():
-    # Create the application instance
+    # Create the application instance.
     app = QApplication(sys.argv)
 
-    # Create a window instance and execute show() method to display the window
+    # Create a window instance and execute show() method to display the window.
     window = QWidget()
     window.show()
 
-    # Start the application's event loop
-    app.exec()
+    # Start the application's event loop.
+    # Return the exit code to the operating system when the event loop ends.
+    sys.exit(app.exec())
 
 
 if __name__ == "__main__":
