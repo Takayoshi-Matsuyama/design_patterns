@@ -16,19 +16,20 @@
 import sys
 
 # Import PySide6 modules
-from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow
 
 
-# The minimum code to create a PySide6 application.
+# QMainWindow is a subclass of QWidget,
+# which provides a main application window with a menu bar, toolbars, and a status bar.
 #
-# PySide6.QtWidgets.QWidget
-# https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.QWidget
+# PySide6.QtWidgets.QMainWindow
+# https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/QMainWindow.html
 def main():
     # Create the application instance.
     app = QApplication(sys.argv)
 
     # Create a window instance and execute show() method to display the window.
-    window = QWidget()
+    window = QMainWindow()
     window.show()
 
     # Start the application's event loop.
