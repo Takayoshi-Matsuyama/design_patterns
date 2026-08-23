@@ -14,6 +14,8 @@
 
 using GoF.Mediator;
 
+Console.WriteLine("GoF Mediator Pattern Example");
+
 var mediator = new ConcreteMediator();
 var colleague1 = new ConcreteColleague1(mediator);
 var colleague2 = new ConcreteColleague2(mediator);
