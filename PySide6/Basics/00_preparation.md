@@ -30,7 +30,7 @@ python -m venv .venv
 deactivate
 ```
 
-# Install libraries
+# Install Libraries
 ```
 python -m pip install --upgrade pip
 pip install PySide6 opencv-python numpy
