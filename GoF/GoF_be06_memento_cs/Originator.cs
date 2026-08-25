@@ -26,6 +26,17 @@ namespace GoF.Memento;
 public class Originator(string state)
 {
     /// <summary>
+    /// Represents the Memento class for Memento design pattern.
+    /// </summary>
+    /// <param name="State">The state of the originator captured by the memento.</param>
+    /// <remarks>
+    /// (1) This record is for hiding the Memento implementation inside the Originator class.
+    /// (2) Record type (C# 9.0 or later) is used to define the parameters
+    ///     and initialize the properties of the Memento.
+    /// </remarks>
+    private record Memento(string State) : IMemento;
+
+    /// <summary>
     /// Retrieves or sets the state of the originator object.
     /// </summary>
     public string State {get; set;} = state;
@@ -34,17 +45,25 @@ public class Originator(string state)
     /// Creates a memento that captures the current state of the originator.
     /// </summary>
     /// <returns>The memento capturing the current state of the originator.</returns>
-    public Memento CreateMemento()
+    public IMemento CreateMemento()
     {
-        return new Memento(this.State);
+        return new Memento(State);
     }
 
     /// <summary>
     /// Sets the state of the originator from the given memento.
     /// </summary>
     /// <param name="memento">The memento from which to restore the state of the originator.</param>
-    public void SetMemento(Memento memento)
+    /// <exception cref="ArgumentException">Thrown when the provided memento is not of the expected type.</exception>
+    public void SetMemento(IMemento memento)
     {
-        this.State = memento.State;
+        if (memento is Memento m)
+        {
+            State = m.State;
+        }
+        else
+        {
+            throw new ArgumentException("Invalid memento type.", nameof(memento));
+        }
     }
 }

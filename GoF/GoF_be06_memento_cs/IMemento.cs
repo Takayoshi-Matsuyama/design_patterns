@@ -16,17 +16,11 @@
 namespace GoF.Memento;
 
 /// <summary>
-/// Represents the Memento class for Memento design pattern.
+/// Represents the IMemento interface for Memento design pattern.
 /// </summary>
-/// <param name="state">The state of the originator object.</param>
 /// <remarks>
-/// Primary Constructor (C#12 or later) is used to define the parameters
-/// and initialize the properties of the Memento class.
+/// This interface is for hiding the Memento implementation inside the Originator class,
+/// allowing the Caretaker class to manage mementos without knowing their internal structure.
+/// Therefore, this interface is intentionally left empty.
 /// </remarks>
-public class Memento(string state)
-{
-    /// <summary>
-    /// Retrieves the state of the originator object.
-    /// </summary>
-    public string State { get; private set; } = state;
-}
+public interface IMemento {}

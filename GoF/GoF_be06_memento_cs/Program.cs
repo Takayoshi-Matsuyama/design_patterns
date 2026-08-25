@@ -17,7 +17,7 @@ using GoF.Memento;
 Console.WriteLine("GoF Memento Pattern Example");
 
 var originator = new Originator("Initial State");
-var caretaker = new CareTaker();
+var caretaker = new Caretaker();
 
 originator.State = "State 1";
 caretaker.AddMemento(originator.CreateMemento());

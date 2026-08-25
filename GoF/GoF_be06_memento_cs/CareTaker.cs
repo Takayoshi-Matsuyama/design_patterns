@@ -16,9 +16,9 @@
 namespace GoF.Memento;
 
 /// <summary>
-/// Represents the CareTaker class for Memento design pattern.
+/// Represents the Caretaker class for Memento design pattern.
 /// </summary>
-public class CareTaker
+public class Caretaker
 {
     /// <summary>
     /// The list of mementos that the caretaker manages.
@@ -26,13 +26,13 @@ public class CareTaker
     /// <remarks>
     /// Collection initializer syntax is used to initialize the list of mementos (C#12 or later).
     /// </remarks>
-    private readonly List<Memento> _mementos = [];
+    private readonly List<IMemento> _mementos = [];
 
     /// <summary>
     /// Adds a memento to the caretaker's list of mementos.
     /// </summary>
     /// <param name="memento">The memento to add to the caretaker's list of mementos.</param>
-    public void AddMemento(Memento memento)
+    public void AddMemento(IMemento memento)
     {
         _mementos.Add(memento);
     }
@@ -43,7 +43,7 @@ public class CareTaker
     /// <param name="index">The index of the memento to retrieve.</param>
     /// <returns>The memento at the specified index.</returns>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public Memento GetMemento(int index)
+    public IMemento GetMemento(int index)
     {
         if (index < 0 || index >= _mementos.Count)
         {
