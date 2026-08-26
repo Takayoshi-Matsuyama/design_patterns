@@ -20,8 +20,8 @@ and displaying it in a web browser widget.
 """
 
 import sys
-import plotly.express as px
 
+import plotly.express as px
 from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
 from PySide6.QtWebEngineWidgets import QWebEngineView  # Web Browser Widget
 
@@ -31,7 +31,6 @@ class PlotlyHostingWindow(QMainWindow):
 
     def __init__(self):
         """Initializes the main window and sets up the Plotly figure."""
-
         super().__init__()
         self.setWindowTitle("PySide6 + Plotly Hosting Window")
         self.resize(800, 600)
@@ -56,7 +55,8 @@ class PlotlyHostingWindow(QMainWindow):
         self.browser.setHtml(html)
 
 
-if __name__ == "__main__":
+def main():
+    """Entry point for the application."""
     # Create the application instance.
     app = QApplication(sys.argv)
 
@@ -67,3 +67,7 @@ if __name__ == "__main__":
     # Start the application's event loop.
     # Return the exit code to the operating system when the event loop ends.
     sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
