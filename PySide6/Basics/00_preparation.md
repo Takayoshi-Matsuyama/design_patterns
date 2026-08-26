@@ -34,4 +34,7 @@ deactivate
 ```
 python -m pip install --upgrade pip
 pip install PySide6 opencv-python numpy
+
+pip install plotly
+pip install pandas
 ```
