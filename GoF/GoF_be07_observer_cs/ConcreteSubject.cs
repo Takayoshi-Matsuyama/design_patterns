@@ -15,6 +15,9 @@
 // Filescope namespace (C# 10.0 or later)
 namespace GoF.Observer;
 
+/// <summary>
+/// Represents a concrete implementation of the subject in the Observer pattern.
+/// </summary>
 public class ConcreteSubject : ISubject
 {
     /// <summary>
@@ -26,6 +29,9 @@ public class ConcreteSubject : ISubject
     /// </remarks>
     private readonly List<IObserver> _observers = new();
 
+    /// <summary>
+    /// Gets or sets the internal state of the subject.
+    /// </summary>
     private string _state = "Initial State";
 
     /// <summary>
