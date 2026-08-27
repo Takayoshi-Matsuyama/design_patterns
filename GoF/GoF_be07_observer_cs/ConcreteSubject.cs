@@ -26,8 +26,9 @@ public class ConcreteSubject : ISubject
     /// <remarks>
     /// This list is used to keep track of all observers that need to be notified
     /// whenever the state of the subject changes.
+    /// Using collection initializer syntax (C# 12 or later).
     /// </remarks>
-    private readonly List<IObserver> _observers = new();
+    private readonly List<IObserver> _observers = [];
 
     /// <summary>
     /// Gets or sets the internal state of the subject.

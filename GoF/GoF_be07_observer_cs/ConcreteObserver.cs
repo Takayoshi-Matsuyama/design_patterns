@@ -19,12 +19,12 @@ namespace GoF.Observer;
 /// Represents a concrete observer in the Observer design pattern, 
 /// which gets notified of changes in the subject it is observing.
 /// </summary>
-/// <param name="Name">The name of the concrete observer.</param>
+/// <param name="name">The name of the concrete observer.</param>
 /// <remarks>
 /// Primary Constuctor (C#12 or later) is used to define the parameters
 /// and initialize the fields of the ConcreteObserver class.
 /// </remarks>
-public class ConcreteObserver(string Name) : IObserver
+public class ConcreteObserver(string name) : IObserver
 {
     /// <summary>
     /// Updates the concrete observer with the latest state from the subject.
@@ -32,6 +32,6 @@ public class ConcreteObserver(string Name) : IObserver
     /// <param name="subject">The subject that has changed.</param>
     public void Update(ISubject subject)
     {
-        Console.WriteLine($"Observer {Name} updated with subject state: {subject.State}");
+        Console.WriteLine($"Observer {name} updated with subject state: {subject.State}");
     }
 }
