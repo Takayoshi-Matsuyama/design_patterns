@@ -16,8 +16,8 @@ using GoF.State;
 
 Console.WriteLine("GoF State Pattern Example");
 
-IState stateA = new ConcreteStateA();
-IState stateB = new ConcreteStateB();
+var stateA = new ConcreteStateA();
+var stateB = new ConcreteStateB();
 
 Context context = new(stateA);
 context.Request();
