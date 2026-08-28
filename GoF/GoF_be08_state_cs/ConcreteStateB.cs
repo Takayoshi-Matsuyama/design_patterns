@@ -27,4 +27,17 @@ public class ConcreteStateB : IState
     {
         Console.WriteLine("ConcreteStateB: Specific behavior handled.");
     }
+
+    /// <summary>
+    /// Handles the behavior associated with ConcreteStateB using the specified context.
+    /// </summary>
+    /// <param name="context">The context in which the state operates.</param>
+    public void Handle(Context context)
+    {
+        Console.WriteLine("ConcreteStateB: Specific behavior handled with context.");
+
+        // Change the state of the context to ConcreteStateA.
+        // (Autonomous state machine behavior)
+        context.State = new ConcreteStateA();
+    }
 }

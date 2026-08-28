@@ -24,4 +24,14 @@ public interface IState
     /// Handles the behavior associated with this state.
     /// </summary>
     void Handle();
+
+    /// <summary>
+    /// Handles the behavior associated with this state using the specified context.
+    /// </summary>
+    /// <param name="context">The context in which the state operates.</param>
+    /// <remarks>
+    /// Autonomous state machine behavior can be implemented within the state itself,
+    /// by changing the state of the context as needed.
+    /// </remarks>
+    void Handle(Context context);
 }

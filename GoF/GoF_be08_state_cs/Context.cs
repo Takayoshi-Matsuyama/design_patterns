@@ -37,4 +37,12 @@ public class Context(IState state)
     {
         State.Handle();
     }
+
+    /// <summary>
+    /// Requests the current state to handle the behavior using the specified context.
+    /// </summary>
+    public void RequestWithContext()
+    {
+        State.Handle(this);
+    }
 }

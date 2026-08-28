@@ -24,3 +24,17 @@ context.Request();
 
 context.State = stateB;
 context.Request();
+
+// Advanced: Demonstrating the autonomous state machine behavior
+// by repeatedly requesting the context to handle the behavior with context.
+Console.WriteLine($"Current state: {context.State.GetType().Name}");
+context.RequestWithContext();
+Console.WriteLine($"Current state: {context.State.GetType().Name}");
+context.RequestWithContext();
+Console.WriteLine($"Current state: {context.State.GetType().Name}");
+context.RequestWithContext();
+Console.WriteLine($"Current state: {context.State.GetType().Name}");
+context.RequestWithContext();
+Console.WriteLine($"Current state: {context.State.GetType().Name}");
+context.RequestWithContext();
+Console.WriteLine($"Current state: {context.State.GetType().Name}");
