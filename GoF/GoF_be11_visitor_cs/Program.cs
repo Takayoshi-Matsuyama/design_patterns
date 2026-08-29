@@ -12,20 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Filescope namespace (C# 10.0 or later)
 using GoF.Visitor;
 
 Console.WriteLine("GoF Visitor Pattern Example");
 
-var elementA = new ConcreteElementA();
-var elementB = new ConcreteElementB();
-
-var visitor1 = new ConcreteVisitor1();
-var visitor2 = new ConcreteVisitor2();
+var objectStructure = new ObjectStructure();
+objectStructure.Attach(new ConcreteElementA());
+objectStructure.Attach(new ConcreteElementB());
 
 // Visitors extend the functionality of elements without modifying them.
 // So we can also call visitors as "function extenders".
-elementA.Accept(visitor1);
-elementA.Accept(visitor2);
-elementB.Accept(visitor1);
-elementB.Accept(visitor2);
+var visitor1 = new ConcreteVisitor1();
+var visitor2 = new ConcreteVisitor2();
+objectStructure.Accept(visitor1);
+objectStructure.Accept(visitor2);
