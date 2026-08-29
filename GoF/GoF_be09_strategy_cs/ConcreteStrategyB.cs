@@ -26,7 +26,7 @@ public class ConcreteStrategyB : IStrategy
     /// <param name="a">The first operand.</param>
     /// <param name="b">The second operand.</param>
     /// <returns>The result of subtracting <paramref name="b"/> from <paramref name="a"/>.</returns>
-    public double AlgorithmInterface(double a, double b)
+    public double Execute(double a, double b)
     {
         return a - b;
     }

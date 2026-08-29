@@ -26,7 +26,7 @@ public class ConcreteStrategyA : IStrategy
     /// <param name="a">The first operand.</param>
     /// <param name="b">The second operand.</param>
     /// <returns>The result of adding <paramref name="a"/> and <paramref name="b"/>.</returns>
-    public double AlgorithmInterface(double a, double b)
+    public double Execute(double a, double b)
     {
         return a + b;
     }

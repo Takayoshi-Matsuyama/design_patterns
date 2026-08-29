@@ -23,5 +23,5 @@ public interface IStrategy
     /// <summary>
     /// Executes the algorithm defined by the strategy.
     /// </summary>
-    double AlgorithmInterface(double a, double b);
+    double Execute(double a, double b);
 }

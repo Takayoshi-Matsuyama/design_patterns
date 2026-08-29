@@ -35,11 +35,6 @@ public class Context(IStrategy strategy)
     /// <exception cref="InvalidOperationException">Thrown if the strategy is not set.</exception>
     public double ExecuteStrategy(double a, double b)
     {
-        if (Strategy == null)
-        {
-            throw new InvalidOperationException("Strategy is not set.");
-        }
-
-        return Strategy.AlgorithmInterface(a, b);
+        return Strategy.Execute(a, b);
     }
 }
