@@ -16,8 +16,8 @@ using GoF.Strategy;
 
 Console.WriteLine("GoF Strategy Pattern Example");
 
-IStrategy strategyA = new ConcreteStrategyA();
-IStrategy strategyB = new ConcreteStrategyB();
+var strategyA = new ConcreteStrategyA();
+var strategyB = new ConcreteStrategyB();
 
 Context context = new(strategyA);
 Console.WriteLine($"Result of strategy A: {context.ExecuteStrategy(10, 5)}");
