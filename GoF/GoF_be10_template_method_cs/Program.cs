@@ -16,5 +16,5 @@ using GoF.TemplateMethod;
 
 Console.WriteLine("GoF Template Method Example");
 
-AbstractClass instance = new ConcreteClass();
+var instance = new ConcreteClass();
 instance.ExecuteTemplateMethod();
