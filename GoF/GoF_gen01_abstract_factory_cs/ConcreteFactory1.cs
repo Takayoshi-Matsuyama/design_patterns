@@ -24,17 +24,11 @@ public class ConcreteFactory1 : IAbstractFactory
     /// Creates an instance of the concrete product A1.
     /// </summary>
     /// <returns>An instance of IAbstractProductA.</returns>
-    public IAbstractProductA CreateProductA()
-    {
-        return new ProductA1();
-    }
+    public IAbstractProductA CreateProductA() => new ProductA1();
 
     /// <summary>
     /// Creates an instance of the concrete product B1.
     /// </summary>
     /// <returns>An instance of IAbstractProductB.</returns>
-    public IAbstractProductB CreateProductB()
-    {
-        return new ProductB1();
-    }
+    public IAbstractProductB CreateProductB() => new ProductB1();
 }

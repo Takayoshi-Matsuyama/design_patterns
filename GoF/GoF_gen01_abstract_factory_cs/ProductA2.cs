@@ -24,7 +24,7 @@ public class ProductA2 : IAbstractProductA
     /// Executes the operation specific to the concrete product A.
     /// </summary>
     public void ExecuteOperationA()
-        {
-            Console.WriteLine("ProductA2: Executing operation.");
-        }
+    {
+        Console.WriteLine("ProductA2: Executing operation.");
+    }
 }
