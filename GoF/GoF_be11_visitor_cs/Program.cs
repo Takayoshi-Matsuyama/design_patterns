@@ -24,7 +24,7 @@ var visitor1 = new ConcreteVisitor1();
 var visitor2 = new ConcreteVisitor2();
 
 // Visitors extend the functionality of elements without modifying them.
-// So we can also say visitors as "function extenders".
+// So we can also call visitors as "function extenders".
 elementA.Accept(visitor1);
 elementA.Accept(visitor2);
 elementB.Accept(visitor1);
