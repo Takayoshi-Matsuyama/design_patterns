@@ -23,7 +23,7 @@ public class ConcreteClass : AbstractClass
     /// <summary>
     /// Executes the first primitive operation.
     /// </summary>
-    public override void ExecutePrimitiveOperation1()
+    protected override void ExecutePrimitiveOperation1()
     {
         Console.WriteLine("ConcreteClass: Executing Primitive Operation 1");
     }
@@ -31,7 +31,7 @@ public class ConcreteClass : AbstractClass
     /// <summary>
     /// Executes the second primitive operation.
     /// </summary>
-    public override void ExecutePrimitiveOperation2()
+    protected override void ExecutePrimitiveOperation2()
     {
         Console.WriteLine("ConcreteClass: Executing Primitive Operation 2");
     }

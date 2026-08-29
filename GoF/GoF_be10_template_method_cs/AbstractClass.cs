@@ -23,12 +23,12 @@ public abstract class AbstractClass
     /// <summary>
     /// Executes the first primitive operation.
     /// </summary>
-    public abstract void ExecutePrimitiveOperation1();
+    protected abstract void ExecutePrimitiveOperation1();
 
     /// <summary>
     /// Executes the second primitive operation.
     /// </summary>
-    public abstract void ExecutePrimitiveOperation2();
+    protected abstract void ExecutePrimitiveOperation2();
 
     /// <summary>
     /// Executes the template method,
