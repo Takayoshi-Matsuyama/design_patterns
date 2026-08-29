@@ -32,7 +32,6 @@ public class Context(IStrategy strategy)
     /// <param name="a">The first operand.</param>
     /// <param name="b">The second operand.</param>
     /// <returns>The result of the algorithm defined by the current strategy.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if the strategy is not set.</exception>
     public double ExecuteStrategy(double a, double b)
     {
         return Strategy.Execute(a, b);
