@@ -16,14 +16,14 @@ using GoF.AbstractFactory;
 
 Console.WriteLine("GoF Abstract Factory Example");
 
-IAbstractFactory factory1 = new ConcreteFactory1();
+var factory1 = new ConcreteFactory1();
 IAbstractProductA productA1 = factory1.CreateProductA();
 IAbstractProductB productB1 = factory1.CreateProductB();
 
 productA1.ExecuteOperationA();
 productB1.ExecuteOperationB();
 
-IAbstractFactory factory2 = new ConcreteFactory2();
+var factory2 = new ConcreteFactory2();
 IAbstractProductA productA2 = factory2.CreateProductA();
 IAbstractProductB productB2 = factory2.CreateProductB();
 
