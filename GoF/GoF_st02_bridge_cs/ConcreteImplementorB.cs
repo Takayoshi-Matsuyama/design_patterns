@@ -24,8 +24,5 @@ public class ConcreteImplementorB : IImplementor
     /// Executes the operation defined by the concrete implementor B.
     /// </summary>
     /// <returns>A string result of the operation.</returns>
-    public string ExecuteOperation()
-    {
-        return "Result B";
-    }
+    public string ExecuteOperation() => "Result B";
 }

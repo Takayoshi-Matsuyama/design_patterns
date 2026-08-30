@@ -25,8 +25,5 @@ public class RefinedAbstraction(IImplementor implementor) : Abstraction(implemen
     /// Executes the operation defined by the refined abstraction.
     /// </summary>
     /// <returns>A string result of the operation.</returns>
-    public override string Operation()
-    {
-        return $"Refined: {Implementor.ExecuteOperation()}";
-    }
+    public override string Operation() => $"Refined: {Implementor.ExecuteOperation()}";
 }

@@ -24,7 +24,6 @@ public abstract class Abstraction(IImplementor implementor)
     /// Gets the implementor associated with this abstraction.
     /// </summary>
     /// <value>The implementor instance.</value>
-    /// </summary>
     protected IImplementor Implementor { get; init; } = implementor;
 
     /// <summary>
