@@ -31,7 +31,7 @@ public sealed class Singleton
     /// <remarks>
     /// This static readonly field ensures thread safety and lazy initialization.
     /// </remarks>
-    private static readonly Singleton instance = new();
+    private static readonly Singleton _instance = new();
 
     /// <summary>
     /// Initializes a new instance of the Singleton class.
@@ -44,11 +44,5 @@ public sealed class Singleton
     /// <summary>
     /// Gets the single instance of the Singleton class.
     /// </summary>
-    public static Singleton Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+    public static Singleton Instance => _instance;
 }
