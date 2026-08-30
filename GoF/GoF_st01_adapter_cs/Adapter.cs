@@ -25,8 +25,5 @@ public class Adapter(Adaptee adaptee) : ITarget
     /// which combines the results of the adaptee's specific requests.
     /// </summary>
     /// <returns>The combined result of the adaptee's specific requests.</returns>
-    public string Request()
-    {
-        return $"{adaptee.SpecificRequest1()} and {adaptee.SpecificRequest2()}";
-    }
+    public string Request() => $"{adaptee.SpecificRequest1()} and {adaptee.SpecificRequest2()}";
 }
