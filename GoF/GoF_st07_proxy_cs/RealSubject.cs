@@ -34,13 +34,12 @@ public class RealSubject : ISubject
     /// </remarks>
     public RealSubject()
     {
-        Thread thread = new Thread(() =>
+        Task.Run(async () =>
         {
             // Simulate some initialization work
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
             IsReady = true;
         });
-        thread.Start();
     }
 
     /// <summary>

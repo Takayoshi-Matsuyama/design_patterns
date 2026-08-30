@@ -23,14 +23,15 @@ public class Proxy : ISubject
     /// <summary>
     /// The real subject that the proxy delegates requests to.
     /// </summary>
-    private RealSubject RealSubject { get; init; }
+    private Lazy<RealSubject> RealSubject { get; init; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Proxy"/> class.
     /// </summary>
     public Proxy()
     {
-        RealSubject = new RealSubject();
+        // Initialize the real subject lazily.
+        RealSubject = new Lazy<RealSubject>(() => new RealSubject());
     }
 
     /// <summary>
@@ -40,13 +41,13 @@ public class Proxy : ISubject
     {
         Console.WriteLine("Proxy: Delegating Request to RealSubject.");
 
-        if (RealSubject.IsReady == false)
+        if (RealSubject.Value.IsReady is false)
         {
             Console.WriteLine("Proxy: RealSubject is not ready yet.");
         }
         else
         {
-            RealSubject?.Request();
+            RealSubject.Value.Request();
         }   
     }
 }

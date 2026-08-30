@@ -24,7 +24,7 @@ var proxy = new Proxy();
 proxy.Request();
 
 // Wait for the RealSubject to become ready.
-Thread.Sleep(2000);
+await Task.Delay(2000);
 
 // Send request again.
 proxy.Request();
