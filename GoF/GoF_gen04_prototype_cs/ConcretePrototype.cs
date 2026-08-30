@@ -35,7 +35,7 @@ public class ConcretePrototype(string name) : IPrototype
     /// </summary>
     /// <returns>A new instance that is a clone of the current concrete prototype.</returns>
     /// <remarks>
-    /// string elelment is not cloned deeply because strings are immutable.
+    /// string element is not cloned deeply because strings are immutable.
     /// </remarks>
     public IPrototype Clone()
     {
