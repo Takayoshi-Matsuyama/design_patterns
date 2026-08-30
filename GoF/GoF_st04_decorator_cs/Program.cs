@@ -18,4 +18,3 @@ Console.WriteLine("GoF Decorator Example");
 
 var component = new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteComponent()));
 component.ExecuteOperation();
-
