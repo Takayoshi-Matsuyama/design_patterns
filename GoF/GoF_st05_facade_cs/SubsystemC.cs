@@ -18,7 +18,7 @@ namespace GoF.Facade;
 /// <summary>
 /// Represents Subsystem C in the Facade pattern.
 /// </summary>
-public class SubsystemC
+internal class SubsystemC
 {
     /// <summary>
     /// Executes OperationC of Subsystem C.

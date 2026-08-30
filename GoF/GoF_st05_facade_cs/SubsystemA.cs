@@ -18,7 +18,7 @@ namespace GoF.Facade;
 /// <summary>
 /// Represents Subsystem A in the Facade pattern.
 /// </summary>
-public class SubsystemA
+internal class SubsystemA
 {
     /// <summary>
     /// Executes OperationA of Subsystem A.
