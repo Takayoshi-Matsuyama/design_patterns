@@ -17,4 +17,14 @@ using GoF.Proxy;
 Console.WriteLine("GoF Proxy Example");
 
 var proxy = new Proxy();
+
+// Send request to the proxy for the first time.
+// At this point, the RealSubject may not be ready yet.
+// The proxy will handle this scenario appropriately.
+proxy.Request();
+
+// Wait for the RealSubject to become ready.
+Thread.Sleep(2000);
+
+// Send request again.
 proxy.Request();

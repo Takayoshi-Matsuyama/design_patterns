@@ -20,7 +20,18 @@ namespace GoF.Proxy;
 /// </summary>
 public class Proxy : ISubject
 {
-    private ISubject? _realSubject = null;
+    /// <summary>
+    /// The real subject that the proxy delegates requests to.
+    /// </summary>
+    private RealSubject RealSubject { get; init; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Proxy"/> class.
+    /// </summary>
+    public Proxy()
+    {
+        RealSubject = new RealSubject();
+    }
 
     /// <summary>
     /// Requests an action to be performed by the proxy, which delegates to the real subject.
@@ -29,10 +40,13 @@ public class Proxy : ISubject
     {
         Console.WriteLine("Proxy: Delegating Request to RealSubject.");
 
-        if (_realSubject == null)
+        if (RealSubject.IsReady == false)
         {
-            _realSubject = new RealSubject();
+            Console.WriteLine("Proxy: RealSubject is not ready yet.");
         }
-        _realSubject?.Request();
+        else
+        {
+            RealSubject?.Request();
+        }   
     }
 }

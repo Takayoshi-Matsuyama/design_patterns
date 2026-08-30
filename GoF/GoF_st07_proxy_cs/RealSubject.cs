@@ -25,9 +25,22 @@ public class RealSubject : ISubject
     /// </summary>
     public bool IsReady { get; private set; } = false;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RealSubject"/> class.
+    /// </summary>
+    /// <remarks>
+    /// The real subject may not be ready immediately after instantiation.
+    /// It simulates some initialization work in a separate thread.
+    /// </remarks>
     public RealSubject()
     {
-        IsReady = true;
+        Thread thread = new Thread(() =>
+        {
+            // Simulate some initialization work
+            Thread.Sleep(1000);
+            IsReady = true;
+        });
+        thread.Start();
     }
 
     /// <summary>
