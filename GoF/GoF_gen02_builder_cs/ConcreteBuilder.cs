@@ -28,9 +28,10 @@ public class ConcreteBuilder : IBuilder
     /// <summary>
     /// Builds a part of the product.
     /// </summary>
-    public void BuildPart()
+    public IBuilder BuildPart()
     {
         _product = new Product("Part");
+        return this;
     }
 
     /// <summary>
@@ -40,6 +41,12 @@ public class ConcreteBuilder : IBuilder
     /// <exception cref="InvalidOperationException">Thrown if the product has not been built yet.</exception>
     public Product GetResult()
     {
-        return _product ?? throw new InvalidOperationException("Product has not been built.");
+        var result = _product ?? throw new InvalidOperationException("Product has not been built.");
+        
+        // Reset the product to allow building a new one.
+        _product = null;
+
+        // Return the built product.
+        return result;
     }
 }

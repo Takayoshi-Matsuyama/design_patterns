@@ -23,7 +23,8 @@ public interface IBuilder
     /// <summary>
     /// Builds a part of the product.
     /// </summary>
-    void BuildPart();
+    /// <returns>The builder instance for method chaining.</returns>
+    IBuilder BuildPart();
 
     /// <summary>
     /// Gets the final product.

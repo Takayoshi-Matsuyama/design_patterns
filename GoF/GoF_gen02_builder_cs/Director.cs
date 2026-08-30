@@ -21,15 +21,10 @@ namespace GoF.Builder;
 public class Director(IBuilder builder)
 {
     /// <summary>
-    /// The builder used by the director.
-    /// </summary>
-    IBuilder _builder = builder;
-
-    /// <summary>
     /// Constructs a product using the specified builder.
     /// </summary>
     public void Construct()
     {
-        _builder.BuildPart();
+        builder.BuildPart();
     }
 }
