@@ -7,4 +7,4 @@ if (component is Composite c) { c.Add(...); }  // Check type and cast simultaneo
 * Prioritize transparency:
   Definfinition of collectional operations like (Add / Remove) are in IComponent.
 * Prioritize safety:
-  DeDefinfinition of collectional operations like (Add / Remove) are only in the concrete composite class.
+  Definfinition of collectional operations like (Add / Remove) are only in the concrete composite class.
