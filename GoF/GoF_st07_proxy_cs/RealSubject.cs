@@ -36,6 +36,8 @@ public class RealSubject : ISubject
     {
         Task.Run(async () =>
         {
+            Console.WriteLine($"RealSubject: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
+
             // Simulate some initialization work
             await Task.Delay(1000);
             IsReady = true;
