@@ -16,7 +16,7 @@ using GoF.Proxy;
 
 Console.WriteLine("GoF Proxy Example");
 
-Console.WriteLine($"Main:Thread ID: {Thread.CurrentThread.ManagedThreadId}");
+Console.WriteLine($"Main #1: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
 
 var proxy = new Proxy();
 
@@ -25,12 +25,12 @@ var proxy = new Proxy();
 // The proxy will handle this scenario appropriately.
 proxy.Request();
 
-Console.WriteLine($"Main:Thread ID: {Thread.CurrentThread.ManagedThreadId}");
+Console.WriteLine($"Main #2: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
 
 // Wait for the RealSubject to become ready.
-await Task.Delay(2000);
+Thread.Sleep(2000);
 
 // Send request again.
 proxy.Request();
 
-Console.WriteLine($"Main: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
+Console.WriteLine($"Main #3: Thread ID: {Thread.CurrentThread.ManagedThreadId}");

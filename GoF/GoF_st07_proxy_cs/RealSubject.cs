@@ -29,19 +29,27 @@ public class RealSubject : ISubject
     /// Initializes a new instance of the <see cref="RealSubject"/> class.
     /// </summary>
     /// <remarks>
-    /// The real subject may not be ready immediately after instantiation.
-    /// It simulates some initialization work in a separate thread.
+    /// (1) The real subject may not be ready immediately after instantiation.
+    ///     It simulates some initialization work in a separate thread.
+    /// (2) Here, the Thread class is used to perform the initialization work asynchronously for simplicity.
+    /// (3) In modern GUI applications, consider using Task or async/await for better practice.
+    /// (4) Note: In console applications, Task or async/await does not work as expected.
+    ///           Because there is no synchronization context in console applications.
     /// </remarks>
     public RealSubject()
     {
-        Task.Run(async () =>
+        Thread thread = new (() =>
         {
-            Console.WriteLine($"RealSubject: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
+            Console.WriteLine($"RealSubject #W1: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
 
             // Simulate some initialization work
-            await Task.Delay(1000);
+            Thread.Sleep(1000);
             IsReady = true;
+
+            Console.WriteLine($"RealSubject #W2: Thread ID: {Thread.CurrentThread.ManagedThreadId}");
         });
+
+        thread.Start();
     }
 
     /// <summary>
