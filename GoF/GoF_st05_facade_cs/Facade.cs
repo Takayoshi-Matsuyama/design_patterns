@@ -18,7 +18,7 @@ namespace GoF.Facade;
 /// <summary>
 /// Represents the Facade in the Facade pattern.
 /// </summary>
-public class Facade()
+public class Facade
 {
     /// <summary>
     /// SubsystemA instance used by the Facade.
