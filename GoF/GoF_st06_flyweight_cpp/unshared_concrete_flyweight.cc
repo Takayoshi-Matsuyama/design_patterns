@@ -19,8 +19,8 @@
 namespace flyweight_pattern {
 
 void UnsharedConcreteFlyweight::Operation(int extrinsic_state) {
-  intrinsic_state_ += extrinsic_state;
-  std::cout << "UnsharedConcreteFlyweight: Operation with extrinsic state = " << extrinsic_state << " intrinsic state = " << intrinsic_state_ << std::endl;
+  int result = intrinsic_state_ + extrinsic_state;
+  std::cout << "UnsharedConcreteFlyweight: Operation with extrinsic state = " << extrinsic_state << " intrinsic state = " << intrinsic_state_ << " result = " << result << std::endl;
 }
 
 } // namespace flyweight_pattern

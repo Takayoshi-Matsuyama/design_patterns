@@ -27,7 +27,7 @@ class ConcreteFlyweight : public Flyweight {
 
  private:
   // Intrinsic state of the concrete flyweight.
-  int intrinsic_state_ = 0;
+  int intrinsic_state_ = 2;
 };
 
 } // namespace flyweight_pattern

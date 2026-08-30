@@ -27,7 +27,7 @@ class UnsharedConcreteFlyweight : public Flyweight {
 
  private:
   // Intrinsic state of the unshared concrete flyweight.
-  int intrinsic_state_ = 0;
+  int intrinsic_state_ = 3;
 };
 
 } // namespace flyweight_pattern
