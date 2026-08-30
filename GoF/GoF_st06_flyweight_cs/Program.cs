@@ -17,10 +17,10 @@ using GoF.Flyweight;
 Console.WriteLine("GoF Flyweight Example");
 
 var factory = new FlyweightFactory();
-var flyweight1 = factory.GetFlyweight(1);
-var flyweight2a = factory.GetFlyweight(2);
-var flyweight2b = factory.GetFlyweight(2); 
-var unsharedFlyweight = factory.GetUnsharedFlyweight();
+var flyweight1 = factory.GetFlyweight(1, 2);
+var flyweight2a = factory.GetFlyweight(2, 3);
+var flyweight2b = factory.GetFlyweight(2, 99); 
+var unsharedFlyweight = factory.GetUnsharedFlyweight(4);
 
 flyweight1.ExecuteOperation(10);
 flyweight2a.ExecuteOperation(20);
@@ -31,3 +31,6 @@ Console.WriteLine($"Flyweight1: {flyweight1}");
 Console.WriteLine($"Flyweight2a: {flyweight2a}");
 Console.WriteLine($"Flyweight2b: {flyweight2b}");
 Console.WriteLine($"UnsharedFlyweight: {unsharedFlyweight}");
+
+Console.WriteLine($"Are flyweight2a and flyweight1 the same instance? {ReferenceEquals(flyweight2a, flyweight1)}");
+Console.WriteLine($"Are flyweight2a and flyweight2b the same instance? {ReferenceEquals(flyweight2a, flyweight2b)}");

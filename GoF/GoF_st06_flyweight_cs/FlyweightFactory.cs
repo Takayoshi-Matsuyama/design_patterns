@@ -30,20 +30,24 @@ public class FlyweightFactory
     /// If the flyweight does not exist, a new one is created and added to the dictionary.
     /// </summary>
     /// <param name="key">The key identifying the flyweight object.</param>
+    /// <param name="defaultIntrinsicState">The default intrinsic state to be used if a new flyweight is created.</param>
     /// <returns>The flyweight object associated with the specified key.</returns>
-    public IFlyweight GetFlyweight(int key)
+    public IFlyweight GetFlyweight(int key, int defaultIntrinsicState)
     {
-        if (!_flyweights.ContainsKey(key))
+        if (!_flyweights.TryGetValue(key, out var flyweight))
         {
-            _flyweights[key] = new ConcreteFlyweight();
+            flyweight = new ConcreteFlyweight(defaultIntrinsicState);
+            _flyweights[key] = flyweight;
         }
-        return _flyweights[key];
+        return flyweight;
     }
 
     /// <summary>
     /// Retrieves an unshared flyweight object.
     /// Unlike shared flyweights, this object is not stored in the factory's dictionary.
     /// </summary>
+    /// <param name="defaultIntrinsicState">The default intrinsic state to be used for the unshared flyweight.</param>
     /// <returns>An unshared flyweight object.</returns>
-    public IFlyweight GetUnsharedFlyweight() => new UnsharedConcreteFlyweight();
+    public IFlyweight GetUnsharedFlyweight(int defaultIntrinsicState) =>
+        new UnsharedConcreteFlyweight(defaultIntrinsicState);
 }

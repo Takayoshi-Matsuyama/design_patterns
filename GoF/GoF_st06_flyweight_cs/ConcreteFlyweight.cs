@@ -18,12 +18,12 @@ namespace GoF.Flyweight;
 /// <summary>
 /// Represents a concrete implementation of the flyweight interface.
 /// </summary>
-public class ConcreteFlyweight : IFlyweight
+public class ConcreteFlyweight(int intrinsicState) : IFlyweight
 {
     /// <summary>
     /// Gets the intrinsic state of the concrete flyweight.
     /// </summary>
-    public int IntrinsicState { get; private set; } = 0;
+    public int IntrinsicState { get; init; } = intrinsicState;
 
     /// <summary>
     /// Executes an operation using the provided extrinsic state.
@@ -31,8 +31,8 @@ public class ConcreteFlyweight : IFlyweight
     /// <param name="extrinsicState">The extrinsic state to be used in the operation.</param>
     public void ExecuteOperation(int extrinsicState)
     {
-        IntrinsicState += extrinsicState;
-        Console.WriteLine($"ConcreteFlyweight: Updated intrinsic state to {IntrinsicState}");
+        int result = IntrinsicState + extrinsicState;
+        Console.WriteLine($"ConcreteFlyweight: Result = {result}");
     }
 
     /// <summary>
