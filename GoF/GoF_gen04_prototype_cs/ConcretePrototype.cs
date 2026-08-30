@@ -34,13 +34,15 @@ public class ConcretePrototype(string name) : IPrototype
     /// Creates a clone (deep copy) of the current concrete prototype instance.
     /// </summary>
     /// <returns>A new instance that is a clone of the current concrete prototype.</returns>
+    /// <remarks>
+    /// string elelment is not cloned deeply because strings are immutable.
+    /// </remarks>
     public IPrototype Clone()
     {
-        return new ConcretePrototype(new string(this.Name))
+        return new ConcretePrototype(this.Name)
         {
             NestedList = this.NestedList?.Select(
-                innerList => new List<string>(innerList.Select(
-                    item => new string(item)))).ToList()
+                innerList => new List<string>(innerList)).ToList()
         };
     }
 }
