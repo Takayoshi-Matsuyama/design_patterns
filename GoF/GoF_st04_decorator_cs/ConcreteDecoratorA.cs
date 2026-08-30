@@ -18,6 +18,7 @@ namespace GoF.Decorator;
 /// <summary>
 /// Represents a concrete decorator A in the Decorator pattern.
 /// </summary>
+/// <param name="component">The component to be decorated by ConcreteDecoratorA.</param>
 public class ConcreteDecoratorA(IComponent component) : Decorator(component)
 {
     /// <summary>

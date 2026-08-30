@@ -15,6 +15,10 @@
 // Filescope namespace (C# 10.0 or later)
 namespace GoF.Decorator;
 
+/// <summary>
+/// Represents a concrete decorator B in the Decorator pattern.
+/// </summary>
+/// <param name="component">The component to be decorated by ConcreteDecoratorB.</param>
 public class ConcreteDecoratorB(IComponent component) : Decorator(component)
 {
     /// <summary>
