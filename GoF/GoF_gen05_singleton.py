@@ -42,6 +42,8 @@ class Singleton:
     @classmethod
     def get_instance(cls) -> Self:
         """Get the singleton instance.
+        Args:
+            cls (type): The class being instantiated.
 
         Returns:
             Self: The single instance of the class.
@@ -73,4 +75,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    """Entry point for the Singleton pattern demonstration."""
     main()
