@@ -1,48 +1,72 @@
-# Copyright 2026 Takayoshi Matsuyama
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Implementation of the Factory Method design pattern.
+
+Copyright 2026 Takayoshi Matsuyama
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 
 from abc import ABC, abstractmethod
 
 
 class Product(ABC):
+    """Represents the abstract product interface."""
 
     @abstractmethod
-    def operation(self):
-        pass
+    def operation(self) -> str:
+        """Performs an operation specific to the product."""
+        pass  # Should be implemented by concrete subclasses.
 
 
 class ConcreteProduct(Product):
+    """Represents the concrete implementation of the Product interface."""
 
-    def operation(self):
+    def operation(self) -> str:
+        """Performs an operation specific to the concrete product.
+
+        Returns:
+            str: The result of the operation.
+        """
         return "Operation of ConcreteProduct"
 
 
 class Creator(ABC):
+    """Represents the abstract creator interface."""
 
     @abstractmethod
-    def factory_method(self):
-        pass
+    def factory_method(self) -> Product:
+        """Creates and returns a product instance."""
+        pass  # Should be implemented by concrete subclasses.
 
 
 class ConcreteCreator(Creator):
+    """Represents the concrete implementation of the Creator interface."""
 
-    def factory_method(self):
+    def factory_method(self) -> Product:
+        """Creates and returns a concrete product instance.
+
+        Returns:
+            Product: The created concrete product instance.
+        """
         return ConcreteProduct()
 
 
-if __name__ == "__main__":
-
+def main():
+    """Demonstrates the usage of the Factory Method pattern."""
     creator = ConcreteCreator()
     product = creator.factory_method()
     print(product.operation())
+
+
+if __name__ == "__main__":
+    main()
