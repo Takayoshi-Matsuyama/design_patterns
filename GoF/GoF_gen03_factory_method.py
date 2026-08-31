@@ -48,6 +48,15 @@ class Creator(ABC):
         """Creates and returns a product instance."""
         pass  # Should be implemented by concrete subclasses.
 
+    def some_operation(self) -> str:
+        """Performs some operation using the product created by the factory method.
+
+        Returns:
+            str: The result of the operation using the product.
+        """
+        product = self.factory_method()
+        return f"Creator: Working with {product.operation()}"
+
 
 class ConcreteCreator(Creator):
     """Represents the concrete implementation of the Creator interface."""
@@ -64,8 +73,8 @@ class ConcreteCreator(Creator):
 def main():
     """Demonstrates the usage of the Factory Method pattern."""
     creator = ConcreteCreator()
-    product = creator.factory_method()
-    print(product.operation())
+    result = creator.some_operation()
+    print(result)
 
 
 if __name__ == "__main__":
