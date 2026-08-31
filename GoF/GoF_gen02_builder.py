@@ -1,62 +1,90 @@
-# Copyright 2026 Takayoshi Matsuyama
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Implementation of the Builder design pattern.
+
+Copyright 2026 Takayoshi Matsuyama
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 
 from abc import ABC, abstractmethod
 
 
 class Product:
+    """Represents the product to be built."""
 
     def __init__(self, name):
+        """Initializes the product with a name.
+
+        Args:
+            name (str): The name of the product.
+        """
         self.name = name
 
 
 class Builder(ABC):
+    """Represents the abstract builder interface."""
 
     @abstractmethod
     def build_part(self):
-        pass
+        """Builds a part of the product."""
+        pass  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def get_result(self):
-        pass
+    def get_result(self) -> Product:
+        """Returns the constructed product."""
+        pass  # Should be implemented by concrete subclasses.
 
 
 class ConcreteBuilder(Builder):
+    """Represents the concrete implementation of the Builder interface."""
 
     def __init__(self):
+        """Initializes the concrete builder."""
         self.product = None
 
     def build_part(self):
+        """Builds a part of the product by creating an example product."""
         self.product = Product("Example Product")
 
-    def get_result(self):
+    def get_result(self) -> Product:
+        """Returns the constructed product.
+
+        Returns:
+            Product: The constructed product.
+        """
         return self.product
 
 
 class Director:
+    """Represents the director that constructs the product using the builder."""
 
     def __init__(self, builder):
+        """Initializes the director with a builder."""
         self._builder = builder
 
     def construct(self):
+        """Constructs the product using the builder."""
         self._builder.build_part()
 
 
-if __name__ == "__main__":
-
+def main():
+    """Demonstrates the usage of the builder pattern."""
     builder = ConcreteBuilder()
     director = Director(builder)
     director.construct()
     product = builder.get_result()
     print(f"Product created: {product.name}")
+
+
+if __name__ == "__main__":
+    main()
