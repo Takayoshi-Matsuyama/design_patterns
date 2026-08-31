@@ -96,7 +96,7 @@ class Director:
         self._builder.build_part()
 
 
-def main():
+def main() -> None:
     """Demonstrates the usage of the builder pattern."""
     builder = ConcreteBuilder()
     director = Director(builder)

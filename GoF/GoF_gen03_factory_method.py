@@ -70,7 +70,7 @@ class ConcreteCreator(Creator):
         return ConcreteProduct()
 
 
-def main():
+def main() -> None:
     """Demonstrates the usage of the Factory Method pattern."""
     creator = ConcreteCreator()
     result = creator.some_operation()

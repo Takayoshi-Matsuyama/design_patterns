@@ -139,7 +139,7 @@ class ConcreteFactory2(AbstractFactory):
         return ProductB2()
 
 
-def main():
+def main() -> None:
     """Demonstrate the usage of the abstract factory pattern."""
     factory1 = ConcreteFactory1()
     product_a1 = factory1.create_product_a()

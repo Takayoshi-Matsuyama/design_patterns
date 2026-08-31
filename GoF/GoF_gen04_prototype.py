@@ -54,7 +54,7 @@ class ConcretePrototype(Prototype):
         return copy.deepcopy(self)
 
 
-def main():
+def main() -> None:
     """Demonstrates the usage of the Prototype design pattern."""
     prototype = ConcretePrototype()
     prototype.set_data([[0, 1], [2, 3]])
