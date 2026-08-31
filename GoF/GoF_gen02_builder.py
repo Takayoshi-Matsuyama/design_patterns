@@ -17,6 +17,7 @@ limitations under the License.
 """
 
 from abc import ABC, abstractmethod
+from typing import Self
 
 
 class Product:
@@ -35,11 +36,11 @@ class Builder(ABC):
     """Represents the abstract builder interface."""
 
     @abstractmethod
-    def build_part(self):
+    def build_part(self) -> Self:
         """Builds a part of the product.
 
         Returns:
-            Builder: The builder instance itself.
+            Self: The builder instance itself.
         """
         pass  # Should be implemented by concrete subclasses.
         return self
@@ -61,11 +62,11 @@ class ConcreteBuilder(Builder):
         """Resets the builder to its initial state."""
         self.product = Product("Default")
 
-    def build_part(self) -> Builder:
+    def build_part(self) -> Self:
         """Builds a part of the product by creating an example product.
 
         Returns:
-            Builder: The builder instance itself.
+            Self: The builder instance itself.
         """
         self.product = Product("Example Product")
         return self
@@ -101,7 +102,7 @@ def main():
     director = Director(builder)
     director.construct()
     product = builder.get_result()
-    builder.reset
+    builder.reset()
     print(f"Product created: {product.name}")
 
 
