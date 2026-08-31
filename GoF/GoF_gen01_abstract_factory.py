@@ -23,22 +23,31 @@ class AbstractProductA(ABC):
     """Abstract base class for ProductA."""
 
     @abstractmethod
-    def operation_a(self):
+    def operation_a(self) -> str:
         """No operation as this is an abstract method."""
-        pass
 
 
 class ProductA1(AbstractProductA):
+    """Concrete implementation of ProductA1."""
 
-    def operation_a(self):
-        """Perform operation specific to ProductA1."""
+    def operation_a(self) -> str:
+        """Perform operation specific to ProductA1.
+
+        Returns:
+            str: Result of the operation.
+        """
         return "ProductA1 operation"
 
 
 class ProductA2(AbstractProductA):
+    """Concrete implementation of ProductA2."""
 
-    def operation_a(self):
-        """Perform operation specific to ProductA2."""
+    def operation_a(self) -> str:
+        """Perform operation specific to ProductA2.
+
+        Returns:
+            str: Result of the operation.
+        """
         return "ProductA2 operation"
 
 
@@ -46,24 +55,31 @@ class AbstractProductB(ABC):
     """Abstract base class for ProductB."""
 
     @abstractmethod
-    def operation_b(self):
+    def operation_b(self) -> str:
         """No operation as this is an abstract method."""
-        pass
 
 
 class ProductB1(AbstractProductB):
     """Concrete implementation of ProductB1."""
 
-    def operation_b(self):
-        """Perform operation specific to ProductB1."""
+    def operation_b(self) -> str:
+        """Perform operation specific to ProductB1.
+
+        Returns:
+            str: Result of the operation.
+        """
         return "ProductB1 operation"
 
 
 class ProductB2(AbstractProductB):
     """Concrete implementation of ProductB2."""
 
-    def operation_b(self):
-        """Perform operation specific to ProductB2."""
+    def operation_b(self) -> str:
+        """Perform operation specific to ProductB2.
+
+        Returns:
+            str: Result of the operation.
+        """
         return "ProductB2 operation"
 
 
@@ -71,37 +87,51 @@ class AbstractFactory(ABC):
     """Abstract base class for factories."""
 
     @abstractmethod
-    def create_product_a(self):
+    def create_product_a(self) -> AbstractProductA:
         """No operation as this is an abstract method."""
-        pass
 
     @abstractmethod
-    def create_product_b(self):
+    def create_product_b(self) -> AbstractProductB:
         """No operation as this is an abstract method."""
-        pass
 
 
 class ConcreteFactory1(AbstractFactory):
     """Concrete implementation of Factory1."""
 
-    def create_product_a(self):
-        """Create and return an instance of ProductA1."""
+    def create_product_a(self) -> AbstractProductA:
+        """Create and return an instance of ProductA1.
+
+        Returns:
+            AbstractProductA: Instance of ProductA1.
+        """
         return ProductA1()
 
-    def create_product_b(self):
-        """Create and return an instance of ProductB1."""
+    def create_product_b(self) -> AbstractProductB:
+        """Create and return an instance of ProductB1.
+
+        Returns:
+            AbstractProductB: Instance of ProductB1.
+        """
         return ProductB1()
 
 
 class ConcreteFactory2(AbstractFactory):
     """Concrete implementation of Factory2."""
 
-    def create_product_a(self):
-        """Create and return an instance of ProductA2."""
+    def create_product_a(self) -> AbstractProductA:
+        """Create and return an instance of ProductA2.
+
+        Returns:
+            AbstractProductA: Instance of ProductA2.
+        """
         return ProductA2()
 
-    def create_product_b(self):
-        """Create and return an instance of ProductB2."""
+    def create_product_b(self) -> AbstractProductB:
+        """Create and return an instance of ProductB2.
+
+        Returns:
+            AbstractProductB: Instance of ProductB2.
+        """
         return ProductB2()
 
 
