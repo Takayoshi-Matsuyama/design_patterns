@@ -16,6 +16,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from typing import Self
+
 
 class Singleton:
     """Singleton design pattern implementation in Python."""
@@ -23,8 +25,14 @@ class Singleton:
     # class variable to hold the single instance of the class
     _instance = None
 
-    def __new__(cls):
-        """Override __new__ to control the creation of the instance."""
+    def __new__(cls) -> Self:
+        """Override __new__ to control the creation of the instance.
+        Args:
+            cls (type): The class being instantiated.
+
+        Returns:
+            Self: The single instance of the class.
+        """
         if cls._instance is None:
             # Create the instance by using the superclass's __new__ method.
             # The super class is 'object' in this case.
@@ -32,14 +40,18 @@ class Singleton:
         return cls._instance
 
     @classmethod
-    def get_instance(cls):
-        """Get the singleton instance."""
+    def get_instance(cls) -> Self:
+        """Get the singleton instance.
+
+        Returns:
+            Self: The single instance of the class.
+        """
         if cls._instance is None:
             cls._instance = cls()
         return cls._instance
 
 
-def main():
+def main() -> None:
     """Entry point for the Singleton pattern demonstration."""
     s1 = Singleton()
     s2 = Singleton()
