@@ -16,9 +16,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+import copy
 from abc import ABC, abstractmethod
 from typing import Self
-import copy
 
 
 class Prototype(ABC):
@@ -33,11 +33,11 @@ class Prototype(ABC):
 class ConcretePrototype(Prototype):
     """Represents the concrete implementation of the Prototype interface."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initializes a new instance of the ConcretePrototype class."""
         self._data = None
 
-    def set_data(self, data) -> None:
+    def set_data(self, data: list) -> None:
         """Sets the data for the concrete prototype.
 
         Args:
@@ -51,9 +51,7 @@ class ConcretePrototype(Prototype):
         Returns:
             Self: A deep copy of the current concrete prototype.
         """
-        clone = ConcretePrototype()
-        clone._data = copy.deepcopy(self._data)
-        return clone
+        return copy.deepcopy(self)
 
 
 def main():
