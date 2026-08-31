@@ -35,9 +35,14 @@ class Builder(ABC):
     """Represents the abstract builder interface."""
 
     @abstractmethod
-    def build_part(self) -> None:
-        """Builds a part of the product."""
+    def build_part(self):
+        """Builds a part of the product.
+
+        Returns:
+            Builder: The builder instance itself.
+        """
         pass  # Should be implemented by concrete subclasses.
+        return self
 
     @abstractmethod
     def get_result(self) -> Product:
@@ -50,11 +55,20 @@ class ConcreteBuilder(Builder):
 
     def __init__(self) -> None:
         """Initializes the concrete builder."""
-        self.product = None
+        self.reset()
 
-    def build_part(self) -> None:
-        """Builds a part of the product by creating an example product."""
+    def reset(self) -> None:
+        """Resets the builder to its initial state."""
+        self.product = Product("Default")
+
+    def build_part(self) -> Builder:
+        """Builds a part of the product by creating an example product.
+
+        Returns:
+            Builder: The builder instance itself.
+        """
         self.product = Product("Example Product")
+        return self
 
     def get_result(self) -> Product:
         """Returns the constructed product.
@@ -87,6 +101,7 @@ def main():
     director = Director(builder)
     director.construct()
     product = builder.get_result()
+    builder.reset
     print(f"Product created: {product.name}")
 
 
