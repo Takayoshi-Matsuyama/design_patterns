@@ -22,7 +22,7 @@ from abc import ABC, abstractmethod
 class Product:
     """Represents the product to be built."""
 
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         """Initializes the product with a name.
 
         Args:
@@ -35,7 +35,7 @@ class Builder(ABC):
     """Represents the abstract builder interface."""
 
     @abstractmethod
-    def build_part(self):
+    def build_part(self) -> None:
         """Builds a part of the product."""
         pass  # Should be implemented by concrete subclasses.
 
@@ -48,11 +48,11 @@ class Builder(ABC):
 class ConcreteBuilder(Builder):
     """Represents the concrete implementation of the Builder interface."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initializes the concrete builder."""
         self.product = None
 
-    def build_part(self):
+    def build_part(self) -> None:
         """Builds a part of the product by creating an example product."""
         self.product = Product("Example Product")
 
@@ -68,11 +68,15 @@ class ConcreteBuilder(Builder):
 class Director:
     """Represents the director that constructs the product using the builder."""
 
-    def __init__(self, builder):
-        """Initializes the director with a builder."""
+    def __init__(self, builder: Builder) -> None:
+        """Initializes the director with a builder.
+
+        Args:
+            builder (Builder): The builder used by the director.
+        """
         self._builder = builder
 
-    def construct(self):
+    def construct(self) -> None:
         """Constructs the product using the builder."""
         self._builder.build_part()
 
