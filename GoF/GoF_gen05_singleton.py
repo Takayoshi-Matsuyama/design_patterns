@@ -29,6 +29,9 @@ class Singleton:
     # class variable to track if the instance has been initialized.
     _initialized = False
 
+    # class variable to ensure thread-safe instance creation.
+    _lock = threading.Lock()
+
     def __new__(cls) -> Self:
         """Override __new__ to control the creation of the instance.
 
@@ -36,8 +39,7 @@ class Singleton:
             Self: The single instance of the class.
         """
         # Ensuring instance creation is thread-safe.
-        lock = threading.Lock()
-        with lock:
+        with cls._lock:
             if cls._instance is None:
                 # Create the instance by using the superclass's __new__ method.
                 # The super class is 'object' in this case.
