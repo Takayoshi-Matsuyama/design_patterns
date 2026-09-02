@@ -25,7 +25,7 @@ class AbstractProductA(ABC):
     @abstractmethod
     def operation_a(self) -> str:
         """Perform operation specific to ProductA."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ProductA1(AbstractProductA):
@@ -58,7 +58,7 @@ class AbstractProductB(ABC):
     @abstractmethod
     def operation_b(self) -> str:
         """Perform operation specific to ProductB."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ProductB1(AbstractProductB):
@@ -91,12 +91,12 @@ class AbstractFactory(ABC):
     @abstractmethod
     def create_product_a(self) -> AbstractProductA:
         """Creates an instance of ProductA."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
     def create_product_b(self) -> AbstractProductB:
         """Creates an instance of ProductB."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteFactory1(AbstractFactory):

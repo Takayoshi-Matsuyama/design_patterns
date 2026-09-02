@@ -42,13 +42,13 @@ class Builder(ABC):
         Returns:
             Self: The builder instance itself.
         """
-        pass  # Should be implemented by concrete subclasses.
-        return self
+        ...  # Should be implemented by concrete subclasses.
+        return self  # Return the builder instance itself for method chaining.
 
     @abstractmethod
     def get_result(self) -> Product:
         """Returns the constructed product."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteBuilder(Builder):
@@ -69,7 +69,7 @@ class ConcreteBuilder(Builder):
             Self: The builder instance itself.
         """
         self.product = Product("Example Product")
-        return self
+        return self  # Return the builder instance itself for method chaining.
 
     def get_result(self) -> Product:
         """Returns the constructed product.

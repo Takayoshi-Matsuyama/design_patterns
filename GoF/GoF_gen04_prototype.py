@@ -27,7 +27,7 @@ class Prototype(ABC):
     @abstractmethod
     def clone(self) -> Self:
         """Creates and returns a copy of the current object."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcretePrototype(Prototype):

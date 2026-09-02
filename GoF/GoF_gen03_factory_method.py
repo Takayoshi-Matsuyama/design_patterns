@@ -25,7 +25,7 @@ class Product(ABC):
     @abstractmethod
     def operation(self) -> str:
         """Performs an operation specific to the product."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteProduct(Product):
@@ -46,7 +46,7 @@ class Creator(ABC):
     @abstractmethod
     def factory_method(self) -> Product:
         """Creates and returns a product instance."""
-        pass  # Should be implemented by concrete subclasses.
+        ...  # Should be implemented by concrete subclasses.
 
     def some_operation(self) -> str:
         """Performs some operation using the product created by the factory method.
