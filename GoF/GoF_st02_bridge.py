@@ -1,61 +1,98 @@
-# Copyright 2026 Takayoshi Matsuyama
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+Implementation of the Bridge design pattern.
+
+Copyright 2026 Takayoshi Matsuyama
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 
 from abc import ABC, abstractmethod
 
 
 class Implementor(ABC):
+    """Represents the implementor interface in the Bridge design pattern."""
 
     @abstractmethod
     def operation_impl(self):
-        pass
+        """Performs the implementation-specific operation."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteImplementorA(Implementor):
+    """Represents the concrete implementation A of the Implementor interface."""
 
-    def operation_impl(self):
-        return "ConcreteImplementorA operation"
+    def operation_impl(self) -> str:
+        """Performs the implementation-specific operation for ConcreteImplementorA.
+
+        Returns:
+            str: The result of the implementation-specific operation.
+        """
+        return "Result A"
 
 
 class ConcreteImplementorB(Implementor):
+    """Represents the concrete implementation B of the Implementor interface."""
 
-    def operation_impl(self):
-        return "ConcreteImplementorB operation"
+    def operation_impl(self) -> str:
+        """Performs the implementation-specific operation for ConcreteImplementorB.
+
+        Returns:
+            str: The result of the implementation-specific operation.
+        """
+        return "Result B"
 
 
 class Abstraction(ABC):
+    """Represents the abstraction class in the Bridge design pattern."""
 
     @abstractmethod
-    def operation(self):
-        pass
+    def operation(self) -> str:
+        """Performs an operation using the implementor.
+
+        Returns:
+            str: The result of the operation.
+        """
+        ...  # Should be implemented by concrete subclasses.
 
 
 class RefinedAbstraction(Abstraction):
+    """Represents the refined abstraction class in the Bridge design pattern."""
 
-    def __init__(self, implementor):
+    def __init__(self, implementor: Implementor):
+        """Initializes the refined abstraction with the given implementor.
+
+        Args:
+            implementor (Implementor): The implementor instance to be used by the refined abstraction.
+        """
         self._implementor = implementor
 
-    def operation(self):
-        return f"RefinedAbstraction: {self._implementor.operation_impl()}"
+    def operation(self) -> str:
+        """Performs an operation using the implementor.
+
+        Returns:
+            str: The result of the operation.
+        """
+        return f"Refined: {self._implementor.operation_impl()}"
+
+
+def main() -> None:
+    """Demonstrates the Bridge design pattern with concrete implementors and refined abstractions."""
+    abstraction_a = RefinedAbstraction(ConcreteImplementorA())
+    print(abstraction_a.operation())
+
+    abstraction_b = RefinedAbstraction(ConcreteImplementorB())
+    print(abstraction_b.operation())
 
 
 if __name__ == "__main__":
-
-    implementor_a = ConcreteImplementorA()
-    abstraction_a = RefinedAbstraction(implementor_a)
-    print(abstraction_a.operation())
-
-    implementor_b = ConcreteImplementorB()
-    abstraction_b = RefinedAbstraction(implementor_b)
-    print(abstraction_b.operation())
+    main()
