@@ -29,7 +29,7 @@ class Implementor(ABC):
 
 
 class ConcreteImplementorA(Implementor):
-    """Represents the concrete implementation A of the Implementor interface."""
+    """Represents the concrete implementation A of the Implementor."""
 
     def operation_impl(self) -> str:
         """Performs the implementation-specific operation for ConcreteImplementorA.
@@ -41,7 +41,7 @@ class ConcreteImplementorA(Implementor):
 
 
 class ConcreteImplementorB(Implementor):
-    """Represents the concrete implementation B of the Implementor interface."""
+    """Represents the concrete implementation B of the Implementor."""
 
     def operation_impl(self) -> str:
         """Performs the implementation-specific operation for ConcreteImplementorB.
@@ -54,6 +54,14 @@ class ConcreteImplementorB(Implementor):
 
 class Abstraction(ABC):
     """Represents the abstraction class in the Bridge design pattern."""
+
+    def __init__(self, implementor: Implementor) -> None:
+        """Initializes the abstraction with the given implementor.
+
+        Args:
+            implementor (Implementor): The implementor instance to be used by the abstraction.
+        """
+        self._implementor = implementor
 
     @abstractmethod
     def operation(self) -> str:
@@ -68,13 +76,13 @@ class Abstraction(ABC):
 class RefinedAbstraction(Abstraction):
     """Represents the refined abstraction class in the Bridge design pattern."""
 
-    def __init__(self, implementor: Implementor):
+    def __init__(self, implementor: Implementor) -> None:
         """Initializes the refined abstraction with the given implementor.
 
         Args:
             implementor (Implementor): The implementor instance to be used by the refined abstraction.
         """
-        self._implementor = implementor
+        super().__init__(implementor)
 
     def operation(self) -> str:
         """Performs an operation using the implementor.
@@ -86,7 +94,7 @@ class RefinedAbstraction(Abstraction):
 
 
 def main() -> None:
-    """Demonstrates the Bridge design pattern with concrete implementors and refined abstractions."""
+    """Demonstrates the Bridge design pattern."""
     abstraction_a = RefinedAbstraction(ConcreteImplementorA())
     print(abstraction_a.operation())
 
