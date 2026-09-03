@@ -23,8 +23,12 @@ class Implementor(ABC):
     """Represents the implementor interface in the Bridge design pattern."""
 
     @abstractmethod
-    def operation_impl(self):
-        """Performs the implementation-specific operation."""
+    def operation_impl(self) -> str:
+        """Performs the implementation-specific operation.
+
+        Returns:
+            str: The result of the implementation-specific operation.
+        """
         ...  # Should be implemented by concrete subclasses.
 
 
@@ -75,14 +79,6 @@ class Abstraction(ABC):
 
 class RefinedAbstraction(Abstraction):
     """Represents the refined abstraction class in the Bridge design pattern."""
-
-    def __init__(self, implementor: Implementor) -> None:
-        """Initializes the refined abstraction with the given implementor.
-
-        Args:
-            implementor (Implementor): The implementor instance to be used by the refined abstraction.
-        """
-        super().__init__(implementor)
 
     def operation(self) -> str:
         """Performs an operation using the implementor.
