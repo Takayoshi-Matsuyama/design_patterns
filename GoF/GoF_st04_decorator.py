@@ -73,14 +73,6 @@ class ConcreteDecoratorA(Decorator):
 class ConcreteDecoratorB(Decorator):
     """Represents a concrete decorator B in the Decorator design pattern."""
 
-    def __init__(self, component: Component) -> None:
-        """Initializes ConcreteDecoratorB with a component.
-
-        Args:
-            component (Component): The component to be decorated.
-        """
-        super().__init__(component)
-
     def operation(self) -> None:
         """Performs an operation on the concrete decorator B."""
         super().operation()
