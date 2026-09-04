@@ -16,8 +16,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
-from typing import Self
 
 
 class NotSupportedError(Exception):
@@ -39,32 +39,32 @@ class Component(ABC):
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def add(self, component: Self) -> None:
+    def add(self, component: Component) -> None:
         """Adds a child component to the composite.
 
         Args:
-            component (Self): The child component to add.
+            component (Component): The child component to add.
         """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def remove(self, component: Self) -> None:
+    def remove(self, component: Component) -> None:
         """Removes a child component from the composite.
 
         Args:
-            component (Self): The child component to remove.
+            component (Component): The child component to remove.
         """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def get_child(self, index: int) -> Self:
+    def get_child(self, index: int) -> Component:
         """Retrieves a child component by its index.
 
         Args:
             index (int): The index of the child component to retrieve.
 
         Returns:
-            Self: The child component at the specified index.
+            Component: The child component at the specified index.
         """
         ...  # Should be implemented by concrete subclasses.
 
@@ -102,16 +102,16 @@ class Leaf(Component):
         """
         raise NotSupportedError("Leaf nodes cannot remove components")
 
-    def get_child(self, index: int) -> None:
+    def get_child(self, index: int) -> Component:
         """Retrieves a child component by its index.
 
         Args:
             index (int): The index of the child component to retrieve.
 
         Returns:
-            None: Always returns None. Because leaf does not have children.
+            Component: Always raises NotSupportedError because leaf does not have children.
         """
-        return None
+        raise NotSupportedError("Leaf nodes do not have children")
 
 
 class Composite(Component):
@@ -119,7 +119,7 @@ class Composite(Component):
 
     def __init__(self) -> None:
         """Initializes a composite node."""
-        self.children = []
+        self.children: list[Component] = []
 
     def operation(self) -> str:
         """Performs an operation on the composite node.
@@ -127,9 +127,7 @@ class Composite(Component):
         Returns:
             str: The result of the operation on the composite node.
         """
-        results = []
-        for child in self.children:
-            results.append(child.operation())
+        results = [child.operation() for child in self.children]
         return f"Composite operation: {', '.join(results)}"
 
     def add(self, component: Component) -> None:
