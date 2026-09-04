@@ -117,22 +117,46 @@ class Leaf(Component):
 class Composite(Component):
     """Represents a composite node in the Composite design pattern."""
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """Initializes a composite node."""
         self.children = []
 
-    def operation(self):
+    def operation(self) -> str:
+        """Performs an operation on the composite node.
+
+        Returns:
+            str: The result of the operation on the composite node.
+        """
         results = []
         for child in self.children:
             results.append(child.operation())
         return f"Composite operation: {', '.join(results)}"
 
-    def add(self, component):
+    def add(self, component: Component) -> None:
+        """Adds a child component to the composite node.
+
+        Args:
+            component (Component): The child component to add.
+        """
         self.children.append(component)
 
-    def remove(self, component):
+    def remove(self, component: Component) -> None:
+        """Removes a child component from the composite node.
+
+        Args:
+            component (Component): The child component to remove.
+        """
         self.children.remove(component)
 
-    def get_child(self, index):
+    def get_child(self, index: int) -> Component:
+        """Retrieves a child component by its index.
+
+        Args:
+            index (int): The index of the child component to retrieve.
+
+        Returns:
+            Component: The child component at the specified index.
+        """
         return self.children[index]
 
 
