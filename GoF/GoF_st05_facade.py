@@ -42,7 +42,7 @@ class SubsystemB:
 
 
 class SubsystemC:
-    """Represents Subsystem C."""
+    """Represents Subsystem C in the Facade design pattern."""
 
     def operation_c(self) -> str:
         """Performs operation C.
@@ -68,11 +68,12 @@ class Facade:
         Returns:
             str: The combined result of the subsystem operations.
         """
-        result = []
-        result.append(self.subsystem_a.operation_a())
-        result.append(self.subsystem_b.operation_b())
-        result.append(self.subsystem_c.operation_c())
-        return f"Result: {' '.join(result)}"
+        results = [
+            self.subsystem_a.operation_a(),
+            self.subsystem_b.operation_b(),
+            self.subsystem_c.operation_c(),
+        ]
+        return f"Result: {' '.join(results)}"
 
 
 def main() -> None:
