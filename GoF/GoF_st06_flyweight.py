@@ -27,7 +27,7 @@ class Flyweight(ABC):
         """Performs an operation using the extrinsic state.
 
         Args:
-            extrinsic_state: The extrinsic state for the operation.
+            extrinsic_state (int): The extrinsic state for the operation.
         """
         ...  # Should be implemented by concrete subclasses.
 
@@ -39,17 +39,19 @@ class ConcreteFlyweight(Flyweight):
         """Initializes the Concrete Flyweight.
 
         Args:
-            intrinsic_state: The intrinsic state for the flyweight.
+            intrinsic_state (int): The intrinsic state for the flyweight.
         """
-        self.intrinsic_state = intrinsic_state
+        # Intrinsic state is specific to this instance and must not be changed from outside.
+        # So we treat this as private using the underscore prefix (_).
+        self._intrinsic_state = intrinsic_state
 
     def operation(self, extrinsic_state: int) -> None:
         """Performs an operation using the extrinsic state.
 
         Args:
-            extrinsic_state: The extrinsic state for the operation.
+            extrinsic_state (int): The extrinsic state for the operation.
         """
-        result = self.intrinsic_state + extrinsic_state
+        result = self._intrinsic_state + extrinsic_state
         print(f"ConcreteFlyweight: {result}")
 
 
@@ -60,17 +62,19 @@ class UnsharedConcreteFlyweight(Flyweight):
         """Initializes the Unshared Concrete Flyweight.
 
         Args:
-            intrinsic_state: The intrinsic state for the unshared flyweight.
+            intrinsic_state (int): The intrinsic state for the unshared flyweight.
         """
-        self.intrinsic_state = intrinsic_state
+        # Intrinsic state is specific to this instance and must not be changed from outside.
+        # So we treat this as private using the underscore prefix (_).
+        self._intrinsic_state = intrinsic_state
 
     def operation(self, extrinsic_state: int) -> None:
         """Performs an operation using the extrinsic state.
 
         Args:
-            extrinsic_state: The extrinsic state for the operation.
+            extrinsic_state (int): The extrinsic state for the operation.
         """
-        result = self.intrinsic_state + extrinsic_state
+        result = self._intrinsic_state + extrinsic_state
         print(f"UnsharedConcreteFlyweight: {result}")
 
 
@@ -79,35 +83,35 @@ class FlyweightFactory:
 
     def __init__(self) -> None:
         """Initializes the Flyweight Factory."""
-        self.flyweights = {}
+        self.flyweights: dict[int, Flyweight] = {}
 
-    def get_flyweight(self, key: int, default_intrinsic_state: int):
+    def get_flyweight(self, key: int, default_intrinsic_state: int) -> Flyweight:
         """Returns a flyweight with the given key, creating it if it doesn't exist.
 
         Args:
-            key: The key for the flyweight.
-            default_intrinsic_state: The intrinsic state to use if creating a new flyweight.
+            key (int): The key for the flyweight.
+            default_intrinsic_state (int): The intrinsic state to use if creating a new flyweight.
 
         Returns:
-            The flyweight instance associated with the key.
+            Flyweight: The flyweight instance associated with the key.
         """
         if key not in self.flyweights:
             self.flyweights[key] = ConcreteFlyweight(default_intrinsic_state)
         return self.flyweights[key]
 
-    def get_unshared_flyweight(self, default_intrinsic_state: int):
+    def get_unshared_flyweight(self, default_intrinsic_state: int) -> Flyweight:
         """Returns an unshared flyweight with the given intrinsic state.
 
         Args:
-            default_intrinsic_state: The intrinsic state for the unshared flyweight.
+            default_intrinsic_state (int): The intrinsic state for the unshared flyweight.
 
         Returns:
-            The unshared flyweight instance.
+            Flyweight: The unshared flyweight instance.
         """
         return UnsharedConcreteFlyweight(default_intrinsic_state)
 
 
-def main():
+def main() -> None:
     """Demonstrates the Flyweight design pattern."""
     factory = FlyweightFactory()
 
