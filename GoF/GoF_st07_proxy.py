@@ -37,15 +37,16 @@ class RealSubject(Subject):
     def __init__(self) -> None:
         """Initializes the RealSubject."""
         print(f"{datetime.now().strftime('%H:%M:%S')} RealSubject: Initializing.")
-        self.ready_event = threading.Event()
 
         # Executes time-consuming preparation in a separate thread.
+        # Note: threading.Event class is used for signaling flag data between threads.
+        self.ready_event = threading.Event()
         threading.Thread(target=self.prepare).start()
 
     def prepare(self) -> None:
         """Prepares the RealSubject to handle requests."""
-        sleep(2)  # Simulate preparation time.
-        self.ready_event.set()
+        sleep(2)  # Simulates preparation time.
+        self.ready_event.set()  # Notifies that preparation is complete.
 
     def request(self) -> None:
         """Requests the RealSubject to perform an action."""
@@ -61,10 +62,14 @@ class Proxy(Subject):
 
     def request(self) -> None:
         """Requests the Proxy to perform an action."""
+
+        # Lazy initialization of the real subject.
         if self._real_subject is None:
             print(f"{datetime.now().strftime('%H:%M:%S')} Proxy: Initializing.")
             self._real_subject = RealSubject()
 
+        # Forwards the request to the RealSubject if it is ready.
+        # Otherwise, shows a proxy message.
         if self._real_subject.ready_event.is_set():
             print(
                 f"{datetime.now().strftime('%H:%M:%S')} Proxy: Forwarding request to RealSubject."
