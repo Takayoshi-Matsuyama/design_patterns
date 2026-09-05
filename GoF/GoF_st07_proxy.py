@@ -57,11 +57,14 @@ class Proxy(Subject):
 
     def __init__(self) -> None:
         """Initializes the Proxy."""
-        print(f"{datetime.now().strftime('%H:%M:%S')} Proxy: Initializing.")
-        self._real_subject = RealSubject()
+        self._real_subject = None
 
     def request(self) -> None:
         """Requests the Proxy to perform an action."""
+        if self._real_subject is None:
+            print(f"{datetime.now().strftime('%H:%M:%S')} Proxy: Initializing.")
+            self._real_subject = RealSubject()
+
         if self._real_subject.ready_event.is_set():
             print(
                 f"{datetime.now().strftime('%H:%M:%S')} Proxy: Forwarding request to RealSubject."
