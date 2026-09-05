@@ -82,11 +82,28 @@ class FlyweightFactory:
         self.flyweights = {}
 
     def get_flyweight(self, key: int, default_intrinsic_state: int):
+        """Returns a flyweight with the given key, creating it if it doesn't exist.
+
+        Args:
+            key: The key for the flyweight.
+            default_intrinsic_state: The intrinsic state to use if creating a new flyweight.
+
+        Returns:
+            The flyweight instance associated with the key.
+        """
         if key not in self.flyweights:
             self.flyweights[key] = ConcreteFlyweight(default_intrinsic_state)
         return self.flyweights[key]
 
     def get_unshared_flyweight(self, default_intrinsic_state: int):
+        """Returns an unshared flyweight with the given intrinsic state.
+
+        Args:
+            default_intrinsic_state: The intrinsic state for the unshared flyweight.
+
+        Returns:
+            The unshared flyweight instance.
+        """
         return UnsharedConcreteFlyweight(default_intrinsic_state)
 
 
