@@ -17,6 +17,9 @@ limitations under the License.
 """
 
 from abc import ABC, abstractmethod
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
+from time import sleep
 
 
 class Subject(ABC):
@@ -33,11 +36,21 @@ class RealSubject(Subject):
 
     def __init__(self) -> None:
         """Initializes the RealSubject."""
+        print(f"{datetime.now().strftime('%H:%M:%S')} RealSubject: Initializing.")
         self.is_ready = False
+
+        # Executes time-consuming preparation in a separate thread.
+        executor = ThreadPoolExecutor(max_workers=1)
+        executor.submit(self.prepare)
+
+    def prepare(self) -> None:
+        """Prepares the RealSubject to handle requests."""
+        sleep(2)  # Simulate preparation time.
+        self.is_ready = True
 
     def request(self) -> None:
         """Requests the RealSubject to perform an action."""
-        print("RealSubject: Handling request.")
+        print(f"{datetime.now().strftime('%H:%M:%S')} RealSubject: Handling request.")
 
 
 class Proxy(Subject):
@@ -45,20 +58,36 @@ class Proxy(Subject):
 
     def __init__(self) -> None:
         """Initializes the Proxy."""
+        print(f"{datetime.now().strftime('%H:%M:%S')} Proxy: Initializing.")
         self._real_subject = RealSubject()
 
     def request(self) -> None:
         """Requests the Proxy to perform an action."""
         if self._real_subject.is_ready:
-            print("Proxy: Forwarding request to RealSubject.")
+            print(
+                f"{datetime.now().strftime('%H:%M:%S')} Proxy: Forwarding request to RealSubject."
+            )
             self._real_subject.request()
         else:
-            print("Proxy: RealSubject is not ready.")
+            print(
+                f"{datetime.now().strftime('%H:%M:%S')} Proxy: RealSubject is not ready."
+            )
 
 
 def main() -> None:
-    """Demonstrates the Proxy design pattern."""
+    """Demonstrates the Proxy design pattern.
+
+    Remarks:
+        Console output sample:
+            17:29:06 Proxy: Initializing.
+            17:29:06 RealSubject: Initializing.
+            17:29:06 Proxy: RealSubject is not ready.
+            17:29:09 Proxy: Forwarding request to RealSubject.
+            17:29:09 RealSubject: Handling request.
+    """
     proxy = Proxy()
+    proxy.request()
+    sleep(3)  # Wait for the RealSubject to be ready.
     proxy.request()
 
 
