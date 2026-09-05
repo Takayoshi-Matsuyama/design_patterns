@@ -16,6 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
@@ -26,6 +27,14 @@ class Handler(ABC):
           we ensure that any concrete implementation must implement the decorated method.
     """
 
+    def __init__(self, successor: Handler | None = None) -> None:
+        """Initializes the Handler.
+
+        Args:
+            successor (Handler, optional): The next handler in the chain. Defaults to None.
+        """
+        self._successor = successor
+
     @abstractmethod
     def handle_request(self) -> None:
         """Handles the request."""
@@ -34,14 +43,6 @@ class Handler(ABC):
 
 class ConcreteHandler1(Handler):
     """Represents a concrete handler in the Chain of Responsibility design pattern."""
-
-    def __init__(self, successor: "Handler" = None) -> None:
-        """Initializes the ConcreteHandler1.
-
-        Args:
-            successor (Handler, optional): The next handler in the chain. Defaults to None.
-        """
-        self._successor = successor
 
     def handle_request(self) -> None:
         """Handles the request."""
@@ -52,14 +53,6 @@ class ConcreteHandler1(Handler):
 
 class ConcreteHandler2(Handler):
     """Represents a concrete handler in the Chain of Responsibility design pattern."""
-
-    def __init__(self, successor: "Handler" = None) -> None:
-        """Initializes the ConcreteHandler2.
-
-        Args:
-            successor (Handler, optional): The next handler in the chain. Defaults to None.
-        """
-        self._successor = successor
 
     def handle_request(self) -> None:
         """Handles the request."""
