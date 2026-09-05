@@ -23,7 +23,11 @@ from time import sleep
 
 
 class Subject(ABC):
-    """Represents the Subject in the Proxy design pattern."""
+    """Represents the Subject in the Proxy design pattern.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def request(self) -> None:

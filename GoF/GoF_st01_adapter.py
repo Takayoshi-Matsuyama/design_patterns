@@ -20,7 +20,11 @@ from abc import ABC, abstractmethod
 
 
 class Target(ABC):
-    """Target interface that defines the expected interface for the client."""
+    """Target interface that defines the expected interface for the client.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def request(self) -> str:

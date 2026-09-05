@@ -22,7 +22,11 @@ from typing import Self
 
 
 class Prototype(ABC):
-    """Represents the abstract prototype interface."""
+    """Represents the abstract prototype interface.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def clone(self) -> Self:

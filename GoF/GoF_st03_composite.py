@@ -27,7 +27,11 @@ class NotSupportedError(Exception):
 
 
 class Component(ABC):
-    """Represents the component interface in the Composite design pattern."""
+    """Represents the component interface in the Composite design pattern.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def operation(self) -> str:

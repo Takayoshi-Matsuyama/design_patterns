@@ -33,7 +33,11 @@ class Product:
 
 
 class Builder(ABC):
-    """Represents the abstract builder interface."""
+    """Represents the abstract builder interface.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def build_part(self) -> Self:

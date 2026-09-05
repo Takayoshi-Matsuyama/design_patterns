@@ -20,7 +20,11 @@ from abc import ABC, abstractmethod
 
 
 class Component(ABC):
-    """Represents the component interface in the Decorator design pattern."""
+    """Represents the component interface in the Decorator design pattern.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def operation(self) -> None:

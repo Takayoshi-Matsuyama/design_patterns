@@ -20,7 +20,11 @@ from abc import ABC, abstractmethod
 
 
 class Flyweight(ABC):
-    """Represents the Flyweight in the Flyweight design pattern."""
+    """Represents the Flyweight in the Flyweight design pattern.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def operation(self, extrinsic_state: int) -> None:

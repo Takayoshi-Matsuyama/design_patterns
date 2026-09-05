@@ -20,7 +20,11 @@ from abc import ABC, abstractmethod
 
 
 class Implementor(ABC):
-    """Represents the implementor interface in the Bridge design pattern."""
+    """Represents the implementor interface in the Bridge design pattern.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def operation_impl(self) -> str:

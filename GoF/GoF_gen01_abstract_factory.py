@@ -20,7 +20,11 @@ from abc import ABC, abstractmethod
 
 
 class AbstractProductA(ABC):
-    """Abstract base class for ProductA."""
+    """Abstract base class for ProductA.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def operation_a(self) -> str:

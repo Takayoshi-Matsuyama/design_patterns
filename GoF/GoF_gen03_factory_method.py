@@ -20,7 +20,11 @@ from abc import ABC, abstractmethod
 
 
 class Product(ABC):
-    """Represents the abstract product interface."""
+    """Represents the abstract product interface.
+
+    Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
+          we ensure that any concrete implementation must implement the decorated method.
+    """
 
     @abstractmethod
     def operation(self) -> str:
