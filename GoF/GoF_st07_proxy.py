@@ -78,7 +78,7 @@ def main() -> None:
     """Demonstrates the Proxy design pattern.
 
     Remarks:
-        Console output sample:
+        Terminal output sample:
             17:29:06 Proxy: Initializing.
             17:29:06 RealSubject: Initializing.
             17:29:06 Proxy: RealSubject is not ready.
