@@ -27,35 +27,53 @@ class Handler(ABC):
     """
 
     @abstractmethod
-    def handle_request(self):
-        pass
+    def handle_request(self) -> None:
+        """Handles the request."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteHandler1(Handler):
+    """Represents a concrete handler in the Chain of Responsibility design pattern."""
 
-    def __init__(self, successor=None):
+    def __init__(self, successor: "Handler" = None) -> None:
+        """Initializes the ConcreteHandler1.
+
+        Args:
+            successor (Handler, optional): The next handler in the chain. Defaults to None.
+        """
         self._successor = successor
 
-    def handle_request(self):
+    def handle_request(self) -> None:
+        """Handles the request."""
         print("ConcreteHandler1: Handling request.")
         if self._successor:
             self._successor.handle_request()
 
 
 class ConcreteHandler2(Handler):
+    """Represents a concrete handler in the Chain of Responsibility design pattern."""
 
-    def __init__(self, successor=None):
+    def __init__(self, successor: "Handler" = None) -> None:
+        """Initializes the ConcreteHandler2.
+
+        Args:
+            successor (Handler, optional): The next handler in the chain. Defaults to None.
+        """
         self._successor = successor
 
-    def handle_request(self):
+    def handle_request(self) -> None:
+        """Handles the request."""
         print("ConcreteHandler2: Handling request.")
         if self._successor:
             self._successor.handle_request()
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Chain of Responsibility design pattern."""
     handler1 = ConcreteHandler1()
     handler2 = ConcreteHandler2(handler1)
-
     handler2.handle_request()
+
+
+if __name__ == "__main__":
+    main()
