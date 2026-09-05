@@ -17,7 +17,7 @@ limitations under the License.
 """
 
 from abc import ABC, abstractmethod
-from concurrent.futures import ThreadPoolExecutor
+import threading
 from datetime import datetime
 from time import sleep
 
@@ -40,8 +40,7 @@ class RealSubject(Subject):
         self.is_ready = False
 
         # Executes time-consuming preparation in a separate thread.
-        executor = ThreadPoolExecutor(max_workers=1)
-        executor.submit(self.prepare)
+        threading.Thread(target=self.prepare).start()
 
     def prepare(self) -> None:
         """Prepares the RealSubject to handle requests."""
