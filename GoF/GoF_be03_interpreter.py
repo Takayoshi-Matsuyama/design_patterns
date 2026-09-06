@@ -17,19 +17,19 @@ limitations under the License.
 """
 
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
 
+@dataclass
 class Context:
-    """Represents the Context in the Interpreter design pattern."""
+    """Represents the Context in the Interpreter design pattern.
 
-    def __init__(self, input: str) -> None:
-        """Initializes the Context.
+    Note: We use @dataclass decorator to generate a class which only have data fields.
+          This automatically generates the __init__ method and other utility methods.
+    """
 
-        Args:
-            input (str): The input string for interpretation.
-        """
-        self.input: str = input
-        self.output: int = 0
+    in_text: str
+    output: int = 0
 
 
 class AbstractExpression(ABC):
@@ -50,7 +50,7 @@ class TerminalExpression(AbstractExpression):
 
     def interpret(self, context: Context) -> None:
         """Interprets the context for the terminal expression."""
-        context.output += int(context.input)
+        context.output += int(context.in_text)
 
 
 class NonTerminalExpression(AbstractExpression):
@@ -76,12 +76,12 @@ class NonTerminalExpression(AbstractExpression):
 
 def main() -> None:
     """Demonstrates the Interpreter design pattern."""
-    context = Context("5")
+    context = Context(in_text="5")
     terminal_expression = TerminalExpression()
     terminal_expression.interpret(context)
     print(f"Terminal Expression Output: {context.output}")
 
-    context2 = Context("10")
+    context2 = Context(in_text="10")
     non_terminal_expression = NonTerminalExpression(
         terminal_expression, terminal_expression
     )
