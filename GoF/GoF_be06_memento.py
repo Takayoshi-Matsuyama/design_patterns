@@ -36,21 +36,13 @@ class Memento:
         """
         return self._state
 
-    def set_state(self, state: str) -> None:
-        """Sets the state stored in the Memento.
-
-        Args:
-            state (str): The new state to be stored in the Memento.
-        """
-        self._state = state
-
 
 class Originator:
     """Represents the Originator in the Memento design pattern."""
 
     def __init__(self) -> None:
         """Initializes the Originator with no state."""
-        self._state: str | None = None
+        self._state: str = ""  # Empty string
 
     def set_state(self, state: str) -> None:
         """Sets the state of the Originator.
@@ -60,11 +52,11 @@ class Originator:
         """
         self._state = state
 
-    def get_state(self) -> str | None:
+    def get_state(self) -> str:
         """Returns the current state of the Originator.
 
         Returns:
-            str | None: The current state of the Originator.
+            str: The current state of the Originator.
         """
         return self._state
 

@@ -19,7 +19,6 @@ title GoF - Behavioral #06 - Memento
 class Memento {
     -state
     +get_state()
-    +set_state(state)
 }
 
 ' 取り消しのメカニズムを提供するクラス
