@@ -16,6 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
@@ -76,6 +77,25 @@ class ConcreteAggregate(Aggregate):
         """Initializes the Concrete Aggregate."""
         self._items: list[str] = ["A", "B", "C", "D", "E"]  # Demo data
 
+    def count(self) -> int:
+        """Returns the number of items in the aggregate.
+
+        Returns:
+            int: The number of items in the aggregate.
+        """
+        return len(self._items)
+
+    def get_item(self, index: int) -> str:
+        """Returns the item at the specified index.
+
+        Args:
+            index (int): The index of the item to retrieve.
+
+        Returns:
+            str: The item at the specified index.
+        """
+        return self._items[index]
+
     def create_iterator(self) -> Iterator:
         """Creates an iterator for the concrete aggregate.
 
@@ -112,7 +132,7 @@ class ConcreteIterator(Iterator):
             True if the iterator has reached the end of the collection,
             False otherwise.
         """
-        return self._current >= len(self._aggregate._items)
+        return self._current >= self._aggregate.count()
 
     def current_item(self) -> str:
         """Returns the current element in the collection.
@@ -124,7 +144,7 @@ class ConcreteIterator(Iterator):
             StopIteration: If the iterator has reached the end of the collection.
         """
         if not self.is_done():
-            return self._aggregate._items[self._current]
+            return self._aggregate.get_item(self._current)
         else:
             raise StopIteration
 
