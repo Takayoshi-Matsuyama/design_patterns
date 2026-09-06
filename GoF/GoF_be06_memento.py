@@ -18,49 +18,102 @@ limitations under the License.
 
 
 class Memento:
+    """Represents the Memento in the Memento design pattern."""
 
-    def __init__(self, state):
-        self._state = state
+    def __init__(self, state: str) -> None:
+        """Initializes the Memento with the given state.
 
-    def get_state(self):
+        Args:
+            state (str): The state to be stored in the Memento.
+        """
+        self._state: str = state
+
+    def get_state(self) -> str:
+        """Returns the state stored in the Memento.
+
+        Returns:
+            str: The state stored in the Memento.
+        """
         return self._state
 
-    def set_state(self, state):
+    def set_state(self, state: str) -> None:
+        """Sets the state stored in the Memento.
+
+        Args:
+            state (str): The new state to be stored in the Memento.
+        """
         self._state = state
 
 
 class Originator:
+    """Represents the Originator in the Memento design pattern."""
 
-    def __init__(self):
-        self._state = None
+    def __init__(self) -> None:
+        """Initializes the Originator with no state."""
+        self._state: str | None = None
 
-    def set_state(self, state):
+    def set_state(self, state: str) -> None:
+        """Sets the state of the Originator.
+
+        Args:
+            state (str): The new state of the Originator.
+        """
         self._state = state
 
-    def get_state(self):
+    def get_state(self) -> str | None:
+        """Returns the current state of the Originator.
+
+        Returns:
+            str | None: The current state of the Originator.
+        """
         return self._state
 
-    def create_memento(self):
+    def create_memento(self) -> Memento:
+        """Creates a Memento containing the current state of the Originator.
+
+        Returns:
+            Memento: A Memento containing the current state of the Originator.
+        """
         return Memento(self._state)
 
-    def set_memento(self, memento):
+    def set_memento(self, memento: Memento) -> None:
+        """Restores the Originator's state from the given Memento.
+
+        Args:
+            memento (Memento): The Memento from which to restore the state.
+        """
         self._state = memento.get_state()
 
 
 class Caretaker:
+    """Represents the Caretaker in the Memento design pattern."""
 
-    def __init__(self):
-        self._mementos = []
+    def __init__(self) -> None:
+        """Initializes the Caretaker with an empty list of Mementos."""
+        self._mementos: list[Memento] = []
 
-    def add_memento(self, memento):
+    def add_memento(self, memento: Memento) -> None:
+        """Adds a Memento to the Caretaker's list.
+
+        Args:
+            memento (Memento): The Memento to be added to the Caretaker's list.
+        """
         self._mementos.append(memento)
 
-    def get_memento(self, index):
+    def get_memento(self, index: int) -> Memento:
+        """Retrieves a Memento from the Caretaker's list by index.
+
+        Args:
+            index (int): The index of the Memento to retrieve.
+
+        Returns:
+            Memento: The Memento at the specified index.
+        """
         return self._mementos[index]
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Memento design pattern."""
     originator = Originator()
     caretaker = Caretaker()
 
@@ -83,3 +136,7 @@ if __name__ == "__main__":
 
     originator.set_memento(caretaker.get_memento(2))
     print(f"Restored State: {originator.get_state()}")
+
+
+if __name__ == "__main__":
+    main()
