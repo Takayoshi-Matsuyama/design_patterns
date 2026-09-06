@@ -19,6 +19,39 @@ limitations under the License.
 from abc import ABC, abstractmethod
 
 
+class Iterator(ABC):
+    """Represents the Iterator in the Iterator design pattern."""
+
+    @abstractmethod
+    def first(self) -> None:
+        """Moves to the first element of the collection."""
+        ...  # Should be implemented by concrete subclasses.
+
+    @abstractmethod
+    def next(self) -> None:
+        """Moves to the next element of the collection."""
+        ...  # Should be implemented by concrete subclasses.
+
+    @abstractmethod
+    def is_done(self) -> bool:
+        """Checks if the iterator has reached the end of the collection.
+
+        Returns:
+            True if the iterator has reached the end of the collection,
+            False otherwise.
+        """
+        ...  # Should be implemented by concrete subclasses.
+
+    @abstractmethod
+    def current_item(self) -> str:
+        """Returns the current element in the collection.
+
+        Returns:
+            The current element in the collection.
+        """
+        ...  # Should be implemented by concrete subclasses.
+
+
 class Aggregate(ABC):
     """Represents the Aggregate in the Iterator design pattern.
 
@@ -27,62 +60,65 @@ class Aggregate(ABC):
     """
 
     @abstractmethod
-    def create_iterator(self):
-        pass
+    def create_iterator(self) -> Iterator:
+        """Creates an iterator for the aggregate."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteAggregate(Aggregate):
+    """Represents the Concrete Aggregate in the Iterator design pattern."""
 
-    def __init__(self):
-        self._items = ["A", "B", "C", "D", "E"]
+    def __init__(self) -> None:
+        """Initializes the Concrete Aggregate."""
+        self._items: list[str] = ["A", "B", "C", "D", "E"]  # Demo data
 
-    def create_iterator(self):
+    def create_iterator(self) -> Iterator:
+        """Creates an iterator for the concrete aggregate."""
         return ConcreteIterator(self)
 
 
-class Iterator(ABC):
-
-    @abstractmethod
-    def first(self):
-        pass
-
-    @abstractmethod
-    def next(self):
-        pass
-
-    @abstractmethod
-    def is_done(self):
-        pass
-
-    @abstractmethod
-    def current_item(self):
-        pass
-
-
 class ConcreteIterator(Iterator):
+    """Represents the Concrete Iterator in the Iterator design pattern."""
 
-    def __init__(self, aggregate):
-        self._aggregate = aggregate
+    def __init__(self, aggregate: Aggregate):
+        """Initializes the Concrete Iterator."""
+        self._aggregate: Aggregate = aggregate
+        self._current: int = 0
+
+    def first(self) -> None:
+        """Moves to the first element of the collection."""
         self._current = 0
 
-    def first(self):
-        self._current = 0
-
-    def next(self):
+    def next(self) -> None:
+        """Moves to the next element of the collection."""
         self._current += 1
 
-    def is_done(self):
+    def is_done(self) -> bool:
+        """Checks if the iterator has reached the end of the collection.
+
+        Returns:
+            True if the iterator has reached the end of the collection,
+            False otherwise.
+        """
         return self._current >= len(self._aggregate._items)
 
-    def current_item(self):
+    def current_item(self) -> str:
+        """Returns the current element in the collection.
+
+        Returns:
+            The current element in the collection.
+
+        Raises:
+            StopIteration: If the iterator has reached the end of the collection.
+        """
         if not self.is_done():
             return self._aggregate._items[self._current]
         else:
             raise StopIteration
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Iterator design pattern."""
     aggregate = ConcreteAggregate()
     iterator = aggregate.create_iterator()
 
@@ -90,3 +126,7 @@ if __name__ == "__main__":
     while not iterator.is_done():
         print(iterator.current_item())
         iterator.next()
+
+
+if __name__ == "__main__":
+    main()
