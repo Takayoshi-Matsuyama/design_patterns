@@ -41,10 +41,4 @@ class Invoker {
 Invoker --> Command
 ConcreteCommand --> Receiver
 
-class Client {
-    +main()
-}
-
-Client --> Receiver
-Client ..> ConcreteCommand
 @enduml

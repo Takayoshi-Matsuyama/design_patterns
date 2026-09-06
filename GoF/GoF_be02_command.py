@@ -20,8 +20,10 @@ from abc import ABC, abstractmethod
 
 
 class Receiver:
+    """Represents the Receiver in the Command design pattern."""
 
-    def action(self):
+    def action(self) -> None:
+        """Performs the action."""
         print("Receiver: Performing the action.")
 
 
@@ -33,37 +35,57 @@ class Command(ABC):
     """
 
     @abstractmethod
-    def execute(self):
-        pass
+    def execute(self) -> None:
+        """Executes the command."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteCommand(Command):
+    """Represents a concrete command in the Command design pattern."""
 
-    def __init__(self, receiver):
+    def __init__(self, receiver: Receiver) -> None:
+        """Initializes the ConcreteCommand.
+
+        Args:
+            receiver (Receiver): The receiver of the command.
+        """
         self._receiver = receiver
 
-    def execute(self):
+    def execute(self) -> None:
+        """Executes the command."""
         self._receiver.action()
 
 
 class Invoker:
+    """Represents the Invoker in the Command design pattern."""
 
-    def __init__(self):
-        self._command = None
+    def __init__(self) -> None:
+        """Initializes the Invoker."""
+        self._command: Command | None = None
 
-    def set_command(self, command):
+    def set_command(self, command: Command) -> None:
+        """Sets the command to be executed by the Invoker.
+
+        Args:
+            command (Command): The command to be executed.
+        """
         self._command = command
 
-    def execute_command(self):
+    def execute_command(self) -> None:
+        """Executes the command if it is set."""
         if self._command:
             self._command.execute()
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Command design pattern."""
     receiver = Receiver()
     command = ConcreteCommand(receiver)
 
     invoker = Invoker()
     invoker.set_command(command)
     invoker.execute_command()
+
+
+if __name__ == "__main__":
+    main()
