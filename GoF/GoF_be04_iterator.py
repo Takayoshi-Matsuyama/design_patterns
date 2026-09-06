@@ -61,6 +61,27 @@ class Aggregate(ABC):
     """
 
     @abstractmethod
+    def count(self) -> int:
+        """Returns the number of items in the aggregate.
+
+        Returns:
+            int: The number of items in the aggregate.
+        """
+        ...  # Should be implemented by concrete subclasses.
+
+    @abstractmethod
+    def get_item(self, index: int) -> str:
+        """Returns the item at the specified index.
+
+        Args:
+            index (int): The index of the item to retrieve.
+
+        Returns:
+            str: The item at the specified index.
+        """
+        ...  # Should be implemented by concrete subclasses.
+
+    @abstractmethod
     def create_iterator(self) -> Iterator:
         """Creates an iterator for the aggregate.
 
