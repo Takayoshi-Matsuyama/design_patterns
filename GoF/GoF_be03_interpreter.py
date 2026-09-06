@@ -20,10 +20,16 @@ from abc import ABC, abstractmethod
 
 
 class Context:
+    """Represents the Context in the Interpreter design pattern."""
 
-    def __init__(self, input):
-        self.input = input
-        self.output = 0
+    def __init__(self, input: str) -> None:
+        """Initializes the Context.
+
+        Args:
+            input (str): The input string for interpretation.
+        """
+        self.input: str = input
+        self.output: int = 0
 
 
 class AbstractExpression(ABC):
@@ -34,29 +40,42 @@ class AbstractExpression(ABC):
     """
 
     @abstractmethod
-    def interpret(self, context):
-        pass
+    def interpret(self, context: Context) -> None:
+        """Interprets the context."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class TerminalExpression(AbstractExpression):
+    """Represents the Terminal Expression in the Interpreter design pattern."""
 
-    def interpret(self, context):
+    def interpret(self, context: Context) -> None:
+        """Interprets the context for the terminal expression."""
         context.output += int(context.input)
 
 
 class NonTerminalExpression(AbstractExpression):
+    """Represents the Non-Terminal Expression in the Interpreter design pattern."""
 
-    def __init__(self, expression1, expression2):
+    def __init__(
+        self, expression1: AbstractExpression, expression2: AbstractExpression
+    ) -> None:
+        """Initializes the Non-Terminal Expression.
+
+        Args:
+            expression1 (AbstractExpression): The first sub-expression.
+            expression2 (AbstractExpression): The second sub-expression.
+        """
         self.expression1 = expression1
         self.expression2 = expression2
 
-    def interpret(self, context):
+    def interpret(self, context: Context) -> None:
+        """Interprets the context for the non-terminal expression."""
         self.expression1.interpret(context)
         self.expression2.interpret(context)
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Interpreter design pattern."""
     context = Context("5")
     terminal_expression = TerminalExpression()
     terminal_expression.interpret(context)
@@ -68,3 +87,7 @@ if __name__ == "__main__":
     )
     non_terminal_expression.interpret(context2)
     print(f"Non-Terminal Expression Output: {context2.output}")
+
+
+if __name__ == "__main__":
+    main()
