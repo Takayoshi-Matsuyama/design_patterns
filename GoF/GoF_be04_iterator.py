@@ -61,7 +61,11 @@ class Aggregate(ABC):
 
     @abstractmethod
     def create_iterator(self) -> Iterator:
-        """Creates an iterator for the aggregate."""
+        """Creates an iterator for the aggregate.
+
+        Returns:
+            Iterator: An iterator for the aggregate.
+        """
         ...  # Should be implemented by concrete subclasses.
 
 
@@ -73,15 +77,23 @@ class ConcreteAggregate(Aggregate):
         self._items: list[str] = ["A", "B", "C", "D", "E"]  # Demo data
 
     def create_iterator(self) -> Iterator:
-        """Creates an iterator for the concrete aggregate."""
+        """Creates an iterator for the concrete aggregate.
+
+        Returns:
+            ConcreteIterator: An iterator for the concrete aggregate.
+        """
         return ConcreteIterator(self)
 
 
 class ConcreteIterator(Iterator):
     """Represents the Concrete Iterator in the Iterator design pattern."""
 
-    def __init__(self, aggregate: Aggregate):
-        """Initializes the Concrete Iterator."""
+    def __init__(self, aggregate: Aggregate) -> None:
+        """Initializes the Concrete Iterator.
+
+        Args:
+            aggregate (Aggregate): The aggregate to iterate over.
+        """
         self._aggregate: Aggregate = aggregate
         self._current: int = 0
 
