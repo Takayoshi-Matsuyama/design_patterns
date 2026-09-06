@@ -28,17 +28,29 @@ class Colleague(ABC):
     """
 
     def __init__(self, mediator: Mediator) -> None:
-        """Initializes the Colleague with a mediator."""
+        """Initializes the Colleague with a mediator.
+
+        Args:
+            mediator (Mediator): The mediator instance that this colleague will communicate with.
+        """
         self._mediator: Mediator = mediator
 
     @abstractmethod
     def send(self, message: str) -> None:
-        """Sends a message to the mediator."""
+        """Sends a message to the mediator.
+
+        Args:
+            message (str): The message to send.
+        """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
     def receive(self, message: str) -> None:
-        """Receives a message from the mediator."""
+        """Receives a message from the mediator.
+
+        Args:
+            message (str): The message received from the mediator.
+        """
         ...  # Should be implemented by concrete subclasses.
 
 
@@ -47,7 +59,12 @@ class Mediator(ABC):
 
     @abstractmethod
     def notify(self, sender: Colleague, message: str) -> None:
-        """Notifies the mediator of a message from a colleague."""
+        """Notifies the mediator of a message from a colleague.
+
+        Args:
+            sender (Colleague): The colleague sending the message.
+            message (str): The message being sent.
+        """
         ...  # Should be implemented by concrete subclasses.
 
 
@@ -55,11 +72,19 @@ class ConcreteColleague1(Colleague):
     """Represents a Concrete Colleague in the Mediator design pattern."""
 
     def send(self, message: str) -> None:
-        """Sends a message to the mediator."""
+        """Sends a message to the mediator.
+
+        Args:
+            message (str): The message to send.
+        """
         self._mediator.notify(self, message)
 
     def receive(self, message: str) -> None:
-        """Receives a message from the mediator."""
+        """Receives a message from the mediator.
+
+        Args:
+            message (str): The message received from the mediator.
+        """
         print(f"{self.__class__.__name__} received: {message}")
 
 
@@ -67,11 +92,19 @@ class ConcreteColleague2(Colleague):
     """Represents a Concrete Colleague in the Mediator design pattern."""
 
     def send(self, message: str) -> None:
-        """Sends a message to the mediator."""
+        """Sends a message to the mediator.
+
+        Args:
+            message (str): The message to send.
+        """
         self._mediator.notify(self, message)
 
     def receive(self, message: str) -> None:
-        """Receives a message from the mediator."""
+        """Receives a message from the mediator.
+
+        Args:
+            message (str): The message received from the mediator.
+        """
         print(f"{self.__class__.__name__} received: {message}")
 
 
@@ -84,7 +117,12 @@ class ConcreteMediator(Mediator):
         self.colleague2: ConcreteColleague2 = ConcreteColleague2(self)
 
     def notify(self, sender: Colleague, message: str) -> None:
-        """Notifies the appropriate colleague of a message from the sender."""
+        """Notifies the appropriate colleague of a message from the sender.
+
+        Args:
+            sender (Colleague): The colleague sending the message.
+            message (str): The message being sent.
+        """
         if sender == self.colleague1:
             self.colleague2.receive(message)
         elif sender == self.colleague2:
