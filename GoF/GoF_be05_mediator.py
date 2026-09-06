@@ -27,60 +27,79 @@ class Colleague(ABC):
     """
 
     @abstractmethod
-    def send(self, message):
-        pass
+    def send(self, message: str) -> None:
+        """Sends a message to the mediator."""
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def receive(self, message):
-        pass
+    def receive(self, message: str) -> None:
+        """Receives a message from the mediator."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class Mediator(ABC):
+    """Represents the Mediator in the Mediator design pattern."""
 
     @abstractmethod
-    def notify(self, sender, message):
-        pass
+    def notify(self, sender: Colleague, message: str) -> None:
+        """Notifies the mediator of a message from a colleague."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteColleague1(Colleague):
+    """Represents a Concrete Colleague in the Mediator design pattern."""
 
-    def __init__(self, mediator):
-        self.mediator = mediator
+    def __init__(self, mediator: Mediator) -> None:
+        """Initializes the Concrete Colleague with a mediator."""
+        self._mediator: Mediator = mediator
 
-    def send(self, message):
-        self.mediator.notify(self, message)
+    def send(self, message: str) -> None:
+        """Sends a message to the mediator."""
+        self._mediator.notify(self, message)
 
-    def receive(self, message):
+    def receive(self, message: str) -> None:
+        """Receives a message from the mediator."""
         print(f"{self.__class__.__name__} received: {message}")
 
 
 class ConcreteColleague2(Colleague):
+    """Represents a Concrete Colleague in the Mediator design pattern."""
 
-    def __init__(self, mediator):
-        self.mediator = mediator
+    def __init__(self, mediator: Mediator) -> None:
+        """Initializes the Concrete Colleague with a mediator."""
+        self._mediator: Mediator = mediator
 
-    def send(self, message):
-        self.mediator.notify(self, message)
+    def send(self, message: str) -> None:
+        """Sends a message to the mediator."""
+        self._mediator.notify(self, message)
 
-    def receive(self, message):
+    def receive(self, message: str) -> None:
+        """Receives a message from the mediator."""
         print(f"{self.__class__.__name__} received: {message}")
 
 
 class ConcreteMediator(Mediator):
+    """Represents the Concrete Mediator in the Mediator design pattern."""
 
-    def __init__(self):
-        self.colleague1 = ConcreteColleague1(self)
-        self.colleague2 = ConcreteColleague2(self)
+    def __init__(self) -> None:
+        """Initializes the Concrete Mediator with its colleagues."""
+        self._colleague1: ConcreteColleague1 = ConcreteColleague1(self)
+        self._colleague2: ConcreteColleague2 = ConcreteColleague2(self)
 
-    def notify(self, sender, message):
-        if sender == self.colleague1:
-            self.colleague2.receive(message)
-        elif sender == self.colleague2:
-            self.colleague1.receive(message)
+    def notify(self, sender: Colleague, message: str) -> None:
+        """Notifies the appropriate colleague of a message from the sender."""
+        if sender == self._colleague1:
+            self._colleague2.receive(message)
+        elif sender == self._colleague2:
+            self._colleague1.receive(message)
+
+
+def main() -> None:
+    """Demonstrates the Mediator design pattern."""
+    mediator = ConcreteMediator()
+    mediator._colleague1.send("Hello from Colleague 1")
+    mediator._colleague2.send("Hello from Colleague 2")
 
 
 if __name__ == "__main__":
-
-    mediator = ConcreteMediator()
-    mediator.colleague1.send("Hello from Colleague 1")
-    mediator.colleague2.send("Hello from Colleague 2")
+    main()
