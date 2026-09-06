@@ -16,6 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
@@ -25,6 +26,10 @@ class Colleague(ABC):
     Note: By inheriting from Abstract Base Class (ABC) and using the @abstractmethod decorator,
           we ensure that any concrete implementation must implement the decorated method.
     """
+
+    def __init__(self, mediator: Mediator) -> None:
+        """Initializes the Colleague with a mediator."""
+        self._mediator: Mediator = mediator
 
     @abstractmethod
     def send(self, message: str) -> None:
@@ -49,10 +54,6 @@ class Mediator(ABC):
 class ConcreteColleague1(Colleague):
     """Represents a Concrete Colleague in the Mediator design pattern."""
 
-    def __init__(self, mediator: Mediator) -> None:
-        """Initializes the Concrete Colleague with a mediator."""
-        self._mediator: Mediator = mediator
-
     def send(self, message: str) -> None:
         """Sends a message to the mediator."""
         self._mediator.notify(self, message)
@@ -64,10 +65,6 @@ class ConcreteColleague1(Colleague):
 
 class ConcreteColleague2(Colleague):
     """Represents a Concrete Colleague in the Mediator design pattern."""
-
-    def __init__(self, mediator: Mediator) -> None:
-        """Initializes the Concrete Colleague with a mediator."""
-        self._mediator: Mediator = mediator
 
     def send(self, message: str) -> None:
         """Sends a message to the mediator."""
@@ -83,22 +80,22 @@ class ConcreteMediator(Mediator):
 
     def __init__(self) -> None:
         """Initializes the Concrete Mediator with its colleagues."""
-        self._colleague1: ConcreteColleague1 = ConcreteColleague1(self)
-        self._colleague2: ConcreteColleague2 = ConcreteColleague2(self)
+        self.colleague1: ConcreteColleague1 = ConcreteColleague1(self)
+        self.colleague2: ConcreteColleague2 = ConcreteColleague2(self)
 
     def notify(self, sender: Colleague, message: str) -> None:
         """Notifies the appropriate colleague of a message from the sender."""
-        if sender == self._colleague1:
-            self._colleague2.receive(message)
-        elif sender == self._colleague2:
-            self._colleague1.receive(message)
+        if sender == self.colleague1:
+            self.colleague2.receive(message)
+        elif sender == self.colleague2:
+            self.colleague1.receive(message)
 
 
 def main() -> None:
     """Demonstrates the Mediator design pattern."""
     mediator = ConcreteMediator()
-    mediator._colleague1.send("Hello from Colleague 1")
-    mediator._colleague2.send("Hello from Colleague 2")
+    mediator.colleague1.send("Hello from Colleague 1")
+    mediator.colleague2.send("Hello from Colleague 2")
 
 
 if __name__ == "__main__":
