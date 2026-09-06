@@ -50,6 +50,7 @@ class ConcreteCommand(Command):
             receiver (Receiver): The receiver of the command.
         """
         self._receiver = receiver
+        self.state = "reserved for future use (Undo functionality)"
 
     def execute(self) -> None:
         """Executes the command."""
