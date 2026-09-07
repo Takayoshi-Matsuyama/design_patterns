@@ -16,6 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
@@ -27,71 +28,100 @@ class Observer(ABC):
     """
 
     @abstractmethod
-    def update(self, subject):
-        pass
+    def update(self, subject: Subject) -> None:
+        """Updates the observer with the state of the subject.
+
+        Args:
+            subject (Subject): The subject that notifies the observer of a state change.
+        """
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteObserver(Observer):
+    """Represents a concrete implementation of the Observer in the Observer design pattern."""
 
-    def __init__(self, subject):
+    def __init__(self, subject: Subject) -> None:
+        """Initializes the ConcreteObserver with a subject to observe.
+
+        Args:
+            subject (Subject): The subject to be observed.
+        """
         self._observer_state = None
         self._subject = subject
         self._subject.attach(self)
 
-    def update(self, subject):
+    def update(self, subject: Subject) -> None:
+        """Updates the observer with the state of the subject.
+
+        Args:
+            subject (Subject): The subject that notifies the observer of a state change.
+        """
         self._observer_state = subject.get_state()
         print(f"ConcreteObserver: Updated observer state to {self._observer_state}")
 
 
 class Subject(ABC):
+    """Represents the Subject in the Observer design pattern."""
 
     @abstractmethod
-    def attach(self, observer):
-        pass
+    def attach(self, observer: Observer) -> None:
+        """Attaches an observer to the subject."""
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def detach(self, observer):
-        pass
+    def detach(self, observer: Observer) -> None:
+        """Detaches an observer from the subject."""
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def notify(self):
-        pass
+    def notify(self) -> None:
+        """Notifies all attached observers of a state change."""
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def set_state(self, state):
-        pass
+    def set_state(self, state: str) -> None:
+        """Sets the state of the subject and notifies observers."""
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def get_state(self):
-        pass
+    def get_state(self) -> str:
+        """Gets the current state of the subject."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteSubject(Subject):
+    """Represents a concrete implementation of the Subject in the Observer design pattern."""
 
     def __init__(self):
+        """Initializes the ConcreteSubject."""
         self._observers = []
-        self._subject_state = None
+        self._subject_state = ""  # Empty string
 
-    def attach(self, observer):
+    def attach(self, observer: Observer) -> None:
+        """Attaches an observer to the subject."""
         self._observers.append(observer)
 
-    def detach(self, observer):
+    def detach(self, observer: Observer) -> None:
+        """Detaches an observer from the subject."""
         self._observers.remove(observer)
 
-    def notify(self):
+    def notify(self) -> None:
+        """Notifies all attached observers of a state change."""
         for observer in self._observers:
             observer.update(self)
 
-    def set_state(self, state):
+    def set_state(self, state: str) -> None:
+        """Sets the state of the subject and notifies observers."""
         self._subject_state = state
         self.notify()
 
-    def get_state(self):
+    def get_state(self) -> str:
+        """Gets the current state of the subject."""
         return self._subject_state
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Observer design pattern."""
     subject = ConcreteSubject()
     observer1 = ConcreteObserver(subject)
     observer2 = ConcreteObserver(subject)
@@ -101,3 +131,10 @@ if __name__ == "__main__":
 
     subject.detach(observer1)
     subject.set_state("State 3")
+
+    subject.detach(observer2)
+    subject.set_state("State 4")
+
+
+if __name__ == "__main__":
+    main()
