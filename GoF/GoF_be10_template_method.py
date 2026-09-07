@@ -26,29 +26,39 @@ class AbstractClass(ABC):
           we ensure that any concrete implementation must implement the decorated method.
     """
 
-    def template_method(self):
+    def template_method(self) -> None:
+        """Defines the skeleton of an algorithm, deferring some steps to subclasses."""
         self.primitive_operation1()
         self.primitive_operation2()
 
     @abstractmethod
-    def primitive_operation1(self):
-        pass
+    def primitive_operation1(self) -> None:
+        """A primitive operation that must be implemented by subclasses."""
+        ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def primitive_operation2(self):
-        pass
+    def primitive_operation2(self) -> None:
+        """A primitive operation that must be implemented by subclasses."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteClass(AbstractClass):
+    """Represents a concrete implementation of the Abstract Class in the Template Method design pattern."""
 
-    def primitive_operation1(self):
+    def primitive_operation1(self) -> None:
+        """The first primitive operation."""
         print("ConcreteClass: Implementing primitive_operation1")
 
-    def primitive_operation2(self):
+    def primitive_operation2(self) -> None:
+        """The second primitive operation."""
         print("ConcreteClass: Implementing primitive_operation2")
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Template Method design pattern."""
     concrete = ConcreteClass()
     concrete.template_method()
+
+
+if __name__ == "__main__":
+    main()
