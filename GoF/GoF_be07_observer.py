@@ -46,8 +46,8 @@ class ConcreteObserver(Observer):
         Args:
             subject (Subject): The subject to be observed.
         """
-        self._observer_state = None
-        self._subject = subject
+        self._observer_state: str = ""  # Empty string
+        self._subject: Subject = subject
         self._subject.attach(self)
 
     def update(self, subject: Subject) -> None:
@@ -56,8 +56,9 @@ class ConcreteObserver(Observer):
         Args:
             subject (Subject): The subject that notifies the observer of a state change.
         """
-        self._observer_state = subject.get_state()
-        print(f"ConcreteObserver: Updated observer state to {self._observer_state}")
+        if isinstance(subject, StateSubject):
+            self._observer_state = subject.get_state()
+            print(f"ConcreteObserver: Updated observer state to {self._observer_state}")
 
 
 class Subject(ABC):
@@ -65,12 +66,20 @@ class Subject(ABC):
 
     @abstractmethod
     def attach(self, observer: Observer) -> None:
-        """Attaches an observer to the subject."""
+        """Attaches an observer to the subject.
+
+        Args:
+            observer (Observer): The observer to be attached.
+        """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
     def detach(self, observer: Observer) -> None:
-        """Detaches an observer from the subject."""
+        """Detaches an observer from the subject.
+
+        Args:
+            observer (Observer): The observer to be detached.
+        """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
@@ -78,31 +87,51 @@ class Subject(ABC):
         """Notifies all attached observers of a state change."""
         ...  # Should be implemented by concrete subclasses.
 
+
+class StateSubject(Subject):
+    """Represents a Subject that has a state in the Observer design pattern."""
+
     @abstractmethod
     def set_state(self, state: str) -> None:
-        """Sets the state of the subject and notifies observers."""
+        """Sets the state of the subject.
+
+        Args:
+            state (str): The new state of the subject.
+        """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
     def get_state(self) -> str:
-        """Gets the current state of the subject."""
+        """Gets the current state of the subject.
+
+        Returns:
+            str: The current state of the subject.
+        """
         ...  # Should be implemented by concrete subclasses.
 
 
-class ConcreteSubject(Subject):
+class ConcreteSubject(StateSubject):
     """Represents a concrete implementation of the Subject in the Observer design pattern."""
 
     def __init__(self):
         """Initializes the ConcreteSubject."""
-        self._observers = []
-        self._subject_state = ""  # Empty string
+        self._observers: list[Observer] = []
+        self._subject_state: str = ""  # Empty string
 
     def attach(self, observer: Observer) -> None:
-        """Attaches an observer to the subject."""
+        """Attaches an observer to the subject.
+
+        Args:
+            observer (Observer): The observer to be attached.
+        """
         self._observers.append(observer)
 
     def detach(self, observer: Observer) -> None:
-        """Detaches an observer from the subject."""
+        """Detaches an observer from the subject.
+
+        Args:
+            observer (Observer): The observer to be detached.
+        """
         self._observers.remove(observer)
 
     def notify(self) -> None:
@@ -111,12 +140,20 @@ class ConcreteSubject(Subject):
             observer.update(self)
 
     def set_state(self, state: str) -> None:
-        """Sets the state of the subject and notifies observers."""
+        """Sets the state of the subject and notifies observers.
+
+        Args:
+            state (str): The new state of the subject.
+        """
         self._subject_state = state
         self.notify()
 
     def get_state(self) -> str:
-        """Gets the current state of the subject."""
+        """Gets the current state of the subject.
+
+        Returns:
+            str: The current state of the subject.
+        """
         return self._subject_state
 
 
