@@ -72,6 +72,22 @@ class ConcreteStrategyB(Strategy):
         return a - b
 
 
+class ConcreteStrategyC(Strategy):
+    """Represents a concrete implementation of the Strategy in the Strategy design pattern."""
+
+    def execute_algorithm(self, a: int, b: int) -> int:
+        """Executes the algorithm defined by Strategy C (multiplication).
+
+        Args:
+            a (int): The first operand.
+            b (int): The second operand.
+
+        Returns:
+            int: The result of the multiplication.
+        """
+        return a * b
+
+
 class Context:
     """Represents the Context in the Strategy design pattern."""
 
@@ -81,7 +97,7 @@ class Context:
         Args:
             strategy (Strategy): The initial strategy to be used by the context.
         """
-        self._strategy = strategy
+        self._strategy: Strategy = strategy
 
     def set_strategy(self, strategy: Strategy) -> None:
         """Sets a new strategy for the context.
@@ -117,6 +133,10 @@ def main() -> None:
     context.set_strategy(ConcreteStrategyB())
     result = context.execute_strategy(a, b)
     print(f"Subtraction Result = {result}")
+
+    context.set_strategy(ConcreteStrategyC())
+    result = context.execute_strategy(a, b)
+    print(f"Multiplication Result = {result}")
 
 
 if __name__ == "__main__":
