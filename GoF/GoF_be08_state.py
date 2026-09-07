@@ -27,39 +27,52 @@ class State(ABC):
     """
 
     @abstractmethod
-    def handle(self):
-        pass
+    def handle(self) -> None:
+        """Handles the request based on the current state."""
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteStateA(State):
+    """Represents a concrete implementation of the State in the State design pattern."""
 
-    def handle(self):
+    def handle(self) -> None:
+        """Handles the request in State A."""
         print("ConcreteStateA: Handling request in State A.")
 
 
 class ConcreteStateB(State):
+    """Represents a concrete implementation of the State in the State design pattern."""
 
-    def handle(self):
+    def handle(self) -> None:
+        """Handles the request in State B."""
         print("ConcreteStateB: Handling request in State B.")
 
 
 class Context:
+    """Represents the Context in the State design pattern."""
 
     def __init__(self):
-        self._state = None
+        """Initializes the Context with no state."""
+        self._state: State | None = None
 
-    def set_state(self, state):
+    def set_state(self, state: State) -> None:
+        """Sets the current state of the Context.
+
+        Args:
+            state (State): The new state of the Context.
+        """
         self._state = state
 
-    def request(self):
+    def request(self) -> None:
+        """Handles the request by delegating to the current state."""
         if self._state:
             self._state.handle()
         else:
             print("Context: No state set to handle the request.")
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the State design pattern."""
     context = Context()
 
     state_a = ConcreteStateA()
@@ -70,3 +83,7 @@ if __name__ == "__main__":
 
     context.set_state(state_b)
     context.request()
+
+
+if __name__ == "__main__":
+    main()
