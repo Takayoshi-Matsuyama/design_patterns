@@ -27,40 +27,97 @@ class Strategy(ABC):
     """
 
     @abstractmethod
-    def algorithm_interface(self, a, b):
-        pass
+    def execute_algorithm(self, a: int, b: int) -> int:
+        """Executes the algorithm defined by the strategy.
+
+        Args:
+            a (int): The first operand.
+            b (int): The second operand.
+
+        Returns:
+            int: The result of the algorithm.
+        """
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteStrategyA(Strategy):
+    """Represents a concrete implementation of the Strategy in the Strategy design pattern."""
 
-    def algorithm_interface(self, a, b):
+    def execute_algorithm(self, a: int, b: int) -> int:
+        """Executes the algorithm defined by Strategy A (addition).
+
+        Args:
+            a (int): The first operand.
+            b (int): The second operand.
+
+        Returns:
+            int: The result of the addition.
+        """
         return a + b
 
 
 class ConcreteStrategyB(Strategy):
+    """Represents a concrete implementation of the Strategy in the Strategy design pattern."""
 
-    def algorithm_interface(self, a, b):
+    def execute_algorithm(self, a: int, b: int) -> int:
+        """Executes the algorithm defined by Strategy B (subtraction).
+
+        Args:
+            a (int): The first operand.
+            b (int): The second operand.
+
+        Returns:
+            int: The result of the subtraction.
+        """
         return a - b
 
 
 class Context:
+    """Represents the Context in the Strategy design pattern."""
 
-    def __init__(self, strategy):
+    def __init__(self, strategy: Strategy) -> None:
+        """Initializes the Context with a strategy.
+
+        Args:
+            strategy (Strategy): The initial strategy to be used by the context.
+        """
         self._strategy = strategy
 
-    def set_strategy(self, strategy):
+    def set_strategy(self, strategy: Strategy) -> None:
+        """Sets a new strategy for the context.
+
+        Args:
+            strategy (Strategy): The new strategy to be used by the context.
+        """
         self._strategy = strategy
 
-    def execute_strategy(self, a, b):
-        return self._strategy.algorithm_interface(a, b)
+    def execute_strategy(self, a: int, b: int) -> int:
+        """Executes the current strategy with the given operands.
+
+        Args:
+            a (int): The first operand.
+            b (int): The second operand.
+
+        Returns:
+            int: The result of the strategy's algorithm.
+        """
+        return self._strategy.execute_algorithm(a, b)
+
+
+def main() -> None:
+    """Demonstrates the Strategy design pattern."""
+    a = 5
+    b = 3
+    print(f"Operands: a = {a}, b = {b}")
+
+    context = Context(ConcreteStrategyA())
+    result = context.execute_strategy(a, b)
+    print(f"Addition Result = {result}")
+
+    context.set_strategy(ConcreteStrategyB())
+    result = context.execute_strategy(a, b)
+    print(f"Subtraction Result = {result}")
 
 
 if __name__ == "__main__":
-
-    context = Context(ConcreteStrategyA())
-    result = context.execute_strategy(5, 3)
-    print(f"Addition Result: {result}")
-
-    context.set_strategy(ConcreteStrategyB())
-    result = context.execute_strategy(5, 3)
-    print(f"Subtraction Result: {result}")
+    main()
