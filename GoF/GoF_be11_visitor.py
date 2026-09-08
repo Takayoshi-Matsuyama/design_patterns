@@ -123,15 +123,53 @@ class ConcreteElementB(Element):
         visitor.visit_concrete_element_b(self)
 
 
+class ObjectStructure:
+    """Represents the Object Structure in the Visitor design pattern.
+
+    Note: The Object Structure can be a collection of elements that can be iterated over.
+          It provides a way to access the elements and allows visitors to visit them.
+    """
+
+    def __init__(self) -> None:
+        """Initializes the Object Structure with an empty list of elements."""
+        self._elements: list[Element] = []
+
+    def attach(self, element: Element) -> None:
+        """Attaches an element to the Object Structure.
+
+        Args:
+            element (Element): The element to be attached.
+        """
+        self._elements.append(element)
+
+    def detach(self, element: Element) -> None:
+        """Detaches an element from the Object Structure.
+
+        Args:
+            element (Element): The element to be detached.
+        """
+        self._elements.remove(element)
+
+    def accept(self, visitor: Visitor) -> None:
+        """Accepts a visitor and allows it to visit all elements in the Object Structure.
+
+        Args:
+            visitor (Visitor): The visitor that will visit the elements.
+        """
+        for element in self._elements:
+            element.accept(visitor)
+
+
 def main() -> None:
     """Demonstrates the Visitor design pattern."""
-    elements = [ConcreteElementA(), ConcreteElementB()]
+    object_structure = ObjectStructure()
+    object_structure.attach(ConcreteElementA())
+    object_structure.attach(ConcreteElementB())
+
     visitor1 = ConcreteVisitor1()
     visitor2 = ConcreteVisitor2()
-
-    for element in elements:
-        element.accept(visitor1)
-        element.accept(visitor2)
+    object_structure.accept(visitor1)
+    object_structure.accept(visitor2)
 
 
 if __name__ == "__main__":
