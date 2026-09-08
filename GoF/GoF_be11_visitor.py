@@ -16,6 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
@@ -27,7 +28,7 @@ class Visitor(ABC):
     """
 
     @abstractmethod
-    def visit(self, element) -> None:
+    def visit(self, element: Element) -> None:
         """Visits an element and performs an operation on it.
 
         Args:
@@ -40,7 +41,7 @@ class Element(ABC):
     """Represents the Element in the Visitor design pattern."""
 
     @abstractmethod
-    def accept(self, visitor) -> None:
+    def accept(self, visitor: Visitor) -> None:
         """Accepts a visitor and allows it to perform an operation on this element.
 
         Args:
@@ -52,7 +53,7 @@ class Element(ABC):
 class ConcreteVisitor1(Visitor):
     """Represents a concrete implementation of the Visitor in the Visitor design pattern."""
 
-    def visit(self, element) -> None:
+    def visit(self, element: Element) -> None:
         """Visits an element and performs an operation on it.
 
         Args:
@@ -64,7 +65,7 @@ class ConcreteVisitor1(Visitor):
 class ConcreteVisitor2(Visitor):
     """Represents a concrete implementation of the Visitor in the Visitor design pattern."""
 
-    def visit(self, element) -> None:
+    def visit(self, element: Element) -> None:
         """Visits an element and performs an operation on it.
 
         Args:
@@ -76,7 +77,7 @@ class ConcreteVisitor2(Visitor):
 class ConcreteElementA(Element):
     """Represents a concrete implementation of the Element in the Visitor design pattern."""
 
-    def accept(self, visitor) -> None:
+    def accept(self, visitor: Visitor) -> None:
         """Accepts a visitor and allows it to perform an operation on this element.
 
         Args:
@@ -88,7 +89,7 @@ class ConcreteElementA(Element):
 class ConcreteElementB(Element):
     """Represents a concrete implementation of the Element in the Visitor design pattern."""
 
-    def accept(self, visitor) -> None:
+    def accept(self, visitor: Visitor) -> None:
         """Accepts a visitor and allows it to perform an operation on this element.
 
         Args:
