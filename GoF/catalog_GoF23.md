@@ -10,6 +10,9 @@
 | 4 | Prototype | 原型インスタンスをコピーして生成する |
 | 5 | Singleton | インスタンスが1つだけであることを保証する |
 
+
+<img src="catalog_GoF23_images/GoF_cr01_abstract_factory.png" alt="Abstract Factory" height="330">
+
 ## Structural / 構造 (7)
 
 | No. | Pattern Name | Summary |
