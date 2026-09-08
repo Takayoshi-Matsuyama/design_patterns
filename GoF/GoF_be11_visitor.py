@@ -28,11 +28,20 @@ class Visitor(ABC):
     """
 
     @abstractmethod
-    def visit(self, element: Element) -> None:
+    def visit_concrete_element_a(self, element_a: ConcreteElementA) -> None:
         """Visits an element and performs an operation on it.
 
         Args:
-            element (Element): The element to be visited.
+            element_a (ConcreteElementA): The element to be visited.
+        """
+        ...  # Should be implemented by concrete subclasses.
+
+    @abstractmethod
+    def visit_concrete_element_b(self, element_b: ConcreteElementB) -> None:
+        """Visits an element and performs an operation on it.
+
+        Args:
+            element_b (ConcreteElementB): The element to be visited.
         """
         ...  # Should be implemented by concrete subclasses.
 
@@ -53,25 +62,41 @@ class Element(ABC):
 class ConcreteVisitor1(Visitor):
     """Represents a concrete implementation of the Visitor in the Visitor design pattern."""
 
-    def visit(self, element: Element) -> None:
+    def visit_concrete_element_a(self, element_a: ConcreteElementA) -> None:
         """Visits an element and performs an operation on it.
 
         Args:
-            element (Element): The element to be visited.
+            element_a (ConcreteElementA): The element to be visited.
         """
-        print(f"ConcreteVisitor #1: Visiting {element.__class__.__name__}")
+        print(f"ConcreteVisitor #1: Visiting {element_a.__class__.__name__}")
+
+    def visit_concrete_element_b(self, element_b: ConcreteElementB) -> None:
+        """Visits an element and performs an operation on it.
+
+        Args:
+            element_b (ConcreteElementB): The element to be visited.
+        """
+        print(f"ConcreteVisitor #1: Visiting {element_b.__class__.__name__}")
 
 
 class ConcreteVisitor2(Visitor):
     """Represents a concrete implementation of the Visitor in the Visitor design pattern."""
 
-    def visit(self, element: Element) -> None:
+    def visit_concrete_element_a(self, element_a: ConcreteElementA) -> None:
         """Visits an element and performs an operation on it.
 
         Args:
-            element (Element): The element to be visited.
+            element_a (ConcreteElementA): The element to be visited.
         """
-        print(f"ConcreteVisitor #2: Visiting {element.__class__.__name__}")
+        print(f"ConcreteVisitor #2: Visiting {element_a.__class__.__name__}")
+
+    def visit_concrete_element_b(self, element_b: ConcreteElementB) -> None:
+        """Visits an element and performs an operation on it.
+
+        Args:
+            element_b (ConcreteElementB): The element to be visited.
+        """
+        print(f"ConcreteVisitor #2: Visiting {element_b.__class__.__name__}")
 
 
 class ConcreteElementA(Element):
@@ -83,7 +108,7 @@ class ConcreteElementA(Element):
         Args:
             visitor (Visitor): The visitor that will perform an operation on this element.
         """
-        visitor.visit(self)
+        visitor.visit_concrete_element_a(self)
 
 
 class ConcreteElementB(Element):
@@ -95,7 +120,7 @@ class ConcreteElementB(Element):
         Args:
             visitor (Visitor): The visitor that will perform an operation on this element.
         """
-        visitor.visit(self)
+        visitor.visit_concrete_element_b(self)
 
 
 def main() -> None:
