@@ -44,7 +44,7 @@ class AbstractClass(ABC):
     def _primitive_operation1(self) -> None:
         """A primitive operation that must be implemented by subclasses.
 
-        Note: This method is considered as private
+        Note: This method is considered as protected
               so we prefix it with an underscore.
         """
         ...  # Should be implemented by concrete subclasses.
@@ -53,7 +53,7 @@ class AbstractClass(ABC):
     def _primitive_operation2(self) -> None:
         """A primitive operation that must be implemented by subclasses.
 
-        Note: This method is considered as private
+        Note: This method is considered as protected
               so we prefix it with an underscore.
         """
         ...  # Should be implemented by concrete subclasses.
