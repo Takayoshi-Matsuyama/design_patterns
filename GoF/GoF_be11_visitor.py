@@ -27,43 +27,78 @@ class Visitor(ABC):
     """
 
     @abstractmethod
-    def visit(self, element):
-        pass
+    def visit(self, element) -> None:
+        """Visits an element and performs an operation on it.
+
+        Args:
+            element (Element): The element to be visited.
+        """
+        ...  # Should be implemented by concrete subclasses.
 
 
 class Element(ABC):
+    """Represents the Element in the Visitor design pattern."""
 
     @abstractmethod
-    def accept(self, visitor):
-        pass
+    def accept(self, visitor) -> None:
+        """Accepts a visitor and allows it to perform an operation on this element.
+
+        Args:
+            visitor (Visitor): The visitor that will perform an operation on this element.
+        """
+        ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteVisitor1(Visitor):
+    """Represents a concrete implementation of the Visitor in the Visitor design pattern."""
 
-    def visit(self, element):
+    def visit(self, element) -> None:
+        """Visits an element and performs an operation on it.
+
+        Args:
+            element (Element): The element to be visited.
+        """
         print(f"ConcreteVisitor #1: Visiting {element.__class__.__name__}")
 
 
 class ConcreteVisitor2(Visitor):
+    """Represents a concrete implementation of the Visitor in the Visitor design pattern."""
 
-    def visit(self, element):
+    def visit(self, element) -> None:
+        """Visits an element and performs an operation on it.
+
+        Args:
+            element (Element): The element to be visited.
+        """
         print(f"ConcreteVisitor #2: Visiting {element.__class__.__name__}")
 
 
 class ConcreteElementA(Element):
+    """Represents a concrete implementation of the Element in the Visitor design pattern."""
 
-    def accept(self, visitor):
+    def accept(self, visitor) -> None:
+        """Accepts a visitor and allows it to perform an operation on this element.
+
+        Args:
+            visitor (Visitor): The visitor that will perform an operation on this element.
+        """
         visitor.visit(self)
 
 
 class ConcreteElementB(Element):
+    """Represents a concrete implementation of the Element in the Visitor design pattern."""
 
-    def accept(self, visitor):
+    def accept(self, visitor) -> None:
+        """Accepts a visitor and allows it to perform an operation on this element.
+
+        Args:
+            visitor (Visitor): The visitor that will perform an operation on this element.
+        """
         visitor.visit(self)
 
 
-if __name__ == "__main__":
-
+def main() -> None:
+    """Demonstrates the Visitor design pattern."""
     elements = [ConcreteElementA(), ConcreteElementB()]
     visitor1 = ConcreteVisitor1()
     visitor2 = ConcreteVisitor2()
@@ -71,3 +106,7 @@ if __name__ == "__main__":
     for element in elements:
         element.accept(visitor1)
         element.accept(visitor2)
+
+
+if __name__ == "__main__":
+    main()
