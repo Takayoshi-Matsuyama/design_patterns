@@ -17,6 +17,7 @@ limitations under the License.
 """
 
 from abc import ABC, abstractmethod
+from typing import final
 
 
 class AbstractClass(ABC):
@@ -26,32 +27,48 @@ class AbstractClass(ABC):
           we ensure that any concrete implementation must implement the decorated method.
     """
 
+    @final
     def template_method(self) -> None:
-        """Defines the skeleton of an algorithm, deferring some steps to subclasses."""
-        self.primitive_operation1()
-        self.primitive_operation2()
+        """Defines the skeleton of an algorithm, deferring some steps to subclasses.
+
+        Note: The @final decorator indicates that
+              this method should not be overridden by subclasses.
+              In template method design pattern,
+              the template method defines the overall structure of an algorithm,
+              while allowing subclasses to provide specific implementations for certain steps.
+        """
+        self._primitive_operation1()
+        self._primitive_operation2()
 
     @abstractmethod
-    def primitive_operation1(self) -> None:
-        """A primitive operation that must be implemented by subclasses."""
+    def _primitive_operation1(self) -> None:
+        """A primitive operation that must be implemented by subclasses.
+
+        Note: This method is considered as private
+              so we prefix it with an underscore.
+        """
         ...  # Should be implemented by concrete subclasses.
 
     @abstractmethod
-    def primitive_operation2(self) -> None:
-        """A primitive operation that must be implemented by subclasses."""
+    def _primitive_operation2(self) -> None:
+        """A primitive operation that must be implemented by subclasses.
+
+        Note: This method is considered as private
+              so we prefix it with an underscore.
+        """
         ...  # Should be implemented by concrete subclasses.
 
 
 class ConcreteClass(AbstractClass):
     """Represents a concrete implementation of the Abstract Class in the Template Method design pattern."""
 
-    def primitive_operation1(self) -> None:
+    def _primitive_operation1(self) -> None:
         """The first primitive operation."""
-        print("ConcreteClass: Implementing primitive_operation1")
+        print("ConcreteClass: primitive_operation1")
 
-    def primitive_operation2(self) -> None:
+    def _primitive_operation2(self) -> None:
         """The second primitive operation."""
-        print("ConcreteClass: Implementing primitive_operation2")
+        print("ConcreteClass: primitive_operation2")
 
 
 def main() -> None:
