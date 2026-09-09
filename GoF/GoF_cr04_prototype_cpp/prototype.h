@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_GEN04_PROTOTYPE_PROTOTYPE_H_
-#define DESIGN_PTN_GEN04_PROTOTYPE_PROTOTYPE_H_
+#ifndef DESIGN_PTN_CR04_PROTOTYPE_PROTOTYPE_H_
+#define DESIGN_PTN_CR04_PROTOTYPE_PROTOTYPE_H_
 
 #include <memory>
 
@@ -34,4 +34,4 @@ class Prototype {
 
 } // namespace prt_ptn
 
-#endif // DESIGN_PTN_GEN04_PROTOTYPE_PROTOTYPE_H_
+#endif // DESIGN_PTN_CR04_PROTOTYPE_PROTOTYPE_H_

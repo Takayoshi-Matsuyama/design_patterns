@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_GEN04_PROTOTYPE_CONCRETE_PROTOTYPE_1_H_
-#define DESIGN_PTN_GEN04_PROTOTYPE_CONCRETE_PROTOTYPE_1_H_
+#ifndef DESIGN_PTN_CR04_PROTOTYPE_CONCRETE_PROTOTYPE_1_H_
+#define DESIGN_PTN_CR04_PROTOTYPE_CONCRETE_PROTOTYPE_1_H_
 
 #include <memory>
 #include <string>
@@ -57,4 +57,4 @@ class ConcretePrototype1 : public Prototype {
 
 } // namespace prt_ptn
 
-#endif // DESIGN_PTN_GEN04_PROTOTYPE_CONCRETE_PROTOTYPE_1_H_
+#endif // DESIGN_PTN_CR04_PROTOTYPE_CONCRETE_PROTOTYPE_1_H_
