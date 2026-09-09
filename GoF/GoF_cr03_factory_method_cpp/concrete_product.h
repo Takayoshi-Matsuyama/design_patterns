@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
-#define DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
+#ifndef DESIGN_PTN_CR03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
+#define DESIGN_PTN_CR03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
 
 #include <iostream>
 
@@ -32,4 +32,4 @@ class ConcreteProduct : public Product {
 
 } // namespace facmtd_ptn
 
-#endif // DESIGN_PTN_GEN03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
+#endif // DESIGN_PTN_CR03_FACTORY_METHOD_CONCRETE_PRODUCT_H_
