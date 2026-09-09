@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_GEN02_BUILDER_DIRECTOR_H_
-#define DESIGN_PTN_GEN02_BUILDER_DIRECTOR_H_
+#ifndef DESIGN_PTN_CR02_BUILDER_DIRECTOR_H_
+#define DESIGN_PTN_CR02_BUILDER_DIRECTOR_H_
 
 #include "builder.h"
 
@@ -39,4 +39,4 @@ class Director {
 
 } // namespace builder_ptn
 
-#endif // DESIGN_PTN_GEN02_BUILDER_DIRECTOR_H_
+#endif // DESIGN_PTN_CR02_BUILDER_DIRECTOR_H_
