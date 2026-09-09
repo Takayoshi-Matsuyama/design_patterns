@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_GEN05_SIN_SINGLETON_H_
-#define DESIGN_PTN_GEN05_SIN_SINGLETON_H_
+#ifndef DESIGN_PTN_CR05_SIN_SINGLETON_H_
+#define DESIGN_PTN_CR05_SIN_SINGLETON_H_
 
 namespace sin_ptn {
 
@@ -53,4 +53,4 @@ class Singleton {
 
 } // namespace sin_ptn
 
-#endif // DESIGN_PTN_GEN05_SIN_SINGLETON_H_
+#endif // DESIGN_PTN_CR05_SIN_SINGLETON_H_
