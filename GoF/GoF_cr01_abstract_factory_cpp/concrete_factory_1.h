@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DESIGN_PTN_GE01_ABS_FAC_CONCRETE_FACTORY1_H_
-#define DESIGN_PTN_GE01_ABS_FAC_CONCRETE_FACTORY1_H_
+#ifndef DESIGN_PTN_CR01_ABS_FAC_CONCRETE_FACTORY1_H_
+#define DESIGN_PTN_CR01_ABS_FAC_CONCRETE_FACTORY1_H_
 
 #include <memory>
 
@@ -41,4 +41,4 @@ class ConcreteFactory1 : public AbstractFactory {
 
 } // namespace absfac_ptn
 
-#endif // DESIGN_PTN_GE01_ABS_FAC_CONCRETE_FACTORY1_H_
+#endif // DESIGN_PTN_CR01_ABS_FAC_CONCRETE_FACTORY1_H_
