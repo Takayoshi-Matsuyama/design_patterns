@@ -209,3 +209,6 @@ __marimo__/
 # C#
 bin/
 obj/
+
+# VSCode
+.vscode/
