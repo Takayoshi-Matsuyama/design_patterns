@@ -12,6 +12,10 @@
 
 
 <img src="catalog_GoF23_images/GoF_cr01_abstract_factory.png" alt="Abstract Factory" height="330">
+<img src="catalog_GoF23_images/GoF_cr02_builder.png" alt="Builder" height="330">
+<img src="catalog_GoF23_images/GoF_cr03_factory_method.png" alt="Factory Method" height="330">
+<img src="catalog_GoF23_images/GoF_cr04_prototype.png" alt="Prototype" height="330">
+<img src="catalog_GoF23_images/GoF_cr05_singleton.png" alt="Singleton" height="150">
 
 ## Structural / 構造 (7)
 
@@ -24,6 +28,14 @@
 | 5 | Facade | 複数のインターフェースに1つの統一インターフェースを与える |
 | 6 | Flyweight | 多数の細かいオブジェクトを効率良く扱う共有の仕組み |
 | 7 | Proxy | 代理オブジェクト |
+
+<img src="catalog_GoF23_images/GoF_st01_adapter.png" alt="Adapter" height="330">
+<img src="catalog_GoF23_images/GoF_st02_bridge.png" alt="Bridge" height="330">
+<img src="catalog_GoF23_images/GoF_st03_composite.png" alt="Composite" height="330">
+<img src="catalog_GoF23_images/GoF_st04_decorator.png" alt="Decorator" height="330">
+<img src="catalog_GoF23_images/GoF_st05_facade.png" alt="Facade" height="330">
+<img src="catalog_GoF23_images/GoF_st06_flyweight.png" alt="Flyweight" height="330">
+<img src="catalog_GoF23_images/GoF_st07_proxy.png" alt="Proxy" height="330">
 
 ## Behavioral / 振る舞い (11)
 
@@ -40,6 +52,18 @@
 | 9 | Strategy | アルゴリズムのカプセル化と交換 |
 | 10 | Template Method | 処理の骨格定義と具象化 |
 | 11 | Visitor | データ構造と処理の分離 |
+
+<img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="330">
+<img src="catalog_GoF23_images/GoF_b02_command.png" alt="Command" height="330">
+<img src="catalog_GoF23_images/GoF_be03_interpreter.png" alt="Interpreter" height="330">
+<img src="catalog_GoF23_images/GoF_be04_iterator.png" alt="Iterator" height="330">
+<img src="catalog_GoF23_images/GoF_be05_mediator.png" alt="Mediator" height="330">
+<img src="catalog_GoF23_images/GoF_be06_memento.png" alt="Memento" height="330">
+<img src="catalog_GoF23_images/GoF_be07_observer.png" alt="Observer" height="330">
+<img src="catalog_GoF23_images/GoF_be08_state.png" alt="State" height="330">
+<img src="catalog_GoF23_images/GoF_be09_strategy.png" alt="Strategy" height="330">
+<img src="catalog_GoF23_images/GoF_be10_template_method.png" alt="Template Method" height="330">
+<img src="catalog_GoF23_images/GoF_be11_visitor.png" alt="Visitor" height="330">
 
 ## 文献
 * オブジェクト指向における再利用のためのデザインパターン 改訂版, Erich Gamma / Richard Helm / Ralph Johnson / John Vlissides 著、本位田 真一 / 吉田 和樹 監訳, ソフトバンククリエイティブ(株), 1999
