@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Behaviour #01 - Chain of Responsibility
+title GoF - Behavioral #01 - Chain of Responsibility
 
 interface Handler {
     +handle_request()

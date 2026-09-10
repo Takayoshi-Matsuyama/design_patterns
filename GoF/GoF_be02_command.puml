@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Behavior #02 - Command
+title GoF - Behavioral #02 - Command
 
 class Receiver {
     +action()

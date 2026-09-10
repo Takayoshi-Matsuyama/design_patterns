@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Structure #01 - Adapter
+title GoF - Structural #01 - Adapter
 
 interface Target {
     +request(): void
@@ -29,10 +29,10 @@ class Adapter {
     +request(): void
 }
 
-' 実装 - クラスによるインターフェースの実現
+' Implementation
 Adapter ..|> Target
 
-' 依存 - オブジェクトが別のオブジェクトを使う
+' Dependency
 Adapter --> Adaptee
 
 @enduml

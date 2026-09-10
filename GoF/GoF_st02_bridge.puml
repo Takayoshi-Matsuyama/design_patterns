@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Structure #02 - Bridge
+title GoF - Structural #02 - Bridge
 
 interface Implementor {
     +operation_impl(): void

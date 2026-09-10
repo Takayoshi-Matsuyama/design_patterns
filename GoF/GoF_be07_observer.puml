@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Behaviour #07 - Observer
+title GoF - Behavioral #07 - Observer
 
 Interface Observer {
     update()

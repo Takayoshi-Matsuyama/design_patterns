@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Behaviour #10 - Template Method
+title GoF - Behavioral #10 - Template Method
 
 abstract class AbstractClass {
     template_method()

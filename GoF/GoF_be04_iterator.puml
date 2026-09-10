@@ -14,7 +14,7 @@
 'See the License for the specific language governing permissions and
 'limitations under the License.
 
-title GoF - Behavior #04 - Iterator
+title GoF - Behavioral #04 - Iterator
 
 interface Aggregate {
     +create_iterator()
