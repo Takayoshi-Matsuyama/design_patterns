@@ -45,13 +45,13 @@
 | 2 | Command<br>指令 | Encapsulates requests as "command" objects. <br> 要求を「指令」オブジェクトとしてカプセル化する。 |
 | 3 | Interpreter<br>言語解釈 | Represents language grammatical expressions by using hierarchical structure of "terminal" and "non-terminal" objects. This realizes language interpretation by software. <br>  言語の文法表現を「終端」と「非終端」のオブジェクトの階層構造で表現する。これによりソフトウェアによる言語解釈が可能となる。 |
 | 4 | Interator<br>順次列挙 | Accesses each element of aggregated object sequentially. <br> 集約オブジェクトの要素を順に列挙する。 |
-| 5 | Mediator<br>仲介 | Encapsulate object interactions into a "mediator" object. <br> オブジェクト群の相互作用を「仲介」オブジェクトにカプセル化する。 |
+| 5 | Mediator<br>仲介者 | Encapsulate object interactions into a "mediator" object. <br> オブジェクト群の相互作用を「仲介」オブジェクトにカプセル化する。 |
 | 6 | Memento<br>記憶 | Externalizes an object's internal state to "memento" object and restores it later. <br> オブジェクトの内部状態を外面化して、後で戻す。 |
-| 7 | Observer<br>観測 | Notifies state change to "observer". <br> 「観測者」に状態変化を通知する。 |
+| 7 | Observer<br>観測者 | Notifies state change to "observer". <br> 「観測者」に状態変化を通知する。 |
 | 8 | State<br>状態 | Encapsulates state into "state" object. Has the "State" object itself execute behavior corresponding to the state. <br> オブジェクトの状態を「状態」オブジェクトにカプセル化する。「状態」オブジェクト自身に、状態に応じた振る舞いを実行させる。 |
 | 9 | Strategy<br>戦略 | Encapsulates algorithm into "strategy" objects and switches them dynamically. <br> アルゴリズムを「戦略」オブジェクトにカプセル化し、動的に切り替える。 |
 | 10 | Template Method<br>雛形メソッド | Defines process templates in abstract class. Defines each step inside the template in the concrete classes. <br> 処理のひな型を抽象クラスで定義する。処理の各ステップの振る舞いを具象クラスで定義する。 |
-| 11 | Visitor<br>訪問 | データ構造と処理の分離 |
+| 11 | Visitor<br>訪問者 | "Elements"  accept "visitors". "Visitors" execute element specific operations. By this mechanism, functions can be added from outside of the "elements". <br>「構造要素」は「訪問者」を受け入れる。「訪問者」は訪れた「構造要素」に固有の処理を実行する。この仕組みにより、データ構造の外から機能を追加することができる。 |
 
 <img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="220">
 <img src="catalog_GoF23_images/GoF_b02_command.png" alt="Command" height="420">
