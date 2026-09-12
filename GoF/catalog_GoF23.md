@@ -27,7 +27,7 @@
 | 4 | Decorator<br>装飾 | Decoration of additional responsibility applied dynamically. <br>動的に適用される追加責務の装飾。 |
 | 5 | Facade<br>外観 | Facade providing one unified interface to access various objects. <br> 様々なオブジェクトにアクセスするための、1つの統一インタフェースの外観。 |
 | 6 | Flyweight<br>軽量 | Flyweight small objects that are shared and repeatedly used. <br> 共有され繰り返し使用される、小さな軽量オブジェクト。 |
-| 7 | Proxy | 代理オブジェクト |
+| 7 | Proxy<br>代理人 | Proxies that respond on behalf of something heavy or time-consuming procedure. <br> 重い、あるいは時間を要する処理に変わって応答する代理人。 |
 
 <img src="catalog_GoF23_images/GoF_st01_adapter.png" alt="Adapter" height="220">
 <img src="catalog_GoF23_images/GoF_st02_bridge.png" alt="Bridge" height="330">
