@@ -47,7 +47,7 @@
 | 4 | Iterator<br>順次列挙 | Accesses each element of an aggregated object sequentially. <br> 集約オブジェクトの要素を順に列挙する。 |
 | 5 | Mediator<br>仲介者 | Encapsulates object interactions into a "Mediator" object. <br> オブジェクト群の相互作用を「仲介」オブジェクトにカプセル化する。 |
 | 6 | Memento<br>記憶 | Externalizes an object's internal state to a "Memento" object and restores it later. <br> オブジェクトの内部状態を外部化して、後で戻す。 |
-| 7 | Observer<br>観測者 | Notifies state change to "Observer". <br> 「観測者」に状態変化を通知する。 |
+| 7 | Observer<br>観測者 | Defines a one-to-many dependency between a "Subject" and "Observers". Notifies the state change of the "Subject" to "Observers" all at once. <br> 「主体」と「観測者」の間に1対多の依存関係を定義する。「主体」の状態変化を「観測者たち」に一斉に通知する。 |
 | 8 | State<br>状態 | Encapsulates a state into a "State" object. Has the "State" object itself execute the behavior corresponding to the state. Automated state change (automaton) can be realized by switching the state inside the behavior. <br> オブジェクトの状態を「状態」オブジェクトにカプセル化する。「状態」オブジェクト自身に、状態に応じた振る舞いを実行させる。その振る舞いの中で状態を切り替えることにより、状態遷移の自律化（オートマトン）を実現できる。 |
 | 9 | Strategy<br>戦略 | Encapsulates algorithm into "Strategy" objects and switches them dynamically. <br> アルゴリズムを「戦略」オブジェクトにカプセル化し、動的に切り替える。 |
 | 10 | Template Method<br>雛形メソッド | Defines a process templates in an abstract class. Defines specific steps of the process in concrete classes. <br> 処理のひな型を抽象クラスで定義する。処理の各ステップの振る舞いを具象クラスで定義する。 |
