@@ -41,7 +41,7 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Chain of Responsibility<br>責務連鎖 | 要求を受信するオブジェクト群をチェーン状につなぐ |
+| 1 | Chain of Responsibility<br>責務連鎖 | Process a request sequentially with connected handlers in a chain-like manner. <br> 連鎖状に接続されたハンドラ群により、要求を順次処理する。 |
 | 2 | Command<br>指令 | 要求をオブジェクトとしてカプセル化する |
 | 3 | Interpreter<br>通訳 | 言語に対する文法表現と文の解釈を一緒に定義する |
 | 4 | Interator<br>順次列挙 | 集約オブジェクトの要素に順にアクセスする |
