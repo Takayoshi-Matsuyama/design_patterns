@@ -26,7 +26,7 @@
 | 3 | Composite<br>複合体 | Composite structure of hierarchical tree representing "parts - whole." <br>『部分－全体』を表現する階層木の複合構造。 |
 | 4 | Decorator<br>装飾 | Decoration of additional responsibility applied dynamically. <br>動的に適用される追加責務の装飾。 |
 | 5 | Facade<br>外観 | Facade providing a unified interface to a complex subsystem. <br> 複雑なサブシステムに対し、統一インタフェースを提供する外観。 |
-| 6 | Flyweight<br>軽量 | Flyweight small objects that are shared and repeatedly used. <br> 共有され繰り返し使用される、小さな軽量オブジェクト。 |
+| 6 | Flyweight<br>軽量体 | Flyweight small objects that are shared and repeatedly used. <br> 共有され繰り返し使用される、小さな軽量オブジェクト。 |
 | 7 | Proxy<br>代理人 | Proxies that respond on behalf of a heavy or time-consuming process. <br> 重い、あるいは時間を要する処理の代わりに応答する代理人。 |
 
 <img src="catalog_GoF23_images/GoF_st01_adapter.png" alt="Adapter" height="220">
