@@ -46,7 +46,7 @@
 | 3 | Interpreter<br>言語解釈 | Represents language grammatical expressions by using hierarchical structure of "terminal" and "non-terminal" objects. This realizes language interpretation by software. <br>  言語の文法表現を「終端」と「非終端」のオブジェクトの階層構造で表現する。これによりソフトウェアによる言語解釈が可能となる。 |
 | 4 | Interator<br>順次列挙 | Accesses each element of aggregated object sequentially. <br> 集約オブジェクトの要素を順に列挙する。 |
 | 5 | Mediator<br>仲介 | Encapsulate object interactions into a "mediator" object. <br> オブジェクト群の相互作用を「仲介」オブジェクトにカプセル化する。 |
-| 6 | Memento<br>記憶 | オブジェクトの内部状態を外面化して、戻すことができるようにする |
+| 6 | Memento<br>記憶 | Externalizes an object's internal state to "memento" object and restores it later. <br> オブジェクトの内部状態を外面化して、後で戻す。 |
 | 7 | Observer<br>観測 | 状態変化の通知 |
 | 8 | State<br>状態変化 | 状態に応じた振る舞い |
 | 9 | Strategy<br>戦略 | アルゴリズムのカプセル化と交換 |
