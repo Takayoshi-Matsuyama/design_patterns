@@ -4,17 +4,17 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Abstract Factory | 具象クラスを隠蔽して生成 |
-| 2 | Builder | 複合オブジェクトの作成過程を隠蔽して生成 |
-| 3 | Factory Method | インスタンス化をサブクラスに任せる |
-| 4 | Prototype | 原型インスタンスをコピーして生成する |
-| 5 | Singleton | インスタンスが1つだけであることを保証する |
+| 1 | Abstract Factory | Creation by abstracted factory classes. Basic of creational patterns. <br> 抽象化ファクトリクラスによる生成。生成パターンの基本。 |
+| 2 | Builder | Creation of composite objects.<br> 複合オブジェクトの作成。 |
+| 3 | Factory Method | Creation by abstracted factory methods. <br> 抽象化ファクトリメソッドによる生成。 |
+| 4 | Prototype | Copy of the prototype instance. <br> 原型インスタンスのコピー。 |
+| 5 | Singleton | Only one instance. <br> 唯一のインスタンス。 |
 
 
 <img src="catalog_GoF23_images/GoF_cr01_abstract_factory.png" alt="Abstract Factory" height="330">
-<img src="catalog_GoF23_images/GoF_cr02_builder.png" alt="Builder" height="330">
-<img src="catalog_GoF23_images/GoF_cr03_factory_method.png" alt="Factory Method" height="330">
-<img src="catalog_GoF23_images/GoF_cr04_prototype.png" alt="Prototype" height="330">
+<img src="catalog_GoF23_images/GoF_cr02_builder.png" alt="Builder" height="440">
+<img src="catalog_GoF23_images/GoF_cr03_factory_method.png" alt="Factory Method" height="300">
+<img src="catalog_GoF23_images/GoF_cr04_prototype.png" alt="Prototype" height="220">
 <img src="catalog_GoF23_images/GoF_cr05_singleton.png" alt="Singleton" height="150">
 
 ## Structural / 構造 (7)
