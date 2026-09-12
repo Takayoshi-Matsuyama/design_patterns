@@ -49,7 +49,7 @@
 | 6 | Memento<br>記憶 | Externalizes an object's internal state to "memento" object and restores it later. <br> オブジェクトの内部状態を外面化して、後で戻す。 |
 | 7 | Observer<br>観測 | Notifies state change to "observer". <br> 「観測者」に状態変化を通知する。 |
 | 8 | State<br>状態 | Encapsulates state into "state" object. Has the "State" object itself execute behavior corresponding to the state. <br> オブジェクトの状態を「状態」オブジェクトにカプセル化する。「状態」オブジェクト自身に、状態に応じた振る舞いを実行させる。 |
-| 9 | Strategy<br>戦略 | アルゴリズムのカプセル化と交換 |
+| 9 | Strategy<br>戦略 | Encapsulates algorithm into "strategy" objects and switches them dynamically. <br> アルゴリズムを「戦略」オブジェクトにカプセル化し、動的に切り替える。 |
 | 10 | Template Method<br>雛形メソッド | 処理の骨格定義と具象化 |
 | 11 | Visitor<br>訪問 | データ構造と処理の分離 |
 
