@@ -50,7 +50,7 @@
 | 7 | Observer<br>観測 | Notifies state change to "observer". <br> 「観測者」に状態変化を通知する。 |
 | 8 | State<br>状態 | Encapsulates state into "state" object. Has the "State" object itself execute behavior corresponding to the state. <br> オブジェクトの状態を「状態」オブジェクトにカプセル化する。「状態」オブジェクト自身に、状態に応じた振る舞いを実行させる。 |
 | 9 | Strategy<br>戦略 | Encapsulates algorithm into "strategy" objects and switches them dynamically. <br> アルゴリズムを「戦略」オブジェクトにカプセル化し、動的に切り替える。 |
-| 10 | Template Method<br>雛形メソッド | 処理の骨格定義と具象化 |
+| 10 | Template Method<br>雛形メソッド | Defines process templates in abstract class. Defines each step inside the template in the concrete classes. <br> 処理のひな型を抽象クラスで定義する。処理の各ステップの振る舞いを具象クラスで定義する。 |
 | 11 | Visitor<br>訪問 | データ構造と処理の分離 |
 
 <img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="220">
