@@ -21,11 +21,11 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Adapter | Adaptation of different interfaces. <br> 異なるインターフェースの適合。 |
-| 2 | Bridge | Bridge between abstract class interfaces and implementations. <br> 抽象クラスインタフェースと実装の橋渡し。 |
-| 3 | Composite | Composite structure of hierarchical tree representing "parts - whole." <br>『部分－全体』を表現する階層木の複合構造。 |
-| 4 | Decorator | Decoration of additional responsibility applied dynamically. <br>動的に適用される追加責務の装飾。 |
-| 5 | Facade | 複数のインターフェースに1つの統一インターフェースを与える |
+| 1 | Adapter<br>適合 | Adaptation of different interfaces. <br> 異なるインターフェースの適合。 |
+| 2 | Bridge<br>橋渡し | Bridge between abstract class interfaces and implementations. <br> 抽象クラスインタフェースと実装の橋渡し。 |
+| 3 | Composite<br>複合体 | Composite structure of hierarchical tree representing "parts - whole." <br>『部分－全体』を表現する階層木の複合構造。 |
+| 4 | Decorator<br>装飾 | Decoration of additional responsibility applied dynamically. <br>動的に適用される追加責務の装飾。 |
+| 5 | Facade<br>外観 | Facade providing one unified interface to access various objects. <br> 様々なオブジェクトにアクセスするための、1つの統一インタフェースの外観。 |
 | 6 | Flyweight | 多数の細かいオブジェクトを効率良く扱う共有の仕組み |
 | 7 | Proxy | 代理オブジェクト |
 
