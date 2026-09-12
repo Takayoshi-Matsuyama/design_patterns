@@ -21,19 +21,19 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Adapter | インターフェースを変換する |
-| 2 | Bridge | クラスと実装を分離する |
-| 3 | Composite | 『部分－全体』を表現する木構造 |
-| 4 | Decorator | オブジェクトに責任を動的に追加する |
+| 1 | Adapter | Adaptation of different interfaces. <br> 異なるインターフェースの適合。 |
+| 2 | Bridge | Bridge between abstract class interfaces and implementations. <br> 抽象クラスインタフェースと実装の橋渡し。 |
+| 3 | Composite | Composite structure of hierarchical tree representing "parts - whole." <br>『部分－全体』を表現する階層木の複合構造。 |
+| 4 | Decorator | Decoration of additional responsibility applied dynamically. <br>動的に適用される追加責務の装飾。 |
 | 5 | Facade | 複数のインターフェースに1つの統一インターフェースを与える |
 | 6 | Flyweight | 多数の細かいオブジェクトを効率良く扱う共有の仕組み |
 | 7 | Proxy | 代理オブジェクト |
 
-<img src="catalog_GoF23_images/GoF_st01_adapter.png" alt="Adapter" height="330">
+<img src="catalog_GoF23_images/GoF_st01_adapter.png" alt="Adapter" height="220">
 <img src="catalog_GoF23_images/GoF_st02_bridge.png" alt="Bridge" height="330">
 <img src="catalog_GoF23_images/GoF_st03_composite.png" alt="Composite" height="330">
 <img src="catalog_GoF23_images/GoF_st04_decorator.png" alt="Decorator" height="330">
-<img src="catalog_GoF23_images/GoF_st05_facade.png" alt="Facade" height="330">
+<img src="catalog_GoF23_images/GoF_st05_facade.png" alt="Facade" height="220">
 <img src="catalog_GoF23_images/GoF_st06_flyweight.png" alt="Flyweight" height="330">
 <img src="catalog_GoF23_images/GoF_st07_proxy.png" alt="Proxy" height="330">
 
