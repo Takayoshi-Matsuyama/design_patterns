@@ -4,11 +4,11 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Abstract Factory | Creation of related object families by abstract factory classes. Basic of creational patterns. <br> 抽象化ファクトリクラスによる、関連オブジェクト群の生成。生成パターンの基本。 |
-| 2 | Builder | Creation of composite objects.<br> 複合オブジェクトの作成。 |
-| 3 | Factory Method | Creation by abstract factory methods. Deferring instantiation to subclasses. <br> 抽象化ファクトリメソッドによる生成。インスタンス化をサブクラスに委譲。 |
-| 4 | Prototype | Creation by copying prototype instances. <br> 原型インスタンスのコピーによる生成。 |
-| 5 | Singleton | Only one, single instance. <br> 唯一、単体のインスタンス。 |
+| 1 | Abstract Factory<br>抽象工場 | Creation of related object families by abstract factory classes. Basic of creational patterns. <br> 抽象ファクトリクラスによる、関連オブジェクト群の生成。生成パターンの基本。 |
+| 2 | Builder<br>建築業者 | Creation of composite objects.<br> 複合オブジェクトの作成。 |
+| 3 | Factory Method<br>工場メソッド | Creation by abstract factory methods. Deferring instantiation to subclasses. <br> 抽象ファクトリメソッドによる生成。インスタンス化をサブクラスに委譲。 |
+| 4 | Prototype<br>原型 | Creation by copying prototype instances. <br> 原型インスタンスのコピーによる生成。 |
+| 5 | Singleton<br>単一 | Only one, single instance. <br> 唯一、単体のインスタンス。 |
 
 
 <img src="catalog_GoF23_images/GoF_cr01_abstract_factory.png" alt="Abstract Factory" height="330">
