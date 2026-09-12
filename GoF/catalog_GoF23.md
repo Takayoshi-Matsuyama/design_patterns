@@ -41,17 +41,17 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Chain of Responsibility | 要求を受信するオブジェクト群をチェーン状につなぐ |
-| 2 | Command | 要求をオブジェクトとしてカプセル化する |
-| 3 | Interpreter | 言語に対する文法表現と文の解釈を一緒に定義する |
-| 4 | Interator | 集約オブジェクトの要素に順にアクセスする |
-| 5 | Mediator | オブジェクト群の相互作用をカプセル化するオブジェクトを定義する |
-| 6 | Memento | オブジェクトの内部状態を外面化して、戻すことができるようにする |
-| 7 | Observer | 状態変化の通知 |
-| 8 | State | 状態に応じた振る舞い |
-| 9 | Strategy | アルゴリズムのカプセル化と交換 |
-| 10 | Template Method | 処理の骨格定義と具象化 |
-| 11 | Visitor | データ構造と処理の分離 |
+| 1 | Chain of Responsibility<br>責務連鎖 | 要求を受信するオブジェクト群をチェーン状につなぐ |
+| 2 | Command<br>指令 | 要求をオブジェクトとしてカプセル化する |
+| 3 | Interpreter<br>通訳 | 言語に対する文法表現と文の解釈を一緒に定義する |
+| 4 | Interator<br>順次列挙 | 集約オブジェクトの要素に順にアクセスする |
+| 5 | Mediator<br>仲介 | オブジェクト群の相互作用をカプセル化するオブジェクトを定義する |
+| 6 | Memento<br>記憶 | オブジェクトの内部状態を外面化して、戻すことができるようにする |
+| 7 | Observer<br>観測 | 状態変化の通知 |
+| 8 | State<br>状態変化 | 状態に応じた振る舞い |
+| 9 | Strategy<br>戦略 | アルゴリズムのカプセル化と交換 |
+| 10 | Template Method<br>雛形メソッド | 処理の骨格定義と具象化 |
+| 11 | Visitor<br>訪問 | データ構造と処理の分離 |
 
 <img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="330">
 <img src="catalog_GoF23_images/GoF_b02_command.png" alt="Command" height="330">
