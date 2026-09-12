@@ -41,8 +41,8 @@
 
 | No. | Pattern Name | Summary |
 | -- | -- | -- |
-| 1 | Chain of Responsibility<br>責務連鎖 | Process a request sequentially with connected handlers in a chain-like manner. <br> 連鎖状に接続されたハンドラ群により、要求を順次処理する。 |
-| 2 | Command<br>指令 | 要求をオブジェクトとしてカプセル化する |
+| 1 | Chain of Responsibility<br>責務連鎖 | Processes a request sequentially with connected handlers in a chain-like manner. <br> 連鎖状に接続されたハンドラ群により、要求を順次処理する。 |
+| 2 | Command<br>指令 | Encapsulate request as Command object. <br> 要求をオブジェクトとしてカプセル化する。 |
 | 3 | Interpreter<br>通訳 | 言語に対する文法表現と文の解釈を一緒に定義する |
 | 4 | Interator<br>順次列挙 | 集約オブジェクトの要素に順にアクセスする |
 | 5 | Mediator<br>仲介 | オブジェクト群の相互作用をカプセル化するオブジェクトを定義する |
@@ -53,17 +53,17 @@
 | 10 | Template Method<br>雛形メソッド | 処理の骨格定義と具象化 |
 | 11 | Visitor<br>訪問 | データ構造と処理の分離 |
 
-<img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="330">
-<img src="catalog_GoF23_images/GoF_b02_command.png" alt="Command" height="330">
-<img src="catalog_GoF23_images/GoF_be03_interpreter.png" alt="Interpreter" height="330">
-<img src="catalog_GoF23_images/GoF_be04_iterator.png" alt="Iterator" height="330">
-<img src="catalog_GoF23_images/GoF_be05_mediator.png" alt="Mediator" height="330">
-<img src="catalog_GoF23_images/GoF_be06_memento.png" alt="Memento" height="330">
-<img src="catalog_GoF23_images/GoF_be07_observer.png" alt="Observer" height="330">
+<img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="220">
+<img src="catalog_GoF23_images/GoF_b02_command.png" alt="Command" height="420">
+<img src="catalog_GoF23_images/GoF_be03_interpreter.png" alt="Interpreter" height="220">
+<img src="catalog_GoF23_images/GoF_be04_iterator.png" alt="Iterator" height="420">
+<img src="catalog_GoF23_images/GoF_be05_mediator.png" alt="Mediator" height="280">
+<img src="catalog_GoF23_images/GoF_be06_memento.png" alt="Memento" height="260">
+<img src="catalog_GoF23_images/GoF_be07_observer.png" alt="Observer" height="420">
 <img src="catalog_GoF23_images/GoF_be08_state.png" alt="State" height="330">
 <img src="catalog_GoF23_images/GoF_be09_strategy.png" alt="Strategy" height="330">
-<img src="catalog_GoF23_images/GoF_be10_template_method.png" alt="Template Method" height="330">
-<img src="catalog_GoF23_images/GoF_be11_visitor.png" alt="Visitor" height="330">
+<img src="catalog_GoF23_images/GoF_be10_template_method.png" alt="Template Method" height="280">
+<img src="catalog_GoF23_images/GoF_be11_visitor.png" alt="Visitor" height="540">
 
 ## 文献
 * オブジェクト指向における再利用のためのデザインパターン 改訂版, Erich Gamma / Richard Helm / Ralph Johnson / John Vlissides 著、本位田 真一 / 吉田 和樹 監訳, ソフトバンククリエイティブ(株), 1999
