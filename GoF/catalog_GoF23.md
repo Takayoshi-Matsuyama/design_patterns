@@ -50,7 +50,7 @@
 | 7 | Observer<br>観測者 | Defines a one-to-many dependency between a "Subject" and "Observers". Notifies the state change of the "Subject" to "Observers" all at once. <br> 「主体」と「観測者」の間に1対多の依存関係を定義する。「主体」の状態変化を「観測者たち」に一斉に通知する。 |
 | 8 | State<br>状態 | Encapsulates a state into a "State" object. Has the "State" object itself execute the behavior corresponding to the state. Automated state change (automaton) can be realized by switching the state inside the behavior. <br> オブジェクトの状態を「状態」オブジェクトにカプセル化する。「状態」オブジェクト自身に、状態に応じた振る舞いを実行させる。その振る舞いの中で状態を切り替えることにより、状態遷移の自律化（オートマトン）を実現できる。 |
 | 9 | Strategy<br>戦略 | Encapsulates algorithm into "Strategy" objects and switches them dynamically. <br> アルゴリズムを「戦略」オブジェクトにカプセル化し、動的に切り替える。 |
-| 10 | Template Method<br>雛形メソッド | Defines a process templates in an abstract class. Defines specific steps of the process in concrete classes. <br> 処理のひな型を抽象クラスで定義する。処理の各ステップの振る舞いを具象クラスで定義する。 |
+| 10 | Template Method<br>雛形メソッド | Defines a process template in an abstract class. Defines specific steps of the process in concrete classes. <br> 処理のひな型を抽象クラスで定義する。処理の各ステップの振る舞いを具象クラスで定義する。 |
 | 11 | Visitor<br>訪問者 | An "Element"  accepts a "Visitor". The "Visitor" executes element-specific operations. With this mechanism, functions can be added from outside of the data structure. <br>「要素」は「訪問者」を受け入れる。「訪問者」は訪れた「要素」に固有の処理を実行する。この仕組みにより、データ構造の外から機能を追加できる。 |
 
 <img src="catalog_GoF23_images/GoF_b01_chain_of_responsibility.png" alt="Adapter" height="220">
