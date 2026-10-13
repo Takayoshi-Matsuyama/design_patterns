@@ -28,9 +28,29 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         """Initialize the main window."""
+
+        # --- Window Setup ---
         super().__init__()
         self.setWindowTitle("Signals and Slots Example")
         self.resize(324, 200)
+
+        # --- Status Bar ---
+        self.setStatusBar(QStatusBar(self))
+
+        # --- Action ---
+        simple_action = QAction("Simple Action", self)
+        simple_action.setStatusTip("Simple action.")
+        simple_action.triggered.connect(self.on_simple_action_triggered)
+
+        # --- Menu ---
+        menu = self.menuBar()
+        file_menu = menu.addMenu("&File")
+        file_menu.addAction(simple_action)
+
+        # --- Toolbar ---
+        toolbar = QToolBar("Main Toolbar")
+        self.addToolBar(toolbar)
+        toolbar.addAction(simple_action)
 
         # --- Button ---
         button = QPushButton("Click Me")
@@ -38,24 +58,13 @@ class MainWindow(QMainWindow):
         button.clicked.connect(self.on_button_clicked)
         self.setCentralWidget(button)
 
-        # --- Toolbar ---
-        toolbar = QToolBar("Main Toolbar")
-        self.addToolBar(toolbar)
-        toolbar_action = QAction("Toolbar Action", self)
-        toolbar_action.setStatusTip("Click this toolbar action")
-        toolbar_action.triggered.connect(self.on_toolbar_action_clicked)
-        toolbar.addAction(toolbar_action)
-
-        # --- Status Bar ---
-        self.setStatusBar(QStatusBar(self))
+    def on_simple_action_triggered(self):
+        """Handles the simple action click event."""
+        print("Simple action triggered!")
 
     def on_button_clicked(self):
         """Handles the button click event."""
         print("Button clicked!")
-
-    def on_toolbar_action_clicked(self):
-        """Handles the toolbar button click event."""
-        print("Toolbar action clicked!")
 
 
 if __name__ == "__main__":
