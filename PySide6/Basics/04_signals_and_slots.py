@@ -13,10 +13,13 @@
 # limitations under the License.
 
 import sys
+from PySide6.QtGui import QAction
 from PySide6.QtWidgets import (
     QApplication,
     QPushButton,
     QMainWindow,
+    QToolBar,
+    QStatusBar,
 )
 
 
@@ -27,16 +30,32 @@ class MainWindow(QMainWindow):
         """Initialize the main window."""
         super().__init__()
         self.setWindowTitle("Signals and Slots Example")
+        self.resize(324, 200)
 
+        # --- Button ---
         button = QPushButton("Click Me")
         # Connect the button's clicked signal to the handler method (slot).
         button.clicked.connect(self.on_button_clicked)
-
         self.setCentralWidget(button)
+
+        # --- Toolbar ---
+        toolbar = QToolBar("Main Toolbar")
+        self.addToolBar(toolbar)
+        toolbar_action = QAction("Toolbar Action", self)
+        toolbar_action.setStatusTip("Click this toolbar action")
+        toolbar_action.triggered.connect(self.on_toolbar_action_clicked)
+        toolbar.addAction(toolbar_action)
+
+        # --- Status Bar ---
+        self.setStatusBar(QStatusBar(self))
 
     def on_button_clicked(self):
         """Handles the button click event."""
         print("Button clicked!")
+
+    def on_toolbar_action_clicked(self):
+        """Handles the toolbar button click event."""
+        print("Toolbar action clicked!")
 
 
 if __name__ == "__main__":
